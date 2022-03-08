@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# .vs & Debug
+Project/.vs
+Project/Debug
+Project/Default/Debug
+Project/Default/x64
+!Project/Library/Fmod/lib/x64/*.*
+!Project/x64/Debug/fmod.dll
