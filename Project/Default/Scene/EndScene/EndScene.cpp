@@ -13,7 +13,7 @@
 
 EndScene::EndScene() { }
 
-EndScene::~EndScene() { }
+EndScene::~EndScene() { Release(); }
 
 HRESULT EndScene::Init()
 {
@@ -27,7 +27,7 @@ HRESULT EndScene::Init()
 			IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
 	quitBtn->SetTag(TAG_QUIT_BUTTON);
 	quitBtn->GetComponent<Transform>()
-		->SetPosition(D_POINT{ (double)(WINSIZE_X / 2 - BUTTON_WIDTH - 50), (double)(WINSIZE_Y / 2) });
+		->SetPosition(D_POINT{ (double)(WINSIZE_X / 2 - BUTTON_WIDTH - 50), (double)(WINSIZE_Y - 100) });
 	gameObjects.push_back(quitBtn);
 
 	RECT retryBtnRc{ 0, 0, BUTTON_WIDTH, BUTTON_HEIGHT };
@@ -38,7 +38,7 @@ HRESULT EndScene::Init()
 			IMG->FindImage(KEY_UI_RETRY_BUTTON_STRIPE));
 	retryBtn->SetTag(TAG_RETRY_BUTTON);
 	retryBtn->GetComponent<Transform>()
-		->SetPosition(D_POINT{ (double)(WINSIZE_X / 2 + BUTTON_WIDTH + 50), (double)(WINSIZE_Y / 2) });
+		->SetPosition(D_POINT{ (double)(WINSIZE_X / 2 + BUTTON_WIDTH + 50), (double)(WINSIZE_Y - 100) });
 	gameObjects.push_back(retryBtn);
 
 	return S_OK;
@@ -54,7 +54,12 @@ void EndScene::Update() {
 			}
 }
 
-void EndScene::Release() { }
+void EndScene::Release()
+{
+	for (GameObject* go : gameObjects) SAFE_DELETE(go);
+	gameObjects.clear();
+	SOUND->AllStop();
+}
 
 void EndScene::Render()
 {

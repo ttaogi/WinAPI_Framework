@@ -30,6 +30,7 @@ HRESULT OnGameScene::Init()
 	quitBtn->SetTag(TAG_QUIT_BUTTON);
 	quitBtn->GetComponent<Transform>()
 		->SetPosition(D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 });
+	quitBtn->SetActive(false);
 	gameObjects.push_back(quitBtn);
 
 	msg = L"";
@@ -61,7 +62,12 @@ void OnGameScene::Update()
 	alpha = (alpha + 5) % 255;
 }
 
-void OnGameScene::Release() { }
+void OnGameScene::Release()
+{
+	for (GameObject* go : gameObjects) SAFE_DELETE(go);
+	gameObjects.clear();
+	SOUND->AllStop();
+}
 
 void OnGameScene::Render()
 {
@@ -77,6 +83,4 @@ void OnGameScene::Render()
 			RenderedImage* rImg = go->GetComponent<RenderedImage>();
 			if (rImg) rImg->Render(memDC);
 		}
-
-	//TextOut(memDC, 50, 70, NOTICE.c_str(), (int)NOTICE.length());
 }

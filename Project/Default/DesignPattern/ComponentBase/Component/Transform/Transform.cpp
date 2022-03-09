@@ -8,7 +8,8 @@ Transform::Transform()
 	position = D_POINT{ 0, 0 };
 }
 
-Transform::Transform(Transform* _t) : Component((const Component_ID)L"Transform")
+Transform::Transform(Transform* _t)
+	: Component((const Component_ID)typeid(Transform).name())
 {
 	gameObject = _t->gameObject;
 	transform = _t->transform;

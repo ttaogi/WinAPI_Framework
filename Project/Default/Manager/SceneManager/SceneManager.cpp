@@ -40,6 +40,12 @@ void SceneManager::Release()
 
 void SceneManager::Update()
 {
+	if (nextSceneKey != KEY_NONE_SCENE)
+	{
+		ChangeScene(nextSceneKey);
+		nextSceneKey = KEY_NONE_SCENE;
+	}
+
 	if (currentScene) currentScene->Update();
 }
 

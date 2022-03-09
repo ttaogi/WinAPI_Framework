@@ -11,20 +11,27 @@ GameObject::GameObject()
 
 GameObject::~GameObject()
 {
+	Component* transform = GetComponent<Transform>();
+
 	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
-		SAFE_DELETE(*iter);
+		if(transform != *iter) SAFE_DELETE(*iter);
+	cList.clear();
 }
 
 void GameObject::Operation()
 {
 	for (auto it = cList.begin(); it != cList.end(); ++it)
-		(*it)->Operation();
+		if(*it) (*it)->Operation();
 }
 
 void GameObject::AddComponent(Component* _c)
 {
 	for (auto it = cList.begin(); it != cList.end(); ++it)
-		if (!strcmp((*it)->GetComponentID(), _c->GetComponentID())) return;
+		if (!strcmp((*it)->GetComponentID(), _c->GetComponentID()))
+		{
+			SAFE_DELETE(_c);
+			return;
+		}
 
 	_c->gameObject = this;
 	_c->transform = &transform;
@@ -34,7 +41,12 @@ void GameObject::AddComponent(Component* _c)
 void GameObject::RemoveComponent(Component* _c)
 {
 	for (auto it = cList.begin(); it != cList.end(); ++it)
-		if (!strcmp((*it)->GetComponentID(), _c->GetComponentID())) cList.erase(it);
+		if (*it == _c)
+		{
+			SAFE_DELETE(*it);
+			cList.erase(it);
+			return;
+		}
 }
 
 Component* GameObject::GetComponent(Component_ID _id)

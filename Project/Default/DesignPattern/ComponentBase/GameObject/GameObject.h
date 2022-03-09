@@ -19,8 +19,25 @@ public:
 	void Operation();
 
 	Component_ID GetComponentID();
-	void		AddComponent(Component* _c);
-	void		RemoveComponent(Component* _c);
+	void AddComponent(Component* _c);
+
+	void RemoveComponent(Component* _c);
+	template<class T>
+	void RemoveComponent()
+	{
+		T* c = new T();
+
+		for(auto it = cList.begin(); it != cList.end(); ++it)
+			if (!strcmp((*it)->GetComponentID(), c->GetComponentID()))
+			{
+				SAFE_DELETE(*it);
+				cList.erase(it);
+				break;
+			}
+
+		SAFE_DELETE(c);
+	}
+
 	Component*	GetComponent(Component_ID _id);
 	template<class T>
 	T* GetComponent()
@@ -32,13 +49,14 @@ public:
 		for (auto it = cList.begin(); it != cList.end(); ++it)
 			if ( !strcmp((*it)->GetComponentID(), c->GetComponentID()) )
 			{
-				delete c;
+				SAFE_DELETE(c);
 				return dynamic_cast<T*>(*it);
 			}
 
-		delete c;
+		SAFE_DELETE(c);
 		return NULL;
 	}
+
 	std::wstring GetTag() const { return tag; }
 	void SetTag(std::wstring _tag) { tag = _tag; }
 	bool GetActive() const { return active; }

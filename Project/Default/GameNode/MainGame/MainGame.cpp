@@ -36,14 +36,14 @@ void MainGame::Release() { ReleaseDC(HANDLE_WINDOW, nodeHdc); }
 
 void MainGame::Update()
 {
-	TIME->Update(60.0f);
-
 	if (quit == true)
 	{
 		Release();
 		PostQuitMessage(0);
 		return;
 	}
+
+	TIME->Update(60.0f);
 
 	MOUSE_CLICKED = false;
 	GetCursorPos(&POINT_MOUSE);

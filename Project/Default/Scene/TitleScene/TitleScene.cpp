@@ -47,6 +47,8 @@ void TitleScene::Update()
 
 void TitleScene::Release()
 {
+	for (GameObject* go : gameObjects) SAFE_DELETE(go);
+	gameObjects.clear();
 	SOUND->AllStop();
 }
 
