@@ -22,11 +22,11 @@ HRESULT OnGameScene::Init()
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_ONGAMESCENE);
 	root = NULL;
 
-	GameObject* quitBtn = AbstractFactoryButton::GetSingleton()
-		->GetObject(BUTTON_FACTORY_TYPE::DEFAULT,
-			std::bind(&SceneManager::SetNextSceneKeyEndScene, SCENE),
-			D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
-			IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
+	GameObject* quitBtn = AbstractFactoryButton::GetObject(
+		BUTTON_FACTORY_TYPE::DEFAULT,
+		std::bind(&SceneManager::SetNextSceneKeyEndScene, SCENE),
+		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
+		IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
 	quitBtn->SetName(NAME_QUIT_BUTTON);
 	quitBtn->SetActive(false);
 

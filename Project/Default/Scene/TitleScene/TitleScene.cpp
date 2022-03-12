@@ -20,11 +20,11 @@ HRESULT TitleScene::Init()
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_TITLESCENE);
 	root = NULL;
 
-	GameObject* gameStartBtn = AbstractFactoryButton::GetSingleton()
-		->GetObject(BUTTON_FACTORY_TYPE::DEFAULT,
-			std::bind(&SceneManager::SetNextSceneKeyOnGameScene, SCENE),
-			D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
-			IMG->FindImage(KEY_UI_START_BUTTON_STRIPE));
+	GameObject* gameStartBtn = AbstractFactoryButton::GetObject(
+		BUTTON_FACTORY_TYPE::DEFAULT,
+		std::bind(&SceneManager::SetNextSceneKeyOnGameScene, SCENE),
+		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
+		IMG->FindImage(KEY_UI_START_BUTTON_STRIPE));
 
 	root = new GameObject();
 	root->AddGameObject(gameStartBtn);

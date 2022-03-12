@@ -20,20 +20,20 @@ HRESULT EndScene::Init()
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_ENDSCENE);
 	root = NULL;
 
-	GameObject* quitBtn = AbstractFactoryButton::GetSingleton()
-		->GetObject(BUTTON_FACTORY_TYPE::DEFAULT,
-			std::bind(&MainGame::QuitGame, MAIN_GAME),
-			D_POINT{ (double)(WINSIZE_X / 2 - BUTTON_WIDTH - 50), (double)(WINSIZE_Y / 2 - 100) },
-			BUTTON_WIDTH, BUTTON_HEIGHT,
-			IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
+	GameObject* quitBtn = AbstractFactoryButton::GetObject(
+		BUTTON_FACTORY_TYPE::DEFAULT,
+		std::bind(&MainGame::QuitGame, MAIN_GAME),
+		D_POINT{ (double)(WINSIZE_X / 2 - BUTTON_WIDTH - 50), (double)(WINSIZE_Y / 2 - 100) },
+		BUTTON_WIDTH, BUTTON_HEIGHT,
+		IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
 	quitBtn->SetName(NAME_QUIT_BUTTON);
 
-	GameObject* retryBtn = AbstractFactoryButton::GetSingleton()
-		->GetObject(BUTTON_FACTORY_TYPE::DEFAULT,
-			std::bind(&SceneManager::SetNextSceneKeyOnGameScene, SCENE),
-			D_POINT{ (double)(WINSIZE_X / 2 + BUTTON_WIDTH + 50), (double)(WINSIZE_Y / 2 - 100) },
-			BUTTON_WIDTH, BUTTON_HEIGHT,
-			IMG->FindImage(KEY_UI_RETRY_BUTTON_STRIPE));
+	GameObject* retryBtn = AbstractFactoryButton::GetObject(
+		BUTTON_FACTORY_TYPE::DEFAULT,
+		std::bind(&SceneManager::SetNextSceneKeyOnGameScene, SCENE),
+		D_POINT{ (double)(WINSIZE_X / 2 + BUTTON_WIDTH + 50), (double)(WINSIZE_Y / 2 - 100) },
+		BUTTON_WIDTH, BUTTON_HEIGHT,
+		IMG->FindImage(KEY_UI_RETRY_BUTTON_STRIPE));
 	retryBtn->SetName(NAME_RETRY_BUTTON);
 
 	root = new GameObject();
