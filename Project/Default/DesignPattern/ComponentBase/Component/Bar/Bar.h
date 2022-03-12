@@ -3,15 +3,15 @@
 #include <functional>
 
 #include "DesignPattern/ComponentBase/Component/Behaviour/MonoBehaviour/MonoBehaviour.h"
-;
-class Button : public MonoBehaviour
+
+class Bar : public MonoBehaviour
 {
 private:
+	double rate;
 	std::function<void()> callBack_v_CB_v;
-	std::wstring str;
 public:
-	Button(std::wstring _str = L"");
-	virtual ~Button();
+	Bar();
+	virtual ~Bar();
 
 	virtual void Operation() override;
 
@@ -19,7 +19,7 @@ public:
 	virtual void Update() override;
 	virtual void LateUpdate() override;
 
-	void SetCallBack_v_CB_v(std::function<void()> _callBack);
-	std::wstring	GetString() const { return str; }
-	void			SetString(std::wstring _str) { str = _str; }
+	void SetCallBack_v_CB_v(std::function<void()> _callBack) { callBack_v_CB_v = _callBack; }
+	double GetRate() const { return rate; }
+	void SetRate(double _rate);
 };

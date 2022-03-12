@@ -13,30 +13,53 @@ extern const wchar_t* BACKGROUND_ONGAMESCENE;
 #pragma endregion Background
 
 
-#pragma region UiButton
+#pragma region Ui_Button
 extern const std::wstring KEY_UI_QUIT_BUTTON_STRIPE;
 extern const wchar_t* UI_QUIT_BUTTON_STRIPE;
 extern const std::wstring KEY_UI_RETRY_BUTTON_STRIPE;
 extern const wchar_t* UI_RETRY_BUTTON_STRIPE;
 extern const std::wstring KEY_UI_START_BUTTON_STRIPE;
 extern const wchar_t* UI_START_BUTTON_STRIPE;
-#pragma endregion UiButton
+
+extern const std::wstring KEY_UI_PLAY_BUTTON_STRIPE;
+extern const wchar_t* DIR_UI_PLAY_BUTTON_STRIPE;
+extern const std::wstring KEY_UI_PAUSE_BUTTON_STRIPE;
+extern const wchar_t* DIR_UI_PAUSE_BUTTON_STRIPE;
+extern const std::wstring KEY_UI_POST_BUTTON_STRIPE;
+extern const wchar_t* DIR_UI_POST_BUTTON_STRIPE;
+extern const std::wstring KEY_UI_PREV_BUTTON_STRIPE;
+extern const wchar_t* DIR_UI_PREV_BUTTON_STRIPE;
+#pragma endregion Ui_Button
+
+
+#pragma region Ui_Bar
+extern const std::wstring KEY_UI_BAR_BACKGROUND_STRIPE;
+extern const wchar_t* DIR_UI_BAR_BACKGROUND_STRIPE;
+extern const std::wstring KEY_UI_BAR_BAR_STRIPE;
+extern const wchar_t* DIR_UI_BAR_BAR_STRIPE;
+extern const std::wstring KEY_UI_BAR_BORDER_STRIPE;
+extern const wchar_t* DIR_UI_BAR_BORDER_STRIPE;
+#pragma endregion Ui_Bar
 #pragma endregion Stripe
 
 ///////////////////////
 ///////////////////////
 
-#pragma region GameObject_Tag
-extern const std::wstring TAG_QUIT_BUTTON;
-extern const std::wstring TAG_RETRY_BUTTON;
-#pragma endregion GameObject_Tag
+#pragma region GameObject_Name
+extern const std::wstring NAME_QUIT_BUTTON;
+extern const std::wstring NAME_RETRY_BUTTON;
+extern const std::wstring NAME_PLAY_BUTTON;
+extern const std::wstring NAME_POST_BUTTON;
+extern const std::wstring NAME_PREV_BUTTON;
+extern const std::wstring NAME_PLAY_BAR;
+#pragma endregion GameObject_Name
 
 ///////////////////////
 ///////////////////////
 
 #pragma region Sound
 extern const std::wstring KEY_SOUND_EXAMPLE;
-extern const std::wstring SOUND_EXAMPLE;
+extern const std::wstring DIR_SOUND_EXAMPLE;
 #pragma endregion Sound
 
 ///////////////////////
@@ -68,9 +91,10 @@ extern const int BUTTON_HEIGHT;
 ///////////////////////
 
 #pragma region ETC
+extern const wchar_t* DEFAULT_FONT;
 extern const COLORREF MAGENTA;
 extern const double DEFAULT_FPS;
-extern const double DEFAULT_SOUND_VOLUME;
+extern const float DEFAULT_SOUND_VOLUME;
 
 extern const double GRAVITY;
 #pragma endregion ETC

@@ -17,9 +17,13 @@ void RenderedImage::Operation() { }
 
 void RenderedImage::Render(HDC _hdc)
 {
-	if (enabled && image) {
+	if (enabled && image)
+	{
 		RectTransform* rcT = gameObject->GetComponent<RectTransform>();
-		RECT rc = rcT->GetScreenRect();
-		image->Render(_hdc, rc.left, rc.top);
+		if (rcT)
+		{
+			RECT rc = rcT->GetScreenRect();
+			image->Render(_hdc, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
+		}
 	}
 }

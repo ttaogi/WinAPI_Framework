@@ -136,6 +136,12 @@
     <Filter Include="API_Framework\Utility\CommonFunction">
       <UniqueIdentifier>{e48ed1ce-530f-4bb6-8b10-63caeea71e3d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Bar">
+      <UniqueIdentifier>{2dad2281-01c2-41a0-89ee-be3deb0bdc0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\JsonManager">
+      <UniqueIdentifier>{83d2a079-d573-494d-a7d9-5703f4950d09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -255,6 +261,15 @@
     </ClCompile>
     <ClCompile Include="Utility\CommonFunction\CommonFunction.cpp">
       <Filter>API_Framework\Utility\CommonFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPattern\ComponentBase\Component\Bar\Bar.cpp">
+      <Filter>API_Framework\DesignPattern\ComponentBase\Component\Bar</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\JsonManager\JsonManager.cpp">
+      <Filter>API_Framework\Manager\JsonManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Scene.cpp">
+      <Filter>API_Framework\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -380,6 +395,12 @@
     </ClInclude>
     <ClInclude Include="Utility\CommonFunction\CommonFunction.h">
       <Filter>API_Framework\Utility\CommonFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\ComponentBase\Component\Bar\Bar.h">
+      <Filter>API_Framework\DesignPattern\ComponentBase\Component\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\JsonManager\JsonManager.h">
+      <Filter>API_Framework\Manager\JsonManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

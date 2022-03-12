@@ -23,7 +23,7 @@ const wchar_t* BACKGROUND_TITLESCENE =
 #pragma endregion Background
 
 
-#pragma region UiButton
+#pragma region Ui_Button
 const std::wstring KEY_UI_QUIT_BUTTON_STRIPE =
 	L"UI_QUIT_BUTTON_STRIPE";
 const wchar_t* UI_QUIT_BUTTON_STRIPE =
@@ -36,16 +36,53 @@ const std::wstring KEY_UI_START_BUTTON_STRIPE =
 	L"UI_START_BUTTON_STRIPE";
 const wchar_t* UI_START_BUTTON_STRIPE =
 	L"Resources/Images/UI/Button/StartBUtton.bmp";
-#pragma endregion UiButton
+
+const std::wstring KEY_UI_PLAY_BUTTON_STRIPE =
+	L"UI_PLAY_BUTTON_STRIPE";
+const wchar_t* DIR_UI_PLAY_BUTTON_STRIPE =
+	L"Resources/Images/UI/Button/PlayButton.bmp";
+const std::wstring KEY_UI_PAUSE_BUTTON_STRIPE =
+	L"UI_PAUSE_BUTTON_STRIPE";
+const wchar_t* DIR_UI_PAUSE_BUTTON_STRIPE =
+	L"Resources/Images/UI/Button/PauseButton.bmp";
+const std::wstring KEY_UI_POST_BUTTON_STRIPE =
+	L"UI_POST_BUTTON_STRIPE";
+const wchar_t* DIR_UI_POST_BUTTON_STRIPE =
+	L"Resources/Images/UI/Button/PostButton.bmp";
+const std::wstring KEY_UI_PREV_BUTTON_STRIPE =
+	L"UI_PREV_BUTTON_STRIPE";
+const wchar_t* DIR_UI_PREV_BUTTON_STRIPE =
+	L"Resources/Images/UI/Button/PrevButton.bmp";
+#pragma endregion Ui_Button
+
+
+#pragma region Ui_Bar
+const std::wstring KEY_UI_BAR_BACKGROUND_STRIPE =
+	L"UI_BAR_BACKGROUND_STRIPE";
+const wchar_t* DIR_UI_BAR_BACKGROUND_STRIPE =
+	L"Resources/Images/UI/Bar/Background.bmp";
+const std::wstring KEY_UI_BAR_BAR_STRIPE =
+	L"UI_BAR_BAR_STRIPE";
+const wchar_t* DIR_UI_BAR_BAR_STRIPE =
+	L"Resources/Images/UI/Bar/Bar.bmp";
+const std::wstring KEY_UI_BAR_BORDER_STRIPE =
+	L"UI_BAR_BORDER_STRIPE";
+const wchar_t* DIR_UI_BAR_BORDER_STRIPE =
+	L"Resources/Images/UI/Bar/Border.bmp";
+#pragma endregion Ui_Bar
 #pragma endregion Stripe
 
 ///////////////////////
 ///////////////////////
 
-#pragma region GameObject_Tag
-const std::wstring TAG_QUIT_BUTTON = L"QUIT_BUTTON";
-const std::wstring TAG_RETRY_BUTTON = L"RETRY_BUTTON";
-#pragma endregion GameObject_Tag
+#pragma region GameObject_Name
+const std::wstring NAME_QUIT_BUTTON = 	L"QUIT_BUTTON";
+const std::wstring NAME_RETRY_BUTTON = 	L"RETRY_BUTTON";
+const std::wstring NAME_PLAY_BUTTON = 	L"PLAY_BUTTON";
+const std::wstring NAME_POST_BUTTON = 	L"POST_BUTTON";
+const std::wstring NAME_PREV_BUTTON = 	L"PREV_BUTTON";
+const std::wstring NAME_PLAY_BAR = 		L"PLAY_BAR";
+#pragma endregion GameObject_Name
 
 ///////////////////////
 ///////////////////////
@@ -53,7 +90,7 @@ const std::wstring TAG_RETRY_BUTTON = L"RETRY_BUTTON";
 #pragma region Sound
 const std::wstring KEY_SOUND_EXAMPLE =
 	L"SOUND_EXAMPLE";
-const std::wstring SOUND_EXAMPLE =
+const std::wstring DIR_SOUND_EXAMPLE =
 	L"Resources/Sounds/SOUND_EX_¸ð»öÃ¢¿¬(ÙºßäóïæÔ).mp3";
 #pragma endregion Sound
 
@@ -91,9 +128,10 @@ const int BUTTON_HEIGHT = 150;
 ///////////////////////
 
 #pragma region ETC
+const wchar_t* DEFAULT_FONT = L"Arial";
 const COLORREF MAGENTA = RGB(255, 0, 255);
-extern const double DEFAULT_FPS = 60.0;
-extern const double DEFAULT_SOUND_VOLUME = 0.8;
+const double DEFAULT_FPS = 60.0;
+const float DEFAULT_SOUND_VOLUME = 0.8f;
 
 const double GRAVITY = 9.8;
 #pragma endregion ETC

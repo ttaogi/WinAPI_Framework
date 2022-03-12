@@ -18,15 +18,16 @@ TitleScene::~TitleScene() { }
 HRESULT TitleScene::Init()
 {
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_TITLESCENE);
+	root = NULL;
 
-	RECT gameStartBtnRc{ 0, 0, BUTTON_WIDTH, BUTTON_HEIGHT };
 	GameObject* gameStartBtn = AbstractFactoryButton::GetSingleton()
 		->GetObject(BUTTON_FACTORY_TYPE::DEFAULT,
 			std::bind(&SceneManager::SetNextSceneKeyOnGameScene, SCENE),
-			&gameStartBtnRc,
+			D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
 			IMG->FindImage(KEY_UI_START_BUTTON_STRIPE));
-	gameStartBtn->GetComponent<Transform>()->SetPosition(D_POINT{WINSIZE_X / 2, WINSIZE_Y / 2});
-	gameObjects.push_back(gameStartBtn);
+
+	root = new GameObject();
+	root->AddGameObject(gameStartBtn);
 
 	SOUND->Play(KEY_SOUND_EXAMPLE, DEFAULT_SOUND_VOLUME);
 
@@ -35,20 +36,20 @@ HRESULT TitleScene::Init()
 
 void TitleScene::Update()
 {
+	if (KEY->IsOnceKeyDown(VK_ESCAPE))
+	{
+		MAIN_GAME->QuitGame();
+		return;
+	}
+
 	SOUND->Update();
-	for (GameObject* go : gameObjects)
-		if(go->GetActive())
-			for (Component* c : go->cList)
-			{
-				MonoBehaviour* m = IsDerivedFromMonoBehaviour(c);
-				if (m != NULL) m->Update();
-			}
+
+	root->Update();
 }
 
 void TitleScene::Release()
 {
-	for (GameObject* go : gameObjects) SAFE_DELETE(go);
-	gameObjects.clear();
+	SAFE_DELETE(root);
 	SOUND->AllStop();
 }
 
@@ -60,9 +61,5 @@ void TitleScene::Render()
 
 	backgroundImage->Render(memDC);
 
-	for (GameObject* go : gameObjects)
-		if (go->GetActive()) {
-			RenderedImage* rImg = go->GetComponent<RenderedImage>();
-			if (rImg) rImg->Render(memDC);
-		}
+	root->Render(memDC);
 }

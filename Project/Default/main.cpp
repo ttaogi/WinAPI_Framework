@@ -92,6 +92,7 @@ void LoadResources()
 	SCENE->Init();
 	SOUND->Init();
 	XML->Init();
+	JSON->Init();
 
 	// backbuffer.
 	IMG->AddImage(KEY_BACKGROUND_BACKBUFFER, BACKGROUND_BACKBUFFER, WINSIZE_X, WINSIZE_Y);
@@ -109,12 +110,14 @@ void LoadResources()
 	IMG->AddImage(KEY_UI_START_BUTTON_STRIPE, UI_START_BUTTON_STRIPE, BUTTON_WIDTH, BUTTON_HEIGHT, false, MAGENTA);
 
 	////// sound.
-	SOUND->AddSound(KEY_SOUND_EXAMPLE, SOUND_EXAMPLE, true, true);
+	SOUND->AddSound(KEY_SOUND_EXAMPLE, DIR_SOUND_EXAMPLE, true, true);
 }
 
 void ReleaseResources()
 {
 	// singleton release.
+	JSON->Release();
+	JSON->ReleaseSingleton();
 	XML->Release();
 	XML->ReleaseSingleton();
 	SOUND->Release();

@@ -326,7 +326,7 @@ void Image::Render(HDC _hdc, int _destX, int _destY, int _destWidth, int _destHe
 {
 	GdiTransparentBlt(_hdc,
 		_destX, _destY, _destWidth, _destHeight, imageInfo->hMemDC,
-		0, 0, imageInfo->width, imageInfo->height, RGB(0, 0, 0));
+		0, 0, imageInfo->width, imageInfo->height, transColor);
 }
 
 void Image::Render(HDC _hdc, int _destX, int _destY,

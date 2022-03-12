@@ -14,8 +14,8 @@ ButtonFactory::ButtonFactory() { }
 ButtonFactory::~ButtonFactory() { }
 
 GameObject* ButtonFactory::GetObject(
-	std::function<void()> _callBack_v_CB_v,
-	RECT* _rect, Image* _image, std::wstring _str)
+	std::function<void()> _callBack_v_CB_v, D_POINT _pos,
+	int _rectWidth, int _rectHeight, Image* _image, std::wstring _str)
 {
 	GameObject* go = new GameObject();
 	Button* btn = new Button(_str);
@@ -24,9 +24,10 @@ GameObject* ButtonFactory::GetObject(
 
 	btn->SetCallBack_v_CB_v(_callBack_v_CB_v);
 	btn->Init();
-	rcT->SetRect(RECT{ 0, 0, 200, 150 });
+	rcT->SetRect(_rectWidth, _rectHeight);
 	rImg->SetImage(_image);
 
+	go->GetComponent<Transform>()->SetPosition(_pos);
 	go->AddComponent(btn);
 	go->AddComponent(rcT);
 	go->AddComponent(rImg);

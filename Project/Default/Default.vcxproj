@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DesignPattern\AbstractFactoryBase\AbstractFactoryBase.cpp" />
+    <ClCompile Include="DesignPattern\ComponentBase\Component\Bar\Bar.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Behaviour\Behaviour.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Component.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\RectTransform\RectTransform.cpp" />
@@ -37,6 +38,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager\FontManager\FontManager.cpp" />
     <ClCompile Include="Manager\ImageManager\ImageManager.cpp" />
+    <ClCompile Include="Manager\JsonManager\JsonManager.cpp" />
     <ClCompile Include="Manager\KeyManager\KeyManager.cpp" />
     <ClCompile Include="Manager\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Manager\XmlManager\XmlManager.cpp" />
@@ -54,6 +56,7 @@
     </ClCompile>
     <ClCompile Include="Scene\EndScene\EndScene.cpp" />
     <ClCompile Include="Scene\OnGameScene\OnGameScene.cpp" />
+    <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Scene\TitleScene\TitleScene.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Button\Button.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Behaviour\MonoBehaviour\MonoBehaviour.cpp" />
@@ -73,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DesignPattern\AbstractFactoryBase\AbstractFactoryBase.h" />
+    <ClInclude Include="DesignPattern\ComponentBase\Component\Bar\Bar.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Behaviour\Behaviour.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Component.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\RectTransform\RectTransform.h" />
@@ -83,6 +87,7 @@
     <ClInclude Include="DesignPattern\FactoryBase\Factory.h" />
     <ClInclude Include="DesignPattern\SingletonBase\SingletonBase.h" />
     <ClInclude Include="DesignPattern\ComponentBase\GameObject\GameObject.h" />
+    <ClInclude Include="Manager\JsonManager\JsonManager.h" />
     <ClInclude Include="Manager\SceneManager\SceneManager.h" />
     <ClInclude Include="Manager\XmlManager\XmlManager.h" />
     <ClInclude Include="Manager\SoundManager\SoundManager.h" />
@@ -173,8 +178,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>..\Library\Fmod\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>..\Library\Fmod\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\Library\JsonCpp\inc;..\Library\Fmod\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>..\Library\JsonCpp\lib;..\Library\Fmod\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -213,7 +218,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>fmod_vc.lib;jsoncpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

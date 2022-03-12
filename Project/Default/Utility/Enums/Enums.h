@@ -29,3 +29,13 @@ enum class BUTTON_FACTORY_TYPE
 	DEFAULT = 0,
 	BUTTON_FACTORY_TYPE_NUM
 };
+
+enum class TAG
+{
+	UNTAGGED = 0,
+	PLAYER,
+	MAIN_CAMERA,
+	TAG_NUM
+};
+
+std::wstring TagToWString(TAG _tag);

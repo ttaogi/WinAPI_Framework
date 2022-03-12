@@ -11,8 +11,8 @@ private:
 protected:
 	const Component_ID id;
 public:
-	GameObject* gameObject = nullptr;
-	Transform* transform = nullptr;
+	GameObject* gameObject = NULL;
+	Transform* transform = NULL;
 public:
 	Component(const Component_ID _id);
 	virtual ~Component() {};

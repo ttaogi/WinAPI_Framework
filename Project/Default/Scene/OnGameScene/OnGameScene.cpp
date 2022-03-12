@@ -20,18 +20,18 @@ OnGameScene::~OnGameScene() { }
 HRESULT OnGameScene::Init()
 {
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_ONGAMESCENE);
+	root = NULL;
 
-	RECT quitBtnRc{ 0, 0, BUTTON_WIDTH, BUTTON_HEIGHT };
 	GameObject* quitBtn = AbstractFactoryButton::GetSingleton()
 		->GetObject(BUTTON_FACTORY_TYPE::DEFAULT,
 			std::bind(&SceneManager::SetNextSceneKeyEndScene, SCENE),
-			&quitBtnRc,
+			D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
 			IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
-	quitBtn->SetTag(TAG_QUIT_BUTTON);
-	quitBtn->GetComponent<Transform>()
-		->SetPosition(D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 });
+	quitBtn->SetName(NAME_QUIT_BUTTON);
 	quitBtn->SetActive(false);
-	gameObjects.push_back(quitBtn);
+
+	root = new GameObject();
+	root->AddGameObject(quitBtn);
 
 	msg = L"";
 
@@ -46,17 +46,12 @@ HRESULT OnGameScene::Init()
 void OnGameScene::Update()
 {
 	if (KEY->IsOnceKeyDown('Q'))
-		for (GameObject* go : gameObjects)
-			if (wcscmp(go->GetTag().c_str(), TAG_QUIT_BUTTON.c_str()) == 0)
-				go->SetActive(!go->GetActive());
+	{
+		GameObject* quitBtn = root->GetGameObjectByName(NAME_QUIT_BUTTON);
+		if (quitBtn) quitBtn->SetActive(!quitBtn->GetActive());
+	}
 
-	for (GameObject* go : gameObjects)
-		if (go->GetActive())
-			for (Component* c : go->cList)
-			{
-				MonoBehaviour* m = IsDerivedFromMonoBehaviour(c);
-				if (m != NULL) m->Update();
-			}
+	root->Update();
 
 	bgOffsetX = (bgOffsetX + bgSpeed) % WINSIZE_X;
 	alpha = (alpha + 5) % 255;
@@ -64,8 +59,7 @@ void OnGameScene::Update()
 
 void OnGameScene::Release()
 {
-	for (GameObject* go : gameObjects) SAFE_DELETE(go);
-	gameObjects.clear();
+	SAFE_DELETE(root);
 	SOUND->AllStop();
 }
 
@@ -78,9 +72,5 @@ void OnGameScene::Render()
 	RECT tmp{ 0, 0, WINSIZE_X, WINSIZE_Y };
 	backgroundImage->LoopAlphaRender(memDC, &tmp, bgOffsetX, bgOffsetY, alpha);
 
-	for (GameObject* go : gameObjects)
-		if (go->GetActive()) {
-			RenderedImage* rImg = go->GetComponent<RenderedImage>();
-			if (rImg) rImg->Render(memDC);
-		}
+	root->Render(memDC);
 }

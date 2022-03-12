@@ -21,42 +21,63 @@ HRESULT KeyManager::Init(void)
 bool KeyManager::IsOnceKeyDown(int _key)
 {
 	if (GetAsyncKeyState(_key) & 0x8000)
-		if (!GetKeyDown()[_key])
+	{
+		if (GetKeyDown()[_key] == false)
 		{
 			SetKeyDown(_key, true);
 			return true;
 		}
+		else
+			return false;
+	}
 	else
+	{
 		SetKeyDown(_key, false);
-
-	return false;
+		return false;
+	}
 }
 
 bool KeyManager::IsOnceKeyUp(int _key)
 {
-	if (GetAsyncKeyState(_key) & 0x8000)
-		SetKeyUp(_key, true);
-	else
-		if (GetKeyUp()[_key])
+	if (!(GetAsyncKeyState(_key) & 0x8000))
+	{
+		if (GetKeyDown()[_key] == true)
 		{
-			SetKeyUp(_key, true);
+			SetKeyDown(_key, false);
 			return true;
 		}
-
-	return false;
+		else
+			return false;
+	}
+	else
+	{
+		SetKeyDown(_key, true);
+		return false;
+	}
 }
 
 bool KeyManager::IsStayKeyDown(int _key)
 {
-	if (GetAsyncKeyState(_key) & 0x8000) return true;
-
-	return false;
+	if (GetAsyncKeyState(_key) & 0x8000)
+	{
+		if (GetKeyDown()[_key] == true)
+			return true;
+		else
+		{
+			SetKeyDown(_key, true);
+			return false;
+		}
+	}
+	else
+	{
+		SetKeyDown(_key, false);
+		return false;
+	}
 }
 
 bool KeyManager::IsTrigger(int _key)
 {
-	if (GetKeyState(_key) & 0x0001) return true;
-
+	if (GetAsyncKeyState(_key) & 0x0001) return true;
 	return false;
 }
 
@@ -71,3 +92,58 @@ bool KeyManager::IsOnceAnyKeyDown()
 
 	return false;
 }
+
+
+//bool KeyManager::IsOnceKeyDown(int _key)
+//{
+//	if (GetAsyncKeyState(_key) & 0x8000)
+//		if (!GetKeyDown()[_key])
+//		{
+//			SetKeyDown(_key, true);
+//			return true;
+//		}
+//	else
+//		SetKeyDown(_key, false);
+//
+//	return false;
+//}
+//
+//bool KeyManager::IsOnceKeyUp(int _key)
+//{
+//	if (GetAsyncKeyState(_key) & 0x8000)
+//		SetKeyUp(_key, true);
+//	else
+//		if (GetKeyUp()[_key])
+//		{
+//			SetKeyUp(_key, true);
+//			return true;
+//		}
+//
+//	return false;
+//}
+//
+//bool KeyManager::IsStayKeyDown(int _key)
+//{
+//	if (GetAsyncKeyState(_key) & 0x8000) return true;
+//
+//	return false;
+//}
+//
+//bool KeyManager::IsTrigger(int _key)
+//{
+//	if (GetKeyState(_key) & 0x0001) return true;
+//
+//	return false;
+//}
+//
+//bool KeyManager::IsOnceAnyKeyDown()
+//{
+//	for (int i = 'A'; i <= 'Z'; ++i)
+//		if (IsOnceKeyDown(i)) return true;
+//	for (int i = 0x30; i <= 0x39; ++i)
+//		if (IsOnceKeyDown(i)) return true;
+//	if (IsOnceKeyDown(VK_SPACE)) return true;
+//	if (IsOnceKeyDown(VK_RETURN)) return true;
+//
+//	return false;
+//}

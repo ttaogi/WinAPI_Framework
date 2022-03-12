@@ -3,6 +3,7 @@
 #include <functional>
 
 #include "DesignPattern/SingletonBase/SingletonBase.h"
+#include "Utility/CommonClasses/CommonClasses.h"
 
 class GameObject;
 class Image;
@@ -16,7 +17,7 @@ public:
 	ButtonFactory();
 	~ButtonFactory();
 
-	GameObject* GetObject(std::function<void()> _callBack_v_CB_v,
-		RECT* _rect, Image* _image, std::wstring _str = L"");
+	GameObject* GetObject(std::function<void()> _callBack_v_CB_v, D_POINT _pos,
+		int _rectWidth, int _rectHeight, Image* _image, std::wstring _str = L"");
 };
 #pragma endregion ButtonFactory

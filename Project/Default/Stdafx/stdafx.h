@@ -25,6 +25,7 @@
 
 #include "GameNode/MainGame/MainGame.h"
 #include "Manager/ImageManager/ImageManager.h"
+#include "Manager/JsonManager/JsonManager.h"
 #include "Manager/KeyManager/KeyManager.h"
 #include "Manager/FontManager/FontManager.h"
 #include "Manager/SceneManager/SceneManager.h"
@@ -54,6 +55,7 @@ using namespace std;
 #define SCENE					SceneManager::GetSingleton()
 #define SOUND					SoundManager::GetSingleton()
 #define XML						XmlManager::GetSingleton()
+#define JSON					JsonManager::GetSingleton()
 
 #define SAFE_RELEASE(p)			{if((p) != NULL) { (p)->Release();}}
 #define SAFE_DELETE(p)			{if((p) != NULL) { delete (p); (p) = NULL;}}

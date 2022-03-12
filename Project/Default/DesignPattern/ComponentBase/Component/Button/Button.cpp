@@ -5,9 +5,10 @@
 #include "DesignPattern/ComponentBase/Component/RectTransform/RectTransform.h"
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
 
+#pragma region Button
 Button::Button(wstring _str) : Component((const Component_ID)typeid(Button).name())
 {
-	callBack_v_CB_v = nullptr;
+	callBack_v_CB_v = NULL;
 	str = _str;
 }
 
@@ -19,7 +20,9 @@ void Button::Init() { }
 
 void Button::Update()
 {
-	if (enabled && MOUSE_CLICKED)
+	if (!enabled) return;
+
+	if (MOUSE_CLICKED)
 	{
 		RectTransform* rcT = gameObject->GetComponent<RectTransform>();
 		if (rcT == NULL) return;
@@ -35,3 +38,4 @@ void Button::SetCallBack_v_CB_v(std::function<void()> _callBack)
 {
 	callBack_v_CB_v = std::move(_callBack);
 }
+#pragma endregion Button

@@ -3,13 +3,16 @@
 #include <list>
 
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
+#include "Utility/Enums/Enums.h"
 
 class GameObject {
 private:
 	const Component_ID id = (const Component_ID)L"GameObject";
 	Transform transform;
-	std::wstring tag;
+	std::wstring name;
+	TAG tag;
 	bool active;
+	std::list<GameObject*> goList;
 public:
 	std::list<Component*> cList;
 public:
@@ -17,6 +20,16 @@ public:
 	~GameObject();
 
 	void Operation();
+
+	void Update();
+	void LateUpdate();
+	void Render(HDC _hdc);
+
+	void AddGameObject(GameObject* _go);
+	GameObject* GetGameObjectByTag(TAG _tag);
+	GameObject* GetGameObjectByName(std::wstring _name);
+	//std::list<GameObject*> GetGameObjectsByTag(TAG _tag);
+	//std::list<GameObject*> GetGameObjectsByName(std::wstring _name);
 
 	Component_ID GetComponentID();
 	void AddComponent(Component* _c);
@@ -57,8 +70,13 @@ public:
 		return NULL;
 	}
 
-	std::wstring GetTag() const { return tag; }
-	void SetTag(std::wstring _tag) { tag = _tag; }
+	std::wstring GetName() const { return name; }
+	void SetName(std::wstring _name) { name = _name; }
+	TAG GetTag() const { return tag; }
+	void SetTag(TAG _tag) { tag = _tag; }
 	bool GetActive() const { return active; }
 	void SetActive(bool _active) { active = _active; }
+
+	bool CompareName(std::wstring _name) const { return name.compare(_name) == 0; }
+	bool CompareTag(TAG _tag) const { return tag == _tag; }
 };

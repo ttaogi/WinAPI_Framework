@@ -2,26 +2,111 @@
 
 #include "GameObject.h"
 
+#include "DesignPattern/ComponentBase/Component/Behaviour/MonoBehaviour/MonoBehaviour.h"
+#include "DesignPattern/ComponentBase/Component/Rendered/RenderedAnimator/RenderedAnimator.h"
+#include "DesignPattern/ComponentBase/Component/Rendered/RenderedImage/RenderedImage.h"
+
 GameObject::GameObject()
 {
-	AddComponent(&transform);
-	tag = L"";
+	name = L"";
+	tag = TAG::UNTAGGED;
 	active = true;
+	cList.clear();
+	goList.clear();
+	AddComponent(&transform);
 }
 
 GameObject::~GameObject()
 {
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
+		SAFE_DELETE(*iter);
+	goList.clear();
+
 	Component* transform = GetComponent<Transform>();
 
 	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
-		if(transform != *iter) SAFE_DELETE(*iter);
+		if (transform != *iter) SAFE_DELETE(*iter);
 	cList.clear();
 }
 
 void GameObject::Operation()
 {
-	for (auto it = cList.begin(); it != cList.end(); ++it)
-		if(*it) (*it)->Operation();
+	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
+		if (*iter) (*iter)->Operation();
+
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
+		if (*iter) (*iter)->Operation();
+}
+
+void GameObject::Update()
+{
+	if (!active) return;
+
+	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
+	{
+		MonoBehaviour* m = IsDerivedFromMonoBehaviour(*iter);
+		if (m) m->Update();
+	}
+
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter) (*iter)->Update();
+}
+
+void GameObject::LateUpdate()
+{
+	if (!active) return;
+
+	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
+	{
+		MonoBehaviour* m = IsDerivedFromMonoBehaviour(*iter);
+		if (m) m->LateUpdate();
+	}
+
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter) (*iter)->LateUpdate();
+}
+
+void GameObject::Render(HDC _hdc)
+{
+	if (!active) return;
+
+	RenderedImage* rImg = GetComponent<RenderedImage>();
+	if (rImg) rImg->Render(_hdc);
+
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter) (*iter)->Render(_hdc);
+}
+
+void GameObject::AddGameObject(GameObject* _go)
+{
+	if (_go) goList.push_back(_go);
+}
+
+GameObject* GameObject::GetGameObjectByTag(TAG _tag)
+{
+	if (CompareTag(_tag)) return this;
+	else
+	{
+		GameObject* result = NULL;
+		for (auto iter = goList.begin(); iter != goList.end(); ++iter)
+		{
+			result = (*iter)->GetGameObjectByTag(_tag);
+			if (result) return result;
+		}
+	}
+	return NULL;
+}
+
+GameObject* GameObject::GetGameObjectByName(wstring _name)
+{
+	if (CompareName(_name)) return this;
+	else
+	{
+		GameObject* result = NULL;
+		for (auto iter = goList.begin(); iter != goList.end(); ++iter)
+		{
+			result = (*iter)->GetGameObjectByName(_name);
+			if (result) return result;
+		}
+	}
+	return NULL;
 }
 
 void GameObject::AddComponent(Component* _c)
