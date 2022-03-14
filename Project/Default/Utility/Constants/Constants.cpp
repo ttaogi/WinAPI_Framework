@@ -61,15 +61,31 @@ const std::wstring KEY_UI_BAR_BACKGROUND_STRIPE =
 	L"UI_BAR_BACKGROUND_STRIPE";
 const wchar_t* DIR_UI_BAR_BACKGROUND_STRIPE =
 	L"Resources/Images/UI/Bar/Background.bmp";
-const std::wstring KEY_UI_BAR_BAR_STRIPE =
-	L"UI_BAR_BAR_STRIPE";
-const wchar_t* DIR_UI_BAR_BAR_STRIPE =
-	L"Resources/Images/UI/Bar/Bar.bmp";
+const std::wstring KEY_UI_BAR_GUAGE_STRIPE =
+	L"UI_BAR_GUAGE_STRIPE";
+const wchar_t* DIR_UI_BAR_GUAGE_STRIPE =
+	L"Resources/Images/UI/Bar/Guage.bmp";
 const std::wstring KEY_UI_BAR_BORDER_STRIPE =
 	L"UI_BAR_BORDER_STRIPE";
 const wchar_t* DIR_UI_BAR_BORDER_STRIPE =
 	L"Resources/Images/UI/Bar/Border.bmp";
 #pragma endregion Ui_Bar
+
+
+#pragma region Platform
+const std::wstring KEY_PLATFORM_DEFAULT_STRIPE =
+	L"KEY_PLATFORM_DEFAULT_STRIPE";
+const wchar_t* DIR_PLATFORM_DEFAULT_STRIPE =
+	L"Resources/Images/Platform/Default.bmp";
+#pragma endregion Platform
+
+
+#pragma region Player
+const std::wstring KEY_PLAYER_TEMP_STRIPE =
+	L"KEY_PLAYER_TEMP_STRIPE";
+const wchar_t* DIR_PLAYER_TEMP_STRIPE =
+	L"Resources/Images/Temp/PlayerTemp.bmp";
+#pragma endregion Player
 #pragma endregion Stripe
 
 ///////////////////////
@@ -83,6 +99,16 @@ const std::wstring NAME_POST_BUTTON = 	L"POST_BUTTON";
 const std::wstring NAME_PREV_BUTTON = 	L"PREV_BUTTON";
 const std::wstring NAME_PLAY_BAR = 		L"PLAY_BAR";
 #pragma endregion GameObject_Name
+
+///////////////////////
+///////////////////////
+
+#pragma region Search_Keyword_In_GameObject
+extern const std::wstring SKIG_BAR_GUAGE =
+L"BAR_GUAGE";
+extern const std::wstring SKIG_BAR_BACKGROUND =
+L"BAR_BACKGROUND";
+#pragma endregion Search_Keyword_In_GameObject
 
 ///////////////////////
 ///////////////////////
@@ -133,7 +159,12 @@ const COLORREF MAGENTA = RGB(255, 0, 255);
 const double DEFAULT_FPS = 60.0;
 const float DEFAULT_SOUND_VOLUME = 0.8f;
 
-const double GRAVITY = 9.8;
+const double GRAVITY = 980;
+const double DEFAULT_DRAG = 0.5;
+const double MIN_LIMIT_VELOCITY_X = 1;
+const double MIN_LIMIT_VELOCITY_Y = 1;
+const double MAX_LIMIT_VELOCITY_X = 600;
+const double MAX_LIMIT_VELOCITY_Y = 600;
 #pragma endregion ETC
 
 

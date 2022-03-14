@@ -8,6 +8,7 @@
 RenderedImage::RenderedImage()
 	: Component((const Component_ID)typeid(RenderedImage).name())
 {
+	renderingType = RENDERED_IMAGE_RENDERING_TYPE::DEFAULT;
 	image = NULL;
 }
 
@@ -23,7 +24,16 @@ void RenderedImage::Render(HDC _hdc)
 		if (rcT)
 		{
 			RECT rc = rcT->GetScreenRect();
-			image->Render(_hdc, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
+
+			switch (renderingType)
+			{
+			case RENDERED_IMAGE_RENDERING_TYPE::DEFAULT:
+				image->Render(_hdc, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
+				break;
+			case RENDERED_IMAGE_RENDERING_TYPE::LOOP:
+				image->LoopRender(_hdc, &rc, 0, 0);
+				break;
+			}
 		}
 	}
 }

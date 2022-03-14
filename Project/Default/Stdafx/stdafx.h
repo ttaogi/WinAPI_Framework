@@ -19,6 +19,7 @@
 #include <bitset>
 #include <cassert>
 #include <iostream>
+#include <list>
 #include <map>
 #include <random>
 #include <vector>

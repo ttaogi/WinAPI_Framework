@@ -1,5 +1,6 @@
 #pragma once
 
+#include "DesignPattern/ComponentBase/Component/Collider/Collider.h"
 #include "Utility/Enums/Enums.h"
 
 class GameObject;
@@ -21,5 +22,5 @@ public:
 	virtual void Update() = 0;
 	virtual void Render() = 0;
 
-	GameObject* GetObjectByName(std::wstring _name);
+	static void ProcessCollision(std::vector<Collision>* _collisionVec);
 };

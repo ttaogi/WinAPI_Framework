@@ -18,6 +18,8 @@ void Button::Operation() { }
 
 void Button::Init() { }
 
+void Button::FixedUpdate() { }
+
 void Button::Update()
 {
 	if (!enabled) return;
@@ -33,6 +35,8 @@ void Button::Update()
 }
 
 void Button::LateUpdate() { }
+
+void Button::OnCollision(Collision _col) { }
 
 void Button::SetCallBack_v_CB_v(std::function<void()> _callBack)
 {

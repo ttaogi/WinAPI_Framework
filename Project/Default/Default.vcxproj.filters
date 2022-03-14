@@ -142,6 +142,12 @@
     <Filter Include="API_Framework\Manager\JsonManager">
       <UniqueIdentifier>{83d2a079-d573-494d-a7d9-5703f4950d09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Rigidbody">
+      <UniqueIdentifier>{2c80a90f-0ea2-48c9-9ed5-6776c2440632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Collider">
+      <UniqueIdentifier>{0457f228-5ab5-49a2-9805-2a4d42ea9743}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -270,6 +276,12 @@
     </ClCompile>
     <ClCompile Include="Scene\Scene.cpp">
       <Filter>API_Framework\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPattern\ComponentBase\Component\Rigidbody\Rigidbody.cpp">
+      <Filter>API_Framework\DesignPattern\ComponentBase\Component\Rigidbody</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPattern\ComponentBase\Component\Collider\Collider.cpp">
+      <Filter>API_Framework\DesignPattern\ComponentBase\Component\Collider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -401,6 +413,12 @@
     </ClInclude>
     <ClInclude Include="Manager\JsonManager\JsonManager.h">
       <Filter>API_Framework\Manager\JsonManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\ComponentBase\Component\Rigidbody\Rigidbody.h">
+      <Filter>API_Framework\DesignPattern\ComponentBase\Component\Rigidbody</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\ComponentBase\Component\Collider\Collider.h">
+      <Filter>API_Framework\DesignPattern\ComponentBase\Component\Collider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

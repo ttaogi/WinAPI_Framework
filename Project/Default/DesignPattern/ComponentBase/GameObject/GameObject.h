@@ -5,6 +5,8 @@
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
 #include "Utility/Enums/Enums.h"
 
+class Collider;
+
 class GameObject {
 private:
 	const Component_ID id = (const Component_ID)L"GameObject";
@@ -21,6 +23,7 @@ public:
 
 	void Operation();
 
+	void FixedUpdate();
 	void Update();
 	void LateUpdate();
 	void Render(HDC _hdc);
@@ -32,8 +35,8 @@ public:
 	//std::list<GameObject*> GetGameObjectsByName(std::wstring _name);
 
 	Component_ID GetComponentID();
-	void AddComponent(Component* _c);
 
+	void AddComponent(Component* _c);
 	void RemoveComponent(Component* _c);
 	template<class T>
 	void RemoveComponent()
@@ -79,4 +82,5 @@ public:
 
 	bool CompareName(std::wstring _name) const { return name.compare(_name) == 0; }
 	bool CompareTag(TAG _tag) const { return tag == _tag; }
+	void CollectCollider(std::vector<Collider*>* _colliderVec);
 };

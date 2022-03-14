@@ -60,14 +60,14 @@ VELOCITY VELOCITY::operator - (const VELOCITY& _p)
 	return VELOCITY{ x - _p.x, y - _p.y };
 }
 
-VELOCITY VELOCITY::operator * (const double& _f)
+VELOCITY VELOCITY::operator * (const double& _d)
 {
-	return VELOCITY{ x * _f, y * _f };
+	return VELOCITY{ x * _d, y * _d };
 }
 
-VELOCITY VELOCITY::operator / (const double& _f)
+VELOCITY VELOCITY::operator / (const double& _d)
 {
-	return VELOCITY{ x / _f, y / _f };
+	return VELOCITY{ x / _d, y / _d };
 }
 
 void VELOCITY::Accelerate(D_POINT _acc)
@@ -76,12 +76,7 @@ void VELOCITY::Accelerate(D_POINT _acc)
 	y += _acc.y;
 }
 
-void VELOCITY::AddG()
-{
-	Accelerate(D_POINT{ 0, GRAVITY });
-}
-
-D_POINT VELOCITY::ToFPoint() const
+D_POINT VELOCITY::ToDPoint() const
 {
 	return D_POINT{ x, y };
 }

@@ -35,11 +35,23 @@ extern const wchar_t* DIR_UI_PREV_BUTTON_STRIPE;
 #pragma region Ui_Bar
 extern const std::wstring KEY_UI_BAR_BACKGROUND_STRIPE;
 extern const wchar_t* DIR_UI_BAR_BACKGROUND_STRIPE;
-extern const std::wstring KEY_UI_BAR_BAR_STRIPE;
-extern const wchar_t* DIR_UI_BAR_BAR_STRIPE;
+extern const std::wstring KEY_UI_BAR_GUAGE_STRIPE;
+extern const wchar_t* DIR_UI_BAR_GUAGE_STRIPE;
 extern const std::wstring KEY_UI_BAR_BORDER_STRIPE;
 extern const wchar_t* DIR_UI_BAR_BORDER_STRIPE;
 #pragma endregion Ui_Bar
+
+
+#pragma region Platform
+extern const std::wstring KEY_PLATFORM_DEFAULT_STRIPE;
+extern const wchar_t* DIR_PLATFORM_DEFAULT_STRIPE;
+#pragma endregion Platform
+
+
+#pragma region Player
+extern const std::wstring KEY_PLAYER_TEMP_STRIPE;
+extern const wchar_t* DIR_PLAYER_TEMP_STRIPE;
+#pragma endregion Player
 #pragma endregion Stripe
 
 ///////////////////////
@@ -53,6 +65,14 @@ extern const std::wstring NAME_POST_BUTTON;
 extern const std::wstring NAME_PREV_BUTTON;
 extern const std::wstring NAME_PLAY_BAR;
 #pragma endregion GameObject_Name
+
+///////////////////////
+///////////////////////
+
+#pragma region Search_Keyword_In_GameObject
+extern const std::wstring SKIG_BAR_GUAGE;
+extern const std::wstring SKIG_BAR_BACKGROUND;
+#pragma endregion Search_Keyword_In_GameObject
 
 ///////////////////////
 ///////////////////////
@@ -97,5 +117,10 @@ extern const double DEFAULT_FPS;
 extern const float DEFAULT_SOUND_VOLUME;
 
 extern const double GRAVITY;
+extern const double DEFAULT_DRAG;
+extern const double MIN_LIMIT_VELOCITY_X;
+extern const double MIN_LIMIT_VELOCITY_Y;
+extern const double MAX_LIMIT_VELOCITY_X;
+extern const double MAX_LIMIT_VELOCITY_Y;
 #pragma endregion ETC
 

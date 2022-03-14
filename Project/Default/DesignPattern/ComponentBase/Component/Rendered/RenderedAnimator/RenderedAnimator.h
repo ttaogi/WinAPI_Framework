@@ -9,8 +9,6 @@ class Animation;
 class RenderedAnimator : public Rendered, public MonoBehaviour {
 private:
 	Animator* animator;
-
-	virtual void Render(HDC _hdc) override { };
 protected:
 public:
 	RenderedAnimator();
@@ -18,13 +16,16 @@ public:
 
 	virtual void Operation() override;
 
-	void Render(HDC _hdc, POINT _pos);
-	void Init();
-	void Update(HWND _hWnd);
-	void LateUpdate();
+	virtual void Init() override;
+	virtual void FixedUpdate() override;
+	virtual void Update() override;
+	virtual void LateUpdate() override;
+
+	virtual void Render(HDC _hdc) override;
 
 	void AddAnimation(CHARACTER_STATE _state, Animation* _animation);
 	bool ChangeAnimation(CHARACTER_STATE _state);
+
 	bool IsEnd() const;
 	bool IsPlay() const;
 

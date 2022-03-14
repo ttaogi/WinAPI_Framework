@@ -24,12 +24,6 @@ enum class CHARACTER_STATE
 
 std::wstring CharacterStateToWString(CHARACTER_STATE _state);
 
-enum class BUTTON_FACTORY_TYPE
-{
-	DEFAULT = 0,
-	BUTTON_FACTORY_TYPE_NUM
-};
-
 enum class TAG
 {
 	UNTAGGED = 0,
@@ -39,3 +33,30 @@ enum class TAG
 };
 
 std::wstring TagToWString(TAG _tag);
+
+#pragma region FactoryType
+enum class BUTTON_FACTORY_TYPE
+{
+	DEFAULT = 0,
+	BUTTON_FACTORY_TYPE_NUM
+};
+
+enum class BAR_FACTORY_TYPE
+{
+	DEFAULT = 0,
+	BAR_FACTORY_TYPE_NUM
+};
+
+enum class PLAYER_FACTORY_TYPE
+{
+	DEFAULT = 0,
+	PLAYER_FACTORY_TYPE_NUM
+};
+#pragma endregion FactoryType
+
+enum class RENDERED_IMAGE_RENDERING_TYPE
+{
+	DEFAULT = 0,
+	LOOP,
+	RENDERED_IMAGE_RENDERING_TYPE
+};

@@ -1,14 +1,13 @@
 #include "Stdafx/stdafx.h"
 
-#include "RenderedAnimator.h"
+#include "DesignPattern/ComponentBase/Component/Rendered/RenderedAnimator/RenderedAnimator.h"
+
+#include "DesignPattern/ComponentBase/GameObject/GameObject.h"
 #include "Image/Animator/Animator.h"
 
 RenderedAnimator::RenderedAnimator()
 	: Component((const Component_ID)typeid(RenderedAnimator).name())
-{
-	animator = new Animator();
-	animator->Init();
-}
+{ animator = NULL; }
 
 RenderedAnimator::~RenderedAnimator()
 {
@@ -18,56 +17,31 @@ RenderedAnimator::~RenderedAnimator()
 
 void RenderedAnimator::Operation() { }
 
-void RenderedAnimator::Render(HDC _hdc, POINT _pos)
+void RenderedAnimator::Init()
 {
-	animator->AnimationRender(_hdc, _pos);
+	animator = new Animator();
+	animator->Init();
 }
 
-void RenderedAnimator::Init() { }
+void RenderedAnimator::FixedUpdate() { }
 
-void RenderedAnimator::Update(HWND _hWnd)
-{
-	animator->Update();
-}
+void RenderedAnimator::Update() { if(enabled && animator) animator->Update(); }
 
 void RenderedAnimator::LateUpdate() { }
 
-void RenderedAnimator::AddAnimation(CHARACTER_STATE _state, Animation* _animation)
+void RenderedAnimator::Render(HDC _hdc)
 {
-	animator->AddAnimation(_state, _animation);
+	if (enabled && animator)
+		animator->AnimationRender(_hdc, gameObject->GetComponent<Transform>()->GetPosition().ToPoint());
 }
 
-bool RenderedAnimator::ChangeAnimation(CHARACTER_STATE _state)
-{
-	return animator->ChangeAnimation(_state);
-}
+void RenderedAnimator::AddAnimation(CHARACTER_STATE _state, Animation* _animation) { animator->AddAnimation(_state, _animation); }
+bool RenderedAnimator::ChangeAnimation(CHARACTER_STATE _state) { return animator->ChangeAnimation(_state); }
 
-bool RenderedAnimator::IsEnd() const
-{
-	return animator->IsEnd();
-}
+bool RenderedAnimator::IsEnd()	const	{ return animator->IsEnd();	}
+bool RenderedAnimator::IsPlay()	const	{ return animator->IsPlay();}
 
-bool RenderedAnimator::IsPlay() const
-{
-	return animator->IsPlay();
-}
-
-void RenderedAnimator::AniStart()
-{
-	animator->AniStart();
-}
-
-void RenderedAnimator::AniStop()
-{
-	animator->AniStop();
-}
-
-void RenderedAnimator::AniPause()
-{
-	animator->AniPause();
-}
-
-void RenderedAnimator::AniResume()
-{
-	animator->AniResume();
-}
+void RenderedAnimator::AniStart()	{ animator->AniStart();	}
+void RenderedAnimator::AniStop()	{ animator->AniStop();	}
+void RenderedAnimator::AniPause()	{ animator->AniPause();	}
+void RenderedAnimator::AniResume()	{ animator->AniResume();}

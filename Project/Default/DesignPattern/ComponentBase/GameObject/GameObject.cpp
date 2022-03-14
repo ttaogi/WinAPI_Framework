@@ -3,6 +3,7 @@
 #include "GameObject.h"
 
 #include "DesignPattern/ComponentBase/Component/Behaviour/MonoBehaviour/MonoBehaviour.h"
+#include "DesignPattern/ComponentBase/Component/Collider/Collider.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/RenderedAnimator/RenderedAnimator.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/RenderedImage/RenderedImage.h"
 
@@ -36,6 +37,19 @@ void GameObject::Operation()
 
 	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
 		if (*iter) (*iter)->Operation();
+}
+
+void GameObject::FixedUpdate()
+{
+	if (!active) return;
+
+	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
+	{
+		MonoBehaviour* m = IsDerivedFromMonoBehaviour(*iter);
+		if (m) m->FixedUpdate();
+	}
+
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter) (*iter)->FixedUpdate();
 }
 
 void GameObject::Update()
@@ -111,8 +125,8 @@ GameObject* GameObject::GetGameObjectByName(wstring _name)
 
 void GameObject::AddComponent(Component* _c)
 {
-	for (auto it = cList.begin(); it != cList.end(); ++it)
-		if (!strcmp((*it)->GetComponentID(), _c->GetComponentID()))
+	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
+		if (!strcmp((*iter)->GetComponentID(), _c->GetComponentID()))
 		{
 			SAFE_DELETE(_c);
 			return;
@@ -125,20 +139,29 @@ void GameObject::AddComponent(Component* _c)
 
 void GameObject::RemoveComponent(Component* _c)
 {
-	for (auto it = cList.begin(); it != cList.end(); ++it)
-		if (*it == _c)
+	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
+		if (*iter == _c)
 		{
-			SAFE_DELETE(*it);
-			cList.erase(it);
+			SAFE_DELETE(*iter);
+			cList.erase(iter);
 			return;
 		}
 }
 
 Component* GameObject::GetComponent(Component_ID _id)
 {
-	for (auto it = cList.begin(); it != cList.end(); ++it)
-		if (!strcmp((*it)->GetComponentID(), _id)) return *it;
+	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
+		if (!strcmp((*iter)->GetComponentID(), _id)) return *iter;
 	return NULL;
+}
+
+void GameObject::CollectCollider(std::vector<Collider*>* _colliderVec)
+{
+	Collider* collider = GetComponent<Collider>();
+	if (collider) _colliderVec->push_back(collider);
+
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
+		(*iter)->CollectCollider(_colliderVec);
 }
 
 Component_ID GameObject::GetComponentID() { return id; }

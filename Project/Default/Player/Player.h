@@ -9,9 +9,13 @@ private:
 	int hp;
 public:
 	Player();
-	~Player();
+	virtual ~Player();
 
-	void Init();
-	void Update(HWND _hWnd);
-	void LateUpdate();
+	virtual void Operation() override;
+
+	virtual void Init() override;
+	virtual void FixedUpdate() override;
+	virtual void Update() override;
+	virtual void LateUpdate() override;
+	virtual void OnCollision(Collision _col) override;
 };

@@ -19,6 +19,8 @@ void Bar::Operation() { }
 
 void Bar::Init() { }
 
+void Bar::FixedUpdate() { }
+
 void Bar::Update()
 {
 	if (!enabled) return;
@@ -39,24 +41,26 @@ void Bar::Update()
 
 void Bar::LateUpdate() { }
 
+void Bar::OnCollision(Collision _col) { }
+
 void Bar::SetRate(double _rate)
 {
-	GameObject* barImageObject = gameObject->GetGameObjectByName(L"BarBar");
-	GameObject* barBackgroundObject = gameObject->GetGameObjectByName(L"BarBackground");
+	GameObject* guage = gameObject->GetGameObjectByName(SKIG_BAR_GUAGE);
+	GameObject* Background = gameObject->GetGameObjectByName(SKIG_BAR_BACKGROUND);
 
-	if (barImageObject && barBackgroundObject)
+	if (guage && Background)
 	{
 		long newWidth, fullWidth;
-		fullWidth = barBackgroundObject->GetComponent<RectTransform>()->GetWidth();
+		fullWidth = Background->GetComponent<RectTransform>()->GetWidth();
 		newWidth = (long)(fullWidth * _rate);
 
 		D_POINT newPos;
-		D_POINT barPos = gameObject->GetComponent<Transform>()->GetPosition();
+		D_POINT barPos = Background->GetComponent<Transform>()->GetPosition();
 		newPos.y = barPos.y;
 		newPos.x = barPos.x - (fullWidth - newWidth) / 2;
 
 		rate = _rate;
-		barImageObject->GetComponent<Transform>()->SetPosition(newPos);
-		barImageObject->GetComponent<RectTransform>()->SetWidth(newWidth);
+		guage->GetComponent<Transform>()->SetPosition(newPos);
+		guage->GetComponent<RectTransform>()->SetWidth(newWidth);
 	}
 }
