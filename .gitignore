@@ -37,4 +37,6 @@ Project/Debug
 Project/Default/Debug
 Project/Default/x64
 !Project/Library/Fmod/lib/x64/*.*
+!Project/Library/JsonCpp/lib/*.*
 !Project/x64/Debug/fmod.dll
+!Project/x64/Debug/jsoncpp.dll
