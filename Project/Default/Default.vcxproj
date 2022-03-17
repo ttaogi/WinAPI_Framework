@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DesignPattern\AbstractFactoryBase\AbstractFactoryBase.cpp" />
+    <ClCompile Include="DesignPattern\FactoryMethodBase\FactoryMethod.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Bar\Bar.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Behaviour\Behaviour.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Collider\Collider.cpp" />
@@ -30,7 +30,7 @@
     <ClCompile Include="DesignPattern\ComponentBase\Component\Rendered\RenderedImage\RenderedImage.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Rigidbody\Rigidbody.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Transform\Transform.cpp" />
-    <ClCompile Include="DesignPattern\FactoryBase\Factory.cpp" />
+    <ClCompile Include="DesignPattern\FactoryMethodBase\ProductBase\ConcreteProduct.cpp" />
     <ClCompile Include="GameNode\GameNode.cpp" />
     <ClCompile Include="GameNode\MainGame\MainGame.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\GameObject\GameObject.cpp" />
@@ -38,6 +38,7 @@
     <ClCompile Include="Image\Animator\Animator.cpp" />
     <ClCompile Include="Image\Image.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager\CameraManager\CameraManager.cpp" />
     <ClCompile Include="Manager\FontManager\FontManager.cpp" />
     <ClCompile Include="Manager\ImageManager\ImageManager.cpp" />
     <ClCompile Include="Manager\JsonManager\JsonManager.cpp" />
@@ -77,7 +78,8 @@
     <ClCompile Include="Utility\Enums\Enums.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DesignPattern\AbstractFactoryBase\AbstractFactoryBase.h" />
+    <ClInclude Include="DesignPattern\FactoryMethodBase\ProductBase\ProductBase.h" />
+    <ClInclude Include="DesignPattern\FactoryMethodBase\FactoryMethod.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Bar\Bar.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Behaviour\Behaviour.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Collider\Collider.h" />
@@ -88,9 +90,11 @@
     <ClInclude Include="DesignPattern\ComponentBase\Component\Rendered\RenderedImage\RenderedImage.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Rigidbody\Rigidbody.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Transform\Transform.h" />
-    <ClInclude Include="DesignPattern\FactoryBase\Factory.h" />
+    <ClInclude Include="DesignPattern\FactoryMethodBase\ProductBase\ConcreteProduct.h" />
+    <ClInclude Include="DesignPattern\FactoryMethodBase\FactoryMethodBase.h" />
     <ClInclude Include="DesignPattern\SingletonBase\SingletonBase.h" />
     <ClInclude Include="DesignPattern\ComponentBase\GameObject\GameObject.h" />
+    <ClInclude Include="Manager\CameraManager\CameraManager.h" />
     <ClInclude Include="Manager\JsonManager\JsonManager.h" />
     <ClInclude Include="Manager\SceneManager\SceneManager.h" />
     <ClInclude Include="Manager\XmlManager\XmlManager.h" />

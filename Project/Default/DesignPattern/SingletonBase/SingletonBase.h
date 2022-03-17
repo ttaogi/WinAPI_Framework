@@ -6,7 +6,7 @@ class SingletonBase
 protected:
 	static T* instance;
 	SingletonBase() {}
-	~SingletonBase() {}
+	virtual ~SingletonBase() {}
 public:
 	static T* GetSingleton()
 	{
@@ -16,9 +16,9 @@ public:
 	static void ReleaseSingleton()
 	{
 		if (instance) delete instance;
-		instance = nullptr;
+		instance = NULL;
 	}
 };
 
 template<typename T>
-T* SingletonBase<T>::instance = nullptr;
+T* SingletonBase<T>::instance = NULL;

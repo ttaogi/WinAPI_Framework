@@ -1,6 +1,6 @@
 #include "Stdafx/stdafx.h"
 
-#include "Factory.h"
+#include "DesignPattern/FactoryMethodBase/ProductBase/ConcreteProduct.h"
 
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
 #include "DesignPattern/ComponentBase/Component/Bar/Bar.h"
@@ -13,8 +13,8 @@
 #include "Image/Image.h"
 #include "Player/Player.h"
 
-#pragma region FactoryButton
-GameObject* ButtonFactory::GetObject(
+#pragma region ProductBaseButton
+GameObject* FactoryDefaultButton::CreateObject(
 	std::function<void()> _callBack_v_CB_v, D_POINT _pos,
 	int _rectWidth, int _rectHeight, Image* _image, std::wstring _str)
 {
@@ -36,10 +36,11 @@ GameObject* ButtonFactory::GetObject(
 
 	return go;
 }
-#pragma endregion FactoryButton
+#pragma endregion ProductBaseButton
 
-#pragma region FactoryBar
-GameObject* BarFactory::GetObject(
+
+#pragma region ProductBaseBar
+GameObject* FactoryDefaultBar::CreateObject(
 	std::function<void()> _callBack_v_CB_v, D_POINT _pos,
 	int _rectWidth, int _rectHeight, int _margin, double _rate)
 {
@@ -82,10 +83,11 @@ GameObject* BarFactory::GetObject(
 
 	return go;
 }
-#pragma endregion FactoryBar
+#pragma endregion ProductBaseBar
 
-#pragma region FactoryPlayer
-GameObject* PlayerFactory::GetObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe)
+
+#pragma region ProductBasePlayer
+GameObject* FactoryDefaultPlayer::CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe)
 {
 	GameObject* go = new GameObject();
 
@@ -112,10 +114,11 @@ GameObject* PlayerFactory::GetObject(D_POINT _pos, int _rectWidth, int _rectHeig
 
 	return go;
 }
-#pragma endregion FactoryPlayer
+#pragma endregion ProductBasePlayer
 
-#pragma region FactoryPlatform
-GameObject* PlatformFactory::GetObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe)
+
+#pragma region ProductBasePlatform
+GameObject* FactoryDefaultPlatform::CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe)
 {
 	GameObject* go = new GameObject();
 
@@ -136,4 +139,4 @@ GameObject* PlatformFactory::GetObject(D_POINT _pos, int _rectWidth, int _rectHe
 
 	return go;
 }
-#pragma endregion FactoryPlatform
+#pragma endregion ProductBasePlatform

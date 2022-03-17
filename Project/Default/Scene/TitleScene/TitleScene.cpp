@@ -4,10 +4,6 @@
 
 #include <functional>
 
-#include "DesignPattern/AbstractFactoryBase/AbstractFactoryBase.h"
-#include "DesignPattern/ComponentBase/Component/Button/Button.h"
-#include "DesignPattern/ComponentBase/Component/Rendered/RenderedImage/RenderedImage.h"
-#include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
 #include "Image/Image.h"
 
@@ -20,7 +16,7 @@ HRESULT TitleScene::Init()
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_TITLESCENE);
 	root = NULL;
 
-	GameObject* gameStartBtn = AbstractFactoryButton::GetObject(
+	GameObject* gameStartBtn = FACTORY_METHOD_BUTTON->CreateObject(
 		BUTTON_FACTORY_TYPE::DEFAULT,
 		std::bind(&SceneManager::SetNextSceneKeyOnGameScene, SCENE),
 		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,

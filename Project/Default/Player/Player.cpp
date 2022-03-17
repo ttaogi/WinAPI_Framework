@@ -43,5 +43,5 @@ void Player::LateUpdate() { }
 
 void Player::OnCollision(Collision _col)
 {
-	wcout << L"OnCollision" << endl;
+	//wcout << L"OnCollision" << endl;
 }

@@ -19,8 +19,8 @@ void Rigidbody::AddForce(D_POINT _f)
 {
 	if (mass <= 0) return;
 
-	double dX = TIME->GetElapsedTime() * _f.x / mass;
-	double dY = TIME->GetElapsedTime() * _f.y / mass;
+	double dX = TIME->GetScaledElapsedTime() * _f.x / mass;
+	double dY = TIME->GetScaledElapsedTime() * _f.y / mass;
 
 	velocity.x += dX;
 	velocity.y += dY;
@@ -42,8 +42,8 @@ void Rigidbody::MovePosition(D_POINT _p)
 
 void Rigidbody::MovePosition()
 {
-	double dX = TIME->GetElapsedTime() * velocity.x;
-	double dY = TIME->GetElapsedTime() * velocity.y;
+	double dX = TIME->GetScaledElapsedTime() * velocity.x;
+	double dY = TIME->GetScaledElapsedTime() * velocity.y;
 	D_POINT pos = transform->GetPosition();
 
 	pos.x += dX;
@@ -54,8 +54,8 @@ void Rigidbody::MovePosition()
 
 void Rigidbody::AdaptDrag()
 {
-	if(velocity.x != 0) velocity.x *= pow(drag, TIME->GetElapsedTime());
-	if(velocity.y != 0) velocity.y *= pow(drag, TIME->GetElapsedTime());
+	if(velocity.x != 0) velocity.x *= pow(drag, TIME->GetScaledElapsedTime());
+	if(velocity.y != 0) velocity.y *= pow(drag, TIME->GetScaledElapsedTime());
 
 	if (abs(velocity.x) <= MIN_LIMIT_VELOCITY_X) velocity.x = 0;
 	if (abs(velocity.y) <= MIN_LIMIT_VELOCITY_Y) velocity.y = 0;

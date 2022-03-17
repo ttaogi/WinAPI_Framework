@@ -45,7 +45,7 @@ void Animation::AnimationUpdate(bool _isPlay)
 {
 	if (_isPlay)
 	{
-		elapsedSec += TIME->GetElapsedTime();
+		elapsedSec += TIME->GetScaledElapsedTime();
 
 		while (elapsedSec >= frameUpdateSec)
 		{

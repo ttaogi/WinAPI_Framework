@@ -58,45 +58,6 @@
     <Filter Include="API_Framework\Player">
       <UniqueIdentifier>{130f0845-1c04-4e90-ab01-c310aa0f2b89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase">
-      <UniqueIdentifier>{b5fa7641-cb4f-4142-b286-efc2c9722e0a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component">
-      <UniqueIdentifier>{5ff51bbc-a7c3-41e4-a890-6441528bcb6e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Transform">
-      <UniqueIdentifier>{f8df97f7-6258-46fa-8681-8007bb0691ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Behaviour">
-      <UniqueIdentifier>{0696ebfd-8653-4d36-ae23-10b08850f163}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Behaviour\MonoBehaviour">
-      <UniqueIdentifier>{7603f4b4-8063-4bd9-b812-5f719b922ccc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\RectTransform">
-      <UniqueIdentifier>{faf8f5a3-f4d6-4caa-b32f-185d6932f530}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Rendered">
-      <UniqueIdentifier>{727c2a6b-6e73-4583-8c01-e56aa4f6b9c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Rendered\RenderedImage">
-      <UniqueIdentifier>{94264f3f-a551-428c-8a17-fd2fc4cff9e8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\GameObject">
-      <UniqueIdentifier>{7d4220be-4b76-438c-a325-68bef59f2245}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Button">
-      <UniqueIdentifier>{04612c0f-0290-4c16-b6b5-f63fb9426793}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\AbstractFactoryBase">
-      <UniqueIdentifier>{04200f47-9317-44ac-8628-3d2bfbeb2ff5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\FactoryBase">
-      <UniqueIdentifier>{c837b262-4967-41b1-bad6-c9782636d83d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Rendered\RenderedAnimator">
-      <UniqueIdentifier>{a5612741-6845-405b-b852-6405853b873d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API_Framework\Manager\TimeManager">
       <UniqueIdentifier>{d379916a-ec57-4029-8520-e75548d5a0d6}</UniqueIdentifier>
     </Filter>
@@ -136,17 +97,59 @@
     <Filter Include="API_Framework\Utility\CommonFunction">
       <UniqueIdentifier>{e48ed1ce-530f-4bb6-8b10-63caeea71e3d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Bar">
-      <UniqueIdentifier>{2dad2281-01c2-41a0-89ee-be3deb0bdc0b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API_Framework\Manager\JsonManager">
       <UniqueIdentifier>{83d2a079-d573-494d-a7d9-5703f4950d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase">
+      <UniqueIdentifier>{b5fa7641-cb4f-4142-b286-efc2c9722e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component">
+      <UniqueIdentifier>{5ff51bbc-a7c3-41e4-a890-6441528bcb6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Transform">
+      <UniqueIdentifier>{f8df97f7-6258-46fa-8681-8007bb0691ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Behaviour">
+      <UniqueIdentifier>{0696ebfd-8653-4d36-ae23-10b08850f163}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Behaviour\MonoBehaviour">
+      <UniqueIdentifier>{7603f4b4-8063-4bd9-b812-5f719b922ccc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\RectTransform">
+      <UniqueIdentifier>{faf8f5a3-f4d6-4caa-b32f-185d6932f530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Rendered">
+      <UniqueIdentifier>{727c2a6b-6e73-4583-8c01-e56aa4f6b9c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Rendered\RenderedImage">
+      <UniqueIdentifier>{94264f3f-a551-428c-8a17-fd2fc4cff9e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Rendered\RenderedAnimator">
+      <UniqueIdentifier>{a5612741-6845-405b-b852-6405853b873d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Button">
+      <UniqueIdentifier>{04612c0f-0290-4c16-b6b5-f63fb9426793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Bar">
+      <UniqueIdentifier>{2dad2281-01c2-41a0-89ee-be3deb0bdc0b}</UniqueIdentifier>
     </Filter>
     <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Rigidbody">
       <UniqueIdentifier>{2c80a90f-0ea2-48c9-9ed5-6776c2440632}</UniqueIdentifier>
     </Filter>
     <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Collider">
       <UniqueIdentifier>{0457f228-5ab5-49a2-9805-2a4d42ea9743}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\GameObject">
+      <UniqueIdentifier>{7d4220be-4b76-438c-a325-68bef59f2245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\FactoryMethodBase">
+      <UniqueIdentifier>{04200f47-9317-44ac-8628-3d2bfbeb2ff5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\FactoryMethodBase\ProductBase">
+      <UniqueIdentifier>{c837b262-4967-41b1-bad6-c9782636d83d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\CameraManager">
+      <UniqueIdentifier>{82863b2a-bd1c-4f5d-b77f-2b3c43c5d13f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -214,12 +217,6 @@
     <ClCompile Include="DesignPattern\ComponentBase\Component\Button\Button.cpp">
       <Filter>API_Framework\DesignPattern\ComponentBase\Component\Button</Filter>
     </ClCompile>
-    <ClCompile Include="DesignPattern\AbstractFactoryBase\AbstractFactoryBase.cpp">
-      <Filter>API_Framework\DesignPattern\AbstractFactoryBase</Filter>
-    </ClCompile>
-    <ClCompile Include="DesignPattern\FactoryBase\Factory.cpp">
-      <Filter>API_Framework\DesignPattern\FactoryBase</Filter>
-    </ClCompile>
     <ClCompile Include="DesignPattern\ComponentBase\Component\Rendered\RenderedAnimator\RenderedAnimator.cpp">
       <Filter>API_Framework\DesignPattern\ComponentBase\Component\Rendered\RenderedAnimator</Filter>
     </ClCompile>
@@ -282,6 +279,15 @@
     </ClCompile>
     <ClCompile Include="DesignPattern\ComponentBase\Component\Collider\Collider.cpp">
       <Filter>API_Framework\DesignPattern\ComponentBase\Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPattern\FactoryMethodBase\FactoryMethod.cpp">
+      <Filter>API_Framework\DesignPattern\FactoryMethodBase</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPattern\FactoryMethodBase\ProductBase\ConcreteProduct.cpp">
+      <Filter>API_Framework\DesignPattern\FactoryMethodBase\ProductBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\CameraManager\CameraManager.cpp">
+      <Filter>API_Framework\Manager\CameraManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -354,12 +360,6 @@
     <ClInclude Include="DesignPattern\ComponentBase\Component\Button\Button.h">
       <Filter>API_Framework\DesignPattern\ComponentBase\Component\Button</Filter>
     </ClInclude>
-    <ClInclude Include="DesignPattern\AbstractFactoryBase\AbstractFactoryBase.h">
-      <Filter>API_Framework\DesignPattern\AbstractFactoryBase</Filter>
-    </ClInclude>
-    <ClInclude Include="DesignPattern\FactoryBase\Factory.h">
-      <Filter>API_Framework\DesignPattern\FactoryBase</Filter>
-    </ClInclude>
     <ClInclude Include="DesignPattern\ComponentBase\Component\Rendered\RenderedAnimator\RenderedAnimator.h">
       <Filter>API_Framework\DesignPattern\ComponentBase\Component\Rendered\RenderedAnimator</Filter>
     </ClInclude>
@@ -419,6 +419,21 @@
     </ClInclude>
     <ClInclude Include="DesignPattern\ComponentBase\Component\Collider\Collider.h">
       <Filter>API_Framework\DesignPattern\ComponentBase\Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\FactoryMethodBase\FactoryMethod.h">
+      <Filter>API_Framework\DesignPattern\FactoryMethodBase</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\FactoryMethodBase\FactoryMethodBase.h">
+      <Filter>API_Framework\DesignPattern\FactoryMethodBase</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\FactoryMethodBase\ProductBase\ConcreteProduct.h">
+      <Filter>API_Framework\DesignPattern\FactoryMethodBase\ProductBase</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\FactoryMethodBase\ProductBase\ProductBase.h">
+      <Filter>API_Framework\DesignPattern\FactoryMethodBase\ProductBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\CameraManager\CameraManager.h">
+      <Filter>API_Framework\Manager\CameraManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -20,8 +20,8 @@ public:
 
 	virtual void Operation() override { }
 
-	bool GetIsTrigger() const { return isTrigger; }
-	void SetIsTrigger(bool _isTrigger) { isTrigger = _isTrigger; }
+	bool GetIsTrigger() const			{ return isTrigger; }
+	void SetIsTrigger(bool _isTrigger)	{ isTrigger = _isTrigger; }
 
 	void CheckCollision(std::vector<Collision>* _colVec, Collider* _col);
 };

@@ -24,6 +24,7 @@
 #include <random>
 #include <vector>
 
+#include "DesignPattern/FactoryMethodBase/FactoryMethod.h"
 #include "GameNode/MainGame/MainGame.h"
 #include "Manager/ImageManager/ImageManager.h"
 #include "Manager/JsonManager/JsonManager.h"
@@ -57,6 +58,11 @@ using namespace std;
 #define SOUND					SoundManager::GetSingleton()
 #define XML						XmlManager::GetSingleton()
 #define JSON					JsonManager::GetSingleton()
+
+#define FACTORY_METHOD_BUTTON	FactoryMethodButton::GetSingleton()
+#define FACTORY_METHOD_BAR		FactoryMethodBar::GetSingleton()
+#define FACTORY_METHOD_PLAYER	FactoryMethodPlayer::GetSingleton()
+#define FACTORY_METHOD_PLATFORM	FactoryMethodPlatform::GetSingleton()
 
 #define SAFE_RELEASE(p)			{if((p) != NULL) { (p)->Release();}}
 #define SAFE_DELETE(p)			{if((p) != NULL) { delete (p); (p) = NULL;}}

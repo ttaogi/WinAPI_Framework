@@ -4,7 +4,10 @@
 
 #include "Manager/TimeManager/Timer/Timer.h"
 
-TimeManager::TimeManager() { }
+TimeManager::TimeManager()
+{
+	timeScale = 1;
+}
 
 TimeManager::~TimeManager()
 {
@@ -42,6 +45,11 @@ void TimeManager::Render(HDC _hdc) {
 		TextOut(_hdc, 0, 20, str.c_str(), (int)str.length());
 		str = to_wstring(timer->GetWorldTime());
 		TextOut(_hdc, 0, 40, str.c_str(), (int)str.length());
+
+		str = to_wstring(timeScale);
+		TextOut(_hdc, 0, 60, str.c_str(), (int)str.length());
+		str = to_wstring(timeScale * timer->GetElapsedTime());
+		TextOut(_hdc, 0, 80, str.c_str(), (int)str.length());
 	}
 #else
 	if (timer) {
@@ -56,3 +64,5 @@ void TimeManager::Render(HDC _hdc) {
 double TimeManager::GetWorldTime() const { return timer->GetWorldTime(); }
 
 double TimeManager::GetElapsedTime() const { return timer->GetElapsedTime(); }
+
+double TimeManager::GetScaledElapsedTime() const { return timeScale * timer->GetElapsedTime(); }
