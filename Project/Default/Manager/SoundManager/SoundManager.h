@@ -24,7 +24,7 @@ private:
 	Channel* shopKeeperChannel;
 public:
 	SoundManager();
-	~SoundManager();
+	virtual ~SoundManager();
 
 	HRESULT Init();
 	void Release();

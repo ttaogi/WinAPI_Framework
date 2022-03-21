@@ -8,7 +8,7 @@ class XmlManager : public SingletonBase<XmlManager> {
 private:
 public:
 	XmlManager();
-	~XmlManager();
+	virtual ~XmlManager();
 
 	HRESULT Init();
 	void Release();
@@ -34,8 +34,11 @@ public:
 	static void SetAttribute(TiXmlElement* _element, std::wstring _name, std::wstring _value);
 	static void SetAttribute(TiXmlElement* _element, std::wstring _name, int _value);
 	static void SetAttribute(TiXmlElement* _element, std::wstring _name, float _value);
+	static void SetAttribute(TiXmlElement* _element, std::wstring _name, double _value);
+	static void SetAttribute(TiXmlElement* _element, std::wstring _name, bool _value);
 	static bool GetAttributeValue(TiXmlElement* _element, std::wstring _attribute, std::wstring& _value);
 	static bool GetAttributeValueInt(TiXmlElement* _element, std::wstring _attribute, int* _value);
 	static bool GetAttributeValueFloat(TiXmlElement* _element, std::wstring _attribute, float* _value);
 	static bool GetAttributeValueDouble(TiXmlElement* _element, std::wstring _attribute, double* _value);
+	static bool GetAttributeValueBool(TiXmlElement* _element, std::wstring _attribute, bool* _value);
 };

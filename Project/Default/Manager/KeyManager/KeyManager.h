@@ -11,7 +11,7 @@ private:
 	std::bitset<KEY_MAX> keyUp;
 public:
 	KeyManager();
-	~KeyManager();
+	virtual ~KeyManager();
 
 	HRESULT Init(void);
 	bool IsOnceKeyDown(int _key);

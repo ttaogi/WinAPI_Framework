@@ -1,11 +1,12 @@
 #pragma once
 
 #include <list>
+#include <queue>
 
+#include "DesignPattern/ComponentBase/Component/Collider/Collider.h"
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
+#include "DesignPattern/ComponentBase/Component/Rendered/Rendered.h"
 #include "Utility/Enums/Enums.h"
-
-class Collider;
 
 class GameObject {
 private:
@@ -15,7 +16,6 @@ private:
 	TAG tag;
 	bool active;
 	std::list<GameObject*> goList;
-public:
 	std::list<Component*> cList;
 public:
 	GameObject();
@@ -83,4 +83,6 @@ public:
 	bool CompareName(std::wstring _name) const { return name.compare(_name) == 0; }
 	bool CompareTag(TAG _tag) const { return tag == _tag; }
 	void CollectCollider(std::vector<Collider*>* _colliderVec);
+	void OnCollision(Collision _col);
+	void CollectRendered(priority_queue<Rendered*, std::vector<Rendered*>, CmpRenderedPtr>* _queue);
 };

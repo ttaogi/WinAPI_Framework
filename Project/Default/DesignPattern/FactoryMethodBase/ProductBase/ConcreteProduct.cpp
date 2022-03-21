@@ -11,7 +11,11 @@
 #include "DesignPattern/ComponentBase/Component/Rigidbody/Rigidbody.h"
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
 #include "Image/Image.h"
-#include "Player/Player.h"
+#include "Script/Player/Player.h"
+
+static int uiCount = 0;
+static int monsterCount = 0;
+static int platformCount = 0;
 
 #pragma region ProductBaseButton
 GameObject* FactoryDefaultButton::CreateObject(
@@ -27,6 +31,8 @@ GameObject* FactoryDefaultButton::CreateObject(
 	btn->Init();
 	rcT->SetRect(_rectWidth, _rectHeight);
 	rImg->SetImage(_image);
+	rImg->SetSortingLayer(SORTING_LAYER::UI);
+	rImg->SetOrderInLayer(uiCount++);
 
 	go->GetComponent<Transform>()->SetPosition(_pos);
 
@@ -52,6 +58,8 @@ GameObject* FactoryDefaultBar::CreateObject(
 	backRcT->SetRect(_rectWidth - 2 * _margin, _rectHeight - 2 * _margin);
 	RenderedImage* backRImg = new RenderedImage();
 	backRImg->SetImage(IMG->FindImage(KEY_UI_BAR_BACKGROUND_STRIPE));
+	backRImg->SetSortingLayer(SORTING_LAYER::UI);
+	backRImg->SetOrderInLayer(uiCount++);
 	background->AddComponent(backRcT);
 	background->AddComponent(backRImg);
 	background->GetComponent<Transform>()->SetPosition(_pos);
@@ -61,6 +69,8 @@ GameObject* FactoryDefaultBar::CreateObject(
 	guageRcT->SetRect(_rectWidth - 2 * _margin, _rectHeight - 2 * _margin);
 	RenderedImage* guageRImg = new RenderedImage();
 	guageRImg->SetImage(IMG->FindImage(KEY_UI_BAR_GUAGE_STRIPE));
+	guageRImg->SetSortingLayer(SORTING_LAYER::UI);
+	guageRImg->SetOrderInLayer(uiCount++);
 	guage->AddComponent(guageRcT);
 	guage->AddComponent(guageRImg);
 	guage->GetComponent<Transform>()->SetPosition(_pos);
@@ -99,6 +109,8 @@ GameObject* FactoryDefaultPlayer::CreateObject(D_POINT _pos, int _rectWidth, int
 
 	RenderedImage* rImg = new RenderedImage();
 	rImg->SetImage(_stripe);
+	rImg->SetSortingLayer(SORTING_LAYER::PLAYER);
+	rImg->SetOrderInLayer(0);
 
 	Rigidbody* rb = new Rigidbody();
 
@@ -128,6 +140,8 @@ GameObject* FactoryDefaultPlatform::CreateObject(D_POINT _pos, int _rectWidth, i
 	RenderedImage* rImg = new RenderedImage();
 	rImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::LOOP);
 	rImg->SetImage(_stripe);
+	rImg->SetSortingLayer(SORTING_LAYER::PLATFORM);
+	rImg->SetOrderInLayer(platformCount++);
 
 	Collider* col = new Collider();
 

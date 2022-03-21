@@ -7,7 +7,7 @@ class JsonManager : public SingletonBase<JsonManager>
 private:
 public:
 	JsonManager();
-	~JsonManager();
+	virtual ~JsonManager();
 
 	HRESULT Init();
 	void Release();

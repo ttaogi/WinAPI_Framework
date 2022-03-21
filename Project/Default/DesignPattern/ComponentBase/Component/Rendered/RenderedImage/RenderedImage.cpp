@@ -8,6 +8,7 @@
 RenderedImage::RenderedImage()
 	: Component((const Component_ID)typeid(RenderedImage).name())
 {
+	alpha = 255;
 	renderingType = RENDERED_IMAGE_RENDERING_TYPE::DEFAULT;
 	image = NULL;
 }
@@ -28,10 +29,12 @@ void RenderedImage::Render(HDC _hdc)
 			switch (renderingType)
 			{
 			case RENDERED_IMAGE_RENDERING_TYPE::DEFAULT:
-				image->Render(_hdc, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
+				image->AlphaRender(_hdc, rc.left, rc.top, alpha);
+				//image->Render(_hdc, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
 				break;
 			case RENDERED_IMAGE_RENDERING_TYPE::LOOP:
-				image->LoopRender(_hdc, &rc, 0, 0);
+				image->LoopAlphaRender(_hdc, &rc, 0, 0, alpha);
+				//image->LoopRender(_hdc, &rc, 0, 0);
 				break;
 			}
 		}

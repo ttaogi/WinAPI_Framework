@@ -223,6 +223,16 @@ void XmlManager::SetAttribute(TiXmlElement* _element, wstring _name, float _valu
 	_element->SetAttribute(WcsToMbsUtf8(_name).c_str(), WcsToMbsUtf8(to_wstring(_value)).c_str());
 }
 
+void XmlManager::SetAttribute(TiXmlElement* _element, std::wstring _name, double _value)
+{
+	_element->SetAttribute(WcsToMbsUtf8(_name).c_str(), WcsToMbsUtf8(to_wstring(_value)).c_str());
+}
+
+void XmlManager::SetAttribute(TiXmlElement* _element, std::wstring _name, bool _value)
+{
+	_element->SetAttribute(WcsToMbsUtf8(_name).c_str(), WcsToMbsUtf8(to_wstring((int)_value)).c_str());
+}
+
 bool XmlManager::GetAttributeValue(TiXmlElement* _element, std::wstring _attribute, wstring& _value)
 {
 	const char* result = _element->Attribute(WcsToMbsUtf8(_attribute).c_str());
@@ -234,7 +244,10 @@ bool XmlManager::GetAttributeValue(TiXmlElement* _element, std::wstring _attribu
 
 bool XmlManager::GetAttributeValueInt(TiXmlElement* _element, std::wstring _attribute, int* _value)
 {
-	const char* result = _element->Attribute(WcsToMbsUtf8(_attribute).c_str(), _value);
+	int value;
+	const char* result = _element->Attribute(WcsToMbsUtf8(_attribute).c_str(), &value);
+
+	if (result != NULL) *_value = value;
 
 	return (result != NULL);
 }
@@ -255,6 +268,20 @@ bool XmlManager::GetAttributeValueDouble(TiXmlElement* _element, std::wstring _a
 	const char* result = _element->Attribute(WcsToMbsUtf8(_attribute).c_str(), &value);
 
 	if (result != NULL) *_value = value;
+
+	return (result != NULL);
+}
+
+bool XmlManager::GetAttributeValueBool(TiXmlElement* _element, std::wstring _attribute, bool* _value)
+{
+	int value;
+	const char* result = _element->Attribute(WcsToMbsUtf8(_attribute).c_str(), &value);
+
+	if (result != NULL)
+	{
+		if (value == 0) *_value = false;
+		else *_value = true;
+	}
 
 	return (result != NULL);
 }

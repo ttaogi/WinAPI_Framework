@@ -6,10 +6,15 @@ extern const std::wstring KEY_BACKGROUND_BACKBUFFER;
 extern const wchar_t* BACKGROUND_BACKBUFFER;
 extern const std::wstring KEY_BACKGROUND_ENDSCENE;
 extern const wchar_t* BACKGROUND_ENDSCENE;
-extern const std::wstring KEY_BACKGROUND_TITLESCENE;
-extern const wchar_t* BACKGROUND_TITLESCENE;
+extern const std::wstring KEY_BACKGROUND_LOBBYSCENE;
+extern const wchar_t* BACKGROUND_LOBBYSCENE;
 extern const std::wstring KEY_BACKGROUND_ONGAMESCENE;
 extern const wchar_t* BACKGROUND_ONGAMESCENE;
+extern const std::wstring KEY_BACKGROUND_TITLESCENE;
+extern const wchar_t* BACKGROUND_TITLESCENE;
+
+extern const std::wstring KEY_BACKGROUND_STAGE_1;
+extern const wchar_t* BACKGROUND_STAGE_1;
 #pragma endregion Background
 
 
@@ -20,6 +25,15 @@ extern const std::wstring KEY_UI_RETRY_BUTTON_STRIPE;
 extern const wchar_t* UI_RETRY_BUTTON_STRIPE;
 extern const std::wstring KEY_UI_START_BUTTON_STRIPE;
 extern const wchar_t* UI_START_BUTTON_STRIPE;
+
+extern const std::wstring KEY_UI_STAGE_1_BUTTON_STRIPE;
+extern const wchar_t* UI_STAGE_1_BUTTON_STRIPE;
+extern const std::wstring KEY_UI_STAGE_2_BUTTON_STRIPE;
+extern const wchar_t* UI_STAGE_2_BUTTON_STRIPE;
+extern const std::wstring KEY_UI_STAGE_3_BUTTON_STRIPE;
+extern const wchar_t* UI_STAGE_3_BUTTON_STRIPE;
+extern const std::wstring KEY_UI_STAGE_4_BUTTON_STRIPE;
+extern const wchar_t* UI_STAGE_4_BUTTON_STRIPE;
 
 extern const std::wstring KEY_UI_PLAY_BUTTON_STRIPE;
 extern const wchar_t* DIR_UI_PLAY_BUTTON_STRIPE;
@@ -80,6 +94,19 @@ extern const std::wstring SKIG_BAR_BACKGROUND;
 #pragma region Sound
 extern const std::wstring KEY_SOUND_EXAMPLE;
 extern const std::wstring DIR_SOUND_EXAMPLE;
+extern const std::wstring KEY_SOUND_TITLE_THEME;
+extern const std::wstring DIR_SOUND_TITLE_THEME;
+extern const std::wstring KEY_SOUND_LOBBY_THEME;
+extern const std::wstring DIR_SOUND_LOBBY_THEME;
+
+extern const std::wstring KEY_SOUND_STAGE_1_NORMAL;
+extern const std::wstring DIR_SOUND_STAGE_1_NORMAL;
+extern const std::wstring KEY_SOUND_STAGE_2_NORMAL;
+extern const std::wstring DIR_SOUND_STAGE_2_NORMAL;
+extern const std::wstring KEY_SOUND_STAGE_3_NORMAL;
+extern const std::wstring DIR_SOUND_STAGE_3_NORMAL;
+extern const std::wstring KEY_SOUND_STAGE_4_NORMAL;
+extern const std::wstring DIR_SOUND_STAGE_4_NORMAL;
 #pragma endregion Sound
 
 ///////////////////////
@@ -87,9 +114,15 @@ extern const std::wstring DIR_SOUND_EXAMPLE;
 
 #pragma region Scene
 extern const std::wstring KEY_NONE_SCENE;
-extern const std::wstring KEY_TITLE_SCENE;
-extern const std::wstring KEY_ONGAME_SCENE;
 extern const std::wstring KEY_END_SCENE;
+extern const std::wstring KEY_LOBBY_SCENE;
+extern const std::wstring KEY_ONGAME_SCENE;
+extern const std::wstring KEY_TITLE_SCENE;
+
+extern const std::wstring KEY_STAGE_1_SCENE;
+extern const std::wstring KEY_STAGE_2_SCENE;
+extern const std::wstring KEY_STAGE_3_SCENE;
+extern const std::wstring KEY_STAGE_4_SCENE;
 #pragma endregion Scene
 
 ///////////////////////
@@ -97,6 +130,7 @@ extern const std::wstring KEY_END_SCENE;
 
 #pragma region XmlDocument
 extern const std::wstring XML_DOC_EXAMPLE;
+extern const std::wstring XML_DOC_SAVEDATA;
 #pragma endregion XmlDocument
 
 ///////////////////////

@@ -26,6 +26,7 @@
 
 #include "DesignPattern/FactoryMethodBase/FactoryMethod.h"
 #include "GameNode/MainGame/MainGame.h"
+#include "Manager/GameDataManager/GameDataManager.h"
 #include "Manager/ImageManager/ImageManager.h"
 #include "Manager/JsonManager/JsonManager.h"
 #include "Manager/KeyManager/KeyManager.h"
@@ -58,6 +59,7 @@ using namespace std;
 #define SOUND					SoundManager::GetSingleton()
 #define XML						XmlManager::GetSingleton()
 #define JSON					JsonManager::GetSingleton()
+#define GAMEDATA				GameDataManager::GetSingleton()
 
 #define FACTORY_METHOD_BUTTON	FactoryMethodButton::GetSingleton()
 #define FACTORY_METHOD_BAR		FactoryMethodBar::GetSingleton()

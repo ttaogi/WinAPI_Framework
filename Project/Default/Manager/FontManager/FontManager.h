@@ -5,8 +5,8 @@
 class FontManager : public SingletonBase<FontManager>
 {
 public:
-	FontManager() {};
-	~FontManager() {};
+	FontManager() {}
+	virtual ~FontManager() {}
 
 	void drawText(
 		HDC _hdc, int _destX, int _destY, wchar_t* _fontName,

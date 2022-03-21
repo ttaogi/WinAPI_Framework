@@ -32,6 +32,8 @@ GameObject::~GameObject()
 
 void GameObject::Operation()
 {
+	if (!active) return;
+
 	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
 		if (*iter) (*iter)->Operation();
 
@@ -155,13 +157,41 @@ Component* GameObject::GetComponent(Component_ID _id)
 	return NULL;
 }
 
-void GameObject::CollectCollider(std::vector<Collider*>* _colliderVec)
+void GameObject::CollectCollider(vector<Collider*>* _colliderVec)
 {
+	if (!active) return;
+
 	Collider* collider = GetComponent<Collider>();
 	if (collider) _colliderVec->push_back(collider);
 
 	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
 		(*iter)->CollectCollider(_colliderVec);
 }
+
+void GameObject::OnCollision(Collision _col)
+{
+	if (!active) return;
+
+	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
+	{
+		MonoBehaviour* m = IsDerivedFromMonoBehaviour(*iter);
+		if (m) m->OnCollision(_col);
+	}
+}
+
+void GameObject::CollectRendered(priority_queue<Rendered*, vector<Rendered*>, CmpRenderedPtr>* _queue)
+{
+	if (!active) return;
+
+	for(auto iter = cList.begin(); iter != cList.end(); ++iter)
+	{
+		Rendered* r = IsDerivedFromRendered(*iter);
+		if (r) _queue->push(r);
+	}
+
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
+		(*iter)->CollectRendered(_queue);
+}
+
 
 Component_ID GameObject::GetComponentID() { return id; }

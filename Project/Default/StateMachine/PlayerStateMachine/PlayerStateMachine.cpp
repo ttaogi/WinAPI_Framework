@@ -3,7 +3,7 @@
 #include "PlayerStateMachine.h"
 
 #include "DesignPattern/ComponentBase/Component/Button/Button.h"
-#include "Player/Player.h"
+#include "Script/Player/Player.h"
 #include "Scene/OnGameScene/OnGameScene.h"
 
 PlayerStateMachine::PlayerStateMachine() : StateMachine() { }

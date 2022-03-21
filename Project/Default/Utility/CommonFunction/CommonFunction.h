@@ -2,7 +2,7 @@
 
 class Component;
 class MonoBehaviour;
-class RenderedImage;
+class Rendered;
 
 inline RECT MakeRectCWH(POINT _pos, int _width, int _height)
 {
@@ -17,6 +17,7 @@ inline void PaintRect(HDC _hdc, RECT _rc)
 bool PointEqual(POINT pos1, POINT pos2);
 
 MonoBehaviour* IsDerivedFromMonoBehaviour(Component* _c);
+Rendered* IsDerivedFromRendered(Component* _c);
 
 std::string WcsToMbsKorean(std::wstring const& _wstr);
 std::string WcsToMbsUtf8(std::wstring const& _wstr);

@@ -13,10 +13,10 @@ private:
 	int bgOffsetY;
 public:
 	OnGameScene();
-	~OnGameScene();
+	virtual ~OnGameScene();
 
-	HRESULT Init();
-	void Release();
-	void Update();
-	void Render();
+	virtual HRESULT Init() override;
+	virtual void Release() override;
+	virtual void Update() override;
+	virtual void Render() override;
 };

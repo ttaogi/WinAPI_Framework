@@ -13,6 +13,8 @@ EndScene::~EndScene() { Release(); }
 
 HRESULT EndScene::Init()
 {
+	SOUND->AllStop();
+
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_ENDSCENE);
 	root = NULL;
 
@@ -26,7 +28,7 @@ HRESULT EndScene::Init()
 
 	GameObject* retryBtn = FACTORY_METHOD_BUTTON->CreateObject(
 		BUTTON_FACTORY_TYPE::DEFAULT,
-		std::bind(&SceneManager::SetNextSceneKeyOnGameScene, SCENE),
+		std::bind(&SceneManager::SetNextSceneKeyTitleScene, SCENE),
 		D_POINT{ (double)(WINSIZE_X / 2 + BUTTON_WIDTH + 50), (double)(WINSIZE_Y / 2) },
 		BUTTON_WIDTH, BUTTON_HEIGHT,
 		IMG->FindImage(KEY_UI_RETRY_BUTTON_STRIPE));
@@ -46,7 +48,6 @@ void EndScene::Update() {
 void EndScene::Release()
 {
 	SAFE_DELETE(root);
-	SOUND->AllStop();
 }
 
 void EndScene::Render()
@@ -57,5 +58,8 @@ void EndScene::Render()
 
 	backgroundImage->Render(memDC);
 
-	root->Render(memDC);
+	priority_queue<Rendered*, vector<Rendered*>, CmpRenderedPtr> renderQue;
+
+	root->CollectRendered(&renderQue);
+	ProcessRender(memDC, &renderQue);
 }

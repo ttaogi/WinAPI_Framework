@@ -10,7 +10,7 @@ private:
 	Timer* timer;
 public:
 	TimeManager();
-	~TimeManager();
+	virtual ~TimeManager();
 
 	HRESULT Init();
 	void Release();

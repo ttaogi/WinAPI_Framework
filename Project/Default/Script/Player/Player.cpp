@@ -1,6 +1,6 @@
 #include "Stdafx/stdafx.h"
 
-#include "Player/Player.h"
+#include "Script/Player/Player.h"
 
 #include "DesignPattern/ComponentBase/Component/Rigidbody/Rigidbody.h"
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"

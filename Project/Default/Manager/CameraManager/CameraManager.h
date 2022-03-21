@@ -11,12 +11,12 @@ private:
 	POINT coordinateRevision;
 	D_POINT previousPos;
 public:
+	CameraManager();
+	virtual ~CameraManager();
+
 	HRESULT init(GameObject* _target = NULL);
 	void update();
 	void release();
 
 	POINT getRevision();
-
-	CameraManager();
-	~CameraManager();
 };

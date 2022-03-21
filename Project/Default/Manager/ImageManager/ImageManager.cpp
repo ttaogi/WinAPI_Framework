@@ -48,7 +48,7 @@ Image* ImageManager::AddImage(
 
 	mImageList.insert(pair<wstring, Image*>(_strKey, img));
 
-	return nullptr;
+	return img;
 }
 
 Image* ImageManager::AddImage(
@@ -69,7 +69,7 @@ Image* ImageManager::AddImage(
 
 	mImageList.insert(pair<wstring, Image*>(_strKey, img));
 
-	return nullptr;
+	return img;
 }
 
 Image* ImageManager::AddFrameImage(
@@ -91,7 +91,7 @@ Image* ImageManager::AddFrameImage(
 
 	mImageList.insert(pair<wstring, Image*>(_strKey, img));
 
-	return nullptr;
+	return img;
 }
 
 Image* ImageManager::AddFrameImage(
@@ -114,7 +114,7 @@ Image* ImageManager::AddFrameImage(
 
 	mImageList.insert(pair<wstring, Image*>(_strKey, img));
 
-	return nullptr;
+	return img;
 }
 
 Image* ImageManager::FindImage(std::wstring _strKey)

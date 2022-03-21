@@ -14,9 +14,9 @@ protected:
 public:
 	FactoryMethodButton();
 
-	GameObject* CreateObject(BUTTON_FACTORY_TYPE _type,
+	virtual GameObject* CreateObject(BUTTON_FACTORY_TYPE _type,
 		std::function<void()> _callBack_v_CB_v, D_POINT _pos,
-		int _rectWidth, int _rectHeight, Image* _image, std::wstring _str = L"");
+		int _rectWidth, int _rectHeight, Image* _image, std::wstring _str = L"") override;
 };
 #pragma endregion FactoryMethodButton
 
@@ -31,9 +31,9 @@ protected:
 public:
 	FactoryMethodBar();
 
-	GameObject* CreateObject(BAR_FACTORY_TYPE _type,
+	virtual GameObject* CreateObject(BAR_FACTORY_TYPE _type,
 		std::function<void()> _callBack_v_CB_v, D_POINT _pos,
-		int _rectWidth, int _rectHeight, int _margin, double _rate);
+		int _rectWidth, int _rectHeight, int _margin, double _rate) override;
 };
 #pragma endregion FactoryMethodBar
 
@@ -48,8 +48,8 @@ protected:
 public:
 	FactoryMethodPlayer();
 
-	GameObject* CreateObject(PLAYER_FACTORY_TYPE _type,
-		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe);
+	virtual GameObject* CreateObject(PLAYER_FACTORY_TYPE _type,
+		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe) override;
 };
 #pragma endregion FactoryMethodPlayer
 
@@ -64,7 +64,7 @@ protected:
 public:
 	FactoryMethodPlatform();
 
-	GameObject* CreateObject(PLATFORM_FACTORY_TYPE _type,
-		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe);
+	virtual GameObject* CreateObject(PLATFORM_FACTORY_TYPE _type,
+		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe) override;
 };
 #pragma endregion FactoryMethodPlatform

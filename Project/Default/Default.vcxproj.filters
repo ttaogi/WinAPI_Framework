@@ -55,9 +55,6 @@
     <Filter Include="API_Framework\Utility\CommonClasses">
       <UniqueIdentifier>{9fa3fc46-4f5a-4a81-9bfb-160013ccb383}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\Player">
-      <UniqueIdentifier>{130f0845-1c04-4e90-ab01-c310aa0f2b89}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API_Framework\Manager\TimeManager">
       <UniqueIdentifier>{d379916a-ec57-4029-8520-e75548d5a0d6}</UniqueIdentifier>
     </Filter>
@@ -151,6 +148,30 @@
     <Filter Include="API_Framework\Manager\CameraManager">
       <UniqueIdentifier>{82863b2a-bd1c-4f5d-b77f-2b3c43c5d13f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\Script">
+      <UniqueIdentifier>{26248d9c-d1fa-4381-ae8e-07f8269a2db6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Script\Player">
+      <UniqueIdentifier>{130f0845-1c04-4e90-ab01-c310aa0f2b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\LobbyScene">
+      <UniqueIdentifier>{4209607e-760e-48ed-a917-f27ff0b00747}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\GameDataManager">
+      <UniqueIdentifier>{eb1703ba-5267-4b52-a76e-1d97aedd0ba2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\Stage1Scene">
+      <UniqueIdentifier>{a2c95b7a-0727-473b-8208-2a91dfd1572f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\Stage2Scene">
+      <UniqueIdentifier>{41df9209-8d14-455a-a3b6-342f7e5b978b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\Stage3Scene">
+      <UniqueIdentifier>{cdf2c294-0b61-400f-9b32-edd65f432bfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\Stage4Scene">
+      <UniqueIdentifier>{f28dd6dc-9fc5-4401-b4b3-648896dba550}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -186,9 +207,6 @@
     </ClCompile>
     <ClCompile Include="Utility\CommonClasses\CommonClasses.cpp">
       <Filter>API_Framework\Utility\CommonClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="Player\Player.cpp">
-      <Filter>API_Framework\Player</Filter>
     </ClCompile>
     <ClCompile Include="DesignPattern\ComponentBase\Component\Behaviour\MonoBehaviour\MonoBehaviour.cpp">
       <Filter>API_Framework\DesignPattern\ComponentBase\Component\Behaviour\MonoBehaviour</Filter>
@@ -289,6 +307,27 @@
     <ClCompile Include="Manager\CameraManager\CameraManager.cpp">
       <Filter>API_Framework\Manager\CameraManager</Filter>
     </ClCompile>
+    <ClCompile Include="Script\Player\Player.cpp">
+      <Filter>API_Framework\Script\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\LobbyScene\LobbyScene.cpp">
+      <Filter>API_Framework\Scene\LobbyScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\GameDataManager\GameDataManager.cpp">
+      <Filter>API_Framework\Manager\GameDataManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Stage1Scene\Stage1Scene.cpp">
+      <Filter>API_Framework\Scene\Stage1Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Stage2Scene\Stage2Scene.cpp">
+      <Filter>API_Framework\Scene\Stage2Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Stage3Scene\Stage3Scene.cpp">
+      <Filter>API_Framework\Scene\Stage3Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Stage4Scene\Stage4Scene.cpp">
+      <Filter>API_Framework\Scene\Stage4Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DesignPattern\SingletonBase\SingletonBase.h">
@@ -329,9 +368,6 @@
     </ClInclude>
     <ClInclude Include="Utility\CommonClasses\CommonClasses.h">
       <Filter>API_Framework\Utility\CommonClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="Player\Player.h">
-      <Filter>API_Framework\Player</Filter>
     </ClInclude>
     <ClInclude Include="DesignPattern\ComponentBase\Component\Behaviour\MonoBehaviour\MonoBehaviour.h">
       <Filter>API_Framework\DesignPattern\ComponentBase\Component\Behaviour\MonoBehaviour</Filter>
@@ -435,5 +471,29 @@
     <ClInclude Include="Manager\CameraManager\CameraManager.h">
       <Filter>API_Framework\Manager\CameraManager</Filter>
     </ClInclude>
+    <ClInclude Include="Script\Player\Player.h">
+      <Filter>API_Framework\Script\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\LobbyScene\LobbyScene.h">
+      <Filter>API_Framework\Scene\LobbyScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\GameDataManager\GameDataManager.h">
+      <Filter>API_Framework\Manager\GameDataManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Stage1Scene\Stage1Scene.h">
+      <Filter>API_Framework\Scene\Stage1Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Stage2Scene\Stage2Scene.h">
+      <Filter>API_Framework\Scene\Stage2Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Stage3Scene\Stage3Scene.h">
+      <Filter>API_Framework\Scene\Stage3Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Stage4Scene\Stage4Scene.h">
+      <Filter>API_Framework\Scene\Stage4Scene</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

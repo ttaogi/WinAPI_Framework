@@ -16,7 +16,7 @@ private:
 	std::map<std::wstring, Scene*> loadingSceneMap;
 public:
 	SceneManager() { }
-	~SceneManager() { }
+	virtual ~SceneManager() { }
 
 	HRESULT Init();
 	void Release();
@@ -24,9 +24,14 @@ public:
 	void Render();
 
 	void SetNextSceneKey(std::wstring _nextSceneKey);
-	void SetNextSceneKeyTitleScene();
-	void SetNextSceneKeyOnGameScene();
 	void SetNextSceneKeyEndScene();
+	void SetNextSceneKeyLobbyScene();
+	void SetNextSceneKeyOnGameScene();
+	void SetNextSceneKeyStage1Scene();
+	void SetNextSceneKeyStage2Scene();
+	void SetNextSceneKeyStage3Scene();
+	void SetNextSceneKeyStage4Scene();
+	void SetNextSceneKeyTitleScene();
 
 	Scene* AddScene(std::wstring _sceneName, Scene* _scene);
 	Scene* AddLoadingScene(std::wstring _loadingSceneName, Scene* _scene);

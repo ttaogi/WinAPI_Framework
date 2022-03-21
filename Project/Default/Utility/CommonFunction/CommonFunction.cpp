@@ -6,10 +6,16 @@
 #include <locale>
 
 #include "DesignPattern/ComponentBase/Component/Behaviour/MonoBehaviour/MonoBehaviour.h"
+#include "DesignPattern/ComponentBase/Component/Rendered/Rendered.h"
 
 MonoBehaviour* IsDerivedFromMonoBehaviour(Component* _c)
 {
 	return dynamic_cast<MonoBehaviour*>(_c);
+}
+
+Rendered* IsDerivedFromRendered(Component * _c)
+{
+	return dynamic_cast<Rendered*>(_c);
 }
 
 // unicode to ansi.

@@ -13,19 +13,21 @@ TitleScene::~TitleScene() { }
 
 HRESULT TitleScene::Init()
 {
+	SOUND->AllStop();
+
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_TITLESCENE);
 	root = NULL;
 
 	GameObject* gameStartBtn = FACTORY_METHOD_BUTTON->CreateObject(
 		BUTTON_FACTORY_TYPE::DEFAULT,
-		std::bind(&SceneManager::SetNextSceneKeyOnGameScene, SCENE),
-		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
+		std::bind(&SceneManager::SetNextSceneKeyLobbyScene, SCENE),
+		D_POINT{ WINSIZE_X / 2, WINSIZE_Y * 3 / 4 }, 400, 50,
 		IMG->FindImage(KEY_UI_START_BUTTON_STRIPE));
 
 	root = new GameObject();
 	root->AddGameObject(gameStartBtn);
 
-	SOUND->Play(KEY_SOUND_EXAMPLE, DEFAULT_SOUND_VOLUME);
+	SOUND->Play(KEY_SOUND_TITLE_THEME, GAMEDATA->GetVolume());
 
 	return S_OK;
 }
@@ -46,7 +48,6 @@ void TitleScene::Update()
 void TitleScene::Release()
 {
 	SAFE_DELETE(root);
-	SOUND->AllStop();
 }
 
 void TitleScene::Render()
@@ -57,5 +58,8 @@ void TitleScene::Render()
 
 	backgroundImage->Render(memDC);
 
-	root->Render(memDC);
+	priority_queue<Rendered*, vector<Rendered*>, CmpRenderedPtr> renderQue;
+
+	root->CollectRendered(&renderQue);
+	ProcessRender(memDC, &renderQue);
 }

@@ -7,10 +7,10 @@ class EndScene : public Scene
 private:
 public:
 	EndScene();
-	~EndScene();
+	virtual ~EndScene();
 
-	HRESULT Init();
-	void Update();
-	void Release();
-	void Render();
+	virtual HRESULT Init() override;
+	virtual void Update() override;
+	virtual void Release() override;
+	virtual void Render() override;
 };

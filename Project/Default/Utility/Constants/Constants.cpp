@@ -12,6 +12,10 @@ const std::wstring KEY_BACKGROUND_ENDSCENE =
 	L"BACKGROUND_ENDSCENE";
 const wchar_t* BACKGROUND_ENDSCENE =
 	L"Resources/Images/BackGround/BackgroundEndScene.bmp";
+const std::wstring KEY_BACKGROUND_LOBBYSCENE =
+	L"BACKGROUND_LOBBYSCENE";
+const wchar_t* BACKGROUND_LOBBYSCENE =
+	L"Resources/Images/BackGround/BackgroundLobbyScene.bmp";
 const std::wstring KEY_BACKGROUND_ONGAMESCENE =
 	L"BACKGROUND_ONGAMESCENE";
 const wchar_t* BACKGROUND_ONGAMESCENE =
@@ -20,6 +24,11 @@ const std::wstring KEY_BACKGROUND_TITLESCENE =
 	L"BACKGROUND_TITLESCENE";
 const wchar_t* BACKGROUND_TITLESCENE =
 	L"Resources/Images/BackGround/BackgroundTitleScene.bmp";
+
+const std::wstring KEY_BACKGROUND_STAGE_1 =
+	L"BACKGROUND_STAGE_1";
+const wchar_t* BACKGROUND_STAGE_1 =
+	L"Resources/Images/BackGround/BackgroundStage1.bmp";
 #pragma endregion Background
 
 
@@ -35,7 +44,24 @@ const wchar_t* UI_RETRY_BUTTON_STRIPE =
 const std::wstring KEY_UI_START_BUTTON_STRIPE =
 	L"UI_START_BUTTON_STRIPE";
 const wchar_t* UI_START_BUTTON_STRIPE =
-	L"Resources/Images/UI/Button/StartBUtton.bmp";
+	L"Resources/Images/UI/Button/StartButton.bmp";
+
+const std::wstring KEY_UI_STAGE_1_BUTTON_STRIPE =
+	L"UI_STAGE_1_BUTTON_STRIPE";
+const wchar_t* UI_STAGE_1_BUTTON_STRIPE =
+	L"Resources/Images/UI/Button/Stage1Button.bmp";
+const std::wstring KEY_UI_STAGE_2_BUTTON_STRIPE =
+	L"UI_STAGE_2_BUTTON_STRIPE";
+const wchar_t* UI_STAGE_2_BUTTON_STRIPE =
+	L"Resources/Images/UI/Button/Stage2Button.bmp";
+const std::wstring KEY_UI_STAGE_3_BUTTON_STRIPE =
+	L"UI_STAGE_3_BUTTON_STRIPE";
+const wchar_t* UI_STAGE_3_BUTTON_STRIPE =
+	L"Resources/Images/UI/Button/Stage3Button.bmp";
+const std::wstring KEY_UI_STAGE_4_BUTTON_STRIPE =
+	L"UI_STAGE_4_BUTTON_STRIPE";
+const wchar_t* UI_STAGE_4_BUTTON_STRIPE =
+	L"Resources/Images/UI/Button/Stage4Button.bmp";
 
 const std::wstring KEY_UI_PLAY_BUTTON_STRIPE =
 	L"UI_PLAY_BUTTON_STRIPE";
@@ -105,9 +131,9 @@ const std::wstring NAME_PLAY_BAR = 		L"PLAY_BAR";
 
 #pragma region Search_Keyword_In_GameObject
 extern const std::wstring SKIG_BAR_GUAGE =
-L"BAR_GUAGE";
+	L"BAR_GUAGE";
 extern const std::wstring SKIG_BAR_BACKGROUND =
-L"BAR_BACKGROUND";
+	L"BAR_BACKGROUND";
 #pragma endregion Search_Keyword_In_GameObject
 
 ///////////////////////
@@ -118,6 +144,31 @@ const std::wstring KEY_SOUND_EXAMPLE =
 	L"SOUND_EXAMPLE";
 const std::wstring DIR_SOUND_EXAMPLE =
 	L"Resources/Sounds/SOUND_EX_¸ð»öÃ¢¿¬(ÙºßäóïæÔ).mp3";
+const std::wstring KEY_SOUND_TITLE_THEME =
+	L"SOUND_TITLE_THEME";
+const std::wstring DIR_SOUND_TITLE_THEME =
+	L"Resources/Sounds/Title/Blue Archive OST 90 Eden treaty BGM1.mp3";
+const std::wstring KEY_SOUND_LOBBY_THEME =
+	L"SOUND_LOBBY_THEME";
+const std::wstring DIR_SOUND_LOBBY_THEME =
+	L"Resources/Sounds/ETC/Blue Archive OST 32 GGF.mp3";
+
+const std::wstring KEY_SOUND_STAGE_1_NORMAL =
+	L"SOUND_STAGE_1_NORMAL";
+const std::wstring DIR_SOUND_STAGE_1_NORMAL =
+	L"Resources/Sounds/Battle/Blue Archive OST 19 Virtual Storm.mp3";
+const std::wstring KEY_SOUND_STAGE_2_NORMAL =
+	L"SOUND_STAGE_2_NORMAL";
+const std::wstring DIR_SOUND_STAGE_2_NORMAL =
+	L"Resources/Sounds/Battle/Blue Archive OST 20 Tech N Tech.mp3";
+const std::wstring KEY_SOUND_STAGE_3_NORMAL =
+	L"SOUND_STAGE_3_NORMAL";
+const std::wstring DIR_SOUND_STAGE_3_NORMAL =
+	L"Resources/Sounds/Battle/Blue Archive OST 69 Snow Pantomime.mp3";
+const std::wstring KEY_SOUND_STAGE_4_NORMAL =
+	L"SOUND_STAGE_4_NORMAL";
+const std::wstring DIR_SOUND_STAGE_4_NORMAL =
+	L"Resources/Sounds/Battle/Blue Archive OST 24 Endless Carnival.mp3";
 #pragma endregion Sound
 
 ///////////////////////
@@ -126,12 +177,23 @@ const std::wstring DIR_SOUND_EXAMPLE =
 #pragma region Scene
 const std::wstring KEY_NONE_SCENE =
 	L"NONE_SCENE";
-const std::wstring KEY_TITLE_SCENE =
-	L"TITLE_SCENE";
-const std::wstring KEY_ONGAME_SCENE =
-	L"ONGAME_SCENE";
 const std::wstring KEY_END_SCENE =
 	L"END_SCENE";
+const std::wstring KEY_LOBBY_SCENE =
+	L"LOBBY_SCENE";
+const std::wstring KEY_ONGAME_SCENE =
+	L"ONGAME_SCENE";
+const std::wstring KEY_TITLE_SCENE =
+	L"TITLE_SCENE";
+
+const std::wstring KEY_STAGE_1_SCENE =
+	L"STAGE_1_SCENE";
+const std::wstring KEY_STAGE_2_SCENE =
+	L"STAGE_2_SCENE";
+const std::wstring KEY_STAGE_3_SCENE =
+	L"STAGE_3_SCENE";
+const std::wstring KEY_STAGE_4_SCENE =
+	L"STAGE_4_SCENE";
 #pragma endregion Scene
 
 ///////////////////////
@@ -140,6 +202,8 @@ const std::wstring KEY_END_SCENE =
 #pragma region XmlDocument
 const std::wstring XML_DOC_EXAMPLE =
 	L"example document.txt";
+const std::wstring XML_DOC_SAVEDATA =
+	L"../save.dat";
 #pragma endregion XmlDocument
 
 ///////////////////////

@@ -2,14 +2,15 @@
 
 #include "Scene/Scene.h"
 
-class TitleScene : public Scene {
+class TitleScene : public Scene
+{
 private:
 public:
 	TitleScene();
-	~TitleScene();
+	virtual ~TitleScene();
 
-	HRESULT Init();
-	void Release();
-	void Update();
-	void Render();
+	virtual HRESULT Init() override;
+	virtual void Release() override;
+	virtual void Update() override;
+	virtual void Render() override;
 };

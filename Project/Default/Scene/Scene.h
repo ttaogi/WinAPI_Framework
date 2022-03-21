@@ -1,6 +1,12 @@
 #pragma once
 
+#include <functional>
+#include <queue>
+
 #include "DesignPattern/ComponentBase/Component/Collider/Collider.h"
+#include "DesignPattern/ComponentBase/Component/Rendered/Rendered.h"
+#include "DesignPattern/ComponentBase/GameObject/GameObject.h"
+#include "Image/Image.h"
 #include "Utility/Enums/Enums.h"
 
 class GameObject;
@@ -15,7 +21,7 @@ protected:
 	GameObject* root;
 public:
 	Scene() { }
-	~Scene() { }
+	virtual ~Scene() { }
 
 	virtual HRESULT Init() = 0;
 	virtual void Release() = 0;
@@ -23,4 +29,5 @@ public:
 	virtual void Render() = 0;
 
 	static void ProcessCollision(std::vector<Collision>* _collisionVec);
+	static void ProcessRender(HDC _hdc, priority_queue<Rendered*, vector<Rendered*>, CmpRenderedPtr>* _queue);
 };

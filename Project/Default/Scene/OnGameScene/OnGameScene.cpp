@@ -2,11 +2,6 @@
 
 #include "OnGameScene.h"
 
-#include <functional>
-
-#include "DesignPattern/ComponentBase/GameObject/GameObject.h"
-#include "Image/Image.h"
-
 const static std::wstring NOTICE = L"Press Q to quit.";
 
 OnGameScene::OnGameScene() { }
@@ -15,6 +10,8 @@ OnGameScene::~OnGameScene() { }
 
 HRESULT OnGameScene::Init()
 {
+	SOUND->AllStop();
+
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_ONGAMESCENE);
 	root = NULL;
 
@@ -72,8 +69,8 @@ void OnGameScene::Update()
 	root->CollectCollider(&colliderVec);
 	vector<Collision> collisionVec;
 	collisionVec.clear();
-	for (int i = 0; i < colliderVec.size() - 1; ++i)
-		for (int j = i + 1; j < colliderVec.size(); ++j)
+	for (int i = 0; i < (int)colliderVec.size() - 1; ++i)
+		for (int j = i + 1; j < (int)colliderVec.size(); ++j)
 			colliderVec[i]->CheckCollision(&collisionVec, colliderVec[j]);
 
 	ProcessCollision(&collisionVec);
@@ -88,7 +85,6 @@ void OnGameScene::Update()
 void OnGameScene::Release()
 {
 	SAFE_DELETE(root);
-	SOUND->AllStop();
 }
 
 void OnGameScene::Render()
@@ -100,5 +96,8 @@ void OnGameScene::Render()
 	RECT tmp{ 0, 0, WINSIZE_X, WINSIZE_Y };
 	backgroundImage->LoopAlphaRender(memDC, &tmp, bgOffsetX, bgOffsetY, alpha);
 
-	root->Render(memDC);
+	priority_queue<Rendered*, vector<Rendered*>, CmpRenderedPtr> renderQue;
+
+	root->CollectRendered(&renderQue);
+	ProcessRender(memDC, &renderQue);
 }
