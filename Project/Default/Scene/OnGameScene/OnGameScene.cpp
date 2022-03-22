@@ -19,19 +19,19 @@ HRESULT OnGameScene::Init()
 		BUTTON_FACTORY_TYPE::DEFAULT,
 		std::bind(&SceneManager::SetNextSceneKeyEndScene, SCENE),
 		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
-		IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_QUIT_BUTTON_SPRITE));
 	quitBtn->SetName(NAME_QUIT_BUTTON);
 	quitBtn->SetActive(false);
 
 	GameObject* player = FACTORY_METHOD_PLAYER->CreateObject(
 		PLAYER_FACTORY_TYPE::DEFAULT,
 		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, 80, 80,
-		IMG->FindImage(KEY_PLAYER_TEMP_STRIPE));
+		IMG->FindImage(KEY_PLAYER_TEMP_SPRITE));
 
 	GameObject* platform01 = FACTORY_METHOD_PLATFORM->CreateObject(
 		PLATFORM_FACTORY_TYPE::DEFAULT,
 		D_POINT{ WINSIZE_X / 2, WINSIZE_Y * 3 / 4 }, 800, 20,
-		IMG->FindImage(KEY_PLATFORM_DEFAULT_STRIPE));
+		IMG->FindImage(KEY_PLATFORM_DEFAULT_SPRITE));
 
 	root = new GameObject();
 	root->AddGameObject(quitBtn);

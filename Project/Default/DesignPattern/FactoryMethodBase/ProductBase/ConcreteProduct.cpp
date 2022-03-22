@@ -57,7 +57,7 @@ GameObject* FactoryDefaultBar::CreateObject(
 	RectTransform* backRcT = new RectTransform();
 	backRcT->SetRect(_rectWidth - 2 * _margin, _rectHeight - 2 * _margin);
 	RenderedImage* backRImg = new RenderedImage();
-	backRImg->SetImage(IMG->FindImage(KEY_UI_BAR_BACKGROUND_STRIPE));
+	backRImg->SetImage(IMG->FindImage(KEY_UI_BAR_BACKGROUND_SPRITE));
 	backRImg->SetSortingLayer(SORTING_LAYER::UI);
 	backRImg->SetOrderInLayer(uiCount++);
 	background->AddComponent(backRcT);
@@ -68,7 +68,7 @@ GameObject* FactoryDefaultBar::CreateObject(
 	RectTransform* guageRcT = new RectTransform();
 	guageRcT->SetRect(_rectWidth - 2 * _margin, _rectHeight - 2 * _margin);
 	RenderedImage* guageRImg = new RenderedImage();
-	guageRImg->SetImage(IMG->FindImage(KEY_UI_BAR_GUAGE_STRIPE));
+	guageRImg->SetImage(IMG->FindImage(KEY_UI_BAR_GUAGE_SPRITE));
 	guageRImg->SetSortingLayer(SORTING_LAYER::UI);
 	guageRImg->SetOrderInLayer(uiCount++);
 	guage->AddComponent(guageRcT);
@@ -97,7 +97,7 @@ GameObject* FactoryDefaultBar::CreateObject(
 
 
 #pragma region ProductBasePlayer
-GameObject* FactoryDefaultPlayer::CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe)
+GameObject* FactoryDefaultPlayer::CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite)
 {
 	GameObject* go = new GameObject();
 
@@ -108,7 +108,7 @@ GameObject* FactoryDefaultPlayer::CreateObject(D_POINT _pos, int _rectWidth, int
 	rcT->SetRect(_rectWidth, _rectHeight);
 
 	RenderedImage* rImg = new RenderedImage();
-	rImg->SetImage(_stripe);
+	rImg->SetImage(_sprite);
 	rImg->SetSortingLayer(SORTING_LAYER::PLAYER);
 	rImg->SetOrderInLayer(0);
 
@@ -130,7 +130,7 @@ GameObject* FactoryDefaultPlayer::CreateObject(D_POINT _pos, int _rectWidth, int
 
 
 #pragma region ProductBasePlatform
-GameObject* FactoryDefaultPlatform::CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe)
+GameObject* FactoryDefaultPlatform::CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite)
 {
 	GameObject* go = new GameObject();
 
@@ -139,7 +139,7 @@ GameObject* FactoryDefaultPlatform::CreateObject(D_POINT _pos, int _rectWidth, i
 
 	RenderedImage* rImg = new RenderedImage();
 	rImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::LOOP);
-	rImg->SetImage(_stripe);
+	rImg->SetImage(_sprite);
 	rImg->SetSortingLayer(SORTING_LAYER::PLATFORM);
 	rImg->SetOrderInLayer(platformCount++);
 

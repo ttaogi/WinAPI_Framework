@@ -14,9 +14,9 @@ public:
 	CameraManager();
 	virtual ~CameraManager();
 
-	HRESULT init(GameObject* _target = NULL);
-	void update();
-	void release();
+	HRESULT Init(GameObject* _target = NULL);
+	void Update();
+	void Release();
 
-	POINT getRevision();
+	POINT GetRevision();
 };

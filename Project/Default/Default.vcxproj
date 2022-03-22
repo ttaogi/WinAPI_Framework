@@ -44,6 +44,7 @@
     <ClCompile Include="Manager\ImageManager\ImageManager.cpp" />
     <ClCompile Include="Manager\JsonManager\JsonManager.cpp" />
     <ClCompile Include="Manager\KeyManager\KeyManager.cpp" />
+    <ClCompile Include="Manager\MapDataManager\MapDataManager.cpp" />
     <ClCompile Include="Manager\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Manager\XmlManager\XmlManager.cpp" />
     <ClCompile Include="Manager\XmlManager\TinyXml\tinystr.cpp">
@@ -103,6 +104,7 @@
     <ClInclude Include="Manager\CameraManager\CameraManager.h" />
     <ClInclude Include="Manager\GameDataManager\GameDataManager.h" />
     <ClInclude Include="Manager\JsonManager\JsonManager.h" />
+    <ClInclude Include="Manager\MapDataManager\MapDataManager.h" />
     <ClInclude Include="Manager\SceneManager\SceneManager.h" />
     <ClInclude Include="Manager\XmlManager\XmlManager.h" />
     <ClInclude Include="Manager\SoundManager\SoundManager.h" />

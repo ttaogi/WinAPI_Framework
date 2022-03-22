@@ -23,7 +23,7 @@ HRESULT EndScene::Init()
 		std::bind(&MainGame::QuitGame, MAIN_GAME),
 		D_POINT{ (double)(WINSIZE_X / 2 - BUTTON_WIDTH - 50), (double)(WINSIZE_Y / 2) },
 		BUTTON_WIDTH, BUTTON_HEIGHT,
-		IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_QUIT_BUTTON_SPRITE));
 	quitBtn->SetName(NAME_QUIT_BUTTON);
 
 	GameObject* retryBtn = FACTORY_METHOD_BUTTON->CreateObject(
@@ -31,7 +31,7 @@ HRESULT EndScene::Init()
 		std::bind(&SceneManager::SetNextSceneKeyTitleScene, SCENE),
 		D_POINT{ (double)(WINSIZE_X / 2 + BUTTON_WIDTH + 50), (double)(WINSIZE_Y / 2) },
 		BUTTON_WIDTH, BUTTON_HEIGHT,
-		IMG->FindImage(KEY_UI_RETRY_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_RETRY_BUTTON_SPRITE));
 	retryBtn->SetName(NAME_RETRY_BUTTON);
 
 	root = new GameObject();

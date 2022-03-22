@@ -17,14 +17,25 @@ HRESULT Stage1Scene::Init()
 		BUTTON_FACTORY_TYPE::DEFAULT,
 		std::bind(&SceneManager::SetNextSceneKeyEndScene, SCENE),
 		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
-		IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_QUIT_BUTTON_SPRITE));
 	quitBtn->SetName(NAME_QUIT_BUTTON);
 	quitBtn->SetActive(false);
 
+	GameObject* player = FACTORY_METHOD_PLAYER->CreateObject(
+		PLAYER_FACTORY_TYPE::DEFAULT,
+		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, 80, 80,
+		IMG->FindImage(KEY_PLAYER_TEMP_SPRITE));
+
+	MAPDATA->GetMapData(XML_DOC_STAGE_1, mapData);
+
 	root = new GameObject();
 	root->AddGameObject(quitBtn);
+	root->AddGameObject(player);
 
-	SOUND->Play(KEY_SOUND_STAGE_1_NORMAL, GAMEDATA->GetVolume());
+	for (auto iter = mapData.goVec.begin(); iter != mapData.goVec.end(); ++iter)
+		root->AddGameObject(*iter);
+
+	SOUND->Play(mapData.normalBgmKey, GAMEDATA->GetVolume());
 
 	return S_OK;
 }

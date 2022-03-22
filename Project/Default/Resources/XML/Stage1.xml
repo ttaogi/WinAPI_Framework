@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROOT>
+    <platform size="6">
+        <!-- wall -->
+        <p_0 type="0" x="960" y="650" width="1920" height="20" sprite="KEY_PLATFORM_DEFAULT_SPRITE" />
+        <p_1 type="0" x="960" y="-10" width="1920" height="20" sprite="KEY_PLATFORM_DEFAULT_SPRITE" />
+        <p_2 type="0" x="-40" y="320" width="80" height="680" sprite="KEY_PLATFORM_DEFAULT_SPRITE" />
+        <p_3 type="0" x="1960" y="320" width="80" height="680" sprite="KEY_PLATFORM_DEFAULT_SPRITE" />
+        <!-- platform -->
+        <p_4 type="0" x="200" y="490" width="80" height="20" sprite="KEY_PLATFORM_DEFAULT_SPRITE" />
+        <p_5 type="0" x="360" y="490" width="80" height="20" sprite="KEY_PLATFORM_DEFAULT_SPRITE" />
+    </platform>
+    <object size="0">
+        <o_0 type="0" x="280" y="40" />
+    </object>
+    <enemy size="0">
+        <e_0 type="0" x="440" y="40" />
+    </enemy>
+    <boss type="0" x="0" y="0" />
+    <bgm>
+        <normal key="SOUND_STAGE_1_NORMAL" />
+        <boss key="SOUND_STAGE_1_NORMAL" />
+    </bgm>
+</ROOT>

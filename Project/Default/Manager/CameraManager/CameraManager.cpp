@@ -4,7 +4,7 @@
 
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
 
-HRESULT CameraManager::init(GameObject* _target)
+HRESULT CameraManager::Init(GameObject* _target)
 {
 	target = _target;
 
@@ -23,7 +23,7 @@ HRESULT CameraManager::init(GameObject* _target)
 	return S_OK;
 }
 
-void CameraManager::update()
+void CameraManager::Update()
 {
 	if (target)
 	{
@@ -40,9 +40,9 @@ void CameraManager::update()
 		coordinateRevision = POINT{ 0, 0 };
 }
 
-void CameraManager::release() { }
+void CameraManager::Release() { target = NULL; }
 
-POINT CameraManager::getRevision() { return coordinateRevision; }
+POINT CameraManager::GetRevision() { return coordinateRevision; }
 
 CameraManager::CameraManager()
 {
@@ -51,4 +51,4 @@ CameraManager::CameraManager()
 	previousPos = D_POINT{ 0, 0 };
 }
 
-CameraManager::~CameraManager() { release(); }
+CameraManager::~CameraManager() { Release(); }

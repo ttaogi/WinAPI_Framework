@@ -35,7 +35,7 @@ public:
 class ProductBasePlayer
 {
 public:
-	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe) = 0;
+	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) = 0;
 };
 #pragma endregion ProductBasePlayer
 
@@ -44,6 +44,6 @@ public:
 class ProductBasePlatform
 {
 public:
-	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe) = 0;
+	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) = 0;
 };
 #pragma endregion ProductBasePlatform

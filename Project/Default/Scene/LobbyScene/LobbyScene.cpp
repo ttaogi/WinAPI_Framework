@@ -23,7 +23,7 @@ HRESULT LobbyScene::Init()
 		BUTTON_FACTORY_TYPE::DEFAULT,
 		std::bind(&SceneManager::SetNextSceneKeyEndScene, SCENE),
 		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
-		IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_QUIT_BUTTON_SPRITE));
 	quitBtn->SetName(NAME_QUIT_BUTTON);
 	quitBtn->SetActive(false);
 
@@ -32,14 +32,14 @@ HRESULT LobbyScene::Init()
 		BUTTON_FACTORY_TYPE::DEFAULT,
 		std::bind(&SceneManager::SetNextSceneKeyStage1Scene, SCENE),
 		D_POINT{ 121 + 207, 120 + 77 }, 415, 155,
-		IMG->FindImage(KEY_UI_STAGE_1_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_STAGE_1_BUTTON_SPRITE));
 	stage1btn->SetName(stage1BtnName);
 
 	GameObject* stage2btn = FACTORY_METHOD_BUTTON->CreateObject(
 		BUTTON_FACTORY_TYPE::DEFAULT,
 		std::bind(&SceneManager::SetNextSceneKeyStage2Scene, SCENE),
 		D_POINT{ 743 + 207, 120 + 77 }, 415, 155,
-		IMG->FindImage(KEY_UI_STAGE_2_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_STAGE_2_BUTTON_SPRITE));
 	stage2btn->SetName(stage2BtnName);
 	if (!GAMEDATA->GetStage1Clear())
 		stage2btn->GetComponent<Button>()->SetEnabled(false);
@@ -48,7 +48,7 @@ HRESULT LobbyScene::Init()
 		BUTTON_FACTORY_TYPE::DEFAULT,
 		std::bind(&SceneManager::SetNextSceneKeyStage3Scene, SCENE),
 		D_POINT{ 121 + 207, 422 + 77 }, 415, 155,
-		IMG->FindImage(KEY_UI_STAGE_3_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_STAGE_3_BUTTON_SPRITE));
 	stage3btn->SetName(stage3BtnName);
 	if (!GAMEDATA->GetStage2Clear())
 		stage3btn->GetComponent<Button>()->SetEnabled(false);
@@ -57,7 +57,7 @@ HRESULT LobbyScene::Init()
 		BUTTON_FACTORY_TYPE::DEFAULT,
 		std::bind(&SceneManager::SetNextSceneKeyStage4Scene, SCENE),
 		D_POINT{ 743 + 207, 422 + 77 }, 415, 155,
-		IMG->FindImage(KEY_UI_STAGE_4_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_STAGE_4_BUTTON_SPRITE));
 	stage4btn->SetName(stage4BtnName);
 	if (!GAMEDATA->GetStage3Clear())
 		stage4btn->GetComponent<Button>()->SetEnabled(false);

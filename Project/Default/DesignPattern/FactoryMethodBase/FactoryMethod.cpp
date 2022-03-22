@@ -75,14 +75,14 @@ FactoryMethodPlayer::~FactoryMethodPlayer()
 	SAFE_DELETE(defaultPlayer);
 }
 
-GameObject* FactoryMethodPlayer::CreateObject(PLAYER_FACTORY_TYPE _type, D_POINT _pos, int _rectWidth, int _rectHeight, Image * _stripe)
+GameObject* FactoryMethodPlayer::CreateObject(PLAYER_FACTORY_TYPE _type, D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite)
 {
 	GameObject* go = NULL;
 
 	switch (_type)
 	{
 	case PLAYER_FACTORY_TYPE::DEFAULT:
-		go = defaultPlayer->CreateObject(_pos, _rectWidth, _rectHeight, _stripe);
+		go = defaultPlayer->CreateObject(_pos, _rectWidth, _rectHeight, _sprite);
 		break;
 	}
 
@@ -102,14 +102,14 @@ FactoryMethodPlatform::~FactoryMethodPlatform()
 	SAFE_DELETE(defaultPlatform);
 }
 
-GameObject* FactoryMethodPlatform::CreateObject(PLATFORM_FACTORY_TYPE _type, D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe)
+GameObject* FactoryMethodPlatform::CreateObject(PLATFORM_FACTORY_TYPE _type, D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite)
 {
 	GameObject* go = NULL;
 
 	switch(_type)
 	{
 	case PLATFORM_FACTORY_TYPE::DEFAULT:
-		go = defaultPlatform->CreateObject(_pos, _rectWidth, _rectHeight, _stripe);
+		go = defaultPlatform->CreateObject(_pos, _rectWidth, _rectHeight, _sprite);
 		break;
 	}
 

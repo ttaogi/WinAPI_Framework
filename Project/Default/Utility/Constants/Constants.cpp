@@ -2,7 +2,7 @@
 
 #include "Constants.h"
 
-#pragma region Stripe
+#pragma region Sprite
 #pragma region Background
 const std::wstring KEY_BACKGROUND_BACKBUFFER =
 	L"BACKGROUND_BACKBUFFER";
@@ -33,86 +33,86 @@ const wchar_t* BACKGROUND_STAGE_1 =
 
 
 #pragma region Ui_Button
-const std::wstring KEY_UI_QUIT_BUTTON_STRIPE =
-	L"UI_QUIT_BUTTON_STRIPE";
-const wchar_t* UI_QUIT_BUTTON_STRIPE =
+const std::wstring KEY_UI_QUIT_BUTTON_SPRITE =
+	L"UI_QUIT_BUTTON_SPRITE";
+const wchar_t* UI_QUIT_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/QuitButton.bmp";
-const std::wstring KEY_UI_RETRY_BUTTON_STRIPE =
-	L"UI_RETRY_BUTTON_STRIPE";
-const wchar_t* UI_RETRY_BUTTON_STRIPE =
+const std::wstring KEY_UI_RETRY_BUTTON_SPRITE =
+	L"UI_RETRY_BUTTON_SPRITE";
+const wchar_t* UI_RETRY_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/RetryButton.bmp";
-const std::wstring KEY_UI_START_BUTTON_STRIPE =
-	L"UI_START_BUTTON_STRIPE";
-const wchar_t* UI_START_BUTTON_STRIPE =
+const std::wstring KEY_UI_START_BUTTON_SPRITE =
+	L"UI_START_BUTTON_SPRITE";
+const wchar_t* UI_START_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/StartButton.bmp";
 
-const std::wstring KEY_UI_STAGE_1_BUTTON_STRIPE =
-	L"UI_STAGE_1_BUTTON_STRIPE";
-const wchar_t* UI_STAGE_1_BUTTON_STRIPE =
+const std::wstring KEY_UI_STAGE_1_BUTTON_SPRITE =
+	L"UI_STAGE_1_BUTTON_SPRITE";
+const wchar_t* UI_STAGE_1_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/Stage1Button.bmp";
-const std::wstring KEY_UI_STAGE_2_BUTTON_STRIPE =
-	L"UI_STAGE_2_BUTTON_STRIPE";
-const wchar_t* UI_STAGE_2_BUTTON_STRIPE =
+const std::wstring KEY_UI_STAGE_2_BUTTON_SPRITE =
+	L"UI_STAGE_2_BUTTON_SPRITE";
+const wchar_t* UI_STAGE_2_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/Stage2Button.bmp";
-const std::wstring KEY_UI_STAGE_3_BUTTON_STRIPE =
-	L"UI_STAGE_3_BUTTON_STRIPE";
-const wchar_t* UI_STAGE_3_BUTTON_STRIPE =
+const std::wstring KEY_UI_STAGE_3_BUTTON_SPRITE =
+	L"UI_STAGE_3_BUTTON_SPRITE";
+const wchar_t* UI_STAGE_3_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/Stage3Button.bmp";
-const std::wstring KEY_UI_STAGE_4_BUTTON_STRIPE =
-	L"UI_STAGE_4_BUTTON_STRIPE";
-const wchar_t* UI_STAGE_4_BUTTON_STRIPE =
+const std::wstring KEY_UI_STAGE_4_BUTTON_SPRITE =
+	L"UI_STAGE_4_BUTTON_SPRITE";
+const wchar_t* UI_STAGE_4_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/Stage4Button.bmp";
 
-const std::wstring KEY_UI_PLAY_BUTTON_STRIPE =
-	L"UI_PLAY_BUTTON_STRIPE";
-const wchar_t* DIR_UI_PLAY_BUTTON_STRIPE =
+const std::wstring KEY_UI_PLAY_BUTTON_SPRITE =
+	L"UI_PLAY_BUTTON_SPRITE";
+const wchar_t* DIR_UI_PLAY_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/PlayButton.bmp";
-const std::wstring KEY_UI_PAUSE_BUTTON_STRIPE =
-	L"UI_PAUSE_BUTTON_STRIPE";
-const wchar_t* DIR_UI_PAUSE_BUTTON_STRIPE =
+const std::wstring KEY_UI_PAUSE_BUTTON_SPRITE =
+	L"UI_PAUSE_BUTTON_SPRITE";
+const wchar_t* DIR_UI_PAUSE_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/PauseButton.bmp";
-const std::wstring KEY_UI_POST_BUTTON_STRIPE =
-	L"UI_POST_BUTTON_STRIPE";
-const wchar_t* DIR_UI_POST_BUTTON_STRIPE =
+const std::wstring KEY_UI_POST_BUTTON_SPRITE =
+	L"UI_POST_BUTTON_SPRITE";
+const wchar_t* DIR_UI_POST_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/PostButton.bmp";
-const std::wstring KEY_UI_PREV_BUTTON_STRIPE =
-	L"UI_PREV_BUTTON_STRIPE";
-const wchar_t* DIR_UI_PREV_BUTTON_STRIPE =
+const std::wstring KEY_UI_PREV_BUTTON_SPRITE =
+	L"UI_PREV_BUTTON_SPRITE";
+const wchar_t* DIR_UI_PREV_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/PrevButton.bmp";
 #pragma endregion Ui_Button
 
 
 #pragma region Ui_Bar
-const std::wstring KEY_UI_BAR_BACKGROUND_STRIPE =
-	L"UI_BAR_BACKGROUND_STRIPE";
-const wchar_t* DIR_UI_BAR_BACKGROUND_STRIPE =
+const std::wstring KEY_UI_BAR_BACKGROUND_SPRITE =
+	L"UI_BAR_BACKGROUND_SPRITE";
+const wchar_t* DIR_UI_BAR_BACKGROUND_SPRITE =
 	L"Resources/Images/UI/Bar/Background.bmp";
-const std::wstring KEY_UI_BAR_GUAGE_STRIPE =
-	L"UI_BAR_GUAGE_STRIPE";
-const wchar_t* DIR_UI_BAR_GUAGE_STRIPE =
+const std::wstring KEY_UI_BAR_GUAGE_SPRITE =
+	L"UI_BAR_GUAGE_SPRITE";
+const wchar_t* DIR_UI_BAR_GUAGE_SPRITE =
 	L"Resources/Images/UI/Bar/Guage.bmp";
-const std::wstring KEY_UI_BAR_BORDER_STRIPE =
-	L"UI_BAR_BORDER_STRIPE";
-const wchar_t* DIR_UI_BAR_BORDER_STRIPE =
+const std::wstring KEY_UI_BAR_BORDER_SPRITE =
+	L"UI_BAR_BORDER_SPRITE";
+const wchar_t* DIR_UI_BAR_BORDER_SPRITE =
 	L"Resources/Images/UI/Bar/Border.bmp";
 #pragma endregion Ui_Bar
 
 
 #pragma region Platform
-const std::wstring KEY_PLATFORM_DEFAULT_STRIPE =
-	L"KEY_PLATFORM_DEFAULT_STRIPE";
-const wchar_t* DIR_PLATFORM_DEFAULT_STRIPE =
+const std::wstring KEY_PLATFORM_DEFAULT_SPRITE =
+	L"KEY_PLATFORM_DEFAULT_SPRITE";
+const wchar_t* DIR_PLATFORM_DEFAULT_SPRITE =
 	L"Resources/Images/Platform/Default.bmp";
 #pragma endregion Platform
 
 
 #pragma region Player
-const std::wstring KEY_PLAYER_TEMP_STRIPE =
-	L"KEY_PLAYER_TEMP_STRIPE";
-const wchar_t* DIR_PLAYER_TEMP_STRIPE =
+const std::wstring KEY_PLAYER_TEMP_SPRITE =
+	L"KEY_PLAYER_TEMP_SPRITE";
+const wchar_t* DIR_PLAYER_TEMP_SPRITE =
 	L"Resources/Images/Temp/PlayerTemp.bmp";
 #pragma endregion Player
-#pragma endregion Stripe
+#pragma endregion Sprite
 
 ///////////////////////
 ///////////////////////
@@ -203,7 +203,15 @@ const std::wstring KEY_STAGE_4_SCENE =
 const std::wstring XML_DOC_EXAMPLE =
 	L"example document.txt";
 const std::wstring XML_DOC_SAVEDATA =
-	L"../save.dat";
+	L"Resources/XML/save.dat";
+const std::wstring XML_DOC_STAGE_1 =
+	L"Resources/XML/Stage1.xml";
+const std::wstring XML_DOC_STAGE_2 =
+	L"Resources/XML/Stage2.xml";
+const std::wstring XML_DOC_STAGE_3 =
+	L"Resources/XML/Stage3.xml";
+const std::wstring XML_DOC_STAGE_4 =
+	L"Resources/XML/Stage4.xml";
 #pragma endregion XmlDocument
 
 ///////////////////////

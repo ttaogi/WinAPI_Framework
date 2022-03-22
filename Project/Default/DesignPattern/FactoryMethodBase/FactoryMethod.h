@@ -49,7 +49,7 @@ public:
 	FactoryMethodPlayer();
 
 	virtual GameObject* CreateObject(PLAYER_FACTORY_TYPE _type,
-		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe) override;
+		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) override;
 };
 #pragma endregion FactoryMethodPlayer
 
@@ -65,6 +65,6 @@ public:
 	FactoryMethodPlatform();
 
 	virtual GameObject* CreateObject(PLATFORM_FACTORY_TYPE _type,
-		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe) override;
+		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) override;
 };
 #pragma endregion FactoryMethodPlatform

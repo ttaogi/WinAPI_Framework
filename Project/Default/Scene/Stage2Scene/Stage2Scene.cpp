@@ -17,7 +17,7 @@ HRESULT Stage2Scene::Init()
 		BUTTON_FACTORY_TYPE::DEFAULT,
 		std::bind(&SceneManager::SetNextSceneKeyEndScene, SCENE),
 		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, BUTTON_WIDTH, BUTTON_HEIGHT,
-		IMG->FindImage(KEY_UI_QUIT_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_QUIT_BUTTON_SPRITE));
 	quitBtn->SetName(NAME_QUIT_BUTTON);
 	quitBtn->SetActive(false);
 

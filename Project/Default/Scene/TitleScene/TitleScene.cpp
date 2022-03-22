@@ -22,7 +22,7 @@ HRESULT TitleScene::Init()
 		BUTTON_FACTORY_TYPE::DEFAULT,
 		std::bind(&SceneManager::SetNextSceneKeyLobbyScene, SCENE),
 		D_POINT{ WINSIZE_X / 2, WINSIZE_Y * 3 / 4 }, 400, 50,
-		IMG->FindImage(KEY_UI_START_BUTTON_STRIPE));
+		IMG->FindImage(KEY_UI_START_BUTTON_SPRITE));
 
 	root = new GameObject();
 	root->AddGameObject(gameStartBtn);

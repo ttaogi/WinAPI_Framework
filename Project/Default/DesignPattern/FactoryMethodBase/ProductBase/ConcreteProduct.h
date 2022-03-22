@@ -30,7 +30,7 @@ public:
 class FactoryDefaultPlayer : public ProductBasePlayer
 {
 public:
-	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe) override;
+	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) override;
 };
 #pragma endregion ProductBasePlayer
 
@@ -39,6 +39,6 @@ public:
 class FactoryDefaultPlatform : public ProductBasePlatform
 {
 public:
-	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _stripe) override;
+	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) override;
 };
 #pragma endregion ProductBasePlatform

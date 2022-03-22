@@ -172,6 +172,9 @@
     <Filter Include="API_Framework\Scene\Stage4Scene">
       <UniqueIdentifier>{f28dd6dc-9fc5-4401-b4b3-648896dba550}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\Manager\MapDataManager">
+      <UniqueIdentifier>{ec011cc5-ba0a-48e9-847c-71c971dbecef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -327,6 +330,9 @@
     </ClCompile>
     <ClCompile Include="Scene\Stage4Scene\Stage4Scene.cpp">
       <Filter>API_Framework\Scene\Stage4Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\MapDataManager\MapDataManager.cpp">
+      <Filter>API_Framework\Manager\MapDataManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -491,6 +497,9 @@
     </ClInclude>
     <ClInclude Include="Scene\Stage4Scene\Stage4Scene.h">
       <Filter>API_Framework\Scene\Stage4Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\MapDataManager\MapDataManager.h">
+      <Filter>API_Framework\Manager\MapDataManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
