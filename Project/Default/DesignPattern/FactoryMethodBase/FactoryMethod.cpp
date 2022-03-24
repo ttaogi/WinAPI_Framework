@@ -8,11 +8,13 @@
 FactoryMethodButton::FactoryMethodButton()
 {
 	defaultButton = new FactoryDefaultButton();
+	buttonMouseOn = new FactoryButtonMouseOn();
 }
 
 FactoryMethodButton::~FactoryMethodButton()
 {
 	SAFE_DELETE(defaultButton);
+	SAFE_DELETE(buttonMouseOn);
 }
 
 GameObject* FactoryMethodButton::CreateObject(
@@ -26,6 +28,9 @@ GameObject* FactoryMethodButton::CreateObject(
 	{
 	case BUTTON_FACTORY_TYPE::DEFAULT:
 		go = defaultButton->CreateObject(_callBack_v_CB_v, _pos, _rectWidth, _rectHeight, _image, _str);
+		break;
+	case BUTTON_FACTORY_TYPE::MOUSE_ON:
+		go = buttonMouseOn->CreateObject(_callBack_v_CB_v, _pos, _rectWidth, _rectHeight, _image, _str);
 		break;
 	}
 

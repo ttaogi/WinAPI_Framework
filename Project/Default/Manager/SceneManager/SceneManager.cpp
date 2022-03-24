@@ -54,13 +54,10 @@ void SceneManager::Render() { if (currentScene) currentScene->Render(); }
 void SceneManager::SetNextSceneKey(std::wstring _nextSceneKey) { nextSceneKey = _nextSceneKey; }
 
 void SceneManager::SetNextSceneKeyEndScene()	{ nextSceneKey = KEY_END_SCENE; }
-void SceneManager::SetNextSceneKeyLobbyScene()	{ nextSceneKey = KEY_LOBBY_SCENE; }
-void SceneManager::SetNextSceneKeyOnGameScene()	{ nextSceneKey = KEY_ONGAME_SCENE; }
-void SceneManager::SetNextSceneKeyStage1Scene()	{ nextSceneKey = KEY_STAGE_1_SCENE; }
-void SceneManager::SetNextSceneKeyStage2Scene()	{ nextSceneKey = KEY_STAGE_2_SCENE; }
-void SceneManager::SetNextSceneKeyStage3Scene()	{ nextSceneKey = KEY_STAGE_3_SCENE; }
-void SceneManager::SetNextSceneKeyStage4Scene()	{ nextSceneKey = KEY_STAGE_4_SCENE; }
+void SceneManager::SetNextSceneKeyGuildScene()	{ nextSceneKey = KEY_GUILD_SCENE; }
+void SceneManager::SetNextSceneKeyShopScene()	{ nextSceneKey = KEY_SHOP_SCENE; }
 void SceneManager::SetNextSceneKeyTitleScene()	{ nextSceneKey = KEY_TITLE_SCENE; }
+void SceneManager::SetNextSceneKeyTownScene()	{ nextSceneKey = KEY_TOWN_SCENE; }
 
 Scene* SceneManager::AddScene(wstring _sceneName, Scene* _scene)
 {

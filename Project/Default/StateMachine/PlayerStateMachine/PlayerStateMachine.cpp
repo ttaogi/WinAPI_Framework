@@ -4,7 +4,6 @@
 
 #include "DesignPattern/ComponentBase/Component/Button/Button.h"
 #include "Script/Player/Player.h"
-#include "Scene/OnGameScene/OnGameScene.h"
 
 PlayerStateMachine::PlayerStateMachine() : StateMachine() { }
 
@@ -24,7 +23,7 @@ void PlayerStateMachine::SetCallBack_v_CB_pMb(std::function<void(MonoBehaviour*)
 void PlayerStateMachine::Update(MonoBehaviour* _mb, Scene* _scene)
 {
 	Player* player = (Player*)_mb;
-	OnGameScene* scene = (OnGameScene*)_scene;
+	//OnGameScene* scene = (OnGameScene*)_scene;
 
 	//player->Move();
 

@@ -67,9 +67,6 @@
     <Filter Include="API_Framework\Scene">
       <UniqueIdentifier>{9e13517c-554f-4d70-a9fd-8d25df7b9b9d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\Scene\OnGameScene">
-      <UniqueIdentifier>{aa77e9ef-d16d-44e8-9372-5a6c289fd426}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API_Framework\Scene\TitleScene">
       <UniqueIdentifier>{92e11a76-8ba0-4ce3-a30d-1fb301647efd}</UniqueIdentifier>
     </Filter>
@@ -154,26 +151,26 @@
     <Filter Include="API_Framework\Script\Player">
       <UniqueIdentifier>{130f0845-1c04-4e90-ab01-c310aa0f2b89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\Scene\LobbyScene">
-      <UniqueIdentifier>{4209607e-760e-48ed-a917-f27ff0b00747}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API_Framework\Manager\GameDataManager">
       <UniqueIdentifier>{eb1703ba-5267-4b52-a76e-1d97aedd0ba2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\Scene\Stage1Scene">
-      <UniqueIdentifier>{a2c95b7a-0727-473b-8208-2a91dfd1572f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Scene\Stage2Scene">
-      <UniqueIdentifier>{41df9209-8d14-455a-a3b6-342f7e5b978b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Scene\Stage3Scene">
-      <UniqueIdentifier>{cdf2c294-0b61-400f-9b32-edd65f432bfc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Scene\Stage4Scene">
-      <UniqueIdentifier>{f28dd6dc-9fc5-4401-b4b3-648896dba550}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API_Framework\Manager\MapDataManager">
       <UniqueIdentifier>{ec011cc5-ba0a-48e9-847c-71c971dbecef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\TownScene">
+      <UniqueIdentifier>{d037730e-4aad-4ebc-9adf-75df010b92c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\GuildScene">
+      <UniqueIdentifier>{3887d17f-eb38-4033-a586-4f5127031886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\ShopScene">
+      <UniqueIdentifier>{da038712-106e-4124-913b-eee310a23b02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\ObserverBase">
+      <UniqueIdentifier>{5b248128-7acb-4ce2-895a-13ebfd03cf9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\CommandBase">
+      <UniqueIdentifier>{ebe88487-a6f2-470b-abec-cebc46bab00e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -253,9 +250,6 @@
     <ClCompile Include="Scene\EndScene\EndScene.cpp">
       <Filter>API_Framework\Scene\EndScene</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\OnGameScene\OnGameScene.cpp">
-      <Filter>API_Framework\Scene\OnGameScene</Filter>
-    </ClCompile>
     <ClCompile Include="Scene\TitleScene\TitleScene.cpp">
       <Filter>API_Framework\Scene\TitleScene</Filter>
     </ClCompile>
@@ -313,26 +307,29 @@
     <ClCompile Include="Script\Player\Player.cpp">
       <Filter>API_Framework\Script\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\LobbyScene\LobbyScene.cpp">
-      <Filter>API_Framework\Scene\LobbyScene</Filter>
-    </ClCompile>
     <ClCompile Include="Manager\GameDataManager\GameDataManager.cpp">
       <Filter>API_Framework\Manager\GameDataManager</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\Stage1Scene\Stage1Scene.cpp">
-      <Filter>API_Framework\Scene\Stage1Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\Stage2Scene\Stage2Scene.cpp">
-      <Filter>API_Framework\Scene\Stage2Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\Stage3Scene\Stage3Scene.cpp">
-      <Filter>API_Framework\Scene\Stage3Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\Stage4Scene\Stage4Scene.cpp">
-      <Filter>API_Framework\Scene\Stage4Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Manager\MapDataManager\MapDataManager.cpp">
       <Filter>API_Framework\Manager\MapDataManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\TownScene\TownScene.cpp">
+      <Filter>API_Framework\Scene\TownScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\GuildScene\GuildScene.cpp">
+      <Filter>API_Framework\Scene\GuildScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\ShopScene\ShopScene.cpp">
+      <Filter>API_Framework\Scene\ShopScene</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPattern\ObserverBase\Observer.cpp">
+      <Filter>API_Framework\DesignPattern\ObserverBase</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPattern\ObserverBase\Subject.cpp">
+      <Filter>API_Framework\DesignPattern\ObserverBase</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPattern\CommandBase\Command.cpp">
+      <Filter>API_Framework\DesignPattern\CommandBase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -417,9 +414,6 @@
     <ClInclude Include="Scene\EndScene\EndScene.h">
       <Filter>API_Framework\Scene\EndScene</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\OnGameScene\OnGameScene.h">
-      <Filter>API_Framework\Scene\OnGameScene</Filter>
-    </ClInclude>
     <ClInclude Include="Scene\TitleScene\TitleScene.h">
       <Filter>API_Framework\Scene\TitleScene</Filter>
     </ClInclude>
@@ -480,26 +474,29 @@
     <ClInclude Include="Script\Player\Player.h">
       <Filter>API_Framework\Script\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\LobbyScene\LobbyScene.h">
-      <Filter>API_Framework\Scene\LobbyScene</Filter>
-    </ClInclude>
     <ClInclude Include="Manager\GameDataManager\GameDataManager.h">
       <Filter>API_Framework\Manager\GameDataManager</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\Stage1Scene\Stage1Scene.h">
-      <Filter>API_Framework\Scene\Stage1Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\Stage2Scene\Stage2Scene.h">
-      <Filter>API_Framework\Scene\Stage2Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\Stage3Scene\Stage3Scene.h">
-      <Filter>API_Framework\Scene\Stage3Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\Stage4Scene\Stage4Scene.h">
-      <Filter>API_Framework\Scene\Stage4Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Manager\MapDataManager\MapDataManager.h">
       <Filter>API_Framework\Manager\MapDataManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\TownScene\TownScene.h">
+      <Filter>API_Framework\Scene\TownScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\GuildScene\GuildScene.h">
+      <Filter>API_Framework\Scene\GuildScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\ShopScene\ShopScene.h">
+      <Filter>API_Framework\Scene\ShopScene</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\ObserverBase\Observer.h">
+      <Filter>API_Framework\DesignPattern\ObserverBase</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\ObserverBase\Subject.h">
+      <Filter>API_Framework\DesignPattern\ObserverBase</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\CommandBase\Command.h">
+      <Filter>API_Framework\DesignPattern\CommandBase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

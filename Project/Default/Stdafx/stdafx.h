@@ -46,10 +46,10 @@ using namespace std;
 
 #define WINNAME				    L"WindowsAPI"
 
-#define WINSTART_X			    320
-#define WINSTART_Y			    160
-#define WINSIZE_X				1280
-#define WINSIZE_Y				720
+#define WINSTART_X			    960
+#define WINSTART_Y			    540
+#define WINSIZE_X				640
+#define WINSIZE_Y				480
 #define WINSTYLE				WS_CAPTION | WS_SYSMENU
 
 #define RND						RandomFunction::GetSingleton()

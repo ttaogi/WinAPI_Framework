@@ -9,6 +9,7 @@ class FactoryMethodButton : public FactoryMethodBaseButton, public SingletonBase
 {
 private:
 	FactoryDefaultButton* defaultButton;
+	FactoryButtonMouseOn* buttonMouseOn;
 protected:
 	virtual ~FactoryMethodButton();
 public:

@@ -42,6 +42,32 @@ GameObject* FactoryDefaultButton::CreateObject(
 
 	return go;
 }
+
+GameObject* FactoryButtonMouseOn::CreateObject(
+	std::function<void()> _callBack_v_CB_v, D_POINT _pos,
+	int _rectWidth, int _rectHeight, Image* _image, std::wstring _str)
+{
+	GameObject* go = new GameObject();
+	Button* btn = new ButtonMouseOn(_str);
+	RectTransform* rcT = new RectTransform();
+	RenderedImage* rImg = new RenderedImage();
+
+	btn->SetCallBack_v_CB_v(_callBack_v_CB_v);
+	btn->Init();
+	rcT->SetRect(_rectWidth, _rectHeight);
+	rImg->SetImage(_image);
+	rImg->SetSortingLayer(SORTING_LAYER::UI);
+	rImg->SetOrderInLayer(uiCount++);
+	rImg->SetEnabled(false);
+
+	go->GetComponent<Transform>()->SetPosition(_pos);
+
+	go->AddComponent(btn);
+	go->AddComponent(rcT);
+	go->AddComponent(rImg);
+
+	return go;
+}
 #pragma endregion ProductBaseButton
 
 

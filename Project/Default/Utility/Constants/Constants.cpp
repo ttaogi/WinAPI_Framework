@@ -8,27 +8,35 @@ const std::wstring KEY_BACKGROUND_BACKBUFFER =
 	L"BACKGROUND_BACKBUFFER";
 const wchar_t* BACKGROUND_BACKBUFFER =
 	L"Resources/Images/BackGround/BackBuffer.bmp";
+
 const std::wstring KEY_BACKGROUND_ENDSCENE =
 	L"BACKGROUND_ENDSCENE";
 const wchar_t* BACKGROUND_ENDSCENE =
 	L"Resources/Images/BackGround/BackgroundEndScene.bmp";
-const std::wstring KEY_BACKGROUND_LOBBYSCENE =
-	L"BACKGROUND_LOBBYSCENE";
-const wchar_t* BACKGROUND_LOBBYSCENE =
-	L"Resources/Images/BackGround/BackgroundLobbyScene.bmp";
-const std::wstring KEY_BACKGROUND_ONGAMESCENE =
-	L"BACKGROUND_ONGAMESCENE";
-const wchar_t* BACKGROUND_ONGAMESCENE =
-	L"Resources/Images/BackGround/BackgroundOnGameScene.bmp";
+
 const std::wstring KEY_BACKGROUND_TITLESCENE =
 	L"BACKGROUND_TITLESCENE";
 const wchar_t* BACKGROUND_TITLESCENE =
 	L"Resources/Images/BackGround/BackgroundTitleScene.bmp";
 
-const std::wstring KEY_BACKGROUND_STAGE_1 =
-	L"BACKGROUND_STAGE_1";
-const wchar_t* BACKGROUND_STAGE_1 =
-	L"Resources/Images/BackGround/BackgroundStage1.bmp";
+const std::wstring KEY_BACKGROUND_TOWNSCENE_DAY =
+	L"BACKGROUND_TOWNSCENE_DAY";
+const wchar_t* BACKGROUND_TOWNSCENE_DAY =
+	L"Resources/Images/BackGround/BackgroundTownDay.bmp";
+const std::wstring KEY_BACKGROUND_TOWNSCENE_NIGHT =
+	L"BACKGROUND_TOWNSCENE_NIGHT";
+const wchar_t* BACKGROUND_TOWNSCENE_NIGHT =
+	L"Resources/Images/BackGround/BackgroundTownNight.bmp";
+
+const std::wstring KEY_BACKGROUND_GUILD =
+	L"BACKGROUND_GUILD";
+const wchar_t* BACKGROUND_GUILD =
+	L"Resources/Images/BackGround/BackgroundGuild.bmp";
+
+const std::wstring KEY_BACKGROUND_SHOP =
+	L"BACKGROUND_SHOP";
+const wchar_t* BACKGROUND_SHOP =
+	L"Resources/Images/BackGround/BackgroundShop.bmp";
 #pragma endregion Background
 
 
@@ -41,45 +49,23 @@ const std::wstring KEY_UI_RETRY_BUTTON_SPRITE =
 	L"UI_RETRY_BUTTON_SPRITE";
 const wchar_t* UI_RETRY_BUTTON_SPRITE =
 	L"Resources/Images/UI/Button/RetryButton.bmp";
-const std::wstring KEY_UI_START_BUTTON_SPRITE =
-	L"UI_START_BUTTON_SPRITE";
-const wchar_t* UI_START_BUTTON_SPRITE =
-	L"Resources/Images/UI/Button/StartButton.bmp";
-
-const std::wstring KEY_UI_STAGE_1_BUTTON_SPRITE =
-	L"UI_STAGE_1_BUTTON_SPRITE";
-const wchar_t* UI_STAGE_1_BUTTON_SPRITE =
-	L"Resources/Images/UI/Button/Stage1Button.bmp";
-const std::wstring KEY_UI_STAGE_2_BUTTON_SPRITE =
-	L"UI_STAGE_2_BUTTON_SPRITE";
-const wchar_t* UI_STAGE_2_BUTTON_SPRITE =
-	L"Resources/Images/UI/Button/Stage2Button.bmp";
-const std::wstring KEY_UI_STAGE_3_BUTTON_SPRITE =
-	L"UI_STAGE_3_BUTTON_SPRITE";
-const wchar_t* UI_STAGE_3_BUTTON_SPRITE =
-	L"Resources/Images/UI/Button/Stage3Button.bmp";
-const std::wstring KEY_UI_STAGE_4_BUTTON_SPRITE =
-	L"UI_STAGE_4_BUTTON_SPRITE";
-const wchar_t* UI_STAGE_4_BUTTON_SPRITE =
-	L"Resources/Images/UI/Button/Stage4Button.bmp";
-
-const std::wstring KEY_UI_PLAY_BUTTON_SPRITE =
-	L"UI_PLAY_BUTTON_SPRITE";
-const wchar_t* DIR_UI_PLAY_BUTTON_SPRITE =
-	L"Resources/Images/UI/Button/PlayButton.bmp";
-const std::wstring KEY_UI_PAUSE_BUTTON_SPRITE =
-	L"UI_PAUSE_BUTTON_SPRITE";
-const wchar_t* DIR_UI_PAUSE_BUTTON_SPRITE =
-	L"Resources/Images/UI/Button/PauseButton.bmp";
-const std::wstring KEY_UI_POST_BUTTON_SPRITE =
-	L"UI_POST_BUTTON_SPRITE";
-const wchar_t* DIR_UI_POST_BUTTON_SPRITE =
-	L"Resources/Images/UI/Button/PostButton.bmp";
-const std::wstring KEY_UI_PREV_BUTTON_SPRITE =
-	L"UI_PREV_BUTTON_SPRITE";
-const wchar_t* DIR_UI_PREV_BUTTON_SPRITE =
-	L"Resources/Images/UI/Button/PrevButton.bmp";
 #pragma endregion Ui_Button
+
+
+#pragma region Ui_ButtonMouseOn
+const std::wstring KEY_UI_TOWN_TO_FIELD_BUTTON_SPRITE =
+	L"UI_TOWN_TO_FIELD_BUTTON_SPRITE";
+const wchar_t* UI_TOWN_TO_FIELD_BUTTON_SPRITE =
+	L"Resources/Images/UI/ButtonMouseOn/TownToField.bmp";
+const std::wstring KEY_UI_TOWN_TO_GUILD_BUTTON_SPRITE =
+	L"UI_TOWN_TO_GUILD_BUTTON_SPRITE";
+const wchar_t* UI_TOWN_TO_GUILD_BUTTON_SPRITE =
+	L"Resources/Images/UI/ButtonMouseOn/TownToGuild.bmp";
+const std::wstring KEY_UI_TOWN_TO_SHOP_BUTTON_SPRITE =
+	L"UI_TOWN_TO_SHOP_BUTTON_SPRITE";
+const wchar_t* UI_TOWN_TO_SHOP_BUTTON_SPRITE =
+	L"Resources/Images/UI/ButtonMouseOn/TownToShop.bmp";
+#pragma endregion Ui_ButtonMouseOn
 
 
 #pragma region Ui_Bar
@@ -98,14 +84,6 @@ const wchar_t* DIR_UI_BAR_BORDER_SPRITE =
 #pragma endregion Ui_Bar
 
 
-#pragma region Platform
-const std::wstring KEY_PLATFORM_DEFAULT_SPRITE =
-	L"KEY_PLATFORM_DEFAULT_SPRITE";
-const wchar_t* DIR_PLATFORM_DEFAULT_SPRITE =
-	L"Resources/Images/Platform/Default.bmp";
-#pragma endregion Platform
-
-
 #pragma region Player
 const std::wstring KEY_PLAYER_TEMP_SPRITE =
 	L"KEY_PLAYER_TEMP_SPRITE";
@@ -120,10 +98,6 @@ const wchar_t* DIR_PLAYER_TEMP_SPRITE =
 #pragma region GameObject_Name
 const std::wstring NAME_QUIT_BUTTON = 	L"QUIT_BUTTON";
 const std::wstring NAME_RETRY_BUTTON = 	L"RETRY_BUTTON";
-const std::wstring NAME_PLAY_BUTTON = 	L"PLAY_BUTTON";
-const std::wstring NAME_POST_BUTTON = 	L"POST_BUTTON";
-const std::wstring NAME_PREV_BUTTON = 	L"PREV_BUTTON";
-const std::wstring NAME_PLAY_BAR = 		L"PLAY_BAR";
 #pragma endregion GameObject_Name
 
 ///////////////////////
@@ -147,28 +121,11 @@ const std::wstring DIR_SOUND_EXAMPLE =
 const std::wstring KEY_SOUND_TITLE_THEME =
 	L"SOUND_TITLE_THEME";
 const std::wstring DIR_SOUND_TITLE_THEME =
-	L"Resources/Sounds/Title/Blue Archive OST 90 Eden treaty BGM1.mp3";
-const std::wstring KEY_SOUND_LOBBY_THEME =
-	L"SOUND_LOBBY_THEME";
-const std::wstring DIR_SOUND_LOBBY_THEME =
-	L"Resources/Sounds/ETC/Blue Archive OST 32 GGF.mp3";
-
-const std::wstring KEY_SOUND_STAGE_1_NORMAL =
-	L"SOUND_STAGE_1_NORMAL";
-const std::wstring DIR_SOUND_STAGE_1_NORMAL =
-	L"Resources/Sounds/Battle/Blue Archive OST 19 Virtual Storm.mp3";
-const std::wstring KEY_SOUND_STAGE_2_NORMAL =
-	L"SOUND_STAGE_2_NORMAL";
-const std::wstring DIR_SOUND_STAGE_2_NORMAL =
-	L"Resources/Sounds/Battle/Blue Archive OST 20 Tech N Tech.mp3";
-const std::wstring KEY_SOUND_STAGE_3_NORMAL =
-	L"SOUND_STAGE_3_NORMAL";
-const std::wstring DIR_SOUND_STAGE_3_NORMAL =
-	L"Resources/Sounds/Battle/Blue Archive OST 69 Snow Pantomime.mp3";
-const std::wstring KEY_SOUND_STAGE_4_NORMAL =
-	L"SOUND_STAGE_4_NORMAL";
-const std::wstring DIR_SOUND_STAGE_4_NORMAL =
-	L"Resources/Sounds/Battle/Blue Archive OST 24 Endless Carnival.mp3";
+	L"Resources/Sounds/BGM/bgm00.mp3";
+const std::wstring KEY_SOUND_TOWN_THEME =
+	L"SOUND_TOWN_THEME";
+const std::wstring DIR_SOUND_TOWN_THEME =
+	L"Resources/Sounds/BGM/bgm01.mp3";
 #pragma endregion Sound
 
 ///////////////////////
@@ -179,21 +136,14 @@ const std::wstring KEY_NONE_SCENE =
 	L"NONE_SCENE";
 const std::wstring KEY_END_SCENE =
 	L"END_SCENE";
-const std::wstring KEY_LOBBY_SCENE =
-	L"LOBBY_SCENE";
-const std::wstring KEY_ONGAME_SCENE =
-	L"ONGAME_SCENE";
+const std::wstring KEY_GUILD_SCENE =
+	L"GUILD_SCENE";
+const std::wstring KEY_SHOP_SCENE =
+	L"SHOP_SCENE";
 const std::wstring KEY_TITLE_SCENE =
 	L"TITLE_SCENE";
-
-const std::wstring KEY_STAGE_1_SCENE =
-	L"STAGE_1_SCENE";
-const std::wstring KEY_STAGE_2_SCENE =
-	L"STAGE_2_SCENE";
-const std::wstring KEY_STAGE_3_SCENE =
-	L"STAGE_3_SCENE";
-const std::wstring KEY_STAGE_4_SCENE =
-	L"STAGE_4_SCENE";
+const std::wstring KEY_TOWN_SCENE =
+	L"TOWN_SCENE";
 #pragma endregion Scene
 
 ///////////////////////
@@ -204,14 +154,6 @@ const std::wstring XML_DOC_EXAMPLE =
 	L"example document.txt";
 const std::wstring XML_DOC_SAVEDATA =
 	L"Resources/XML/save.dat";
-const std::wstring XML_DOC_STAGE_1 =
-	L"Resources/XML/Stage1.xml";
-const std::wstring XML_DOC_STAGE_2 =
-	L"Resources/XML/Stage2.xml";
-const std::wstring XML_DOC_STAGE_3 =
-	L"Resources/XML/Stage3.xml";
-const std::wstring XML_DOC_STAGE_4 =
-	L"Resources/XML/Stage4.xml";
 #pragma endregion XmlDocument
 
 ///////////////////////

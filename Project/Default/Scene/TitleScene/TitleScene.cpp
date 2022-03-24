@@ -20,9 +20,9 @@ HRESULT TitleScene::Init()
 
 	GameObject* gameStartBtn = FACTORY_METHOD_BUTTON->CreateObject(
 		BUTTON_FACTORY_TYPE::DEFAULT,
-		std::bind(&SceneManager::SetNextSceneKeyLobbyScene, SCENE),
-		D_POINT{ WINSIZE_X / 2, WINSIZE_Y * 3 / 4 }, 400, 50,
-		IMG->FindImage(KEY_UI_START_BUTTON_SPRITE));
+		std::bind(&SceneManager::SetNextSceneKeyTownScene, SCENE),
+		D_POINT{ WINSIZE_X / 2, WINSIZE_Y / 2 }, WINSIZE_X, WINSIZE_Y,
+		NULL);
 
 	root = new GameObject();
 	root->AddGameObject(gameStartBtn);

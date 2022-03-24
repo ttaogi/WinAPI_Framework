@@ -4,17 +4,23 @@
 #pragma region Background
 extern const std::wstring KEY_BACKGROUND_BACKBUFFER;
 extern const wchar_t* BACKGROUND_BACKBUFFER;
+
 extern const std::wstring KEY_BACKGROUND_ENDSCENE;
 extern const wchar_t* BACKGROUND_ENDSCENE;
-extern const std::wstring KEY_BACKGROUND_LOBBYSCENE;
-extern const wchar_t* BACKGROUND_LOBBYSCENE;
-extern const std::wstring KEY_BACKGROUND_ONGAMESCENE;
-extern const wchar_t* BACKGROUND_ONGAMESCENE;
+
 extern const std::wstring KEY_BACKGROUND_TITLESCENE;
 extern const wchar_t* BACKGROUND_TITLESCENE;
 
-extern const std::wstring KEY_BACKGROUND_STAGE_1;
-extern const wchar_t* BACKGROUND_STAGE_1;
+extern const std::wstring KEY_BACKGROUND_TOWNSCENE_DAY;
+extern const wchar_t* BACKGROUND_TOWNSCENE_DAY;
+extern const std::wstring KEY_BACKGROUND_TOWNSCENE_NIGHT;
+extern const wchar_t* BACKGROUND_TOWNSCENE_NIGHT;
+
+extern const std::wstring KEY_BACKGROUND_GUILD;
+extern const wchar_t* BACKGROUND_GUILD;
+
+extern const std::wstring KEY_BACKGROUND_SHOP;
+extern const wchar_t* BACKGROUND_SHOP;
 #pragma endregion Background
 
 
@@ -23,27 +29,17 @@ extern const std::wstring KEY_UI_QUIT_BUTTON_SPRITE;
 extern const wchar_t* UI_QUIT_BUTTON_SPRITE;
 extern const std::wstring KEY_UI_RETRY_BUTTON_SPRITE;
 extern const wchar_t* UI_RETRY_BUTTON_SPRITE;
-extern const std::wstring KEY_UI_START_BUTTON_SPRITE;
-extern const wchar_t* UI_START_BUTTON_SPRITE;
-
-extern const std::wstring KEY_UI_STAGE_1_BUTTON_SPRITE;
-extern const wchar_t* UI_STAGE_1_BUTTON_SPRITE;
-extern const std::wstring KEY_UI_STAGE_2_BUTTON_SPRITE;
-extern const wchar_t* UI_STAGE_2_BUTTON_SPRITE;
-extern const std::wstring KEY_UI_STAGE_3_BUTTON_SPRITE;
-extern const wchar_t* UI_STAGE_3_BUTTON_SPRITE;
-extern const std::wstring KEY_UI_STAGE_4_BUTTON_SPRITE;
-extern const wchar_t* UI_STAGE_4_BUTTON_SPRITE;
-
-extern const std::wstring KEY_UI_PLAY_BUTTON_SPRITE;
-extern const wchar_t* DIR_UI_PLAY_BUTTON_SPRITE;
-extern const std::wstring KEY_UI_PAUSE_BUTTON_SPRITE;
-extern const wchar_t* DIR_UI_PAUSE_BUTTON_SPRITE;
-extern const std::wstring KEY_UI_POST_BUTTON_SPRITE;
-extern const wchar_t* DIR_UI_POST_BUTTON_SPRITE;
-extern const std::wstring KEY_UI_PREV_BUTTON_SPRITE;
-extern const wchar_t* DIR_UI_PREV_BUTTON_SPRITE;
 #pragma endregion Ui_Button
+
+
+#pragma region Ui_ButtonMouseOn
+extern const std::wstring KEY_UI_TOWN_TO_FIELD_BUTTON_SPRITE;
+extern const wchar_t* UI_TOWN_TO_FIELD_BUTTON_SPRITE;
+extern const std::wstring KEY_UI_TOWN_TO_GUILD_BUTTON_SPRITE;
+extern const wchar_t* UI_TOWN_TO_GUILD_BUTTON_SPRITE;
+extern const std::wstring KEY_UI_TOWN_TO_SHOP_BUTTON_SPRITE;
+extern const wchar_t* UI_TOWN_TO_SHOP_BUTTON_SPRITE;
+#pragma endregion Ui_ButtonMouseOn
 
 
 #pragma region Ui_Bar
@@ -54,12 +50,6 @@ extern const wchar_t* DIR_UI_BAR_GUAGE_SPRITE;
 extern const std::wstring KEY_UI_BAR_BORDER_SPRITE;
 extern const wchar_t* DIR_UI_BAR_BORDER_SPRITE;
 #pragma endregion Ui_Bar
-
-
-#pragma region Platform
-extern const std::wstring KEY_PLATFORM_DEFAULT_SPRITE;
-extern const wchar_t* DIR_PLATFORM_DEFAULT_SPRITE;
-#pragma endregion Platform
 
 
 #pragma region Player
@@ -74,10 +64,6 @@ extern const wchar_t* DIR_PLAYER_TEMP_SPRITE;
 #pragma region GameObject_Name
 extern const std::wstring NAME_QUIT_BUTTON;
 extern const std::wstring NAME_RETRY_BUTTON;
-extern const std::wstring NAME_PLAY_BUTTON;
-extern const std::wstring NAME_POST_BUTTON;
-extern const std::wstring NAME_PREV_BUTTON;
-extern const std::wstring NAME_PLAY_BAR;
 #pragma endregion GameObject_Name
 
 ///////////////////////
@@ -96,17 +82,8 @@ extern const std::wstring KEY_SOUND_EXAMPLE;
 extern const std::wstring DIR_SOUND_EXAMPLE;
 extern const std::wstring KEY_SOUND_TITLE_THEME;
 extern const std::wstring DIR_SOUND_TITLE_THEME;
-extern const std::wstring KEY_SOUND_LOBBY_THEME;
-extern const std::wstring DIR_SOUND_LOBBY_THEME;
-
-extern const std::wstring KEY_SOUND_STAGE_1_NORMAL;
-extern const std::wstring DIR_SOUND_STAGE_1_NORMAL;
-extern const std::wstring KEY_SOUND_STAGE_2_NORMAL;
-extern const std::wstring DIR_SOUND_STAGE_2_NORMAL;
-extern const std::wstring KEY_SOUND_STAGE_3_NORMAL;
-extern const std::wstring DIR_SOUND_STAGE_3_NORMAL;
-extern const std::wstring KEY_SOUND_STAGE_4_NORMAL;
-extern const std::wstring DIR_SOUND_STAGE_4_NORMAL;
+extern const std::wstring KEY_SOUND_TOWN_THEME;
+extern const std::wstring DIR_SOUND_TOWN_THEME;
 #pragma endregion Sound
 
 ///////////////////////
@@ -115,14 +92,10 @@ extern const std::wstring DIR_SOUND_STAGE_4_NORMAL;
 #pragma region Scene
 extern const std::wstring KEY_NONE_SCENE;
 extern const std::wstring KEY_END_SCENE;
-extern const std::wstring KEY_LOBBY_SCENE;
-extern const std::wstring KEY_ONGAME_SCENE;
+extern const std::wstring KEY_GUILD_SCENE;
+extern const std::wstring KEY_SHOP_SCENE;
 extern const std::wstring KEY_TITLE_SCENE;
-
-extern const std::wstring KEY_STAGE_1_SCENE;
-extern const std::wstring KEY_STAGE_2_SCENE;
-extern const std::wstring KEY_STAGE_3_SCENE;
-extern const std::wstring KEY_STAGE_4_SCENE;
+extern const std::wstring KEY_TOWN_SCENE;
 #pragma endregion Scene
 
 ///////////////////////
@@ -131,10 +104,6 @@ extern const std::wstring KEY_STAGE_4_SCENE;
 #pragma region XmlDocument
 extern const std::wstring XML_DOC_EXAMPLE;
 extern const std::wstring XML_DOC_SAVEDATA;
-extern const std::wstring XML_DOC_STAGE_1;
-extern const std::wstring XML_DOC_STAGE_2;
-extern const std::wstring XML_DOC_STAGE_3;
-extern const std::wstring XML_DOC_STAGE_4;
 #pragma endregion XmlDocument
 
 ///////////////////////

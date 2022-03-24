@@ -11,6 +11,15 @@ public:
 	virtual GameObject* CreateObject(std::function<void()> _callBack_v_CB_v, D_POINT _pos,
 		int _rectWidth, int _rectHeight, Image* _image, std::wstring _str = L"") override;
 };
+
+class FactoryButtonMouseOn : public ProductBaseButton
+{
+private:
+protected:
+public:
+	virtual GameObject* CreateObject(std::function<void()> _callBack_v_CB_v, D_POINT _pos,
+		int _rectWidth, int _rectHeight, Image* _image, std::wstring _str = L"") override;
+};
 #pragma endregion ProductBaseButton
 
 

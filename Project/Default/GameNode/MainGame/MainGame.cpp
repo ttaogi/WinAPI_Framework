@@ -6,13 +6,10 @@
 #include "Image/Image.h"
 #include "Manager/SceneManager/SceneManager.h"
 #include "Scene/EndScene/EndScene.h"
-#include "Scene/LobbyScene/LobbyScene.h"
-#include "Scene/OnGameScene/OnGameScene.h"
-#include "Scene/Stage1Scene/Stage1Scene.h"
-#include "Scene/Stage2Scene/Stage2Scene.h"
-#include "Scene/Stage3Scene/Stage3Scene.h"
-#include "Scene/Stage4Scene/Stage4Scene.h"
+#include "Scene/GuildScene/GuildScene.h"
+#include "Scene/ShopScene/ShopScene.h"
 #include "Scene/TitleScene/TitleScene.h"
+#include "Scene/TownScene/TownScene.h"
 
 MainGame::MainGame()
 {
@@ -29,13 +26,10 @@ HRESULT MainGame::Init()
 	SetBackBuffer(IMG->FindImage(KEY_BACKGROUND_BACKBUFFER));
 
 	SCENE->AddScene(KEY_END_SCENE, new EndScene());
-	SCENE->AddScene(KEY_LOBBY_SCENE, new LobbyScene());
-	SCENE->AddScene(KEY_ONGAME_SCENE, new OnGameScene());
 	SCENE->AddScene(KEY_TITLE_SCENE, new TitleScene());
-	SCENE->AddScene(KEY_STAGE_1_SCENE, new Stage1Scene());
-	SCENE->AddScene(KEY_STAGE_2_SCENE, new Stage2Scene());
-	SCENE->AddScene(KEY_STAGE_3_SCENE, new Stage3Scene());
-	SCENE->AddScene(KEY_STAGE_4_SCENE, new Stage4Scene());
+	SCENE->AddScene(KEY_TOWN_SCENE, new TownScene());
+	SCENE->AddScene(KEY_GUILD_SCENE, new GuildScene());
+	SCENE->AddScene(KEY_SHOP_SCENE, new ShopScene());
 	SCENE->ChangeScene(KEY_TITLE_SCENE);
 
 	return S_OK;

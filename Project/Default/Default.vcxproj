@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DesignPattern\CommandBase\Command.cpp" />
     <ClCompile Include="DesignPattern\FactoryMethodBase\FactoryMethod.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Bar\Bar.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Behaviour\Behaviour.cpp" />
@@ -31,6 +32,8 @@
     <ClCompile Include="DesignPattern\ComponentBase\Component\Rigidbody\Rigidbody.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Transform\Transform.cpp" />
     <ClCompile Include="DesignPattern\FactoryMethodBase\ProductBase\ConcreteProduct.cpp" />
+    <ClCompile Include="DesignPattern\ObserverBase\Observer.cpp" />
+    <ClCompile Include="DesignPattern\ObserverBase\Subject.cpp" />
     <ClCompile Include="GameNode\GameNode.cpp" />
     <ClCompile Include="GameNode\MainGame\MainGame.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\GameObject\GameObject.cpp" />
@@ -60,19 +63,16 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Scene\EndScene\EndScene.cpp" />
-    <ClCompile Include="Scene\LobbyScene\LobbyScene.cpp" />
-    <ClCompile Include="Scene\OnGameScene\OnGameScene.cpp" />
+    <ClCompile Include="Scene\GuildScene\GuildScene.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
-    <ClCompile Include="Scene\Stage1Scene\Stage1Scene.cpp" />
-    <ClCompile Include="Scene\Stage2Scene\Stage2Scene.cpp" />
-    <ClCompile Include="Scene\Stage3Scene\Stage3Scene.cpp" />
-    <ClCompile Include="Scene\Stage4Scene\Stage4Scene.cpp" />
+    <ClCompile Include="Scene\ShopScene\ShopScene.cpp" />
     <ClCompile Include="Scene\TitleScene\TitleScene.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Button\Button.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Behaviour\MonoBehaviour\MonoBehaviour.cpp" />
     <ClCompile Include="Manager\SoundManager\SoundManager.cpp" />
     <ClCompile Include="Manager\TimeManager\TimeManager.cpp" />
     <ClCompile Include="Manager\TimeManager\Timer\Timer.cpp" />
+    <ClCompile Include="Scene\TownScene\TownScene.cpp" />
     <ClCompile Include="Script\Player\Player.cpp" />
     <ClCompile Include="StateMachine\PlayerStateMachine\PlayerStateMachine.cpp" />
     <ClCompile Include="Stdafx\stdafx.cpp">
@@ -85,6 +85,7 @@
     <ClCompile Include="Utility\Enums\Enums.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DesignPattern\CommandBase\Command.h" />
     <ClInclude Include="DesignPattern\FactoryMethodBase\ProductBase\ProductBase.h" />
     <ClInclude Include="DesignPattern\FactoryMethodBase\FactoryMethod.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Bar\Bar.h" />
@@ -99,6 +100,8 @@
     <ClInclude Include="DesignPattern\ComponentBase\Component\Transform\Transform.h" />
     <ClInclude Include="DesignPattern\FactoryMethodBase\ProductBase\ConcreteProduct.h" />
     <ClInclude Include="DesignPattern\FactoryMethodBase\FactoryMethodBase.h" />
+    <ClInclude Include="DesignPattern\ObserverBase\Observer.h" />
+    <ClInclude Include="DesignPattern\ObserverBase\Subject.h" />
     <ClInclude Include="DesignPattern\SingletonBase\SingletonBase.h" />
     <ClInclude Include="DesignPattern\ComponentBase\GameObject\GameObject.h" />
     <ClInclude Include="Manager\CameraManager\CameraManager.h" />
@@ -112,11 +115,9 @@
     <ClInclude Include="Manager\TimeManager\Timer\Timer.h" />
     <ClInclude Include="Manager\XmlManager\TinyXml\tinystr.h" />
     <ClInclude Include="Manager\XmlManager\TinyXml\tinyxml.h" />
-    <ClInclude Include="Scene\LobbyScene\LobbyScene.h" />
-    <ClInclude Include="Scene\Stage1Scene\Stage1Scene.h" />
-    <ClInclude Include="Scene\Stage2Scene\Stage2Scene.h" />
-    <ClInclude Include="Scene\Stage3Scene\Stage3Scene.h" />
-    <ClInclude Include="Scene\Stage4Scene\Stage4Scene.h" />
+    <ClInclude Include="Scene\GuildScene\GuildScene.h" />
+    <ClInclude Include="Scene\ShopScene\ShopScene.h" />
+    <ClInclude Include="Scene\TownScene\TownScene.h" />
     <ClInclude Include="Utility\CommonClasses\CommonClasses.h" />
     <ClInclude Include="Utility\Enums\Enums.h" />
     <ClInclude Include="GameNode\GameNode.h" />
@@ -128,7 +129,6 @@
     <ClInclude Include="Manager\ImageManager\ImageManager.h" />
     <ClInclude Include="Manager\KeyManager\KeyManager.h" />
     <ClInclude Include="Scene\EndScene\EndScene.h" />
-    <ClInclude Include="Scene\OnGameScene\OnGameScene.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\TitleScene\TitleScene.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Button\Button.h" />

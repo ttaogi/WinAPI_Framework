@@ -25,13 +25,10 @@ public:
 
 	void SetNextSceneKey(std::wstring _nextSceneKey);
 	void SetNextSceneKeyEndScene();
-	void SetNextSceneKeyLobbyScene();
-	void SetNextSceneKeyOnGameScene();
-	void SetNextSceneKeyStage1Scene();
-	void SetNextSceneKeyStage2Scene();
-	void SetNextSceneKeyStage3Scene();
-	void SetNextSceneKeyStage4Scene();
+	void SetNextSceneKeyGuildScene();
+	void SetNextSceneKeyShopScene();
 	void SetNextSceneKeyTitleScene();
+	void SetNextSceneKeyTownScene();
 
 	Scene* AddScene(std::wstring _sceneName, Scene* _scene);
 	Scene* AddLoadingScene(std::wstring _loadingSceneName, Scene* _scene);

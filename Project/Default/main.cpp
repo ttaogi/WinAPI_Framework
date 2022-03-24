@@ -92,7 +92,7 @@ void LoadResources()
 	SCENE->Init();
 	SOUND->Init();
 	XML->Init();
-	JSON->Init();
+	//JSON->Init();
 	GAMEDATA->Init();
 	MAPDATA->Init();
 	CAMERA->Init(NULL);
@@ -106,12 +106,16 @@ void LoadResources()
 		->InitForAlphaBlend();
 	IMG->AddImage(KEY_BACKGROUND_TITLESCENE, BACKGROUND_TITLESCENE, WINSIZE_X, WINSIZE_Y, false, MAGENTA)
 		->InitForAlphaBlend();
-	IMG->AddImage(KEY_BACKGROUND_ONGAMESCENE, BACKGROUND_ONGAMESCENE, WINSIZE_X, WINSIZE_Y, false, MAGENTA)
+
+	IMG->AddImage(KEY_BACKGROUND_TOWNSCENE_DAY, BACKGROUND_TOWNSCENE_DAY, WINSIZE_X, WINSIZE_Y, false, MAGENTA)
 		->InitForAlphaBlend();
-	IMG->AddImage(KEY_BACKGROUND_LOBBYSCENE, BACKGROUND_LOBBYSCENE, WINSIZE_X, WINSIZE_Y, false, MAGENTA)
+	IMG->AddImage(KEY_BACKGROUND_TOWNSCENE_NIGHT, BACKGROUND_TOWNSCENE_NIGHT, WINSIZE_X, WINSIZE_Y, false, MAGENTA)
 		->InitForAlphaBlend();
 
-	IMG->AddImage(KEY_BACKGROUND_STAGE_1, BACKGROUND_STAGE_1, 1350, WINSIZE_Y, false, MAGENTA)
+	IMG->AddImage(KEY_BACKGROUND_GUILD, BACKGROUND_GUILD, WINSIZE_X, WINSIZE_Y, false, MAGENTA)
+		->InitForAlphaBlend();
+
+	IMG->AddImage(KEY_BACKGROUND_SHOP, BACKGROUND_SHOP, WINSIZE_X, WINSIZE_Y, false, MAGENTA)
 		->InitForAlphaBlend();
 	
 	// ui button.
@@ -119,16 +123,13 @@ void LoadResources()
 		->InitForAlphaBlend();
 	IMG->AddImage(KEY_UI_RETRY_BUTTON_SPRITE, UI_RETRY_BUTTON_SPRITE, BUTTON_WIDTH, BUTTON_HEIGHT, true, MAGENTA)
 		->InitForAlphaBlend();
-	IMG->AddImage(KEY_UI_START_BUTTON_SPRITE, UI_START_BUTTON_SPRITE, 400, 50, true, MAGENTA)
-		->InitForAlphaBlend();
 
-	IMG->AddImage(KEY_UI_STAGE_1_BUTTON_SPRITE, UI_STAGE_1_BUTTON_SPRITE, 415, 155, true, MAGENTA)
+	// ui button mouse on.
+	IMG->AddImage(KEY_UI_TOWN_TO_FIELD_BUTTON_SPRITE, UI_TOWN_TO_FIELD_BUTTON_SPRITE, 100, 50, true, MAGENTA)
 		->InitForAlphaBlend();
-	IMG->AddImage(KEY_UI_STAGE_2_BUTTON_SPRITE, UI_STAGE_2_BUTTON_SPRITE, 415, 155, true, MAGENTA)
+	IMG->AddImage(KEY_UI_TOWN_TO_GUILD_BUTTON_SPRITE, UI_TOWN_TO_GUILD_BUTTON_SPRITE, 100, 50, true, MAGENTA)
 		->InitForAlphaBlend();
-	IMG->AddImage(KEY_UI_STAGE_3_BUTTON_SPRITE, UI_STAGE_3_BUTTON_SPRITE, 415, 155, true, MAGENTA)
-		->InitForAlphaBlend();
-	IMG->AddImage(KEY_UI_STAGE_4_BUTTON_SPRITE, UI_STAGE_4_BUTTON_SPRITE, 415, 155, true, MAGENTA)
+	IMG->AddImage(KEY_UI_TOWN_TO_SHOP_BUTTON_SPRITE, UI_TOWN_TO_SHOP_BUTTON_SPRITE, 100, 50, true, MAGENTA)
 		->InitForAlphaBlend();
 	
 	// ui bar.
@@ -139,10 +140,6 @@ void LoadResources()
 	IMG->AddImage(KEY_UI_BAR_BORDER_SPRITE, DIR_UI_BAR_BORDER_SPRITE, 20, 20, false, MAGENTA)
 		->InitForAlphaBlend();
 	
-	// platform.
-	IMG->AddImage(KEY_PLATFORM_DEFAULT_SPRITE, DIR_PLATFORM_DEFAULT_SPRITE, 80, 20, false, MAGENTA)
-		->InitForAlphaBlend();
-	
 	// player.
 	IMG->AddImage(KEY_PLAYER_TEMP_SPRITE, DIR_PLAYER_TEMP_SPRITE, 80, 80, false, MAGENTA)
 		->InitForAlphaBlend();
@@ -150,23 +147,20 @@ void LoadResources()
 	////// sound.
 	SOUND->AddSound(KEY_SOUND_EXAMPLE, DIR_SOUND_EXAMPLE, true, true);
 	SOUND->AddSound(KEY_SOUND_TITLE_THEME, DIR_SOUND_TITLE_THEME, true, true);
-	SOUND->AddSound(KEY_SOUND_LOBBY_THEME, DIR_SOUND_LOBBY_THEME, true, true);
-
-	SOUND->AddSound(KEY_SOUND_STAGE_1_NORMAL, DIR_SOUND_STAGE_1_NORMAL, true, true);
-	SOUND->AddSound(KEY_SOUND_STAGE_2_NORMAL, DIR_SOUND_STAGE_2_NORMAL, true, true);
-	SOUND->AddSound(KEY_SOUND_STAGE_3_NORMAL, DIR_SOUND_STAGE_3_NORMAL, true, true);
-	SOUND->AddSound(KEY_SOUND_STAGE_4_NORMAL, DIR_SOUND_STAGE_4_NORMAL, true, true);
+	SOUND->AddSound(KEY_SOUND_TOWN_THEME, DIR_SOUND_TOWN_THEME, true, true);
 }
 
 void ReleaseResources()
 {
 	// singleton release.
+	CAMERA->Release();
+	CAMERA->ReleaseSingleton();
 	MAPDATA->Release();
 	MAPDATA->ReleaseSingleton();
 	GAMEDATA->Release();
 	GAMEDATA->ReleaseSingleton();
-	JSON->Release();
-	JSON->ReleaseSingleton();
+	//JSON->Release();
+	//JSON->ReleaseSingleton();
 	XML->Release();
 	XML->ReleaseSingleton();
 	SOUND->AllStop();
