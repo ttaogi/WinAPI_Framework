@@ -29,9 +29,12 @@ void RenderedImage::Render(HDC _hdc)
 			switch (renderingType)
 			{
 			case RENDERED_IMAGE_RENDERING_TYPE::DEFAULT:
-				image->AlphaRender(_hdc, rc.left, rc.top, alpha);
+			{
+				POINT revision = CAMERA->GetRevision();
+				image->AlphaRender(_hdc, rc.left - revision.x, rc.top - revision.y, alpha);
 				//image->Render(_hdc, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
 				break;
+			}
 			case RENDERED_IMAGE_RENDERING_TYPE::LOOP:
 				image->LoopAlphaRender(_hdc, &rc, 0, 0, alpha);
 				//image->LoopRender(_hdc, &rc, 0, 0);

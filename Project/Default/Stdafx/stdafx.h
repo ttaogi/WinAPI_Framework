@@ -27,6 +27,7 @@
 #include "DesignPattern/FactoryMethodBase/FactoryMethod.h"
 #include "GameNode/MainGame/MainGame.h"
 #include "Manager/CameraManager/CameraManager.h"
+#include "Manager/DialogManager/DialogManager.h"
 #include "Manager/FontManager/FontManager.h"
 #include "Manager/GameDataManager/GameDataManager.h"
 #include "Manager/ImageManager/ImageManager.h"
@@ -64,6 +65,7 @@ using namespace std;
 #define GAMEDATA				GameDataManager::GetSingleton()
 #define MAPDATA					MapDataManager::GetSingleton()
 #define CAMERA					CameraManager::GetSingleton()
+#define DIALOG					DialogManager::GetSingleton()
 
 #define FACTORY_METHOD_BUTTON	FactoryMethodButton::GetSingleton()
 #define FACTORY_METHOD_BAR		FactoryMethodBar::GetSingleton()

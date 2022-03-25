@@ -42,6 +42,7 @@
     <ClCompile Include="Image\Image.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager\CameraManager\CameraManager.cpp" />
+    <ClCompile Include="Manager\DialogManager\DialogManager.cpp" />
     <ClCompile Include="Manager\FontManager\FontManager.cpp" />
     <ClCompile Include="Manager\GameDataManager\GameDataManager.cpp" />
     <ClCompile Include="Manager\ImageManager\ImageManager.cpp" />
@@ -105,6 +106,7 @@
     <ClInclude Include="DesignPattern\SingletonBase\SingletonBase.h" />
     <ClInclude Include="DesignPattern\ComponentBase\GameObject\GameObject.h" />
     <ClInclude Include="Manager\CameraManager\CameraManager.h" />
+    <ClInclude Include="Manager\DialogManager\DialogManager.h" />
     <ClInclude Include="Manager\GameDataManager\GameDataManager.h" />
     <ClInclude Include="Manager\JsonManager\JsonManager.h" />
     <ClInclude Include="Manager\MapDataManager\MapDataManager.h" />

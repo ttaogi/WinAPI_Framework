@@ -96,6 +96,7 @@ void LoadResources()
 	GAMEDATA->Init();
 	MAPDATA->Init();
 	CAMERA->Init(NULL);
+	DIALOG->Init();
 	
 	// backbuffer.
 	IMG->AddImage(KEY_BACKGROUND_BACKBUFFER, BACKGROUND_BACKBUFFER, WINSIZE_X, WINSIZE_Y)
@@ -139,6 +140,16 @@ void LoadResources()
 		->InitForAlphaBlend();
 	IMG->AddImage(KEY_UI_BAR_BORDER_SPRITE, DIR_UI_BAR_BORDER_SPRITE, 20, 20, false, MAGENTA)
 		->InitForAlphaBlend();
+
+	// portrait.
+	IMG->AddImage(KEY_UI_PORTRAIT_AL_DEFAULT_STRIPE, DIR_UI_PORTRAIT_AL_DEFAULT_STRIPE, 240, 192, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddImage(KEY_UI_PORTRAIT_GUILD_DEFAULT_STRIPE, DIR_UI_PORTRAIT_GUILD_DEFAULT_STRIPE, 240, 192, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddImage(KEY_UI_PORTRAIT_KARIN_DEFAULT_STRIPE, DIR_UI_PORTRAIT_KARIN_DEFAULT_STRIPE, 240, 192, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddImage(KEY_UI_PORTRAIT_SHOP_DEFAULT_STRIPE, DIR_UI_PORTRAIT_SHOP_DEFAULT_STRIPE, 240, 192, true, MAGENTA)
+		->InitForAlphaBlend();
 	
 	// player.
 	IMG->AddImage(KEY_PLAYER_TEMP_SPRITE, DIR_PLAYER_TEMP_SPRITE, 80, 80, false, MAGENTA)
@@ -153,6 +164,8 @@ void LoadResources()
 void ReleaseResources()
 {
 	// singleton release.
+	DIALOG->Release();
+	DIALOG->ReleaseSingleton();
 	CAMERA->Release();
 	CAMERA->ReleaseSingleton();
 	MAPDATA->Release();

@@ -52,6 +52,18 @@ extern const wchar_t* DIR_UI_BAR_BORDER_SPRITE;
 #pragma endregion Ui_Bar
 
 
+#pragma region Portrait
+extern const std::wstring KEY_UI_PORTRAIT_AL_DEFAULT_STRIPE;
+extern const wchar_t* DIR_UI_PORTRAIT_AL_DEFAULT_STRIPE;
+extern const std::wstring KEY_UI_PORTRAIT_GUILD_DEFAULT_STRIPE;
+extern const wchar_t* DIR_UI_PORTRAIT_GUILD_DEFAULT_STRIPE;
+extern const std::wstring KEY_UI_PORTRAIT_KARIN_DEFAULT_STRIPE;
+extern const wchar_t* DIR_UI_PORTRAIT_KARIN_DEFAULT_STRIPE;
+extern const std::wstring KEY_UI_PORTRAIT_SHOP_DEFAULT_STRIPE;
+extern const wchar_t* DIR_UI_PORTRAIT_SHOP_DEFAULT_STRIPE;
+#pragma endregion Portrait
+
+
 #pragma region Player
 extern const std::wstring KEY_PLAYER_TEMP_SPRITE;
 extern const wchar_t* DIR_PLAYER_TEMP_SPRITE;
@@ -104,6 +116,7 @@ extern const std::wstring KEY_TOWN_SCENE;
 #pragma region XmlDocument
 extern const std::wstring XML_DOC_EXAMPLE;
 extern const std::wstring XML_DOC_SAVEDATA;
+extern const std::wstring XML_DOC_DIALOG;
 #pragma endregion XmlDocument
 
 ///////////////////////

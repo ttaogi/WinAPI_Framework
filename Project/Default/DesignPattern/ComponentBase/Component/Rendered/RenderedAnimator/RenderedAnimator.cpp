@@ -32,7 +32,13 @@ void RenderedAnimator::LateUpdate() { }
 void RenderedAnimator::Render(HDC _hdc)
 {
 	if (enabled && animator)
-		animator->AnimationRender(_hdc, gameObject->GetComponent<Transform>()->GetPosition().ToPoint());
+	{
+		POINT revision = CAMERA->GetRevision();
+		POINT pos = gameObject->GetComponent<Transform>()->GetPosition().ToPoint();
+		pos.x -= revision.x;
+		pos.y -= revision.y;
+		animator->AnimationRender(_hdc, pos);
+	}
 }
 
 void RenderedAnimator::AddAnimation(CHARACTER_STATE _state, Animation* _animation) { animator->AddAnimation(_state, _animation); }

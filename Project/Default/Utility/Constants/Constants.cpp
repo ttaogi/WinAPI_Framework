@@ -84,6 +84,26 @@ const wchar_t* DIR_UI_BAR_BORDER_SPRITE =
 #pragma endregion Ui_Bar
 
 
+#pragma region Portrait
+const std::wstring KEY_UI_PORTRAIT_AL_DEFAULT_STRIPE =
+	L"UI_PORTRAIT_AL_DEFAULT_STRIPE";
+const wchar_t* DIR_UI_PORTRAIT_AL_DEFAULT_STRIPE =
+	L"Resources/Images/UI/Portrait/Al/Default.bmp";
+const std::wstring KEY_UI_PORTRAIT_GUILD_DEFAULT_STRIPE =
+	L"UI_PORTRAIT_GUILD_DEFAULT_STRIPE";
+const wchar_t* DIR_UI_PORTRAIT_GUILD_DEFAULT_STRIPE =
+	L"Resources/Images/UI/Portrait/Guild/Default.bmp";
+const std::wstring KEY_UI_PORTRAIT_KARIN_DEFAULT_STRIPE =
+	L"UI_PORTRAIT_KARIN_DEFAULT_STRIPE";
+const wchar_t* DIR_UI_PORTRAIT_KARIN_DEFAULT_STRIPE =
+	L"Resources/Images/UI/Portrait/Karin/Default.bmp";
+const std::wstring KEY_UI_PORTRAIT_SHOP_DEFAULT_STRIPE =
+	L"UI_PORTRAIT_SHOP_DEFAULT_STRIPE";
+const wchar_t* DIR_UI_PORTRAIT_SHOP_DEFAULT_STRIPE =
+	L"Resources/Images/UI/Portrait/Shop/Default.bmp";
+#pragma endregion Portrait
+
+
 #pragma region Player
 const std::wstring KEY_PLAYER_TEMP_SPRITE =
 	L"KEY_PLAYER_TEMP_SPRITE";
@@ -154,6 +174,8 @@ const std::wstring XML_DOC_EXAMPLE =
 	L"example document.txt";
 const std::wstring XML_DOC_SAVEDATA =
 	L"Resources/XML/save.dat";
+const std::wstring XML_DOC_DIALOG =
+	L"Resources/XML/dialog.xml";
 #pragma endregion XmlDocument
 
 ///////////////////////

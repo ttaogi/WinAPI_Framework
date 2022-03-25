@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROOT>
+    <guild mapSize="1">
+        <default cycleName="길드 기본 다이얼로그" cycleSize="5">
+            <dialog_0 upper="1" stripeKey="UI_PORTRAIT_GUILD_DEFAULT_STRIPE" name="길드 아저씨" text="일없어요." />
+            <dialog_1 upper="0" stripeKey="UI_PORTRAIT_KARIN_DEFAULT_STRIPE" name="카린" text="그렇게 된 건가." />
+            <dialog_2 upper="1" stripeKey="UI_PORTRAIT_GUILD_DEFAULT_STRIPE" name="길드 아저씨" text="ㅇㅇ" />
+            <dialog_3 upper="0" stripeKey="UI_PORTRAIT_KARIN_DEFAULT_STRIPE" name="카린" text="ㅇㅇ" />
+            <dialog_4 upper="1" stripeKey="UI_PORTRAIT_GUILD_DEFAULT_STRIPE" name="길드 아저씨" text="ㅅㄱ" />
+        </default>
+        <dialogCycle_0 cycleName="테스트" cycleSize="2" processivity="0">
+            <dialog_0 upper="1" stripeKey="UI_PORTRAIT_GUILD_DEFAULT_STRIPE" name="길드 아저씨" text="테스트다" />
+            <dialog_1 upper="0" stripeKey="UI_PORTRAIT_KARIN_DEFAULT_STRIPE" name="카린" text="ㅇㅋ" />
+        </dialogCycle_0>
+    </guild>
+    <shop mapSize="0">
+        <default cycleName="상점 기본 다이얼로그" cycleSize="5">
+            <dialog_0 upper="1" stripeKey="UI_PORTRAIT_SHOP_DEFAULT_STRIPE" name="근육 아저씨" text="얼마까지 알아보고 오셨어요?" />
+            <dialog_1 upper="0" stripeKey="UI_PORTRAIT_KARIN_DEFAULT_STRIPE" name="카린" text="4달라." />
+            <dialog_2 upper="1" stripeKey="UI_PORTRAIT_SHOP_DEFAULT_STRIPE" name="근육 아저씨" text="손님 맞을래요?" />
+            <dialog_3 upper="0" stripeKey="UI_PORTRAIT_KARIN_DEFAULT_STRIPE" name="카린" text="4달라." />
+            <dialog_4 upper="1" stripeKey="UI_PORTRAIT_SHOP_DEFAULT_STRIPE" name="근육 아저씨" text="NAGA" />
+        </default>
+    </shop>
+</ROOT>
