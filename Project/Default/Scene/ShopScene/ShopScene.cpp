@@ -36,9 +36,8 @@ void ShopScene::OnNotify(Subject* _subject, EVENT _event)
 		break;
 	case EVENT::EXIT_BUTTON_CLICK:
 		if (GAMEMANAGER->GetPhase() == PHASE::PHASE_SHOPPING)
-		{
 			SCENE->SetNextSceneKeyTownScene();
-		}
+
 		break;
 	}
 }
@@ -50,20 +49,11 @@ HRESULT ShopScene::Init()
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_SHOP);
 	root = NULL;
 
-	/*
-	GameObject* toTownBtn = FACTORY_METHOD_BUTTON->CreateObject(
-		BUTTON_FACTORY_TYPE::MOUSE_ON,
-		std::bind(&SceneManager::SetNextSceneKeyTownScene, SCENE),
-		D_POINT{ 590, 455 }, 100, 50,
-		IMG->FindImage(KEY_UI_TOWN_TO_FIELD_BUTTON_SPRITE));
-	//*/
-
 	GameObject* dialogViewer = FACTORY_METHOD_DIALOGVIEWER->CreateObject(this, DIALOG_SPOT_SHOP, -1);
 	GameObject* shopList = FACTORY_METHOD_SHOPLIST->CreateObject(this);
 	shopList->SetActive(false);
 
 	root = new GameObject();
-	//root->AddGameObject(toTownBtn);
 	root->AddGameObject(dialogViewer);
 	root->AddGameObject(shopList);
 

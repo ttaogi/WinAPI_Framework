@@ -2,9 +2,30 @@
 
 #include "Scene/GuildScene/GuildScene.h"
 
+#include "DesignPattern/ObserverBase/Subject.h"
+#include "Script/DialogViewer/DialogViewer.h"
+
 GuildScene::GuildScene() { }
 
 GuildScene::~GuildScene() { }
+
+void GuildScene::OnNotify(Subject* _subject, EVENT _event)
+{
+	switch (_event)
+	{
+	case EVENT::DIALOG_CLICK:
+		if (GAMEMANAGER->GetPhase() == PHASE::PHASE_DIALOG)
+		{
+			GameObject* dialogViewer = root->GetGameObjectByName(SKIG_DIALOG_VIEWER);
+			DialogViewer* dv = dialogViewer->GetComponent<DialogViewer>();
+
+			if (dv)
+				if (dv->IsEnd()) SCENE->SetNextSceneKeyTownScene();
+				else dv->Next();
+		}
+		break;
+	}
+}
 
 HRESULT GuildScene::Init()
 {
@@ -13,16 +34,14 @@ HRESULT GuildScene::Init()
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_GUILD);
 	root = NULL;
 
-	GameObject* toTownBtn = FACTORY_METHOD_BUTTON->CreateObject(
-		BUTTON_FACTORY_TYPE::MOUSE_ON,
-		std::bind(&SceneManager::SetNextSceneKeyTownScene, SCENE),
-		D_POINT{ 590, 455 }, 100, 50,
-		IMG->FindImage(KEY_UI_TOWN_TO_FIELD_BUTTON_SPRITE));
+	GameObject* dialogViewer = FACTORY_METHOD_DIALOGVIEWER->CreateObject(this, DIALOG_SPOT_GUILD, GAMEDATA->GetProcessivity());
 
 	root = new GameObject();
-	root->AddGameObject(toTownBtn);
+	root->AddGameObject(dialogViewer);
 
 	SOUND->Play(KEY_SOUND_TOWN_THEME, GAMEDATA->GetVolume());
+
+	GAMEMANAGER->SetPhase(PHASE::PHASE_DIALOG);
 
 	return S_OK;
 }

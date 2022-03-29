@@ -70,10 +70,6 @@ void ShopList::OnNotify(Subject* _subject, EVENT _event)
 		break;
 	}
 }
-
-void ShopList::Update()
-{
-}
 #pragma endregion ShopList
 
 

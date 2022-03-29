@@ -24,7 +24,7 @@ public:
 	Scene() { }
 	virtual ~Scene() { }
 
-	virtual void OnNotify(Subject* _subject, EVENT _event) override;
+	virtual void OnNotify(Subject* _subject, EVENT _event) override = 0;
 
 	virtual HRESULT Init() = 0;
 	virtual void Release() = 0;
