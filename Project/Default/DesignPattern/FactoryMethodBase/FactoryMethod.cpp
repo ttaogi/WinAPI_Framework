@@ -121,3 +121,46 @@ GameObject* FactoryMethodPlatform::CreateObject(PLATFORM_FACTORY_TYPE _type, D_P
 	return go;
 }
 #pragma endregion FactoryMethodPlatform
+
+
+#pragma region FactoryMethodDialogViewer
+FactoryMethodDialogViewer::FactoryMethodDialogViewer()
+{
+	defaultDialogViewer = new FactoryDefaultDialogViewer();
+}
+
+FactoryMethodDialogViewer::~FactoryMethodDialogViewer()
+{
+	SAFE_DELETE(defaultDialogViewer);
+}
+
+GameObject* FactoryMethodDialogViewer::CreateObject(Observer* _observer, std::wstring _spot, int _processivity)
+{
+	GameObject* go = NULL;
+
+	go = defaultDialogViewer->CreateObject(_observer, _spot, _processivity);
+
+	return go;
+}
+#pragma endregion FactoryMethodDialogViewer
+
+#pragma region FactoryMethodShopList
+FactoryMethodShopList::FactoryMethodShopList()
+{
+	defaultShopList = new FactoryDefaultShopList();
+}
+
+FactoryMethodShopList::~FactoryMethodShopList()
+{
+	SAFE_DELETE(defaultShopList);
+}
+
+GameObject* FactoryMethodShopList::CreateObject(Observer* _observer)
+{
+	GameObject* go = NULL;
+	
+	go = defaultShopList->CreateObject(_observer);
+
+	return go;
+}
+#pragma endregion FactoryMethodShopList

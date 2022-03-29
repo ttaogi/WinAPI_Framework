@@ -2,10 +2,10 @@
 
 #include "DesignPattern/ObserverBase/Subject.h"
 
-void Subject::Notify()
+void Subject::Notify(EVENT _event)
 {
 	for (auto iter = observerVec.begin(); iter != observerVec.end(); ++iter)
-		(*iter)->OnNotify();
+		(*iter)->OnNotify(this, _event);
 }
 
 void Subject::AddObserver(Observer* _observer)

@@ -98,31 +98,45 @@ void GameObject::AddGameObject(GameObject* _go)
 GameObject* GameObject::GetGameObjectByTag(TAG _tag)
 {
 	if (CompareTag(_tag)) return this;
-	else
+
+	GameObject* result = NULL;
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
 	{
-		GameObject* result = NULL;
-		for (auto iter = goList.begin(); iter != goList.end(); ++iter)
-		{
-			result = (*iter)->GetGameObjectByTag(_tag);
-			if (result) return result;
-		}
+		result = (*iter)->GetGameObjectByTag(_tag);
+		if (result) return result;
 	}
+
 	return NULL;
 }
 
 GameObject* GameObject::GetGameObjectByName(wstring _name)
 {
 	if (CompareName(_name)) return this;
-	else
+
+	GameObject* result = NULL;
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
 	{
-		GameObject* result = NULL;
-		for (auto iter = goList.begin(); iter != goList.end(); ++iter)
-		{
-			result = (*iter)->GetGameObjectByName(_name);
-			if (result) return result;
-		}
+		result = (*iter)->GetGameObjectByName(_name);
+		if (result) return result;
 	}
+
 	return NULL;
+}
+
+void GameObject::GetGameObjectsByTag(std::vector<GameObject*>* _result, TAG _tag)
+{
+	if (CompareTag(_tag)) _result->push_back(this);
+
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
+		(*iter)->GetGameObjectsByTag(_result, _tag);
+}
+
+void GameObject::GetGameObjectsByName(std::vector<GameObject*>* _result, std::wstring _name)
+{
+	if (CompareName(_name)) _result->push_back(this);
+
+	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
+		(*iter)->GetGameObjectsByName(_result, _name);
 }
 
 void GameObject::AddComponent(Component* _c)

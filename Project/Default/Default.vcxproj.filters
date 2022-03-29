@@ -4,95 +4,17 @@
     <Filter Include="API_Framework">
       <UniqueIdentifier>{563e6488-945b-454f-865d-b79d8a0c8b38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\DesignPattern">
-      <UniqueIdentifier>{53b41d63-6a4f-463a-beb7-a9437b2fa41a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\DesignPattern\SingletonBase">
-      <UniqueIdentifier>{5dbbe8ee-88c2-4374-a3c6-3e20dceedb55}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API_Framework\GameNode">
       <UniqueIdentifier>{df2286c5-4317-4ac6-b2a4-4e1e480d2c88}</UniqueIdentifier>
     </Filter>
     <Filter Include="API_Framework\GameNode\MainGame">
       <UniqueIdentifier>{8009e85d-dead-487c-98d2-156e368de9b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\Image">
-      <UniqueIdentifier>{b08b2f36-a0d2-4190-a1e4-42d82be7e2ee}</UniqueIdentifier>
+    <Filter Include="API_Framework\DesignPattern">
+      <UniqueIdentifier>{53b41d63-6a4f-463a-beb7-a9437b2fa41a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\Image\Animation">
-      <UniqueIdentifier>{cfb1d18c-7289-4343-aad8-f6799630c15f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Image\Animator">
-      <UniqueIdentifier>{6473f256-c2da-4ee9-9d0a-65dfa116153a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager">
-      <UniqueIdentifier>{f3853c5c-843f-4091-a22c-28bca57c5993}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager\FontManager">
-      <UniqueIdentifier>{fe3fcf75-d64f-405f-8c4f-89d9d9da6445}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager\ImageManager">
-      <UniqueIdentifier>{01d7417d-9deb-4ea2-bd3a-dd1438afb611}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager\KeyManager">
-      <UniqueIdentifier>{ae46ff48-4dce-4507-8613-d90a9f192c80}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager\SceneManager">
-      <UniqueIdentifier>{07359fe2-b7fe-4dc3-8aaa-68bfb983d865}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\StateMachine">
-      <UniqueIdentifier>{28bb727e-7044-49ce-a50b-8ad1ee367719}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\StateMachine\PlayerStateMachine">
-      <UniqueIdentifier>{75b30b8e-c4bc-4ab6-b5d1-d9af4f5ec516}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Utility">
-      <UniqueIdentifier>{f8cc65f8-668e-449f-bca6-832343a0f056}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Stdafx">
-      <UniqueIdentifier>{ab8b1469-bb2c-4147-8ae0-125f83ff391c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Utility\CommonClasses">
-      <UniqueIdentifier>{9fa3fc46-4f5a-4a81-9bfb-160013ccb383}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager\TimeManager">
-      <UniqueIdentifier>{d379916a-ec57-4029-8520-e75548d5a0d6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager\TimeManager\Timer">
-      <UniqueIdentifier>{e8a6a673-ab39-48a8-ba6c-9c7d45088563}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager\SoundManager">
-      <UniqueIdentifier>{ac54715c-c036-45b9-9f10-37d459e60d1d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Scene">
-      <UniqueIdentifier>{9e13517c-554f-4d70-a9fd-8d25df7b9b9d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Scene\TitleScene">
-      <UniqueIdentifier>{92e11a76-8ba0-4ce3-a30d-1fb301647efd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Scene\EndScene">
-      <UniqueIdentifier>{4b1c4a3f-ff23-4bc9-a5be-84f92b2f4cba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager\XmlManager">
-      <UniqueIdentifier>{9dc237ac-7ace-4144-b93b-79b0a0659635}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager\XmlManager\TinyXml">
-      <UniqueIdentifier>{c6b07a7b-9c74-430a-b792-266b65c4ec28}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Utility\Constants">
-      <UniqueIdentifier>{cc9c41b7-f0f0-401f-960f-b2e01c594927}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Utility\Enums">
-      <UniqueIdentifier>{34436c27-01a8-4501-aef6-36b0670933ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Utility\RandomFunction">
-      <UniqueIdentifier>{45b830a9-df94-4976-842d-6097614149a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Utility\CommonFunction">
-      <UniqueIdentifier>{e48ed1ce-530f-4bb6-8b10-63caeea71e3d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="API_Framework\Manager\JsonManager">
-      <UniqueIdentifier>{83d2a079-d573-494d-a7d9-5703f4950d09}</UniqueIdentifier>
+    <Filter Include="API_Framework\DesignPattern\SingletonBase">
+      <UniqueIdentifier>{5dbbe8ee-88c2-4374-a3c6-3e20dceedb55}</UniqueIdentifier>
     </Filter>
     <Filter Include="API_Framework\DesignPattern\ComponentBase">
       <UniqueIdentifier>{b5fa7641-cb4f-4142-b286-efc2c9722e0a}</UniqueIdentifier>
@@ -121,6 +43,9 @@
     <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Rendered\RenderedAnimator">
       <UniqueIdentifier>{a5612741-6845-405b-b852-6405853b873d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Rendered\RenderedText">
+      <UniqueIdentifier>{c751e8be-90ec-4d64-a61a-35b858c4e18b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="API_Framework\DesignPattern\ComponentBase\Component\Button">
       <UniqueIdentifier>{04612c0f-0290-4c16-b6b5-f63fb9426793}</UniqueIdentifier>
     </Filter>
@@ -142,20 +67,77 @@
     <Filter Include="API_Framework\DesignPattern\FactoryMethodBase\ProductBase">
       <UniqueIdentifier>{c837b262-4967-41b1-bad6-c9782636d83d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\DesignPattern\ObserverBase">
+      <UniqueIdentifier>{5b248128-7acb-4ce2-895a-13ebfd03cf9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\DesignPattern\CommandBase">
+      <UniqueIdentifier>{ebe88487-a6f2-470b-abec-cebc46bab00e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Image">
+      <UniqueIdentifier>{b08b2f36-a0d2-4190-a1e4-42d82be7e2ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Image\Animation">
+      <UniqueIdentifier>{cfb1d18c-7289-4343-aad8-f6799630c15f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Image\Animator">
+      <UniqueIdentifier>{6473f256-c2da-4ee9-9d0a-65dfa116153a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager">
+      <UniqueIdentifier>{f3853c5c-843f-4091-a22c-28bca57c5993}</UniqueIdentifier>
+    </Filter>
     <Filter Include="API_Framework\Manager\CameraManager">
       <UniqueIdentifier>{82863b2a-bd1c-4f5d-b77f-2b3c43c5d13f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\Script">
-      <UniqueIdentifier>{26248d9c-d1fa-4381-ae8e-07f8269a2db6}</UniqueIdentifier>
+    <Filter Include="API_Framework\Manager\DialogManager">
+      <UniqueIdentifier>{db4435e0-af5e-4657-ad3a-9ac51a833d72}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\Script\Player">
-      <UniqueIdentifier>{130f0845-1c04-4e90-ab01-c310aa0f2b89}</UniqueIdentifier>
+    <Filter Include="API_Framework\Manager\FontManager">
+      <UniqueIdentifier>{fe3fcf75-d64f-405f-8c4f-89d9d9da6445}</UniqueIdentifier>
     </Filter>
     <Filter Include="API_Framework\Manager\GameDataManager">
       <UniqueIdentifier>{eb1703ba-5267-4b52-a76e-1d97aedd0ba2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\Manager\GameManager">
+      <UniqueIdentifier>{2d45ad55-5a6b-45d7-ab8f-cf084ed63582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\ImageManager">
+      <UniqueIdentifier>{01d7417d-9deb-4ea2-bd3a-dd1438afb611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\JsonManager">
+      <UniqueIdentifier>{83d2a079-d573-494d-a7d9-5703f4950d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\KeyManager">
+      <UniqueIdentifier>{ae46ff48-4dce-4507-8613-d90a9f192c80}</UniqueIdentifier>
+    </Filter>
     <Filter Include="API_Framework\Manager\MapDataManager">
       <UniqueIdentifier>{ec011cc5-ba0a-48e9-847c-71c971dbecef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\SceneManager">
+      <UniqueIdentifier>{07359fe2-b7fe-4dc3-8aaa-68bfb983d865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\SoundManager">
+      <UniqueIdentifier>{ac54715c-c036-45b9-9f10-37d459e60d1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\TimeManager">
+      <UniqueIdentifier>{d379916a-ec57-4029-8520-e75548d5a0d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\TimeManager\Timer">
+      <UniqueIdentifier>{e8a6a673-ab39-48a8-ba6c-9c7d45088563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\XmlManager">
+      <UniqueIdentifier>{9dc237ac-7ace-4144-b93b-79b0a0659635}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Manager\XmlManager\TinyXml">
+      <UniqueIdentifier>{c6b07a7b-9c74-430a-b792-266b65c4ec28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene">
+      <UniqueIdentifier>{9e13517c-554f-4d70-a9fd-8d25df7b9b9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\TitleScene">
+      <UniqueIdentifier>{92e11a76-8ba0-4ce3-a30d-1fb301647efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\EndScene">
+      <UniqueIdentifier>{4b1c4a3f-ff23-4bc9-a5be-84f92b2f4cba}</UniqueIdentifier>
     </Filter>
     <Filter Include="API_Framework\Scene\TownScene">
       <UniqueIdentifier>{d037730e-4aad-4ebc-9adf-75df010b92c6}</UniqueIdentifier>
@@ -166,14 +148,44 @@
     <Filter Include="API_Framework\Scene\ShopScene">
       <UniqueIdentifier>{da038712-106e-4124-913b-eee310a23b02}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\DesignPattern\ObserverBase">
-      <UniqueIdentifier>{5b248128-7acb-4ce2-895a-13ebfd03cf9e}</UniqueIdentifier>
+    <Filter Include="API_Framework\Script">
+      <UniqueIdentifier>{26248d9c-d1fa-4381-ae8e-07f8269a2db6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\DesignPattern\CommandBase">
-      <UniqueIdentifier>{ebe88487-a6f2-470b-abec-cebc46bab00e}</UniqueIdentifier>
+    <Filter Include="API_Framework\Script\Player">
+      <UniqueIdentifier>{130f0845-1c04-4e90-ab01-c310aa0f2b89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\Manager\DialogManager">
-      <UniqueIdentifier>{db4435e0-af5e-4657-ad3a-9ac51a833d72}</UniqueIdentifier>
+    <Filter Include="API_Framework\StateMachine">
+      <UniqueIdentifier>{28bb727e-7044-49ce-a50b-8ad1ee367719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\StateMachine\PlayerStateMachine">
+      <UniqueIdentifier>{75b30b8e-c4bc-4ab6-b5d1-d9af4f5ec516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Stdafx">
+      <UniqueIdentifier>{ab8b1469-bb2c-4147-8ae0-125f83ff391c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Utility">
+      <UniqueIdentifier>{f8cc65f8-668e-449f-bca6-832343a0f056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Utility\CommonClasses">
+      <UniqueIdentifier>{9fa3fc46-4f5a-4a81-9bfb-160013ccb383}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Utility\Constants">
+      <UniqueIdentifier>{cc9c41b7-f0f0-401f-960f-b2e01c594927}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Utility\Enums">
+      <UniqueIdentifier>{34436c27-01a8-4501-aef6-36b0670933ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Utility\RandomFunction">
+      <UniqueIdentifier>{45b830a9-df94-4976-842d-6097614149a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Utility\CommonFunction">
+      <UniqueIdentifier>{e48ed1ce-530f-4bb6-8b10-63caeea71e3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Script\DialogViewer">
+      <UniqueIdentifier>{4f7ff7f3-1c5e-41ee-b26b-cfece7a466cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Script\ShopList">
+      <UniqueIdentifier>{4835ac1d-19ad-4489-9baf-19c76c341819}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -336,6 +348,18 @@
     </ClCompile>
     <ClCompile Include="Manager\DialogManager\DialogManager.cpp">
       <Filter>API_Framework\Manager\DialogManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPattern\ComponentBase\Component\Rendered\RenderedText\RenderedText.cpp">
+      <Filter>API_Framework\DesignPattern\ComponentBase\Component\Rendered\RenderedText</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\GameManager\GameManager.cpp">
+      <Filter>API_Framework\Manager\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\DialogViewer\DialogViewer.cpp">
+      <Filter>API_Framework\Script\DialogViewer</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\ShopList\ShopList.cpp">
+      <Filter>API_Framework\Script\ShopList</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -506,6 +530,18 @@
     </ClInclude>
     <ClInclude Include="Manager\DialogManager\DialogManager.h">
       <Filter>API_Framework\Manager\DialogManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPattern\ComponentBase\Component\Rendered\RenderedText\RenderedText.h">
+      <Filter>API_Framework\DesignPattern\ComponentBase\Component\Rendered\RenderedText</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\GameManager\GameManager.h">
+      <Filter>API_Framework\Manager\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\DialogViewer\DialogViewer.h">
+      <Filter>API_Framework\Script\DialogViewer</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\ShopList\ShopList.h">
+      <Filter>API_Framework\Script\ShopList</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

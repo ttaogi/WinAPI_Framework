@@ -6,6 +6,7 @@
 #include "DesignPattern/ComponentBase/Component/Collider/Collider.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/Rendered.h"
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
+#include "DesignPattern/ObserverBase/Observer.h"
 #include "Image/Image.h"
 #include "Utility/Enums/Enums.h"
 
@@ -13,7 +14,7 @@ class GameObject;
 class Image;
 class MainGame;
 
-class Scene
+class Scene : public Observer
 {
 protected:
 	Image* backgroundImage;
@@ -22,6 +23,8 @@ protected:
 public:
 	Scene() { }
 	virtual ~Scene() { }
+
+	virtual void OnNotify(Subject* _subject, EVENT _event) override;
 
 	virtual HRESULT Init() = 0;
 	virtual void Release() = 0;

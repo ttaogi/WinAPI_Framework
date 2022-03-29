@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DesignPattern\CommandBase\Command.cpp" />
+    <ClCompile Include="DesignPattern\ComponentBase\Component\Rendered\RenderedText\RenderedText.cpp" />
     <ClCompile Include="DesignPattern\FactoryMethodBase\FactoryMethod.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Bar\Bar.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Behaviour\Behaviour.cpp" />
@@ -34,6 +35,7 @@
     <ClCompile Include="DesignPattern\FactoryMethodBase\ProductBase\ConcreteProduct.cpp" />
     <ClCompile Include="DesignPattern\ObserverBase\Observer.cpp" />
     <ClCompile Include="DesignPattern\ObserverBase\Subject.cpp" />
+    <ClCompile Include="Script\DialogViewer\DialogViewer.cpp" />
     <ClCompile Include="GameNode\GameNode.cpp" />
     <ClCompile Include="GameNode\MainGame\MainGame.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\GameObject\GameObject.cpp" />
@@ -45,6 +47,7 @@
     <ClCompile Include="Manager\DialogManager\DialogManager.cpp" />
     <ClCompile Include="Manager\FontManager\FontManager.cpp" />
     <ClCompile Include="Manager\GameDataManager\GameDataManager.cpp" />
+    <ClCompile Include="Manager\GameManager\GameManager.cpp" />
     <ClCompile Include="Manager\ImageManager\ImageManager.cpp" />
     <ClCompile Include="Manager\JsonManager\JsonManager.cpp" />
     <ClCompile Include="Manager\KeyManager\KeyManager.cpp" />
@@ -75,6 +78,7 @@
     <ClCompile Include="Manager\TimeManager\Timer\Timer.cpp" />
     <ClCompile Include="Scene\TownScene\TownScene.cpp" />
     <ClCompile Include="Script\Player\Player.cpp" />
+    <ClCompile Include="Script\ShopList\ShopList.cpp" />
     <ClCompile Include="StateMachine\PlayerStateMachine\PlayerStateMachine.cpp" />
     <ClCompile Include="Stdafx\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -87,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DesignPattern\CommandBase\Command.h" />
+    <ClInclude Include="DesignPattern\ComponentBase\Component\Rendered\RenderedText\RenderedText.h" />
     <ClInclude Include="DesignPattern\FactoryMethodBase\ProductBase\ProductBase.h" />
     <ClInclude Include="DesignPattern\FactoryMethodBase\FactoryMethod.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Bar\Bar.h" />
@@ -105,9 +110,11 @@
     <ClInclude Include="DesignPattern\ObserverBase\Subject.h" />
     <ClInclude Include="DesignPattern\SingletonBase\SingletonBase.h" />
     <ClInclude Include="DesignPattern\ComponentBase\GameObject\GameObject.h" />
+    <ClInclude Include="Script\DialogViewer\DialogViewer.h" />
     <ClInclude Include="Manager\CameraManager\CameraManager.h" />
     <ClInclude Include="Manager\DialogManager\DialogManager.h" />
     <ClInclude Include="Manager\GameDataManager\GameDataManager.h" />
+    <ClInclude Include="Manager\GameManager\GameManager.h" />
     <ClInclude Include="Manager\JsonManager\JsonManager.h" />
     <ClInclude Include="Manager\MapDataManager\MapDataManager.h" />
     <ClInclude Include="Manager\SceneManager\SceneManager.h" />
@@ -120,6 +127,7 @@
     <ClInclude Include="Scene\GuildScene\GuildScene.h" />
     <ClInclude Include="Scene\ShopScene\ShopScene.h" />
     <ClInclude Include="Scene\TownScene\TownScene.h" />
+    <ClInclude Include="Script\ShopList\ShopList.h" />
     <ClInclude Include="Utility\CommonClasses\CommonClasses.h" />
     <ClInclude Include="Utility\Enums\Enums.h" />
     <ClInclude Include="GameNode\GameNode.h" />

@@ -5,6 +5,8 @@
 #include "DesignPattern/ComponentBase/Component/Behaviour/MonoBehaviour/MonoBehaviour.h"
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
 
+void Scene::OnNotify(Subject* _subject, EVENT _event) { }
+
 void Scene::ProcessCollision(std::vector<Collision>* _collisionVec)
 {
 	if (!_collisionVec) return;

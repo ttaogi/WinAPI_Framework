@@ -69,3 +69,32 @@ public:
 		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) override;
 };
 #pragma endregion FactoryMethodPlatform
+
+
+#pragma region FactoryMethodDialogViewer
+class FactoryMethodDialogViewer : public FactoryMethodBaseDialogViewer, public SingletonBase<FactoryMethodDialogViewer>
+{
+private:
+	FactoryDefaultDialogViewer* defaultDialogViewer;
+protected:
+	virtual ~FactoryMethodDialogViewer();
+public:
+	FactoryMethodDialogViewer();
+
+	virtual GameObject* CreateObject(Observer* _observer, std::wstring _spot, int _processivity);
+};
+#pragma endregion FactoryMethodDialogViewer
+
+#pragma region FactoryMethodShopList
+class FactoryMethodShopList : public FactoryMethodBaseShopList, public SingletonBase<FactoryMethodShopList>
+{
+private:
+	FactoryDefaultShopList* defaultShopList;
+protected:
+	virtual ~FactoryMethodShopList();
+public:
+	FactoryMethodShopList();
+
+	virtual GameObject* CreateObject(Observer* _observer);
+};
+#pragma endregion FactoryMethodShopList

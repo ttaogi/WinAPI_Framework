@@ -30,6 +30,7 @@
 #include "Manager/DialogManager/DialogManager.h"
 #include "Manager/FontManager/FontManager.h"
 #include "Manager/GameDataManager/GameDataManager.h"
+#include "Manager/GameManager/GameManager.h"
 #include "Manager/ImageManager/ImageManager.h"
 #include "Manager/JsonManager/JsonManager.h"
 #include "Manager/KeyManager/KeyManager.h"
@@ -66,11 +67,14 @@ using namespace std;
 #define MAPDATA					MapDataManager::GetSingleton()
 #define CAMERA					CameraManager::GetSingleton()
 #define DIALOG					DialogManager::GetSingleton()
+#define GAMEMANAGER				GameManager::GetSingleton()
 
 #define FACTORY_METHOD_BUTTON	FactoryMethodButton::GetSingleton()
 #define FACTORY_METHOD_BAR		FactoryMethodBar::GetSingleton()
 #define FACTORY_METHOD_PLAYER	FactoryMethodPlayer::GetSingleton()
 #define FACTORY_METHOD_PLATFORM	FactoryMethodPlatform::GetSingleton()
+#define FACTORY_METHOD_DIALOGVIEWER	FactoryMethodDialogViewer::GetSingleton()
+#define FACTORY_METHOD_SHOPLIST	FactoryMethodShopList::GetSingleton()
 
 #define SAFE_RELEASE(p)			{if((p) != NULL) { (p)->Release();}}
 #define SAFE_DELETE(p)			{if((p) != NULL) { delete (p); (p) = NULL;}}

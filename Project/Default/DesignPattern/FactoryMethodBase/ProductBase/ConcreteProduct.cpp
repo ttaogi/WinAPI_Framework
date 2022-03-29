@@ -8,9 +8,12 @@
 #include "DesignPattern/ComponentBase/Component/Collider/Collider.h"
 #include "DesignPattern/ComponentBase/Component/RectTransform/RectTransform.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/RenderedImage/RenderedImage.h"
+#include "DesignPattern/ComponentBase/Component/Rendered/RenderedText/RenderedText.h"
 #include "DesignPattern/ComponentBase/Component/Rigidbody/Rigidbody.h"
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
 #include "Image/Image.h"
+#include "Script/DialogViewer/DialogViewer.h"
+#include "Script/ShopList/ShopList.h"
 #include "Script/Player/Player.h"
 
 static int uiCount = 0;
@@ -31,7 +34,7 @@ GameObject* FactoryDefaultButton::CreateObject(
 	btn->Init();
 	rcT->SetRect(_rectWidth, _rectHeight);
 	rImg->SetImage(_image);
-	rImg->SetSortingLayer(SORTING_LAYER::UI);
+	rImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
 	rImg->SetOrderInLayer(uiCount++);
 
 	go->GetComponent<Transform>()->SetPosition(_pos);
@@ -56,7 +59,7 @@ GameObject* FactoryButtonMouseOn::CreateObject(
 	btn->Init();
 	rcT->SetRect(_rectWidth, _rectHeight);
 	rImg->SetImage(_image);
-	rImg->SetSortingLayer(SORTING_LAYER::UI);
+	rImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
 	rImg->SetOrderInLayer(uiCount++);
 	rImg->SetEnabled(false);
 
@@ -84,7 +87,7 @@ GameObject* FactoryDefaultBar::CreateObject(
 	backRcT->SetRect(_rectWidth - 2 * _margin, _rectHeight - 2 * _margin);
 	RenderedImage* backRImg = new RenderedImage();
 	backRImg->SetImage(IMG->FindImage(KEY_UI_BAR_BACKGROUND_SPRITE));
-	backRImg->SetSortingLayer(SORTING_LAYER::UI);
+	backRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
 	backRImg->SetOrderInLayer(uiCount++);
 	background->AddComponent(backRcT);
 	background->AddComponent(backRImg);
@@ -95,7 +98,7 @@ GameObject* FactoryDefaultBar::CreateObject(
 	guageRcT->SetRect(_rectWidth - 2 * _margin, _rectHeight - 2 * _margin);
 	RenderedImage* guageRImg = new RenderedImage();
 	guageRImg->SetImage(IMG->FindImage(KEY_UI_BAR_GUAGE_SPRITE));
-	guageRImg->SetSortingLayer(SORTING_LAYER::UI);
+	guageRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
 	guageRImg->SetOrderInLayer(uiCount++);
 	guage->AddComponent(guageRcT);
 	guage->AddComponent(guageRImg);
@@ -180,3 +183,306 @@ GameObject* FactoryDefaultPlatform::CreateObject(D_POINT _pos, int _rectWidth, i
 	return go;
 }
 #pragma endregion ProductBasePlatform
+
+
+#pragma region ProductBaseDialogViewer
+GameObject* FactoryDefaultDialogViewer::CreateObject(Observer* _observer, std::wstring _spot, int _processivity)
+{
+	GameObject* go = new GameObject();
+	
+	GameObject* upper = new GameObject();
+	upper->GetComponent<Transform>()->SetPosition(D_POINT{320, 80});
+	RectTransform* upperRcT = new RectTransform();
+	upperRcT->SetRect(640, 160);
+	RenderedImage* upperBackground = new RenderedImage();
+	upperBackground->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	upperBackground->SetImage(IMG->FindImage(KEY_UI_DIALOG_BACKGROUND_STRIPE));
+	upperBackground->SetSortingLayer(SORTING_LAYER::DIALOG_BACKGROUND);
+	upperBackground->SetOrderInLayer(uiCount++);
+	upper->AddComponent(upperRcT);
+	upper->AddComponent(upperBackground);
+
+	GameObject* upperPortrait = new GameObject();
+	upperPortrait->GetComponent<Transform>()->SetPosition(D_POINT{ 120, 96 });
+	RectTransform* uPortraitRcT = new RectTransform();
+	uPortraitRcT->SetRect(240, 192);
+	RenderedImage* uPortraitRImg = new RenderedImage();
+	uPortraitRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	uPortraitRImg->SetImage(NULL);
+	uPortraitRImg->SetSortingLayer(SORTING_LAYER::DIALOG_PORTRAIT);
+	uPortraitRImg->SetOrderInLayer(uiCount++);
+	upperPortrait->AddComponent(uPortraitRcT);
+	upperPortrait->AddComponent(uPortraitRImg);
+	upperPortrait->SetName(SKIG_DIALOG_VIEWER_PORTRAIT);
+
+	GameObject* upperText = new GameObject();
+	upperText->GetComponent<Transform>()->SetPosition(D_POINT{ 430, 80 });
+	RectTransform* uTextRcT = new RectTransform();
+	uTextRcT->SetRect(380, 110);
+	RenderedText* uRText = new RenderedText();
+	uRText->SetSortingLayer(SORTING_LAYER::DIALOG_TEXT);
+	uRText->SetOrderInLayer(uiCount++);
+	upperText->AddComponent(uTextRcT);
+	upperText->AddComponent(uRText);
+	upperText->SetName(SKIG_DIALOG_VIEWER_TEXT);
+
+	upper->AddGameObject(upperPortrait);
+	upper->AddGameObject(upperText);
+
+	GameObject* lower = new GameObject();
+	lower->GetComponent<Transform>()->SetPosition(D_POINT{ 320, 400 });
+	RectTransform* lowerRcT = new RectTransform();
+	lowerRcT->SetRect(640, 160);
+	RenderedImage* lowerBackground = new RenderedImage();
+	lowerBackground->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	lowerBackground->SetImage(IMG->FindImage(KEY_UI_DIALOG_BACKGROUND_STRIPE));
+	lowerBackground->SetSortingLayer(SORTING_LAYER::DIALOG_BACKGROUND);
+	lowerBackground->SetOrderInLayer(uiCount++);
+	lower->AddComponent(lowerRcT);
+	lower->AddComponent(lowerBackground);
+
+	GameObject* lowerPortrait = new GameObject();
+	lowerPortrait->GetComponent<Transform>()->SetPosition(D_POINT{ 520, 384 });
+	RectTransform* lPortraitRcT = new RectTransform();
+	lPortraitRcT->SetRect(240, 192);
+	RenderedImage* lPortraitRImg = new RenderedImage();
+	lPortraitRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	lPortraitRImg->SetImage(NULL);
+	lPortraitRImg->SetSortingLayer(SORTING_LAYER::DIALOG_PORTRAIT);
+	lPortraitRImg->SetOrderInLayer(uiCount++);
+	lowerPortrait->AddComponent(lPortraitRcT);
+	lowerPortrait->AddComponent(lPortraitRImg);
+	lowerPortrait->SetName(SKIG_DIALOG_VIEWER_PORTRAIT);
+
+	GameObject* lowerText = new GameObject();
+	lowerText->GetComponent<Transform>()->SetPosition(D_POINT{ 210, 400 });
+	RectTransform* lTextRcT = new RectTransform();
+	lTextRcT->SetRect(380, 110);
+	RenderedText* lRText = new RenderedText();
+	lRText->SetSortingLayer(SORTING_LAYER::DIALOG_TEXT);
+	lRText->SetOrderInLayer(uiCount++);
+	lowerText->AddComponent(lTextRcT);
+	lowerText->AddComponent(lRText);
+	lowerText->SetName(SKIG_DIALOG_VIEWER_TEXT);
+
+	lower->AddGameObject(lowerPortrait);
+	lower->AddGameObject(lowerText);
+
+	go->GetComponent<Transform>()->SetPosition(D_POINT{ 0, 0 });
+	DialogViewer* dv = new DialogViewer();
+	dv->SetUpper(upper);
+	dv->SetLower(lower);
+	dv->SetCycle(DIALOG->GetDialogCycle(_spot, _processivity));
+	dv->AddObserver(_observer);
+	dv->Init();
+	go->AddComponent(dv);
+
+	go->AddGameObject(upper);
+	go->AddGameObject(lower);
+	go->SetName(SKIG_DIALOG_VIEWER);
+
+	return go;
+}
+#pragma endregion ProductBaseDialogViewer
+
+
+#pragma region ProductBaseShopList
+/*
+GO(420, 378)
+-ShopList
+-RectTransform
+-RenderedImage(background)
+
+	Panel*n
+	-ShopListPanel
+	-RectTransform
+	-RenderedImage(416, 25)
+		ItemName
+		-RectTransform
+		-RenderedText
+		ItemPrice
+		-RectTransform
+		-RenderedText
+
+	Description(width : 230, height : 90, from top : 285)
+	-RectTransform
+	-RenderedText
+
+	Gold(60, 20 // 340, 280)
+	-RectTransform
+	-RenderedText
+
+	BuyButton
+	-Button
+	-RectTransform(112, 21)
+	-RenderedImage
+
+	ExitButton
+	-Button
+	-RectTransform(112, 21)
+	-RenderedImage
+*/
+GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
+{
+	GameObject* go = new GameObject();
+	go->GetComponent<Transform>()->SetPosition(D_POINT{(double)(WINSIZE_X / 2), (double)(WINSIZE_Y / 2)});
+	RectTransform* goRcT = new RectTransform();
+	goRcT->SetRect(420, 378);
+	RenderedImage* goRImg = new RenderedImage();
+	goRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_BACKGROUND_STRIPE));
+	goRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	goRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
+	goRImg->SetOrderInLayer(uiCount++);
+	ShopList* shop = new ShopList();
+	shop->AddObserver(_observer);
+	shop->SetSelectedItem(GAMEDATA->GetEquipInfo(EQUIP_ID::LONGSWORD)); // LONGSWORD : 1
+	shop->Init();
+	go->AddComponent(goRcT);
+	go->AddComponent(goRImg);
+	go->AddComponent(shop);
+	go->SetName(SKIG_SHOP_LIST);
+
+	/*
+	Panel*n (width : 416, height : 25px)
+	-ShopListPanel
+	-RectTransform
+	-RenderedImage
+		ItemName
+		-RectTransform
+		-RenderedText
+		ItemPrice
+		-RectTransform
+		-RenderedText
+	*/
+	for (int i = 1; i < (int)EQUIP_ID::EQUIP_ID_NUM; ++i)
+	{
+		double y = 51 + 47 + 13 + i * 25;
+		GameObject* panelGo = new GameObject();
+		panelGo->GetComponent<Transform>()->SetPosition(D_POINT{ (double)(WINSIZE_X / 2) + 1, y });
+		RectTransform* panelRcT = new RectTransform();
+		panelRcT->SetRect(412, 25);
+		RenderedImage* panelRImg = new RenderedImage();
+		panelRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE));
+		panelRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
+		panelRImg->SetOrderInLayer(uiCount++);
+		panelRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+		if(i != 1) panelRImg->SetEnabled(false);
+		ShopListPanel* panel = new ShopListPanel();
+		panel->AddObserver(shop);
+		panel->SetEquip(GAMEDATA->GetEquipInfo((EQUIP_ID)i));
+		panel->Init();
+		panelGo->AddComponent(panelRcT);
+		panelGo->AddComponent(panelRImg);
+		panelGo->AddComponent(panel);
+		panelGo->SetTag(TAG::SHOP_PANEL);
+
+		GameObject* nameGo = new GameObject();
+		nameGo->GetComponent<Transform>()->SetPosition(D_POINT{ (double)(110 + 25 + 50), y });
+		RectTransform* nameRcT = new RectTransform();
+		nameRcT->SetRect(100, 25);
+		RenderedText* nameRText = new RenderedText();
+		nameRText->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+		nameRText->SetOrderInLayer(uiCount++);
+		nameRText->SetStr(GAMEDATA->GetEquipInfo(EQUIP_ID(i)).name);
+		nameGo->AddComponent(nameRcT);
+		nameGo->AddComponent(nameRText);
+
+		GameObject* priceGo = new GameObject();
+		priceGo->GetComponent<Transform>()->SetPosition(D_POINT{ (double)(110 + 220 + 50), y });
+		RectTransform* priceRcT = new RectTransform();
+		priceRcT->SetRect(100, 25);
+		RenderedText* priceRTect = new RenderedText();
+		priceRTect->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+		priceRTect->SetOrderInLayer(uiCount++);
+		priceRTect->SetStr(to_wstring(GAMEDATA->GetEquipInfo(EQUIP_ID(i)).priceBuy));
+		priceGo->AddComponent(priceRcT);
+		priceGo->AddComponent(priceRTect);
+
+		panelGo->AddGameObject(nameGo);
+		panelGo->AddGameObject(priceGo);
+
+		go->AddGameObject(panelGo);
+	}
+
+	// description.(width : 230, height : 90, from top : 285)
+	GameObject* descriptionGo = new GameObject();
+	descriptionGo->GetComponent<Transform>()->SetPosition(D_POINT{ 110 + 25 + 115, 51 + 285 + 45 });
+	RectTransform* descriptionRcT = new RectTransform();
+	descriptionRcT->SetRect(230, 90);
+	RenderedText* descriptionRText = new RenderedText();
+	descriptionRText->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	descriptionRText->SetOrderInLayer(uiCount++);
+	descriptionRText->SetStr(L"-");
+	descriptionGo->AddComponent(descriptionRcT);
+	descriptionGo->AddComponent(descriptionRText);
+	descriptionGo->SetName(SKIG_SHOP_LIST_DESCRIPTION);
+
+	/*
+	Gold(60, 20 // 340, 280)
+		- RectTransform
+		- RenderedText
+	*/
+	GameObject* goldGo = new GameObject();
+	goldGo->GetComponent<Transform>()->SetPosition(D_POINT{ 110 + 340 + 30, 51 + 280 + 10 });
+	RectTransform* goldRcT = new RectTransform();
+	goldRcT->SetRect(60, 20);
+	RenderedText* goldRText = new RenderedText();
+	goldRText->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	goldRText->SetOrderInLayer(uiCount++);
+	goldRText->SetStr(to_wstring(GAMEDATA->GetGold()));
+	goldGo->AddComponent(goldRcT);
+	goldGo->AddComponent(goldRText);
+	goldGo->SetName(SKIG_SHOP_LIST_GOLD);
+
+	/*
+	BuyButton
+	-Button
+	-RectTransform(112, 21) - 355, 315
+	-RenderedImage
+	*/
+	GameObject* buyButtonGo = new GameObject();
+	buyButtonGo->GetComponent<Transform>()->SetPosition(D_POINT{ 110 + 355, 51 + 315 - 1 });
+	RectTransform* buyButtonRcT = new RectTransform();
+	buyButtonRcT->SetRect(112, 21);
+	RenderedImage* buyButtonRImg = new RenderedImage();
+	buyButtonRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_BUY_BUTTON_STRIPE));
+	buyButtonRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	buyButtonRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
+	buyButtonRImg->SetOrderInLayer(uiCount++);
+	BuyButton* buyButton = new BuyButton();
+	buyButton->AddObserver(shop);
+	buyButton->Init();
+	buyButtonGo->AddComponent(buyButtonRcT);
+	buyButtonGo->AddComponent(buyButtonRImg);
+	buyButtonGo->AddComponent(buyButton);
+
+	/*
+	ExitButton
+	-Button
+	-RectTransform(112, 21) - 355, 365
+	-RenderedImage
+	*/
+	GameObject* exitButtonGo = new GameObject();
+	exitButtonGo->GetComponent<Transform>()->SetPosition(D_POINT{ 110 + 355, 51 + 365 - 3 });
+	RectTransform* exitButtonRcT = new RectTransform();
+	exitButtonRcT->SetRect(112, 21);
+	RenderedImage* exitButtonRImg = new RenderedImage();
+	exitButtonRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_EXIT_BUTTON_STRIPE));
+	exitButtonRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	exitButtonRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
+	exitButtonRImg->SetOrderInLayer(uiCount++);
+	ExitButton* exitButton = new ExitButton();
+	exitButton->AddObserver(shop);
+	exitButton->Init();
+	exitButtonGo->AddComponent(exitButtonRcT);
+	exitButtonGo->AddComponent(exitButtonRImg);
+	exitButtonGo->AddComponent(exitButton);
+
+	go->AddGameObject(descriptionGo);
+	go->AddGameObject(goldGo);
+	go->AddGameObject(buyButtonGo);
+	go->AddGameObject(exitButtonGo);
+
+	return go;
+}
+#pragma endregion ProductBaseShopList

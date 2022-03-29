@@ -84,6 +84,34 @@ const wchar_t* DIR_UI_BAR_BORDER_SPRITE =
 #pragma endregion Ui_Bar
 
 
+#pragma region UI_Dialog
+const std::wstring KEY_UI_DIALOG_BACKGROUND_STRIPE =
+	L"UI_DIALOG_BACKGROUND_STRIPE";
+const wchar_t* DIR_UI_DIALOG_BACKGROUND_STRIPE =
+	L"Resources/Images/UI/Dialog/Background.bmp";
+#pragma endregion UI_Dialog
+
+
+#pragma region UI_Shop
+const std::wstring KEY_UI_SHOPLIST_BACKGROUND_STRIPE =
+	L"UI_SHOPLIST_BACKGROUND_STRIPE";
+const wchar_t* DIR_UI_SHOPLIST_BACKGROUND_STRIPE =
+	L"Resources/Images/UI/ShopList/ShopListBackground.bmp";
+const std::wstring KEY_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE =
+	L"UI_SHOPLIST_PANEL_BACKGROUND_STRIPE";
+const wchar_t* DIR_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE =
+	L"Resources/Images/UI/ShopList/ShopListPanelBackground.bmp";
+const std::wstring KEY_UI_SHOPLIST_BUY_BUTTON_STRIPE =
+	L"UI_SHOPLIST_BUY_BUTTON_STRIPE";
+const wchar_t* DIR_UI_SHOPLIST_BUY_BUTTON_STRIPE =
+	L"Resources/Images/UI/ShopList/ShopList_BuyButton.bmp";
+const std::wstring KEY_UI_SHOPLIST_EXIT_BUTTON_STRIPE =
+	L"UI_SHOPLIST_EXIT_BUTTON_STRIPE";
+const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_STRIPE =
+	L"Resources/Images/UI/ShopList/ShopList_ExitButton.bmp";
+#pragma endregion UI_Shop
+
+
 #pragma region Portrait
 const std::wstring KEY_UI_PORTRAIT_AL_DEFAULT_STRIPE =
 	L"UI_PORTRAIT_AL_DEFAULT_STRIPE";
@@ -128,6 +156,18 @@ extern const std::wstring SKIG_BAR_GUAGE =
 	L"BAR_GUAGE";
 extern const std::wstring SKIG_BAR_BACKGROUND =
 	L"BAR_BACKGROUND";
+const std::wstring SKIG_DIALOG_VIEWER_PORTRAIT =
+	L"DIALOG_VIEWER_PORTRAIT";
+const std::wstring SKIG_DIALOG_VIEWER_TEXT =
+	L"DIALOG_VIEWER_TEXT";
+const std::wstring SKIG_DIALOG_VIEWER =
+	L"DIALOG_VIEWER";
+const std::wstring SKIG_SHOP_LIST =
+	L"SHOP_LIST";
+const std::wstring SKIG_SHOP_LIST_GOLD =
+	L"SHOP_LIST_GOLD";
+const std::wstring SKIG_SHOP_LIST_DESCRIPTION =
+	L"SHOP_LIST_DESCRIPTION";
 #pragma endregion Search_Keyword_In_GameObject
 
 ///////////////////////
@@ -177,6 +217,16 @@ const std::wstring XML_DOC_SAVEDATA =
 const std::wstring XML_DOC_DIALOG =
 	L"Resources/XML/dialog.xml";
 #pragma endregion XmlDocument
+
+///////////////////////
+///////////////////////
+
+#pragma region Dialog_Spot
+const std::wstring DIALOG_SPOT_SHOP =
+	L"DIALOG_SPOT_SHOP";
+const std::wstring DIALOG_SPOT_GUILD =
+	L"DIALOG_SPOT_GUILD";
+#pragma endregion Dialog_Spot
 
 ///////////////////////
 ///////////////////////

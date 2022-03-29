@@ -80,8 +80,8 @@ HRESULT DialogManager::Init()
 	if (XmlManager::LoadFile(doc, XML_DOC_DIALOG))
 	{
 		TiXmlElement* eleRoot = XmlManager::FirstChildElement(doc, L"ROOT");
-		TiXmlElement* eleGuild = XmlManager::FirstChildElement(eleRoot, L"guild");
-		TiXmlElement* eleShop = XmlManager::FirstChildElement(eleRoot, L"shop");
+		TiXmlElement* eleGuild = XmlManager::FirstChildElement(eleRoot, DIALOG_SPOT_GUILD);
+		TiXmlElement* eleShop = XmlManager::FirstChildElement(eleRoot, DIALOG_SPOT_SHOP);
 
 		// guild.
 		DialogProcessivityMap guildDPMap;
@@ -153,7 +153,7 @@ HRESULT DialogManager::Init()
 			guildDPMap.dialogMap[processivity] = cycle;
 		}
 
-		dialogDB[L"guild"] = guildDPMap;
+		dialogDB[DIALOG_SPOT_GUILD] = guildDPMap;
 
 		// shop.
 		DialogProcessivityMap shopDPMap;
@@ -225,7 +225,7 @@ HRESULT DialogManager::Init()
 			shopDPMap.dialogMap[processivity] = cycle;
 		}
 
-		dialogDB[L"shop"] = shopDPMap;
+		dialogDB[DIALOG_SPOT_SHOP] = shopDPMap;
 	}
 
 	Print();

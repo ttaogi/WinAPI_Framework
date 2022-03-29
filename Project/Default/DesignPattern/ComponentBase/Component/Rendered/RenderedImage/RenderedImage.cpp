@@ -1,9 +1,10 @@
 #include "Stdafx/stdafx.h"
 
+#include "DesignPattern/ComponentBase/Component/Rendered/RenderedImage/RenderedImage.h"
+
 #include "DesignPattern/ComponentBase/Component/RectTransform/RectTransform.h"
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
 #include "Image/Image.h"
-#include "RenderedImage.h"
 
 RenderedImage::RenderedImage()
 	: Component((const Component_ID)typeid(RenderedImage).name())

@@ -2,6 +2,7 @@
 
 #include <functional>
 
+#include "DesignPattern/ObserverBase/Observer.h"
 #include "Utility/CommonClasses/CommonClasses.h"
 #include "Utility/Enums/Enums.h"
 
@@ -48,3 +49,19 @@ public:
 		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) = 0;
 };
 #pragma endregion FactoryMethodBasePlatform
+
+#pragma region FactoryMethodBaseDialogViewer
+class FactoryMethodBaseDialogViewer
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer, std::wstring _spot, int _processivity) = 0;
+};
+#pragma endregion FactoryMethodBaseDialogViewer
+
+#pragma region FactoryMethodBaseShopList
+class FactoryMethodBaseShopList
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer) = 0;
+};
+#pragma endregion FactoryMethodBaseShopList

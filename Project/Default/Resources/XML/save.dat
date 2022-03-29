@@ -2,19 +2,24 @@
 <ROOT>
     <processivity processivity="0" />
     <volume volume="0.800000" />
+    <gold gold="400" />
     <characterInfo>
-        <al isMember="1" level="1" hp="50" hpMax="50" str="10" mgc="5" def="5" mDef="0" dex="10" exp="0" expMax="20" weapon="1" armor="5" />
-        <karin isMember="1" level="1" hp="30" hpMax="30" str="5" mgc="10" def="0" mDef="5" dex="5" exp="0" expMax="20" weapon="3" armor="7" />
+        <al isMember="1" level="1" hp="50" hpMax="50" str="10" mgc="5" def="5" mDef="0" dex="10" exp="0" expMax="100" weapon="1" armor="5" />
+        <karin isMember="1" level="1" hp="30" hpMax="30" str="5" mgc="10" def="0" mDef="5" dex="5" exp="0" expMax="100" weapon="3" armor="7" />
     </characterInfo>
     <equipInfo>
-        <equip_0 id="0" name="NONE" priceBuy="0" priceSell="0" level="0" str="0" mgc="0" def="0" mDef="0" />
-        <equip_1 id="1" name="롱소드" priceBuy="100" priceSell="200" level="1" str="5" mgc="0" def="0" mDef="0" />
-        <equip_2 id="2" name="브로드소드" priceBuy="500" priceSell="250" level="2" str="10" mgc="0" def="0" mDef="0" />
-        <equip_3 id="3" name="마법사 지팡이" priceBuy="100" priceSell="50" level="1" str="0" mgc="5" def="0" mDef="0" />
-        <equip_4 id="4" name="마술사 지팡이" priceBuy="500" priceSell="250" level="2" str="0" mgc="10" def="0" mDef="0" />
-        <equip_5 id="5" name="크로스아머" priceBuy="100" priceSell="50" level="1" str="0" mgc="0" def="5" mDef="5" />
-        <equip_6 id="6" name="레자 아머" priceBuy="500" priceSell="250" level="2" str="0" mgc="0" def="10" mDef="10" />
-        <equip_7 id="7" name="마법사 로브" priceBuy="100" priceSell="50" level="1" str="0" mgc="0" def="5" mDef="5" />
-        <equip_8 id="8" name="마술사 로브" priceBuy="500" priceSell="250" level="2" str="0" mgc="0" def="10" mDef="10" />
+        <equip_0 id="0" name="NONE" type="0" priceBuy="0" priceSell="0" level="0" str="0" mgc="0" def="0" mDef="0" />
+        <equip_1 id="1" name="롱소드" type="1" priceBuy="100" priceSell="200" level="1" str="5" mgc="0" def="0" mDef="0" />
+        <equip_2 id="2" name="브로드소드" type="1" priceBuy="500" priceSell="250" level="2" str="10" mgc="0" def="0" mDef="0" />
+        <equip_3 id="3" name="마법사 지팡이" type="1" priceBuy="100" priceSell="50" level="1" str="0" mgc="5" def="0" mDef="0" />
+        <equip_4 id="4" name="마술사 지팡이" type="1" priceBuy="500" priceSell="250" level="2" str="0" mgc="10" def="0" mDef="0" />
+        <equip_5 id="5" name="크로스아머" type="2" priceBuy="100" priceSell="50" level="1" str="0" mgc="0" def="5" mDef="5" />
+        <equip_6 id="6" name="레자 아머" type="2" priceBuy="500" priceSell="250" level="2" str="0" mgc="0" def="10" mDef="10" />
+        <equip_7 id="7" name="마법사 로브" type="2" priceBuy="100" priceSell="50" level="1" str="0" mgc="0" def="5" mDef="5" />
+        <equip_8 id="8" name="마술사 로브" type="2" priceBuy="500" priceSell="250" level="2" str="0" mgc="0" def="10" mDef="10" />
     </equipInfo>
+    <inventory size="2">
+        <item_0 id="1" />
+        <item_1 id="2" />
+    </inventory>
 </ROOT>

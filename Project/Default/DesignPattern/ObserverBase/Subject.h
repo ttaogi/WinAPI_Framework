@@ -7,7 +7,7 @@ class Subject
 private:
 	std::vector<Observer*> observerVec;
 protected:
-	void Notify();
+	void Notify(EVENT _event);
 public:
 	Subject() { }
 	virtual ~Subject() { }

@@ -97,6 +97,7 @@ void LoadResources()
 	MAPDATA->Init();
 	CAMERA->Init(NULL);
 	DIALOG->Init();
+	GAMEMANAGER->Init();
 	
 	// backbuffer.
 	IMG->AddImage(KEY_BACKGROUND_BACKBUFFER, BACKGROUND_BACKBUFFER, WINSIZE_X, WINSIZE_Y)
@@ -141,6 +142,20 @@ void LoadResources()
 	IMG->AddImage(KEY_UI_BAR_BORDER_SPRITE, DIR_UI_BAR_BORDER_SPRITE, 20, 20, false, MAGENTA)
 		->InitForAlphaBlend();
 
+	// ui dialog.
+	IMG->AddImage(KEY_UI_DIALOG_BACKGROUND_STRIPE, DIR_UI_DIALOG_BACKGROUND_STRIPE, 640, 160, true, MAGENTA)
+		->InitForAlphaBlend();
+
+	// ui shop.
+	IMG->AddImage(KEY_UI_SHOPLIST_BACKGROUND_STRIPE, DIR_UI_SHOPLIST_BACKGROUND_STRIPE, 420, 378, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddImage(KEY_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE, DIR_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE, 412, 25, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddImage(KEY_UI_SHOPLIST_BUY_BUTTON_STRIPE, DIR_UI_SHOPLIST_BUY_BUTTON_STRIPE, 112, 21, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddImage(KEY_UI_SHOPLIST_EXIT_BUTTON_STRIPE, DIR_UI_SHOPLIST_EXIT_BUTTON_STRIPE, 112, 21, true, MAGENTA)
+		->InitForAlphaBlend();
+
 	// portrait.
 	IMG->AddImage(KEY_UI_PORTRAIT_AL_DEFAULT_STRIPE, DIR_UI_PORTRAIT_AL_DEFAULT_STRIPE, 240, 192, true, MAGENTA)
 		->InitForAlphaBlend();
@@ -164,6 +179,8 @@ void LoadResources()
 void ReleaseResources()
 {
 	// singleton release.
+	GAMEMANAGER->Release();
+	GAMEMANAGER->ReleaseSingleton();
 	DIALOG->Release();
 	DIALOG->ReleaseSingleton();
 	CAMERA->Release();

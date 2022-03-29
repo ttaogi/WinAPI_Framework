@@ -52,6 +52,24 @@ extern const wchar_t* DIR_UI_BAR_BORDER_SPRITE;
 #pragma endregion Ui_Bar
 
 
+#pragma region UI_Dialog
+extern const std::wstring KEY_UI_DIALOG_BACKGROUND_STRIPE;
+extern const wchar_t* DIR_UI_DIALOG_BACKGROUND_STRIPE;
+#pragma endregion UI_Dialog
+
+
+#pragma region UI_Shop
+extern const std::wstring KEY_UI_SHOPLIST_BACKGROUND_STRIPE;
+extern const wchar_t* DIR_UI_SHOPLIST_BACKGROUND_STRIPE;
+extern const std::wstring KEY_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE;
+extern const wchar_t* DIR_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE;
+extern const std::wstring KEY_UI_SHOPLIST_BUY_BUTTON_STRIPE;
+extern const wchar_t* DIR_UI_SHOPLIST_BUY_BUTTON_STRIPE;
+extern const std::wstring KEY_UI_SHOPLIST_EXIT_BUTTON_STRIPE;
+extern const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_STRIPE;
+#pragma endregion UI_Shop
+
+
 #pragma region Portrait
 extern const std::wstring KEY_UI_PORTRAIT_AL_DEFAULT_STRIPE;
 extern const wchar_t* DIR_UI_PORTRAIT_AL_DEFAULT_STRIPE;
@@ -84,6 +102,12 @@ extern const std::wstring NAME_RETRY_BUTTON;
 #pragma region Search_Keyword_In_GameObject
 extern const std::wstring SKIG_BAR_GUAGE;
 extern const std::wstring SKIG_BAR_BACKGROUND;
+extern const std::wstring SKIG_DIALOG_VIEWER_PORTRAIT;
+extern const std::wstring SKIG_DIALOG_VIEWER_TEXT;
+extern const std::wstring SKIG_DIALOG_VIEWER;
+extern const std::wstring SKIG_SHOP_LIST;
+extern const std::wstring SKIG_SHOP_LIST_GOLD;
+extern const std::wstring SKIG_SHOP_LIST_DESCRIPTION;
 #pragma endregion Search_Keyword_In_GameObject
 
 ///////////////////////
@@ -118,6 +142,14 @@ extern const std::wstring XML_DOC_EXAMPLE;
 extern const std::wstring XML_DOC_SAVEDATA;
 extern const std::wstring XML_DOC_DIALOG;
 #pragma endregion XmlDocument
+
+///////////////////////
+///////////////////////
+
+#pragma region Dialog_Spot
+extern const std::wstring DIALOG_SPOT_SHOP;
+extern const std::wstring DIALOG_SPOT_GUILD;
+#pragma endregion Dialog_Spot
 
 ///////////////////////
 ///////////////////////

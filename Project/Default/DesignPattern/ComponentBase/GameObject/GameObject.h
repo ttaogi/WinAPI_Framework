@@ -31,8 +31,8 @@ public:
 	void AddGameObject(GameObject* _go);
 	GameObject* GetGameObjectByTag(TAG _tag);
 	GameObject* GetGameObjectByName(std::wstring _name);
-	//std::list<GameObject*> GetGameObjectsByTag(TAG _tag);
-	//std::list<GameObject*> GetGameObjectsByName(std::wstring _name);
+	void GetGameObjectsByTag(std::vector<GameObject*>* _result, TAG _tag);
+	void GetGameObjectsByName(std::vector<GameObject*>* _result, std::wstring _name);
 
 	Component_ID GetComponentID();
 

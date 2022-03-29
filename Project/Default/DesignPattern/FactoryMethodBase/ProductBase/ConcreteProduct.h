@@ -51,3 +51,21 @@ public:
 	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) override;
 };
 #pragma endregion ProductBasePlatform
+
+
+#pragma region ProductBaseDialogViewer
+class FactoryDefaultDialogViewer : public ProductBaseDialogViewer
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer, std::wstring _spot, int _processivity);
+};
+#pragma endregion ProductBaseDialogViewer
+
+
+#pragma region ProductBaseShopList
+class FactoryDefaultShopList : public ProductBaseShopList
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer);
+};
+#pragma endregion ProductBaseShopList

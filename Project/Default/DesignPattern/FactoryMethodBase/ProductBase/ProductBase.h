@@ -2,6 +2,7 @@
 
 #include <functional>
 
+#include "DesignPattern/ObserverBase/Observer.h"
 #include "Utility/CommonClasses/CommonClasses.h"
 
 class GameObject;
@@ -47,3 +48,20 @@ public:
 	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) = 0;
 };
 #pragma endregion ProductBasePlatform
+
+
+#pragma region ProductBaseDialogViewer
+class ProductBaseDialogViewer
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer, std::wstring _spot, int _processivity) = 0;
+};
+#pragma endregion ProductBaseDialogViewer
+
+#pragma region ProductBaseShopList
+class ProductBaseShopList
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer) = 0;
+};
+#pragma endregion ProductBaseShopList

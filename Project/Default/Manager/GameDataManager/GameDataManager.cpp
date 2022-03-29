@@ -32,11 +32,14 @@ HRESULT GameDataManager::Init()
 		TiXmlElement* eleRoot = XmlManager::FirstChildElement(save, L"ROOT");
 		TiXmlElement* eleProcessivity = XmlManager::FirstChildElement(eleRoot, L"processivity");
 		TiXmlElement* eleVolume = XmlManager::FirstChildElement(eleRoot, L"volume");
+		TiXmlElement* eleGold = XmlManager::FirstChildElement(eleRoot, L"gold");
 		TiXmlElement* eleCharacterInfo = XmlManager::FirstChildElement(eleRoot, L"characterInfo");
 		TiXmlElement* eleEquipInfo = XmlManager::FirstChildElement(eleRoot, L"equipInfo");
+		TiXmlElement* eleInventory = XmlManager::FirstChildElement(eleRoot, L"inventory");
 
 		XmlManager::GetAttributeValueInt(eleProcessivity, L"processivity", &processivity);
 		XmlManager::GetAttributeValueFloat(eleVolume, L"volume", &volume);
+		XmlManager::GetAttributeValueInt(eleGold, L"gold", &gold);
 
 		int equip = 0;
 		TiXmlElement* eleCharAl = XmlManager::FirstChildElement(eleCharacterInfo, L"al");
@@ -84,6 +87,9 @@ HRESULT GameDataManager::Init()
 			XmlManager::GetAttributeValueInt(equip, L"id", &idRaw);
 			info.id = (EQUIP_ID)idRaw;
 			XmlManager::GetAttributeValue(equip, L"name", info.name);
+			int typeRaw = 0;
+			XmlManager::GetAttributeValueInt(equip, L"type", &typeRaw);
+			info.type = (EQUIP_TYPE)typeRaw;
 			XmlManager::GetAttributeValueInt(equip, L"priceBuy", &info.priceBuy);
 			XmlManager::GetAttributeValueInt(equip, L"priceSell", &info.priceSell);
 			XmlManager::GetAttributeValueInt(equip, L"level", &info.level);
@@ -94,10 +100,32 @@ HRESULT GameDataManager::Init()
 
 			equipInfoVec[idRaw] = info;
 		}
+
+		int inventorySize = 0;
+		XmlManager::GetAttributeValueInt(eleInventory, L"size", &inventorySize);
+		for (int i = 0; i < inventorySize; ++i)
+		{
+			wstring key = L"item_" + to_wstring(i);
+			TiXmlElement* item = XmlManager::FirstChildElement(eleInventory, key);
+
+			if (!item) continue;
+
+			EquipInfo e;
+			int idRaw = 0;
+			EQUIP_ID id = EQUIP_ID::NONE;
+			XmlManager::GetAttributeValueInt(item, L"id", &idRaw);
+			id = (EQUIP_ID)idRaw;
+
+			if (id == EQUIP_ID::NONE || id == EQUIP_ID::EQUIP_ID_NUM) continue;
+
+			e = GetEquipInfo(id);
+			inventory.push_back(e);
+		}
 	}
 
 	wcout << L"Processivity : " << processivity << endl;
 	wcout << L"Volume : " << volume << endl;
+	wcout << L"Gold : " << gold << endl;
 	wcout << L"Character info : " << endl;
 	wcout << L"Al : " << endl;
 	characterInfoVec[(int)CHARACTER_ID::AL].Print();
@@ -105,6 +133,8 @@ HRESULT GameDataManager::Init()
 	characterInfoVec[(int)CHARACTER_ID::KARIN].Print();
 	wcout << L"Equip info : " << endl;
 	for (EquipInfo ei : equipInfoVec) ei.Print();
+	wcout << L"Inventory : " << endl;
+	for (EquipInfo ei : inventory) ei.Print();
 	wcout << L"##### GAME DATA MANAGER #####" << endl;
 
 	return S_OK;
@@ -127,6 +157,10 @@ void GameDataManager::Release()
 	TiXmlElement* eleVolume = XmlManager::CreateElement(L"volume");
 	eleRoot->LinkEndChild(eleVolume);
 	XmlManager::SetAttribute(eleVolume, L"volume", volume);
+
+	TiXmlElement* eleGold = XmlManager::CreateElement(L"gold");
+	eleRoot->LinkEndChild(eleGold);
+	XmlManager::SetAttribute(eleGold, L"gold", gold);
 
 	TiXmlElement* eleCharacterInfo = XmlManager::CreateElement(L"characterInfo");
 	eleRoot->LinkEndChild(eleCharacterInfo);
@@ -176,6 +210,7 @@ void GameDataManager::Release()
 
 		XmlManager::SetAttribute(equip, L"id", (int)equipInfoVec[i].id);
 		XmlManager::SetAttribute(equip, L"name", equipInfoVec[i].name);
+		XmlManager::SetAttribute(equip, L"type", (int)equipInfoVec[i].type);
 		XmlManager::SetAttribute(equip, L"priceBuy", equipInfoVec[i].priceBuy);
 		XmlManager::SetAttribute(equip, L"priceSell", equipInfoVec[i].priceSell);
 		XmlManager::SetAttribute(equip, L"level", equipInfoVec[i].level);
@@ -185,10 +220,24 @@ void GameDataManager::Release()
 		XmlManager::SetAttribute(equip, L"mDef", equipInfoVec[i].mDef);
 	}
 
+	TiXmlElement* eleInventory = XmlManager::CreateElement(L"inventory");
+	eleRoot->LinkEndChild(eleInventory);
+	XmlManager::SetAttribute(eleInventory, L"size", (int)inventory.size());
+
+	for (int i = 0; i < inventory.size(); ++i)
+	{
+		wstring key = L"item_" + to_wstring(i);
+		TiXmlElement* item = XmlManager::CreateElement(key);
+		eleInventory->LinkEndChild(item);
+
+		XmlManager::SetAttribute(item, L"id", (int)inventory[i].id);
+	}
+
 	save.SaveFile(WcsToMbsUtf8(XML_DOC_SAVEDATA).c_str());
 
 	wcout << L"Processivity : " << processivity << endl;
 	wcout << L"Volume : " << volume << endl;
+	wcout << L"Gold : " << gold << endl;
 	wcout << L"Character info : " << endl;
 	wcout << L"Al : " << endl;
 	characterInfoVec[(int)CHARACTER_ID::AL].Print();
@@ -196,6 +245,8 @@ void GameDataManager::Release()
 	characterInfoVec[(int)CHARACTER_ID::KARIN].Print();
 	wcout << L"Equip info : " << endl;
 	for (EquipInfo ei : equipInfoVec) ei.Print();
+	wcout << L"Inventory : " << endl;
+	for (EquipInfo ei : inventory) ei.Print();
 	wcout << L"##### GAME DATA MANAGER #####" << endl;
 }
 
@@ -212,4 +263,38 @@ CharacterInfo GameDataManager::GetCharacterInfo(CHARACTER_ID _id) const
 void GameDataManager::SetCharacterInfo(CHARACTER_ID _id, CharacterInfo _info)
 {
 	if ((int)_id < characterInfoVec.size()) characterInfoVec[(int)_id] = _info;
+}
+
+EquipInfo GameDataManager::GetEquipInfo(EQUIP_ID _id) const
+{
+	EquipInfo info;
+	info.id = EQUIP_ID::NONE;
+
+	for (auto iter = equipInfoVec.begin(); iter != equipInfoVec.end(); ++iter)
+		if (iter->id == _id)
+		{
+			info = *iter;
+			break;
+		}
+
+	return info;
+}
+
+bool GameDataManager::AddItem(EquipInfo _item)
+{
+	inventory.push_back(_item);
+
+	return true;
+}
+
+bool GameDataManager::RemoveItem(EquipInfo _item)
+{
+	for (auto iter = inventory.begin(); iter != inventory.end(); ++iter)
+		if (iter->id == _item.id)
+		{
+			inventory.erase(iter);
+			return true;
+		}
+
+	return false;
 }
