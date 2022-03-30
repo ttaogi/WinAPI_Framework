@@ -187,6 +187,18 @@
     <Filter Include="API_Framework\Script\ShopList">
       <UniqueIdentifier>{4835ac1d-19ad-4489-9baf-19c76c341819}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\Resources">
+      <UniqueIdentifier>{b72211fe-4a09-4bfa-b98c-d71a987d074b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Resources\XML">
+      <UniqueIdentifier>{29ae9d5f-9b1b-4ef3-bb99-18d74f2f54dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Scene\FieldScene">
+      <UniqueIdentifier>{e2d62b33-7e86-4144-8a0e-dec147c0bcb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Script\Tile">
+      <UniqueIdentifier>{aa6f47de-d644-483f-8807-5ff82f967bfb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -360,6 +372,12 @@
     </ClCompile>
     <ClCompile Include="Script\ShopList\ShopList.cpp">
       <Filter>API_Framework\Script\ShopList</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\FieldScene\FieldScene.cpp">
+      <Filter>API_Framework\Scene\FieldScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Tile\Tile.cpp">
+      <Filter>API_Framework\Script\Tile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -543,8 +561,22 @@
     <ClInclude Include="Script\ShopList\ShopList.h">
       <Filter>API_Framework\Script\ShopList</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\FieldScene\FieldScene.h">
+      <Filter>API_Framework\Scene\FieldScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Tile\Tile.h">
+      <Filter>API_Framework\Script\Tile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="Resources\XML\save.dat">
+      <Filter>API_Framework\Resources\XML</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Resources\XML\dialog.xml">
+      <Filter>API_Framework\Resources\XML</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

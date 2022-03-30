@@ -85,49 +85,69 @@ const wchar_t* DIR_UI_BAR_BORDER_SPRITE =
 
 
 #pragma region UI_Dialog
-const std::wstring KEY_UI_DIALOG_BACKGROUND_STRIPE =
-	L"UI_DIALOG_BACKGROUND_STRIPE";
-const wchar_t* DIR_UI_DIALOG_BACKGROUND_STRIPE =
+const std::wstring KEY_UI_DIALOG_BACKGROUND_SPRITE =
+	L"UI_DIALOG_BACKGROUND_SPRITE";
+const wchar_t* DIR_UI_DIALOG_BACKGROUND_SPRITE =
 	L"Resources/Images/UI/Dialog/Background.bmp";
 #pragma endregion UI_Dialog
 
 
 #pragma region UI_Shop
-const std::wstring KEY_UI_SHOPLIST_BACKGROUND_STRIPE =
-	L"UI_SHOPLIST_BACKGROUND_STRIPE";
-const wchar_t* DIR_UI_SHOPLIST_BACKGROUND_STRIPE =
+const std::wstring KEY_UI_SHOPLIST_BACKGROUND_SPRITE =
+	L"UI_SHOPLIST_BACKGROUND_SPRITE";
+const wchar_t* DIR_UI_SHOPLIST_BACKGROUND_SPRITE =
 	L"Resources/Images/UI/ShopList/ShopListBackground.bmp";
-const std::wstring KEY_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE =
-	L"UI_SHOPLIST_PANEL_BACKGROUND_STRIPE";
-const wchar_t* DIR_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE =
+const std::wstring KEY_UI_SHOPLIST_PANEL_BACKGROUND_SPRITE =
+	L"UI_SHOPLIST_PANEL_BACKGROUND_SPRITE";
+const wchar_t* DIR_UI_SHOPLIST_PANEL_BACKGROUND_SPRITE =
 	L"Resources/Images/UI/ShopList/ShopListPanelBackground.bmp";
-const std::wstring KEY_UI_SHOPLIST_BUY_BUTTON_STRIPE =
-	L"UI_SHOPLIST_BUY_BUTTON_STRIPE";
-const wchar_t* DIR_UI_SHOPLIST_BUY_BUTTON_STRIPE =
+const std::wstring KEY_UI_SHOPLIST_BUY_BUTTON_SPRITE =
+	L"UI_SHOPLIST_BUY_BUTTON_SPRITE";
+const wchar_t* DIR_UI_SHOPLIST_BUY_BUTTON_SPRITE =
 	L"Resources/Images/UI/ShopList/ShopList_BuyButton.bmp";
-const std::wstring KEY_UI_SHOPLIST_EXIT_BUTTON_STRIPE =
-	L"UI_SHOPLIST_EXIT_BUTTON_STRIPE";
-const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_STRIPE =
+const std::wstring KEY_UI_SHOPLIST_EXIT_BUTTON_SPRITE =
+	L"UI_SHOPLIST_EXIT_BUTTON_SPRITE";
+const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_SPRITE =
 	L"Resources/Images/UI/ShopList/ShopList_ExitButton.bmp";
 #pragma endregion UI_Shop
 
 
+#pragma region Tile
+const std::wstring KEY_TILE_DIRT_Z0_SPRITE =
+	L"TILE_DIRT_Z0_SPRITE";
+const wchar_t* DIR_TILE_DIRT_Z0_SPRITE =
+	L"Resources/Images/Tile/Dirt_z0.bmp";
+const std::wstring KEY_TILE_DIRT_Z1_SPRITE =
+	L"TILE_DIRT_Z1_SPRITE";
+const wchar_t* DIR_TILE_DIRT_Z1_SPRITE =
+	L"Resources/Images/Tile/Dirt_z1.bmp";
+const std::wstring KEY_TILE_GRASS_Z0_SPRITE =
+	L"TILE_GRASS_Z0_SPRITE";
+const wchar_t* DIR_TILE_GRASS_Z0_SPRITE =
+	L"Resources/Images/Tile/Grass_z0.bmp";
+const std::wstring KEY_TILE_GRASS_Z1_SPRITE =
+	L"TILE_GRASS_Z1_SPRITE";
+const wchar_t* DIR_TILE_GRASS_Z1_SPRITE =
+	L"Resources/Images/Tile/Grass_z1.bmp";
+#pragma endregion Tile
+
+
 #pragma region Portrait
-const std::wstring KEY_UI_PORTRAIT_AL_DEFAULT_STRIPE =
-	L"UI_PORTRAIT_AL_DEFAULT_STRIPE";
-const wchar_t* DIR_UI_PORTRAIT_AL_DEFAULT_STRIPE =
+const std::wstring KEY_UI_PORTRAIT_AL_DEFAULT_SPRITE =
+	L"UI_PORTRAIT_AL_DEFAULT_SPRITE";
+const wchar_t* DIR_UI_PORTRAIT_AL_DEFAULT_SPRITE =
 	L"Resources/Images/UI/Portrait/Al/Default.bmp";
-const std::wstring KEY_UI_PORTRAIT_GUILD_DEFAULT_STRIPE =
-	L"UI_PORTRAIT_GUILD_DEFAULT_STRIPE";
-const wchar_t* DIR_UI_PORTRAIT_GUILD_DEFAULT_STRIPE =
+const std::wstring KEY_UI_PORTRAIT_GUILD_DEFAULT_SPRITE =
+	L"UI_PORTRAIT_GUILD_DEFAULT_SPRITE";
+const wchar_t* DIR_UI_PORTRAIT_GUILD_DEFAULT_SPRITE =
 	L"Resources/Images/UI/Portrait/Guild/Default.bmp";
-const std::wstring KEY_UI_PORTRAIT_KARIN_DEFAULT_STRIPE =
-	L"UI_PORTRAIT_KARIN_DEFAULT_STRIPE";
-const wchar_t* DIR_UI_PORTRAIT_KARIN_DEFAULT_STRIPE =
+const std::wstring KEY_UI_PORTRAIT_KARIN_DEFAULT_SPRITE =
+	L"UI_PORTRAIT_KARIN_DEFAULT_SPRITE";
+const wchar_t* DIR_UI_PORTRAIT_KARIN_DEFAULT_SPRITE =
 	L"Resources/Images/UI/Portrait/Karin/Default.bmp";
-const std::wstring KEY_UI_PORTRAIT_SHOP_DEFAULT_STRIPE =
-	L"UI_PORTRAIT_SHOP_DEFAULT_STRIPE";
-const wchar_t* DIR_UI_PORTRAIT_SHOP_DEFAULT_STRIPE =
+const std::wstring KEY_UI_PORTRAIT_SHOP_DEFAULT_SPRITE =
+	L"UI_PORTRAIT_SHOP_DEFAULT_SPRITE";
+const wchar_t* DIR_UI_PORTRAIT_SHOP_DEFAULT_SPRITE =
 	L"Resources/Images/UI/Portrait/Shop/Default.bmp";
 #pragma endregion Portrait
 
@@ -234,6 +254,9 @@ const std::wstring DIALOG_SPOT_GUILD =
 #pragma region Size
 const int BUTTON_WIDTH = 200;
 const int BUTTON_HEIGHT = 150;
+const int TILE_WIDTH = 64;
+const int TILE_HEIGHT_Z0 = 32;
+const int TILE_HEIGHT_Z1 = 48;
 #pragma endregion Size
 
 ///////////////////////

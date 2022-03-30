@@ -50,6 +50,7 @@ public:
 };
 #pragma endregion FactoryMethodBasePlatform
 
+
 #pragma region FactoryMethodBaseDialogViewer
 class FactoryMethodBaseDialogViewer
 {
@@ -58,6 +59,7 @@ public:
 };
 #pragma endregion FactoryMethodBaseDialogViewer
 
+
 #pragma region FactoryMethodBaseShopList
 class FactoryMethodBaseShopList
 {
@@ -65,3 +67,12 @@ public:
 	virtual GameObject* CreateObject(Observer* _observer) = 0;
 };
 #pragma endregion FactoryMethodBaseShopList
+
+
+#pragma region FactoryMethodBaseTile
+class FactoryMethodBaseTile
+{
+public:
+	virtual GameObject* CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos) = 0;
+};
+#pragma endregion FactoryMethodBaseTile

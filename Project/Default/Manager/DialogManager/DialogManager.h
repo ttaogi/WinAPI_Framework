@@ -6,12 +6,12 @@ class DialogInfo
 {
 public:
 	bool upper;
-	std::wstring stripeKey;
+	std::wstring spriteKey;
 	std::wstring name;
 	std::wstring text;
 public:
 	DialogInfo();
-	DialogInfo(bool _upper, std::wstring _stripeKey, std::wstring _name, std::wstring _text);
+	DialogInfo(bool _upper, std::wstring _spriteKey, std::wstring _name, std::wstring _text);
 
 	void Print() const;
 };

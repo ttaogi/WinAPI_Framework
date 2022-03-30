@@ -7,9 +7,9 @@ class GameObject;
 class MapData
 {
 public:
-	std::vector<GameObject*> goVec;
-	std::wstring normalBgmKey;
-	std::wstring bossBgmKey;
+	int x; // ¢Ù
+	int y; // ¢×
+	std::vector<std::vector<GameObject*>> mapVec;
 public:
 	MapData();
 };
@@ -24,5 +24,5 @@ public:
 	HRESULT Init();
 	void Release();
 
-	void GetMapData(std::wstring _xmlFileName, MapData& _data);
+	bool GetMapData(std::wstring _xmlFileName, MapData& _data);
 };

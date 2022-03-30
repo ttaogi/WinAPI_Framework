@@ -15,13 +15,16 @@ void ShopListPanel::Update()
 {
 	if (!enabled) return;
 
-	if (MOUSE_CLICKED)
+	if (GAMEMANAGER->GetPhase() == PHASE::PHASE_SHOPPING && MOUSE_CLICKED)
 	{
 		RectTransform* rcT = gameObject->GetComponent<RectTransform>();
 		if (rcT == NULL) return;
 		RECT rc = rcT->GetScreenRect();
 		if (PtInRect(&rc, POINT_MOUSE))
+		{
 			Notify(EVENT::SHOP_LIST_PANEL_CLICK);
+			MOUSE_CLICKED = false;
+		}
 	}
 }
 #pragma endregion ShopListPanel
@@ -33,6 +36,8 @@ ShopList::ShopList()
 
 void ShopList::OnNotify(Subject* _subject, EVENT _event)
 {
+	if (GAMEMANAGER->GetPhase() != PHASE::PHASE_SHOPPING) return;
+
 	vector<GameObject*> panelVec;
 	ShopListPanel* subject = NULL;
 	panelVec.clear();
@@ -81,13 +86,16 @@ void BuyButton::Update()
 {
 	if (!enabled) return;
 
-	if (MOUSE_CLICKED)
+	if (GAMEMANAGER->GetPhase() == PHASE::PHASE_SHOPPING && MOUSE_CLICKED)
 	{
 		RectTransform* rcT = gameObject->GetComponent<RectTransform>();
 		if (rcT == NULL) return;
 		RECT rc = rcT->GetScreenRect();
 		if (PtInRect(&rc, POINT_MOUSE))
+		{
 			Notify(EVENT::BUY_BUTTON_CLICK);
+			MOUSE_CLICKED = false;
+		}
 	}
 }
 #pragma endregion BuyButton
@@ -101,13 +109,16 @@ void ExitButton::Update()
 {
 	if (!enabled) return;
 
-	if (MOUSE_CLICKED)
+	if (GAMEMANAGER->GetPhase() == PHASE::PHASE_SHOPPING && MOUSE_CLICKED)
 	{
 		RectTransform* rcT = gameObject->GetComponent<RectTransform>();
 		if (rcT == NULL) return;
 		RECT rc = rcT->GetScreenRect();
 		if (PtInRect(&rc, POINT_MOUSE))
+		{
 			Notify(EVENT::EXIT_BUTTON_CLICK);
+			MOUSE_CLICKED = false;
+		}
 	}
 }
 #pragma endregion ExitButton

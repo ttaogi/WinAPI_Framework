@@ -53,32 +53,44 @@ extern const wchar_t* DIR_UI_BAR_BORDER_SPRITE;
 
 
 #pragma region UI_Dialog
-extern const std::wstring KEY_UI_DIALOG_BACKGROUND_STRIPE;
-extern const wchar_t* DIR_UI_DIALOG_BACKGROUND_STRIPE;
+extern const std::wstring KEY_UI_DIALOG_BACKGROUND_SPRITE;
+extern const wchar_t* DIR_UI_DIALOG_BACKGROUND_SPRITE;
 #pragma endregion UI_Dialog
 
 
 #pragma region UI_Shop
-extern const std::wstring KEY_UI_SHOPLIST_BACKGROUND_STRIPE;
-extern const wchar_t* DIR_UI_SHOPLIST_BACKGROUND_STRIPE;
-extern const std::wstring KEY_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE;
-extern const wchar_t* DIR_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE;
-extern const std::wstring KEY_UI_SHOPLIST_BUY_BUTTON_STRIPE;
-extern const wchar_t* DIR_UI_SHOPLIST_BUY_BUTTON_STRIPE;
-extern const std::wstring KEY_UI_SHOPLIST_EXIT_BUTTON_STRIPE;
-extern const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_STRIPE;
+extern const std::wstring KEY_UI_SHOPLIST_BACKGROUND_SPRITE;
+extern const wchar_t* DIR_UI_SHOPLIST_BACKGROUND_SPRITE;
+extern const std::wstring KEY_UI_SHOPLIST_PANEL_BACKGROUND_SPRITE;
+extern const wchar_t* DIR_UI_SHOPLIST_PANEL_BACKGROUND_SPRITE;
+extern const std::wstring KEY_UI_SHOPLIST_BUY_BUTTON_SPRITE;
+extern const wchar_t* DIR_UI_SHOPLIST_BUY_BUTTON_SPRITE;
+extern const std::wstring KEY_UI_SHOPLIST_EXIT_BUTTON_SPRITE;
+extern const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_SPRITE;
 #pragma endregion UI_Shop
 
 
+#pragma region Tile
+extern const std::wstring KEY_TILE_DIRT_Z0_SPRITE;
+extern const wchar_t* DIR_TILE_DIRT_Z0_SPRITE;
+extern const std::wstring KEY_TILE_DIRT_Z1_SPRITE;
+extern const wchar_t* DIR_TILE_DIRT_Z1_SPRITE;
+extern const std::wstring KEY_TILE_GRASS_Z0_SPRITE;
+extern const wchar_t* DIR_TILE_GRASS_Z0_SPRITE;
+extern const std::wstring KEY_TILE_GRASS_Z1_SPRITE;
+extern const wchar_t* DIR_TILE_GRASS_Z1_SPRITE;
+#pragma endregion Tile
+
+
 #pragma region Portrait
-extern const std::wstring KEY_UI_PORTRAIT_AL_DEFAULT_STRIPE;
-extern const wchar_t* DIR_UI_PORTRAIT_AL_DEFAULT_STRIPE;
-extern const std::wstring KEY_UI_PORTRAIT_GUILD_DEFAULT_STRIPE;
-extern const wchar_t* DIR_UI_PORTRAIT_GUILD_DEFAULT_STRIPE;
-extern const std::wstring KEY_UI_PORTRAIT_KARIN_DEFAULT_STRIPE;
-extern const wchar_t* DIR_UI_PORTRAIT_KARIN_DEFAULT_STRIPE;
-extern const std::wstring KEY_UI_PORTRAIT_SHOP_DEFAULT_STRIPE;
-extern const wchar_t* DIR_UI_PORTRAIT_SHOP_DEFAULT_STRIPE;
+extern const std::wstring KEY_UI_PORTRAIT_AL_DEFAULT_SPRITE;
+extern const wchar_t* DIR_UI_PORTRAIT_AL_DEFAULT_SPRITE;
+extern const std::wstring KEY_UI_PORTRAIT_GUILD_DEFAULT_SPRITE;
+extern const wchar_t* DIR_UI_PORTRAIT_GUILD_DEFAULT_SPRITE;
+extern const std::wstring KEY_UI_PORTRAIT_KARIN_DEFAULT_SPRITE;
+extern const wchar_t* DIR_UI_PORTRAIT_KARIN_DEFAULT_SPRITE;
+extern const std::wstring KEY_UI_PORTRAIT_SHOP_DEFAULT_SPRITE;
+extern const wchar_t* DIR_UI_PORTRAIT_SHOP_DEFAULT_SPRITE;
 #pragma endregion Portrait
 
 
@@ -157,6 +169,9 @@ extern const std::wstring DIALOG_SPOT_GUILD;
 #pragma region Size
 extern const int BUTTON_WIDTH;
 extern const int BUTTON_HEIGHT;
+extern const int TILE_WIDTH;
+extern const int TILE_HEIGHT_Z0;
+extern const int TILE_HEIGHT_Z1;
 #pragma endregion Size
 
 ///////////////////////

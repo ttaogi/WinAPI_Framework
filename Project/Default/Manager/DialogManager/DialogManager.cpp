@@ -6,13 +6,13 @@
 DialogInfo::DialogInfo()
 {
 	upper = false;
-	stripeKey = name = text = L"";
+	spriteKey = name = text = L"";
 }
 
-DialogInfo::DialogInfo(bool _upper, std::wstring _stripeKey, std::wstring _name, std::wstring _text)
+DialogInfo::DialogInfo(bool _upper, std::wstring _spriteKey, std::wstring _name, std::wstring _text)
 {
 	upper = _upper;
-	stripeKey = _stripeKey;
+	spriteKey = _spriteKey;
 	name = _name;
 	text = _text;
 }
@@ -20,7 +20,7 @@ DialogInfo::DialogInfo(bool _upper, std::wstring _stripeKey, std::wstring _name,
 void DialogInfo::Print() const
 {
 	wcout << L"\t\t\tupper : " << upper << " name : " << name
-		<< " text : " << text << " stripeKey : " << stripeKey << endl;
+		<< " text : " << text << " spriteKey : " << spriteKey << endl;
 }
 #pragma endregion DialogInfo
 
@@ -99,16 +99,16 @@ HRESULT DialogManager::Init()
 			TiXmlElement* dialog = XmlManager::FirstChildElement(guildDefaultDialog, key);
 
 			bool upper;
-			wstring stripeKey;
+			wstring spriteKey;
 			wstring name;
 			wstring text;
 
 			XmlManager::GetAttributeValueBool(dialog, L"upper", &upper);
-			XmlManager::GetAttributeValue(dialog, L"stripeKey", stripeKey);
+			XmlManager::GetAttributeValue(dialog, L"spriteKey", spriteKey);
 			XmlManager::GetAttributeValue(dialog, L"name", name);
 			XmlManager::GetAttributeValue(dialog, L"text", text);
 
-			guildDefaultCycle.cycle.push_back(DialogInfo(upper, stripeKey, name, text));
+			guildDefaultCycle.cycle.push_back(DialogInfo(upper, spriteKey, name, text));
 		}
 
 		guildDPMap.defaultDialog = guildDefaultCycle;
@@ -138,16 +138,16 @@ HRESULT DialogManager::Init()
 				TiXmlElement* dialog = XmlManager::FirstChildElement(dialogCycle, key);
 
 				bool upper;
-				wstring stripeKey;
+				wstring spriteKey;
 				wstring name;
 				wstring text;
 
 				XmlManager::GetAttributeValueBool(dialog, L"upper", &upper);
-				XmlManager::GetAttributeValue(dialog, L"stripeKey", stripeKey);
+				XmlManager::GetAttributeValue(dialog, L"spriteKey", spriteKey);
 				XmlManager::GetAttributeValue(dialog, L"name", name);
 				XmlManager::GetAttributeValue(dialog, L"text", text);
 
-				cycle.cycle.push_back(DialogInfo(upper, stripeKey, name, text));
+				cycle.cycle.push_back(DialogInfo(upper, spriteKey, name, text));
 			}
 
 			guildDPMap.dialogMap[processivity] = cycle;
@@ -171,16 +171,16 @@ HRESULT DialogManager::Init()
 			TiXmlElement* dialog = XmlManager::FirstChildElement(shopDefaultDialog, key);
 
 			bool upper;
-			wstring stripeKey;
+			wstring spriteKey;
 			wstring name;
 			wstring text;
 
 			XmlManager::GetAttributeValueBool(dialog, L"upper", &upper);
-			XmlManager::GetAttributeValue(dialog, L"stripeKey", stripeKey);
+			XmlManager::GetAttributeValue(dialog, L"spriteKey", spriteKey);
 			XmlManager::GetAttributeValue(dialog, L"name", name);
 			XmlManager::GetAttributeValue(dialog, L"text", text);
 
-			shopDefaultCycle.cycle.push_back(DialogInfo(upper, stripeKey, name, text));
+			shopDefaultCycle.cycle.push_back(DialogInfo(upper, spriteKey, name, text));
 		}
 
 		shopDPMap.defaultDialog = shopDefaultCycle;
@@ -210,16 +210,16 @@ HRESULT DialogManager::Init()
 				TiXmlElement* dialog = XmlManager::FirstChildElement(dialogCycle, key);
 
 				bool upper;
-				wstring stripeKey;
+				wstring spriteKey;
 				wstring name;
 				wstring text;
 
 				XmlManager::GetAttributeValueBool(dialog, L"upper", &upper);
-				XmlManager::GetAttributeValue(dialog, L"stripeKey", stripeKey);
+				XmlManager::GetAttributeValue(dialog, L"spriteKey", spriteKey);
 				XmlManager::GetAttributeValue(dialog, L"name", name);
 				XmlManager::GetAttributeValue(dialog, L"text", text);
 
-				cycle.cycle.push_back(DialogInfo(upper, stripeKey, name, text));
+				cycle.cycle.push_back(DialogInfo(upper, spriteKey, name, text));
 			}
 
 			shopDPMap.dialogMap[processivity] = cycle;

@@ -13,12 +13,14 @@
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
 #include "Image/Image.h"
 #include "Script/DialogViewer/DialogViewer.h"
-#include "Script/ShopList/ShopList.h"
 #include "Script/Player/Player.h"
+#include "Script/ShopList/ShopList.h"
+#include "Script/Tile/Tile.h"
 
 static int uiCount = 0;
 static int monsterCount = 0;
 static int platformCount = 0;
+static int tileCount = 0;
 
 #pragma region ProductBaseButton
 GameObject* FactoryDefaultButton::CreateObject(
@@ -196,7 +198,7 @@ GameObject* FactoryDefaultDialogViewer::CreateObject(Observer* _observer, std::w
 	upperRcT->SetRect(640, 160);
 	RenderedImage* upperBackground = new RenderedImage();
 	upperBackground->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
-	upperBackground->SetImage(IMG->FindImage(KEY_UI_DIALOG_BACKGROUND_STRIPE));
+	upperBackground->SetImage(IMG->FindImage(KEY_UI_DIALOG_BACKGROUND_SPRITE));
 	upperBackground->SetSortingLayer(SORTING_LAYER::DIALOG_BACKGROUND);
 	upperBackground->SetOrderInLayer(uiCount++);
 	upper->AddComponent(upperRcT);
@@ -235,7 +237,7 @@ GameObject* FactoryDefaultDialogViewer::CreateObject(Observer* _observer, std::w
 	lowerRcT->SetRect(640, 160);
 	RenderedImage* lowerBackground = new RenderedImage();
 	lowerBackground->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
-	lowerBackground->SetImage(IMG->FindImage(KEY_UI_DIALOG_BACKGROUND_STRIPE));
+	lowerBackground->SetImage(IMG->FindImage(KEY_UI_DIALOG_BACKGROUND_SPRITE));
 	lowerBackground->SetSortingLayer(SORTING_LAYER::DIALOG_BACKGROUND);
 	lowerBackground->SetOrderInLayer(uiCount++);
 	lower->AddComponent(lowerRcT);
@@ -329,7 +331,7 @@ GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
 	RectTransform* goRcT = new RectTransform();
 	goRcT->SetRect(420, 378);
 	RenderedImage* goRImg = new RenderedImage();
-	goRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_BACKGROUND_STRIPE));
+	goRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_BACKGROUND_SPRITE));
 	goRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
 	goRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
 	goRImg->SetOrderInLayer(uiCount++);
@@ -362,7 +364,7 @@ GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
 		RectTransform* panelRcT = new RectTransform();
 		panelRcT->SetRect(412, 25);
 		RenderedImage* panelRImg = new RenderedImage();
-		panelRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_PANEL_BACKGROUND_STRIPE));
+		panelRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_PANEL_BACKGROUND_SPRITE));
 		panelRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
 		panelRImg->SetOrderInLayer(uiCount++);
 		panelRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
@@ -445,7 +447,7 @@ GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
 	RectTransform* buyButtonRcT = new RectTransform();
 	buyButtonRcT->SetRect(112, 21);
 	RenderedImage* buyButtonRImg = new RenderedImage();
-	buyButtonRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_BUY_BUTTON_STRIPE));
+	buyButtonRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_BUY_BUTTON_SPRITE));
 	buyButtonRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
 	buyButtonRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
 	buyButtonRImg->SetOrderInLayer(uiCount++);
@@ -467,7 +469,7 @@ GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
 	RectTransform* exitButtonRcT = new RectTransform();
 	exitButtonRcT->SetRect(112, 21);
 	RenderedImage* exitButtonRImg = new RenderedImage();
-	exitButtonRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_EXIT_BUTTON_STRIPE));
+	exitButtonRImg->SetImage(IMG->FindImage(KEY_UI_SHOPLIST_EXIT_BUTTON_SPRITE));
 	exitButtonRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
 	exitButtonRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
 	exitButtonRImg->SetOrderInLayer(uiCount++);
@@ -486,3 +488,38 @@ GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
 	return go;
 }
 #pragma endregion ProductBaseShopList
+
+
+#pragma region ProductBasePlatform
+GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos)
+{
+	GameObject* go = new GameObject();
+	int posX = (_gridPos.x - _gridPos.y) * TILE_WIDTH / 2;
+	int posY = (_gridPos.x + _gridPos.y) * TILE_HEIGHT_Z0 / 2;
+	if (_type == TILE_TYPE::DIRT_Z1 || _type == TILE_TYPE::GRASS_Z1)
+		posY -= (TILE_HEIGHT_Z1 - TILE_HEIGHT_Z0);
+	go->GetComponent<Transform>()->SetPosition(D_POINT{ (double)posX, (double)posY });
+
+	RectTransform* goRcT = new RectTransform();
+	//////////////////////
+
+	RenderedImage* goRImg = new RenderedImage();
+	if (_type == TILE_TYPE::DIRT_Z0)
+		goRImg->SetImage(IMG->FindImage(KEY_TILE_DIRT_Z0_SPRITE));
+	if (_type == TILE_TYPE::DIRT_Z1)
+		goRImg->SetImage(IMG->FindImage(KEY_TILE_DIRT_Z1_SPRITE));
+	if (_type == TILE_TYPE::GRASS_Z0)
+		goRImg->SetImage(IMG->FindImage(KEY_TILE_GRASS_Z0_SPRITE));
+	if (_type == TILE_TYPE::GRASS_Z1)
+		goRImg->SetImage(IMG->FindImage(KEY_TILE_GRASS_Z1_SPRITE));
+	goRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	goRImg->SetSortingLayer(SORTING_LAYER::TILE);
+	goRImg->SetOrderInLayer(tileCount++);
+	go->AddComponent(goRcT);
+	go->AddComponent(goRImg);
+
+	/////////////////////////////////////////
+
+	return go;
+}
+#pragma endregion ProductBasePlatform

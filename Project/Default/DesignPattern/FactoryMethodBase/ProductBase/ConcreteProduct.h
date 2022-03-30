@@ -69,3 +69,12 @@ public:
 	virtual GameObject* CreateObject(Observer* _observer);
 };
 #pragma endregion ProductBaseShopList
+
+
+#pragma region ProductBaseTile
+class FactoryDefaultTile : public ProductBaseTile
+{
+public:
+	virtual GameObject* CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos);
+};
+#pragma endregion ProductBaseTile

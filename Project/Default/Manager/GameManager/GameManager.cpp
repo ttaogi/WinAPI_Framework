@@ -9,6 +9,7 @@ GameManager::~GameManager() { }
 HRESULT GameManager::Init()
 {
 	phase = PHASE::PHASE_NUM;
+	detail = PHASE_DETAIL::DEFAULT;
 
 	return S_OK;
 }

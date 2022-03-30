@@ -2,17 +2,16 @@
 
 #include <functional>
 
-#include "DesignPattern/ObserverBase/Observer.h"
 #include "Utility/CommonClasses/CommonClasses.h"
+#include "Utility/Enums/Enums.h"
 
 class GameObject;
 class Image;
+class Observer;
 
 #pragma region ProductBaseButton
 class ProductBaseButton
 {
-private:
-protected:
 public:
 	virtual GameObject* CreateObject(std::function<void()> _callBack_v_CB_v, D_POINT _pos,
 		int _rectWidth, int _rectHeight, Image* _image, std::wstring _str = L"") = 0;
@@ -23,8 +22,6 @@ public:
 #pragma region ProductBaseBar
 class ProductBaseBar
 {
-private:
-protected:
 public:
 	virtual GameObject* CreateObject(std::function<void()> _callBack_v_CB_v, D_POINT _pos,
 		int _rectWidth, int _rectHeight, int _margin, double _rate) = 0;
@@ -58,6 +55,7 @@ public:
 };
 #pragma endregion ProductBaseDialogViewer
 
+
 #pragma region ProductBaseShopList
 class ProductBaseShopList
 {
@@ -65,3 +63,12 @@ public:
 	virtual GameObject* CreateObject(Observer* _observer) = 0;
 };
 #pragma endregion ProductBaseShopList
+
+
+#pragma region ProductBaseTile
+class ProductBaseTile
+{
+public:
+	virtual GameObject* CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos) = 0;
+};
+#pragma endregion ProductBaseTile

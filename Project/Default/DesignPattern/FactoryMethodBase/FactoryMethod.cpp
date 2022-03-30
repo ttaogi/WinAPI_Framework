@@ -144,6 +144,7 @@ GameObject* FactoryMethodDialogViewer::CreateObject(Observer* _observer, std::ws
 }
 #pragma endregion FactoryMethodDialogViewer
 
+
 #pragma region FactoryMethodShopList
 FactoryMethodShopList::FactoryMethodShopList()
 {
@@ -164,3 +165,25 @@ GameObject* FactoryMethodShopList::CreateObject(Observer* _observer)
 	return go;
 }
 #pragma endregion FactoryMethodShopList
+
+
+#pragma region FactoryMethodBaseTile
+FactoryMethodTile::FactoryMethodTile()
+{
+	defaultTile = new FactoryDefaultTile();
+}
+
+FactoryMethodTile::~FactoryMethodTile()
+{
+	SAFE_DELETE(defaultTile);
+}
+
+GameObject* FactoryMethodTile::CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos)
+{
+	GameObject* go = NULL;
+
+	go = defaultTile->CreateObject(_type, _observer, _gridPos);
+
+	return go;
+}
+#pragma endregion FactoryMethodBaseTile
