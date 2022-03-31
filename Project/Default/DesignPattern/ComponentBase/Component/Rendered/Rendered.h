@@ -9,6 +9,7 @@ private:
 	SORTING_LAYER sortingLayer;
 	int orderInLayer;
 protected:
+	bool byCamera;
 public:
 	Rendered();
 	virtual ~Rendered();
@@ -21,6 +22,8 @@ public:
 	void			SetSortingLayer(SORTING_LAYER _layer)	{ sortingLayer = _layer; }
 	int		GetOrderInLayer() const		{ return orderInLayer; }
 	void	SetOrderInLayer(int _order)	{ orderInLayer = _order; }
+	bool	GetByCamera() const			{ return byCamera; }
+	void	SetByCamera(bool _byCamera) { byCamera = _byCamera; }
 };
 
 struct CmpRenderedPtr

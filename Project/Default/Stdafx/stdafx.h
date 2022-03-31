@@ -75,6 +75,7 @@ using namespace std;
 #define FACTORY_METHOD_PLATFORM	FactoryMethodPlatform::GetSingleton()
 #define FACTORY_METHOD_DIALOGVIEWER	FactoryMethodDialogViewer::GetSingleton()
 #define FACTORY_METHOD_SHOPLIST	FactoryMethodShopList::GetSingleton()
+#define FACTORY_METHOD_TILE		FactoryMethodTile::GetSingleton()
 
 #define SAFE_RELEASE(p)			{if((p) != NULL) { (p)->Release();}}
 #define SAFE_DELETE(p)			{if((p) != NULL) { delete (p); (p) = NULL;}}

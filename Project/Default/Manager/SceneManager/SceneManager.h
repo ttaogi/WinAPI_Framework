@@ -26,6 +26,7 @@ public:
 	void SetNextSceneKey(std::wstring _nextSceneKey);
 	void SetNextSceneKeyEndScene();
 	void SetNextSceneKeyGuildScene();
+	void SetNextSceneKeyFieldScene();
 	void SetNextSceneKeyShopScene();
 	void SetNextSceneKeyTitleScene();
 	void SetNextSceneKeyTownScene();

@@ -491,6 +491,17 @@ GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
 
 
 #pragma region ProductBasePlatform
+/*
+GameObject
+-RectTransform
+-RenderedImage
+	TilePanel(Subject)
+	-RectTransform
+	-RenderedImage
+	FocusPanel
+	-RectTransform
+	-RenderedImage
+*/
 GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos)
 {
 	GameObject* go = new GameObject();
@@ -499,10 +510,8 @@ GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observe
 	if (_type == TILE_TYPE::DIRT_Z1 || _type == TILE_TYPE::GRASS_Z1)
 		posY -= (TILE_HEIGHT_Z1 - TILE_HEIGHT_Z0);
 	go->GetComponent<Transform>()->SetPosition(D_POINT{ (double)posX, (double)posY });
-
 	RectTransform* goRcT = new RectTransform();
-	//////////////////////
-
+	goRcT->SetRect(TILE_WIDTH, TILE_HEIGHT_Z0);
 	RenderedImage* goRImg = new RenderedImage();
 	if (_type == TILE_TYPE::DIRT_Z0)
 		goRImg->SetImage(IMG->FindImage(KEY_TILE_DIRT_Z0_SPRITE));
@@ -515,10 +524,51 @@ GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observe
 	goRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
 	goRImg->SetSortingLayer(SORTING_LAYER::TILE);
 	goRImg->SetOrderInLayer(tileCount++);
+	goRImg->SetByCamera(true);
 	go->AddComponent(goRcT);
 	go->AddComponent(goRImg);
 
-	/////////////////////////////////////////
+	GameObject* tilePanelGo = new GameObject();
+	tilePanelGo->GetComponent<Transform>()->SetPosition(D_POINT{ (double)posX, (double)posY });
+	RectTransform* tilePanelRcT = new RectTransform();
+	tilePanelRcT->SetRect(TILE_WIDTH, TILE_HEIGHT_Z0);
+	RenderedImage* tilePanelRImg = new RenderedImage();
+	tilePanelRImg->SetImage(IMG->FindImage(KEY_TILE_PANEL));
+	tilePanelRImg->SetAlpha(127);
+	tilePanelRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	tilePanelRImg->SetSortingLayer(SORTING_LAYER::TILE_PANEL);
+	tilePanelRImg->SetOrderInLayer(uiCount++);
+	tilePanelRImg->SetByCamera(true);
+	Tile* tile = new Tile();
+	tile->SetGridPos(_gridPos);
+	tile->AddObserver(_observer);
+	tile->Init();
+	tilePanelGo->AddComponent(tilePanelRcT);
+	tilePanelGo->AddComponent(tilePanelRImg);
+	tilePanelGo->AddComponent(tile);
+	tilePanelGo->SetName(SKIG_TILE_TILE);
+	tilePanelGo->SetActive(false);
+
+	GameObject* tileFocusGo = new GameObject();
+	tileFocusGo->GetComponent<Transform>()->SetPosition(D_POINT{ (double)posX, (double)posY });
+	RectTransform* tileFocusRcT = new RectTransform();
+	tileFocusRcT->SetRect(TILE_WIDTH, TILE_HEIGHT_Z0);
+	RenderedImage* tileFocusRImg = new RenderedImage();
+	tileFocusRImg->SetImage(IMG->FindImage(KEY_TILE_FOCUS));
+	tileFocusRImg->SetAlpha(127);
+	tileFocusRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	tileFocusRImg->SetSortingLayer(SORTING_LAYER::TILE_FOCUS);
+	tileFocusRImg->SetOrderInLayer(uiCount++);
+	tileFocusRImg->SetByCamera(true);
+	tileFocusRImg->SetEnabled(false);
+	TileFocus* tileFocus = new TileFocus();
+	tileFocus->Init();
+	tileFocusGo->AddComponent(tileFocusRcT);
+	tileFocusGo->AddComponent(tileFocusRImg);
+	tileFocusGo->AddComponent(tileFocus);
+
+	go->AddGameObject(tilePanelGo);
+	go->AddGameObject(tileFocusGo);
 
 	return go;
 }

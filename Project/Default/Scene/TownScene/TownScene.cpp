@@ -15,7 +15,7 @@ HRESULT TownScene::Init()
 
 	GameObject* townToFieldBtn = FACTORY_METHOD_BUTTON->CreateObject(
 		BUTTON_FACTORY_TYPE::MOUSE_ON,
-		std::bind(&SceneManager::SetNextSceneKeyTitleScene, SCENE),
+		std::bind(&SceneManager::SetNextSceneKeyFieldScene, SCENE),
 		D_POINT{ 590, 25 }, 100, 50,
 		IMG->FindImage(KEY_UI_TOWN_TO_FIELD_BUTTON_SPRITE));
 	GameObject* townToGuildBtn = FACTORY_METHOD_BUTTON->CreateObject(
@@ -28,11 +28,17 @@ HRESULT TownScene::Init()
 		std::bind(&SceneManager::SetNextSceneKeyShopScene, SCENE),
 		D_POINT{ 200, 230 }, 100, 50,
 		IMG->FindImage(KEY_UI_TOWN_TO_SHOP_BUTTON_SPRITE));
+	GameObject* townToTitleBtn = FACTORY_METHOD_BUTTON->CreateObject(
+		BUTTON_FACTORY_TYPE::MOUSE_ON,
+		std::bind(&SceneManager::SetNextSceneKeyTitleScene, SCENE),
+		D_POINT{ 590, 455 }, 100, 50,
+		IMG->FindImage(KEY_UI_TOWN_TO_TITLE_BUTTON_SPRITE));
 
 	root = new GameObject();
 	root->AddGameObject(townToFieldBtn);
 	root->AddGameObject(townToGuildBtn);
 	root->AddGameObject(townToShopBtn);
+	root->AddGameObject(townToTitleBtn);
 
 	SOUND->Play(KEY_SOUND_TOWN_THEME, GAMEDATA->GetVolume());
 

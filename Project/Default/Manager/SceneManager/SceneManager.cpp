@@ -55,6 +55,7 @@ void SceneManager::SetNextSceneKey(std::wstring _nextSceneKey) { nextSceneKey = 
 
 void SceneManager::SetNextSceneKeyEndScene()	{ nextSceneKey = KEY_END_SCENE; }
 void SceneManager::SetNextSceneKeyGuildScene()	{ nextSceneKey = KEY_GUILD_SCENE; }
+void SceneManager::SetNextSceneKeyFieldScene()	{ nextSceneKey = KEY_FIELD_SCENE; }
 void SceneManager::SetNextSceneKeyShopScene()	{ nextSceneKey = KEY_SHOP_SCENE; }
 void SceneManager::SetNextSceneKeyTitleScene()	{ nextSceneKey = KEY_TITLE_SCENE; }
 void SceneManager::SetNextSceneKeyTownScene()	{ nextSceneKey = KEY_TOWN_SCENE; }

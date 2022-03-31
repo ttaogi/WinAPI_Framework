@@ -20,9 +20,13 @@ void RenderedText::Render(HDC _hdc)
 	if (enabled && str != L"")
 	{
 		RectTransform* rcT = gameObject->GetComponent<RectTransform>();
+
 		if (rcT)
 		{
-			RECT rc = rcT->GetScreenRect();
+			RECT rc;
+
+			if (byCamera)	rc = rcT->GetScreenRectByCamera();
+			else			rc = rcT->GetScreenRect();
 
 			FONT->DrawText(_hdc, rc.left, rc.top, (wchar_t*)L"Arial", 24, 24, (wchar_t*)str.c_str(), (int)str.length(), RGB(15, 15, 15));
 		}

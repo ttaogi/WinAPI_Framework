@@ -3,13 +3,14 @@
 #include "DesignPattern/SingletonBase/SingletonBase.h"
 
 class GameObject;
+class Observer;
 
 class MapData
 {
 public:
 	int x; // ¢Ù
 	int y; // ¢×
-	std::vector<std::vector<GameObject*>> mapVec;
+	std::vector<std::vector<GameObject*>> tileVec;
 public:
 	MapData();
 };
@@ -24,5 +25,5 @@ public:
 	HRESULT Init();
 	void Release();
 
-	bool GetMapData(std::wstring _xmlFileName, MapData& _data);
+	bool GetMapData(std::wstring _xmlFileName, Observer* _observer, MapData& _data);
 };

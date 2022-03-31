@@ -228,7 +228,7 @@ HRESULT DialogManager::Init()
 		dialogDB[DIALOG_SPOT_SHOP] = shopDPMap;
 	}
 
-	Print();
+	//Print();
 
 	wcout << L"##### DIALOG MANAGER #####" << endl;
 

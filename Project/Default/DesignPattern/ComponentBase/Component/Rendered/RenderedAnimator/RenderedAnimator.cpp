@@ -7,7 +7,9 @@
 
 RenderedAnimator::RenderedAnimator()
 	: Component((const Component_ID)typeid(RenderedAnimator).name())
-{ animator = NULL; }
+{
+	animator = NULL;
+}
 
 RenderedAnimator::~RenderedAnimator()
 {
@@ -35,8 +37,11 @@ void RenderedAnimator::Render(HDC _hdc)
 	{
 		POINT revision = CAMERA->GetRevision();
 		POINT pos = gameObject->GetComponent<Transform>()->GetPosition().ToPoint();
-		pos.x -= revision.x;
-		pos.y -= revision.y;
+		if(byCamera)
+		{
+			pos.x -= revision.x;
+			pos.y -= revision.y;
+		}
 		animator->AnimationRender(_hdc, pos);
 	}
 }

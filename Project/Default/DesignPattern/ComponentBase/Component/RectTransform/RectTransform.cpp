@@ -25,8 +25,20 @@ RECT RectTransform::GetScreenRect() const
 
 	POINT pos = t->GetPosition().ToPoint();
 
-	long left = pos.x - width / 2;
-	long top = pos.y - height / 2;
+	//long left = pos.x - width / 2;
+	//long top = pos.y - height / 2;
 
-	return RECT{ left, top, left + width, top + height };
+	//return RECT{ left, top, left + width, top + height };
+	return MakeRectCWH(pos, width, height);
+}
+
+RECT RectTransform::GetScreenRectByCamera() const
+{
+	RECT rc = GetScreenRect();
+	POINT revision = CAMERA->GetRevision();
+	rc.left -= revision.x;
+	rc.right -= revision.x;
+	rc.top -= revision.y;
+	rc.bottom -= revision.y;
+	return rc;
 }

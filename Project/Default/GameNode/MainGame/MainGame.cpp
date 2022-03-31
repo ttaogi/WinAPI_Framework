@@ -7,6 +7,7 @@
 #include "Manager/SceneManager/SceneManager.h"
 #include "Scene/EndScene/EndScene.h"
 #include "Scene/GuildScene/GuildScene.h"
+#include "Scene/FieldScene/FieldScene.h"
 #include "Scene/ShopScene/ShopScene.h"
 #include "Scene/TitleScene/TitleScene.h"
 #include "Scene/TownScene/TownScene.h"
@@ -26,10 +27,11 @@ HRESULT MainGame::Init()
 	SetBackBuffer(IMG->FindImage(KEY_BACKGROUND_BACKBUFFER));
 
 	SCENE->AddScene(KEY_END_SCENE, new EndScene());
+	SCENE->AddScene(KEY_GUILD_SCENE, new GuildScene());
+	SCENE->AddScene(KEY_FIELD_SCENE, new FieldScene());
+	SCENE->AddScene(KEY_SHOP_SCENE, new ShopScene());
 	SCENE->AddScene(KEY_TITLE_SCENE, new TitleScene());
 	SCENE->AddScene(KEY_TOWN_SCENE, new TownScene());
-	SCENE->AddScene(KEY_GUILD_SCENE, new GuildScene());
-	SCENE->AddScene(KEY_SHOP_SCENE, new ShopScene());
 	SCENE->ChangeScene(KEY_TITLE_SCENE);
 
 	return S_OK;

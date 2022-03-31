@@ -13,6 +13,7 @@
 class GameObject;
 class Image;
 class MainGame;
+class MapData;
 
 class Scene : public Observer
 {
@@ -31,6 +32,7 @@ public:
 	virtual void Update() = 0;
 	virtual void Render() = 0;
 
+	void LoadMapData(MapData* _mapData);
 	static void ProcessCollision(std::vector<Collision>* _collisionVec);
 	static void ProcessRender(HDC _hdc, priority_queue<Rendered*, vector<Rendered*>, CmpRenderedPtr>* _queue);
 };

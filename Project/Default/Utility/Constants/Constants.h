@@ -21,6 +21,9 @@ extern const wchar_t* BACKGROUND_GUILD;
 
 extern const std::wstring KEY_BACKGROUND_SHOP;
 extern const wchar_t* BACKGROUND_SHOP;
+
+extern const std::wstring KEY_BACKGROUND_FIELD;
+extern const wchar_t* BACKGROUND_FIELD;
 #pragma endregion Background
 
 
@@ -39,6 +42,8 @@ extern const std::wstring KEY_UI_TOWN_TO_GUILD_BUTTON_SPRITE;
 extern const wchar_t* UI_TOWN_TO_GUILD_BUTTON_SPRITE;
 extern const std::wstring KEY_UI_TOWN_TO_SHOP_BUTTON_SPRITE;
 extern const wchar_t* UI_TOWN_TO_SHOP_BUTTON_SPRITE;
+extern const std::wstring KEY_UI_TOWN_TO_TITLE_BUTTON_SPRITE;
+extern const wchar_t* UI_TOWN_TO_TITLE_BUTTON_SPRITE;
 #pragma endregion Ui_ButtonMouseOn
 
 
@@ -71,6 +76,11 @@ extern const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_SPRITE;
 
 
 #pragma region Tile
+extern const std::wstring KEY_TILE_PANEL;
+extern const wchar_t* DIR_TILE_PANEL;
+extern const std::wstring KEY_TILE_FOCUS;
+extern const wchar_t* DIR_TILE_FOCUS;
+
 extern const std::wstring KEY_TILE_DIRT_Z0_SPRITE;
 extern const wchar_t* DIR_TILE_DIRT_Z0_SPRITE;
 extern const std::wstring KEY_TILE_DIRT_Z1_SPRITE;
@@ -120,6 +130,7 @@ extern const std::wstring SKIG_DIALOG_VIEWER;
 extern const std::wstring SKIG_SHOP_LIST;
 extern const std::wstring SKIG_SHOP_LIST_GOLD;
 extern const std::wstring SKIG_SHOP_LIST_DESCRIPTION;
+extern const std::wstring SKIG_TILE_TILE;
 #pragma endregion Search_Keyword_In_GameObject
 
 ///////////////////////
@@ -132,6 +143,8 @@ extern const std::wstring KEY_SOUND_TITLE_THEME;
 extern const std::wstring DIR_SOUND_TITLE_THEME;
 extern const std::wstring KEY_SOUND_TOWN_THEME;
 extern const std::wstring DIR_SOUND_TOWN_THEME;
+extern const std::wstring KEY_SOUND_FIELD_THEME;
+extern const std::wstring DIR_SOUND_FIELD_THEME;
 #pragma endregion Sound
 
 ///////////////////////
@@ -141,6 +154,7 @@ extern const std::wstring DIR_SOUND_TOWN_THEME;
 extern const std::wstring KEY_NONE_SCENE;
 extern const std::wstring KEY_END_SCENE;
 extern const std::wstring KEY_GUILD_SCENE;
+extern const std::wstring KEY_FIELD_SCENE;
 extern const std::wstring KEY_SHOP_SCENE;
 extern const std::wstring KEY_TITLE_SCENE;
 extern const std::wstring KEY_TOWN_SCENE;
@@ -153,6 +167,7 @@ extern const std::wstring KEY_TOWN_SCENE;
 extern const std::wstring XML_DOC_EXAMPLE;
 extern const std::wstring XML_DOC_SAVEDATA;
 extern const std::wstring XML_DOC_DIALOG;
+extern const std::wstring XML_DOC_FIELD_MAP_DATA;
 #pragma endregion XmlDocument
 
 ///////////////////////

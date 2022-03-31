@@ -19,4 +19,5 @@ public:
 	void Release();
 
 	POINT GetRevision();
+	void SetTarget(GameObject* _target) { target = _target; }
 };

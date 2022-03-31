@@ -25,14 +25,16 @@ void RenderedImage::Render(HDC _hdc)
 		RectTransform* rcT = gameObject->GetComponent<RectTransform>();
 		if (rcT)
 		{
-			RECT rc = rcT->GetScreenRect();
+			RECT rc;
+
+			if (byCamera)	rc = rcT->GetScreenRectByCamera();
+			else			rc = rcT->GetScreenRect();
 
 			switch (renderingType)
 			{
 			case RENDERED_IMAGE_RENDERING_TYPE::DEFAULT:
 			{
-				POINT revision = CAMERA->GetRevision();
-				image->AlphaRender(_hdc, rc.left - revision.x, rc.top - revision.y, alpha);
+				image->AlphaRender(_hdc, rc.left, rc.top, alpha);
 				//image->Render(_hdc, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
 				break;
 			}

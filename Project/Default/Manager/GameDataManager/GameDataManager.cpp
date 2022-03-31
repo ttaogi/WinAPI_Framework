@@ -123,18 +123,18 @@ HRESULT GameDataManager::Init()
 		}
 	}
 
-	wcout << L"Processivity : " << processivity << endl;
-	wcout << L"Volume : " << volume << endl;
-	wcout << L"Gold : " << gold << endl;
-	wcout << L"Character info : " << endl;
-	wcout << L"Al : " << endl;
-	characterInfoVec[(int)CHARACTER_ID::AL].Print();
-	wcout << L"Karin : " << endl;
-	characterInfoVec[(int)CHARACTER_ID::KARIN].Print();
-	wcout << L"Equip info : " << endl;
-	for (EquipInfo ei : equipInfoVec) ei.Print();
-	wcout << L"Inventory : " << endl;
-	for (EquipInfo ei : inventory) ei.Print();
+	//wcout << L"Processivity : " << processivity << endl;
+	//wcout << L"Volume : " << volume << endl;
+	//wcout << L"Gold : " << gold << endl;
+	//wcout << L"Character info : " << endl;
+	//wcout << L"Al : " << endl;
+	//characterInfoVec[(int)CHARACTER_ID::AL].Print();
+	//wcout << L"Karin : " << endl;
+	//characterInfoVec[(int)CHARACTER_ID::KARIN].Print();
+	//wcout << L"Equip info : " << endl;
+	//for (EquipInfo ei : equipInfoVec) ei.Print();
+	//wcout << L"Inventory : " << endl;
+	//for (EquipInfo ei : inventory) ei.Print();
 	wcout << L"##### GAME DATA MANAGER #####" << endl;
 
 	return S_OK;
@@ -235,18 +235,18 @@ void GameDataManager::Release()
 
 	save.SaveFile(WcsToMbsUtf8(XML_DOC_SAVEDATA).c_str());
 
-	wcout << L"Processivity : " << processivity << endl;
-	wcout << L"Volume : " << volume << endl;
-	wcout << L"Gold : " << gold << endl;
-	wcout << L"Character info : " << endl;
-	wcout << L"Al : " << endl;
-	characterInfoVec[(int)CHARACTER_ID::AL].Print();
-	wcout << L"Karin : " << endl;
-	characterInfoVec[(int)CHARACTER_ID::KARIN].Print();
-	wcout << L"Equip info : " << endl;
-	for (EquipInfo ei : equipInfoVec) ei.Print();
-	wcout << L"Inventory : " << endl;
-	for (EquipInfo ei : inventory) ei.Print();
+	//wcout << L"Processivity : " << processivity << endl;
+	//wcout << L"Volume : " << volume << endl;
+	//wcout << L"Gold : " << gold << endl;
+	//wcout << L"Character info : " << endl;
+	//wcout << L"Al : " << endl;
+	//characterInfoVec[(int)CHARACTER_ID::AL].Print();
+	//wcout << L"Karin : " << endl;
+	//characterInfoVec[(int)CHARACTER_ID::KARIN].Print();
+	//wcout << L"Equip info : " << endl;
+	//for (EquipInfo ei : equipInfoVec) ei.Print();
+	//wcout << L"Inventory : " << endl;
+	//for (EquipInfo ei : inventory) ei.Print();
 	wcout << L"##### GAME DATA MANAGER #####" << endl;
 }
 

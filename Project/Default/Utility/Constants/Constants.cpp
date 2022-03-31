@@ -37,6 +37,11 @@ const std::wstring KEY_BACKGROUND_SHOP =
 	L"BACKGROUND_SHOP";
 const wchar_t* BACKGROUND_SHOP =
 	L"Resources/Images/BackGround/BackgroundShop.bmp";
+
+const std::wstring KEY_BACKGROUND_FIELD =
+	L"BACKGROUND_FIELD";
+const wchar_t* BACKGROUND_FIELD =
+	L"Resources/Images/BackGround/FieldBackground.bmp";
 #pragma endregion Background
 
 
@@ -65,6 +70,10 @@ const std::wstring KEY_UI_TOWN_TO_SHOP_BUTTON_SPRITE =
 	L"UI_TOWN_TO_SHOP_BUTTON_SPRITE";
 const wchar_t* UI_TOWN_TO_SHOP_BUTTON_SPRITE =
 	L"Resources/Images/UI/ButtonMouseOn/TownToShop.bmp";
+const std::wstring KEY_UI_TOWN_TO_TITLE_BUTTON_SPRITE =
+	L"UI_TOWN_TO_TITLE_BUTTON_SPRITE";
+const wchar_t* UI_TOWN_TO_TITLE_BUTTON_SPRITE =
+	L"Resources/Images/UI/ButtonMouseOn/TownToTitle.bmp";
 #pragma endregion Ui_ButtonMouseOn
 
 
@@ -113,6 +122,15 @@ const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_SPRITE =
 
 
 #pragma region Tile
+const std::wstring KEY_TILE_PANEL =
+	L"TILE_PANEL";
+const wchar_t* DIR_TILE_PANEL =
+	L"Resources/Images/Tile/Panel.bmp";
+const std::wstring KEY_TILE_FOCUS =
+	L"TILE_FOCUS";
+const wchar_t* DIR_TILE_FOCUS =
+	L"Resources/Images/Tile/Focus.bmp";
+
 const std::wstring KEY_TILE_DIRT_Z0_SPRITE =
 	L"TILE_DIRT_Z0_SPRITE";
 const wchar_t* DIR_TILE_DIRT_Z0_SPRITE =
@@ -188,6 +206,8 @@ const std::wstring SKIG_SHOP_LIST_GOLD =
 	L"SHOP_LIST_GOLD";
 const std::wstring SKIG_SHOP_LIST_DESCRIPTION =
 	L"SHOP_LIST_DESCRIPTION";
+const std::wstring SKIG_TILE_TILE =
+	L"TILE_TILE";
 #pragma endregion Search_Keyword_In_GameObject
 
 ///////////////////////
@@ -206,6 +226,10 @@ const std::wstring KEY_SOUND_TOWN_THEME =
 	L"SOUND_TOWN_THEME";
 const std::wstring DIR_SOUND_TOWN_THEME =
 	L"Resources/Sounds/BGM/bgm01.mp3";
+const std::wstring KEY_SOUND_FIELD_THEME =
+	L"SOUND_FIELD_THEME";
+const std::wstring DIR_SOUND_FIELD_THEME =
+	L"Resources/Sounds/BGM/bgm14.mp3";
 #pragma endregion Sound
 
 ///////////////////////
@@ -218,6 +242,8 @@ const std::wstring KEY_END_SCENE =
 	L"END_SCENE";
 const std::wstring KEY_GUILD_SCENE =
 	L"GUILD_SCENE";
+const std::wstring KEY_FIELD_SCENE =
+	L"FIELD_SCENE";
 const std::wstring KEY_SHOP_SCENE =
 	L"SHOP_SCENE";
 const std::wstring KEY_TITLE_SCENE =
@@ -236,6 +262,8 @@ const std::wstring XML_DOC_SAVEDATA =
 	L"Resources/XML/save.dat";
 const std::wstring XML_DOC_DIALOG =
 	L"Resources/XML/dialog.xml";
+const std::wstring XML_DOC_FIELD_MAP_DATA =
+	L"Resources/XML/mapData_field.xml";
 #pragma endregion XmlDocument
 
 ///////////////////////

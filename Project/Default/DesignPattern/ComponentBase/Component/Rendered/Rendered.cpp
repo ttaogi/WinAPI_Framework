@@ -3,7 +3,10 @@
 #include "Rendered.h"
 
 Rendered::Rendered()
-	: Component((const Component_ID)typeid(Rendered).name()) { }
+	: Component((const Component_ID)typeid(Rendered).name())
+{
+	byCamera = false;
+}
 
 Rendered::~Rendered() { }
 

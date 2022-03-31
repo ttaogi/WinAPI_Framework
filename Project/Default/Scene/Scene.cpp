@@ -5,6 +5,13 @@
 #include "DesignPattern/ComponentBase/Component/Behaviour/MonoBehaviour/MonoBehaviour.h"
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
 
+void Scene::LoadMapData(MapData* _mapData)
+{
+	for (int i = 0; i < _mapData->x; ++i)
+		for (int j = 0; j < _mapData->y; ++j)
+			root->AddGameObject(_mapData->tileVec[i][j]);
+}
+
 void Scene::ProcessCollision(std::vector<Collision>* _collisionVec)
 {
 	if (!_collisionVec) return;

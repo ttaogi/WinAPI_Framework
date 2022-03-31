@@ -22,6 +22,7 @@ public:
 		height = _rect.bottom - _rect.top;
 	}
 	RECT GetScreenRect() const;
+	RECT GetScreenRectByCamera() const;
 	long GetWidth() const { return width; }
 	void SetWidth(long _width) { width = _width; }
 	long GetHeight() const { return height; }
