@@ -105,8 +105,23 @@ extern const wchar_t* DIR_UI_PORTRAIT_SHOP_DEFAULT_SPRITE;
 
 
 #pragma region Player
-extern const std::wstring KEY_PLAYER_TEMP_SPRITE;
-extern const wchar_t* DIR_PLAYER_TEMP_SPRITE;
+extern const std::wstring KEY_AL_IDLE_LEFT_BOTTOM;
+extern const wchar_t* DIR_AL_IDLE_LEFT_BOTTOM;
+extern const std::wstring KEY_AL_IDLE_LEFT_TOP;
+extern const wchar_t* DIR_AL_IDLE_LEFT_TOP;
+extern const std::wstring KEY_AL_IDLE_RIGHT_BOTTOM;
+extern const wchar_t* DIR_AL_IDLE_RIGHT_BOTTOM;
+extern const std::wstring KEY_AL_IDLE_RIGHT_TOP;
+extern const wchar_t* DIR_AL_IDLE_RIGHT_TOP;
+
+extern const std::wstring KEY_KARIN_IDLE_LEFT_BOTTOM;
+extern const wchar_t* DIR_KARIN_IDLE_LEFT_BOTTOM;
+extern const std::wstring KEY_KARIN_IDLE_LEFT_TOP;
+extern const wchar_t* DIR_KARIN_IDLE_LEFT_TOP;
+extern const std::wstring KEY_KARIN_IDLE_RIGHT_BOTTOM;
+extern const wchar_t* DIR_KARIN_IDLE_RIGHT_BOTTOM;
+extern const std::wstring KEY_KARIN_IDLE_RIGHT_TOP;
+extern const wchar_t* DIR_KARIN_IDLE_RIGHT_TOP;
 #pragma endregion Player
 #pragma endregion Sprite
 

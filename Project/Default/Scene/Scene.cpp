@@ -10,6 +10,12 @@ void Scene::LoadMapData(MapData* _mapData)
 	for (int i = 0; i < _mapData->x; ++i)
 		for (int j = 0; j < _mapData->y; ++j)
 			root->AddGameObject(_mapData->tileVec[i][j]);
+
+	for (auto iter = _mapData->playerVec.begin(); iter != _mapData->playerVec.end(); ++iter)
+		root->AddGameObject(*iter);
+
+	/*for (auto iter = _mapData->enemyVec.begin(); iter != _mapData->enemyVec.end(); ++iter)
+		root->AddGameObject(*iter);*/
 }
 
 void Scene::ProcessCollision(std::vector<Collision>* _collisionVec)

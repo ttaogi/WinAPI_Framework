@@ -22,3 +22,5 @@ Rendered* IsDerivedFromRendered(Component* _c);
 std::string WcsToMbsKorean(std::wstring const& _wstr);
 std::string WcsToMbsUtf8(std::wstring const& _wstr);
 std::wstring MbsUtf8ToWcs(std::string const& _str);
+
+POINT GridPosToPos(POINT _gridPos);

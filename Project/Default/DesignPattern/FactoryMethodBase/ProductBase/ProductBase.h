@@ -33,7 +33,7 @@ public:
 class ProductBasePlayer
 {
 public:
-	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) = 0;
+	virtual GameObject* CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos) = 0;
 };
 #pragma endregion ProductBasePlayer
 

@@ -151,9 +151,6 @@
     <Filter Include="API_Framework\Script">
       <UniqueIdentifier>{26248d9c-d1fa-4381-ae8e-07f8269a2db6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\Script\Player">
-      <UniqueIdentifier>{130f0845-1c04-4e90-ab01-c310aa0f2b89}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API_Framework\StateMachine">
       <UniqueIdentifier>{28bb727e-7044-49ce-a50b-8ad1ee367719}</UniqueIdentifier>
     </Filter>
@@ -198,6 +195,15 @@
     </Filter>
     <Filter Include="API_Framework\Script\Tile">
       <UniqueIdentifier>{aa6f47de-d644-483f-8807-5ff82f967bfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Script\Character">
+      <UniqueIdentifier>{91e4e04f-06fb-44c1-9eb4-678111532d02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Script\Character\Player">
+      <UniqueIdentifier>{130f0845-1c04-4e90-ab01-c310aa0f2b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API_Framework\Script\Character\Enemy">
+      <UniqueIdentifier>{940e106a-9d4f-4645-9051-dcdfd9707847}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -331,9 +337,6 @@
     <ClCompile Include="Manager\CameraManager\CameraManager.cpp">
       <Filter>API_Framework\Manager\CameraManager</Filter>
     </ClCompile>
-    <ClCompile Include="Script\Player\Player.cpp">
-      <Filter>API_Framework\Script\Player</Filter>
-    </ClCompile>
     <ClCompile Include="Manager\GameDataManager\GameDataManager.cpp">
       <Filter>API_Framework\Manager\GameDataManager</Filter>
     </ClCompile>
@@ -378,6 +381,15 @@
     </ClCompile>
     <ClCompile Include="Script\Tile\Tile.cpp">
       <Filter>API_Framework\Script\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Character\Character.cpp">
+      <Filter>API_Framework\Script\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Character\Player\Player.cpp">
+      <Filter>API_Framework\Script\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Character\Enemy\Enemy.cpp">
+      <Filter>API_Framework\Script\Character\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -519,9 +531,6 @@
     <ClInclude Include="Manager\CameraManager\CameraManager.h">
       <Filter>API_Framework\Manager\CameraManager</Filter>
     </ClInclude>
-    <ClInclude Include="Script\Player\Player.h">
-      <Filter>API_Framework\Script\Player</Filter>
-    </ClInclude>
     <ClInclude Include="Manager\GameDataManager\GameDataManager.h">
       <Filter>API_Framework\Manager\GameDataManager</Filter>
     </ClInclude>
@@ -567,6 +576,15 @@
     <ClInclude Include="Script\Tile\Tile.h">
       <Filter>API_Framework\Script\Tile</Filter>
     </ClInclude>
+    <ClInclude Include="Script\Character\Character.h">
+      <Filter>API_Framework\Script\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Character\Player\Player.h">
+      <Filter>API_Framework\Script\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Character\Enemy\Enemy.h">
+      <Filter>API_Framework\Script\Character\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -576,6 +594,9 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resources\XML\dialog.xml">
+      <Filter>API_Framework\Resources\XML</Filter>
+    </Xml>
+    <Xml Include="Resources\XML\mapData_field.xml">
       <Filter>API_Framework\Resources\XML</Filter>
     </Xml>
   </ItemGroup>

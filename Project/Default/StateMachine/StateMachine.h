@@ -13,7 +13,7 @@ protected:
 	std::function<void(MonoBehaviour*)> callBack;
 	CHARACTER_STATE curState;
 public:
-	StateMachine() { curState = CHARACTER_STATE::IDLE; callBack = NULL; }
+	StateMachine() { curState = CHARACTER_STATE::IDLE_LEFT_BOTTOM; callBack = NULL; }
 
 	CHARACTER_STATE GetState() const { return curState; }
 	virtual void SetState(MonoBehaviour* _mb, CHARACTER_STATE _state) = 0;

@@ -3,7 +3,7 @@
 #include "PlayerStateMachine.h"
 
 #include "DesignPattern/ComponentBase/Component/Button/Button.h"
-#include "Script/Player/Player.h"
+#include "Script/Character/Player/Player.h"
 
 PlayerStateMachine::PlayerStateMachine() : StateMachine() { }
 
@@ -29,7 +29,7 @@ void PlayerStateMachine::Update(MonoBehaviour* _mb, Scene* _scene)
 
 	//if (player->GetAnimator() != NULL) {
 	//	switch (curState) {
-	//	case CHARACTER_STATE::IDLE:
+	//	case CHARACTER_STATE::IDLE_LEFT_BOTTOM:
 	//		if(KEY->IsOnceKeyDown(0x41)) { // 'A'
 	//			player->GetAnimator()->ChangeAnimation(CHARACTER_STATE::ATTACK);
 	//			curState = CHARACTER_STATE::ATTACK;
@@ -53,22 +53,22 @@ void PlayerStateMachine::Update(MonoBehaviour* _mb, Scene* _scene)
 	//		break;
 	//	case CHARACTER_STATE::ATTACK:
 	//		if (player->GetAnimator()->IsEnd()) {
-	//			player->GetAnimator()->ChangeAnimation(CHARACTER_STATE::IDLE);
-	//			curState = CHARACTER_STATE::IDLE;
+	//			player->GetAnimator()->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
+	//			curState = CHARACTER_STATE::IDLE_LEFT_BOTTOM;
 	//			break;
 	//		}
 	//		break;
 	//	case CHARACTER_STATE::ATTACKED:
 	//		if (player->GetAnimator()->IsEnd()) {
-	//			player->GetAnimator()->ChangeAnimation(CHARACTER_STATE::IDLE);
-	//			curState = CHARACTER_STATE::IDLE;
+	//			player->GetAnimator()->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
+	//			curState = CHARACTER_STATE::IDLE_LEFT_BOTTOM;
 	//			break;
 	//		}
 	//		break;
 	//	case CHARACTER_STATE::DEFFENCE:
 	//		if (!KEY->IsStayKeyDown(0x44)) {
-	//			player->GetAnimator()->ChangeAnimation(CHARACTER_STATE::IDLE);
-	//			curState = CHARACTER_STATE::IDLE;
+	//			player->GetAnimator()->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
+	//			curState = CHARACTER_STATE::IDLE_LEFT_BOTTOM;
 	//			break;
 	//		}
 	//		break;

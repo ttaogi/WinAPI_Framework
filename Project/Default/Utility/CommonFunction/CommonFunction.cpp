@@ -8,6 +8,11 @@
 #include "DesignPattern/ComponentBase/Component/Behaviour/MonoBehaviour/MonoBehaviour.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/Rendered.h"
 
+bool PointEqual(POINT pos1, POINT pos2)
+{
+	return (pos1.x == pos2.x && pos1.y == pos2.y);
+}
+
 MonoBehaviour* IsDerivedFromMonoBehaviour(Component* _c)
 {
 	return dynamic_cast<MonoBehaviour*>(_c);
@@ -84,7 +89,9 @@ wstring MbsUtf8ToWcs(string const& _str)
 	return unicode;
 }
 
-bool PointEqual(POINT pos1, POINT pos2)
+POINT GridPosToPos(POINT _gridPos)
 {
-	return (pos1.x == pos2.x && pos1.y == pos2.y);
+	int posX = (_gridPos.x - _gridPos.y) * TILE_WIDTH / 2;
+	int posY = (_gridPos.x + _gridPos.y) * TILE_HEIGHT_Z0 / 2;
+	return POINT{ posX, posY };
 }

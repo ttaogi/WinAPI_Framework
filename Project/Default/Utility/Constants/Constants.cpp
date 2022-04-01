@@ -171,10 +171,39 @@ const wchar_t* DIR_UI_PORTRAIT_SHOP_DEFAULT_SPRITE =
 
 
 #pragma region Player
-const std::wstring KEY_PLAYER_TEMP_SPRITE =
-	L"KEY_PLAYER_TEMP_SPRITE";
-const wchar_t* DIR_PLAYER_TEMP_SPRITE =
-	L"Resources/Images/Temp/PlayerTemp.bmp";
+const std::wstring KEY_AL_IDLE_LEFT_BOTTOM =
+	L"AL_IDLE_LEFT_BOTTOM";
+const wchar_t* DIR_AL_IDLE_LEFT_BOTTOM =
+	L"Resources/Images/Player/Al/Idle/Idle_LeftBottom.bmp";
+const std::wstring KEY_AL_IDLE_LEFT_TOP =
+	L"AL_IDLE_LEFT_TOP";
+const wchar_t* DIR_AL_IDLE_LEFT_TOP =
+	L"Resources/Images/Player/Al/Idle/Idle_LeftTop.bmp";
+const std::wstring KEY_AL_IDLE_RIGHT_BOTTOM =
+	L"AL_IDLE_RIGHT_BOTTOM";
+const wchar_t* DIR_AL_IDLE_RIGHT_BOTTOM =
+	L"Resources/Images/Player/Al/Idle/Idle_RightBottom.bmp";
+const std::wstring KEY_AL_IDLE_RIGHT_TOP =
+	L"AL_IDLE_RIGHT_TOP";
+const wchar_t* DIR_AL_IDLE_RIGHT_TOP =
+	L"Resources/Images/Player/Al/Idle/Idle_RightTop.bmp";
+
+const std::wstring KEY_KARIN_IDLE_LEFT_BOTTOM =
+	L"KARIN_IDLE_LEFT_BOTTOM";
+const wchar_t* DIR_KARIN_IDLE_LEFT_BOTTOM =
+	L"Resources/Images/Player/Karin/Idle/Idle_LeftBottom.bmp";
+const std::wstring KEY_KARIN_IDLE_LEFT_TOP =
+	L"KARIN_IDLE_LEFT_TOP";
+const wchar_t* DIR_KARIN_IDLE_LEFT_TOP =
+	L"Resources/Images/Player/Karin/Idle/Idle_LeftTop.bmp";
+const std::wstring KEY_KARIN_IDLE_RIGHT_BOTTOM =
+	L"KARIN_IDLE_RIGHT_BOTTOM";
+const wchar_t* DIR_KARIN_IDLE_RIGHT_BOTTOM =
+	L"Resources/Images/Player/Karin/Idle/Idle_RightBottom.bmp";
+const std::wstring KEY_KARIN_IDLE_RIGHT_TOP =
+	L"KARIN_IDLE_RIGHT_TOP";
+const wchar_t* DIR_KARIN_IDLE_RIGHT_TOP =
+	L"Resources/Images/Player/Karin/Idle/Idle_RightTop.bmp";
 #pragma endregion Player
 #pragma endregion Sprite
 

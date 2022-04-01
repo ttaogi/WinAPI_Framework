@@ -2,6 +2,8 @@
 
 #include "Manager/MapDataManager/MapDataManager.h"
 
+#include "DesignPattern/ComponentBase/GameObject/GameObject.h"
+
 MapData::MapData()
 {
 	x = y = 0;
@@ -33,9 +35,9 @@ bool MapDataManager::GetMapData(std::wstring _xmlFileName, Observer* _observer, 
 		TiXmlElement* eleRoot = XmlManager::FirstChildElement(doc, L"ROOT");
 
 		// tile.
-		TiXmlElement* eleTile = XmlManager::FirstChildElement(eleRoot, L"tile");
-		XmlManager::GetAttributeValueInt(eleTile, L"x", &(_data.x));
-		XmlManager::GetAttributeValueInt(eleTile, L"y", &(_data.y));
+		TiXmlElement* eleTileContainer = XmlManager::FirstChildElement(eleRoot, L"tile");
+		XmlManager::GetAttributeValueInt(eleTileContainer, L"x", &(_data.x));
+		XmlManager::GetAttributeValueInt(eleTileContainer, L"y", &(_data.y));
 
 		_data.tileVec.clear();
 		_data.tileVec.reserve(_data.x);
@@ -50,7 +52,7 @@ bool MapDataManager::GetMapData(std::wstring _xmlFileName, Observer* _observer, 
 		for (int i = 0; i < _data.x; ++i)
 		{
 			wstring key = L"x_" + to_wstring(i);
-			TiXmlElement* eleCol = XmlManager::FirstChildElement(eleTile, key);
+			TiXmlElement* eleCol = XmlManager::FirstChildElement(eleTileContainer, key);
 			if (!eleCol) return false;
 
 			for (int j = 0; j < _data.y; ++j)
@@ -67,9 +69,34 @@ bool MapDataManager::GetMapData(std::wstring _xmlFileName, Observer* _observer, 
 			}
 		}
 
-		// enemy.
-
 		// player.
+		TiXmlElement* elePlayerContainer = XmlManager::FirstChildElement(eleRoot, L"player");
+		int playerSize = 0;
+		XmlManager::GetAttributeValueInt(elePlayerContainer, L"size", &playerSize);
+
+		for (int i = 0; i < playerSize; ++i)
+		{
+			wstring key = L"p_" + to_wstring(i);
+			TiXmlElement* elePlayer = XmlManager::FirstChildElement(elePlayerContainer, key);
+			if (!elePlayer) return false;
+
+			int idRaw = 0;
+			CHARACTER_ID id = CHARACTER_ID::CHARACTER_ID_NUM;
+			int x = 0;
+			int y = 0;
+
+			XmlManager::GetAttributeValueInt(elePlayer, L"id", &idRaw);
+			XmlManager::GetAttributeValueInt(elePlayer, L"x", &x);
+			XmlManager::GetAttributeValueInt(elePlayer, L"y", &y);
+			id = (CHARACTER_ID)idRaw;
+
+			GameObject* player = FACTORY_METHOD_PLAYER->CreateObject(id, _observer,
+				_data.tileVec[x][y]->GetComponent<Transform>()->GetPosition(), POINT{ x, y });
+
+			if (player) _data.playerVec.push_back(player);
+		}
+
+		// enemy.
 
 	}
 	else

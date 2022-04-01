@@ -36,10 +36,16 @@ public:
 
 
 #pragma region ProductBasePlayer
-class FactoryDefaultPlayer : public ProductBasePlayer
+class FactoryPlayerAl : public ProductBasePlayer
 {
 public:
-	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) override;
+	virtual GameObject* CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos) override;
+};
+
+class FactoryPlayerKarin : public ProductBasePlayer
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos) override;
 };
 #pragma endregion ProductBasePlayer
 

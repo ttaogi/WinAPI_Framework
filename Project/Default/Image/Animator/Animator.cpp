@@ -7,7 +7,7 @@ Animator::Animator()
 	isPlay = true;
 	for (int i = 0; i < (int)CHARACTER_STATE::CHARACTER_STATE_NUM; ++i)
 		animations[i] = NULL;
-	curState = CHARACTER_STATE::IDLE;
+	curState = CHARACTER_STATE::IDLE_LEFT_BOTTOM;
 }
 
 void Animator::Release()
@@ -42,9 +42,9 @@ bool Animator::ChangeAnimation(CHARACTER_STATE _state)
 	}
 	else
 	{
-		curState = CHARACTER_STATE::IDLE;
-		if (animations[(int)CHARACTER_STATE::IDLE])
-			animations[(int)CHARACTER_STATE::IDLE]->Reset();
+		curState = CHARACTER_STATE::IDLE_LEFT_BOTTOM;
+		if (animations[(int)CHARACTER_STATE::IDLE_LEFT_BOTTOM])
+			animations[(int)CHARACTER_STATE::IDLE_LEFT_BOTTOM]->Reset();
 		return false;
 	}
 }

@@ -7,18 +7,20 @@
 #include "DesignPattern/ComponentBase/Component/Button/Button.h"
 #include "DesignPattern/ComponentBase/Component/Collider/Collider.h"
 #include "DesignPattern/ComponentBase/Component/RectTransform/RectTransform.h"
+#include "DesignPattern/ComponentBase/Component/Rendered/RenderedAnimator/RenderedAnimator.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/RenderedImage/RenderedImage.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/RenderedText/RenderedText.h"
 #include "DesignPattern/ComponentBase/Component/Rigidbody/Rigidbody.h"
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
+#include "Image/Animation/Animation.h"
 #include "Image/Image.h"
 #include "Script/DialogViewer/DialogViewer.h"
-#include "Script/Player/Player.h"
+#include "Script/Character/Player/Player.h"
 #include "Script/ShopList/ShopList.h"
 #include "Script/Tile/Tile.h"
 
 static int uiCount = 0;
-static int monsterCount = 0;
+static int characterCount = 0;
 static int platformCount = 0;
 static int tileCount = 0;
 
@@ -128,32 +130,117 @@ GameObject* FactoryDefaultBar::CreateObject(
 
 
 #pragma region ProductBasePlayer
-GameObject* FactoryDefaultPlayer::CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite)
+/*
+AL
+-RenderedAnimator
+-Player
+*/
+GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos)
 {
 	GameObject* go = new GameObject();
-
-	Player* player = new Player();
-	player->Init();
-
-	RectTransform* rcT = new RectTransform();
-	rcT->SetRect(_rectWidth, _rectHeight);
-
-	RenderedImage* rImg = new RenderedImage();
-	rImg->SetImage(_sprite);
-	rImg->SetSortingLayer(SORTING_LAYER::PLAYER);
-	rImg->SetOrderInLayer(0);
-
-	Rigidbody* rb = new Rigidbody();
-
-	Collider* col = new Collider();
-
 	go->GetComponent<Transform>()->SetPosition(_pos);
 
+	RenderedAnimator* rAnim = new RenderedAnimator();
+	rAnim->SetSortingLayer(SORTING_LAYER::PLAYER);
+	rAnim->SetOrderInLayer(characterCount++);
+	rAnim->SetByCamera(true);
+	rAnim->Init();
+
+	Animation* idleLeftBottom = new Animation();
+	idleLeftBottom->Init(
+		KEY_AL_IDLE_LEFT_BOTTOM,
+		POINT{ -28, -56 }, CHARACTER_STATE::IDLE_LEFT_BOTTOM,
+		true, false, 6
+	);
+	Animation* idleLeftTop = new Animation();
+	idleLeftTop->Init(
+		KEY_AL_IDLE_LEFT_TOP,
+		POINT{ -28, -56 }, CHARACTER_STATE::IDLE_LEFT_TOP,
+		true, false, 6
+	);
+	Animation* idleRightBottom = new Animation();
+	idleRightBottom->Init(
+		KEY_AL_IDLE_RIGHT_BOTTOM,
+		POINT{ -28, -56 }, CHARACTER_STATE::IDLE_RIGHT_BOTTOM,
+		true, false, 6
+	);
+	Animation* idleRightTop = new Animation();
+	idleRightTop->Init(
+		KEY_AL_IDLE_RIGHT_TOP,
+		POINT{ -28, -56 }, CHARACTER_STATE::IDLE_RIGHT_TOP,
+		true, false, 6
+	);
+
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, idleLeftBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_TOP, idleLeftTop);
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM, idleRightBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_TOP, idleRightTop);
+
+	rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
+
+	Player* player = new Player();
+	player->AddObserver(_observer);
+	player->SetGridPos(_gridPos);
+	player->Init();
+
+	go->AddComponent(rAnim);
 	go->AddComponent(player);
-	go->AddComponent(rcT);
-	go->AddComponent(rImg);
-	go->AddComponent(rb);
-	go->AddComponent(col);
+	go->SetTag(TAG::PLAYER);
+
+	return go;
+}
+
+GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos)
+{
+	GameObject* go = new GameObject();
+	go->GetComponent<Transform>()->SetPosition(_pos);
+
+	RenderedAnimator* rAnim = new RenderedAnimator();
+	rAnim->SetSortingLayer(SORTING_LAYER::PLAYER);
+	rAnim->SetOrderInLayer(characterCount++);
+	rAnim->SetByCamera(true);
+	rAnim->Init();
+
+	Animation* idleLeftBottom = new Animation();
+	idleLeftBottom->Init(
+		KEY_KARIN_IDLE_LEFT_BOTTOM,
+		POINT{ -36, -60 }, CHARACTER_STATE::IDLE_LEFT_BOTTOM,
+		true, false, 6
+	);
+	Animation* idleLeftTop = new Animation();
+	idleLeftTop->Init(
+		KEY_KARIN_IDLE_LEFT_TOP,
+		POINT{ -36, -60 }, CHARACTER_STATE::IDLE_LEFT_TOP,
+		true, false, 6
+	);
+	Animation* idleRightBottom = new Animation();
+	idleRightBottom->Init(
+		KEY_KARIN_IDLE_RIGHT_BOTTOM,
+		POINT{ -36, -60 }, CHARACTER_STATE::IDLE_RIGHT_BOTTOM,
+		true, false, 6
+	);
+	Animation* idleRightTop = new Animation();
+	idleRightTop->Init(
+		KEY_KARIN_IDLE_RIGHT_TOP,
+		POINT{ -36, -60 }, CHARACTER_STATE::IDLE_RIGHT_TOP,
+		true, false, 6
+	);
+
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, idleLeftBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_TOP, idleLeftTop);
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM, idleRightBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_TOP, idleRightTop);
+
+	rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
+
+	Player* player = new Player();
+	player->AddObserver(_observer);
+	player->SetGridPos(_gridPos);
+	player->Init();
+
+	go->AddComponent(rAnim);
+	go->AddComponent(player);
+	go->SetTag(TAG::PLAYER);
 
 	return go;
 }
@@ -490,7 +577,7 @@ GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
 #pragma endregion ProductBaseShopList
 
 
-#pragma region ProductBasePlatform
+#pragma region ProductBaseTile
 /*
 GameObject
 -RectTransform
@@ -504,12 +591,14 @@ GameObject
 */
 GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos)
 {
-	GameObject* go = new GameObject();
-	int posX = (_gridPos.x - _gridPos.y) * TILE_WIDTH / 2;
-	int posY = (_gridPos.x + _gridPos.y) * TILE_HEIGHT_Z0 / 2;
+	POINT pos = GridPosToPos(_gridPos);
+	D_POINT dPos;
 	if (_type == TILE_TYPE::DIRT_Z1 || _type == TILE_TYPE::GRASS_Z1)
-		posY -= (TILE_HEIGHT_Z1 - TILE_HEIGHT_Z0);
-	go->GetComponent<Transform>()->SetPosition(D_POINT{ (double)posX, (double)posY });
+		pos.y -= (TILE_HEIGHT_Z1 - TILE_HEIGHT_Z0);
+	dPos = pos;
+
+	GameObject* go = new GameObject();
+	go->GetComponent<Transform>()->SetPosition(dPos);
 	RectTransform* goRcT = new RectTransform();
 	goRcT->SetRect(TILE_WIDTH, TILE_HEIGHT_Z0);
 	RenderedImage* goRImg = new RenderedImage();
@@ -529,7 +618,7 @@ GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observe
 	go->AddComponent(goRImg);
 
 	GameObject* tilePanelGo = new GameObject();
-	tilePanelGo->GetComponent<Transform>()->SetPosition(D_POINT{ (double)posX, (double)posY });
+	tilePanelGo->GetComponent<Transform>()->SetPosition(dPos);
 	RectTransform* tilePanelRcT = new RectTransform();
 	tilePanelRcT->SetRect(TILE_WIDTH, TILE_HEIGHT_Z0);
 	RenderedImage* tilePanelRImg = new RenderedImage();
@@ -550,7 +639,7 @@ GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observe
 	tilePanelGo->SetActive(false);
 
 	GameObject* tileFocusGo = new GameObject();
-	tileFocusGo->GetComponent<Transform>()->SetPosition(D_POINT{ (double)posX, (double)posY });
+	tileFocusGo->GetComponent<Transform>()->SetPosition(dPos);
 	RectTransform* tileFocusRcT = new RectTransform();
 	tileFocusRcT->SetRect(TILE_WIDTH, TILE_HEIGHT_Z0);
 	RenderedImage* tileFocusRImg = new RenderedImage();
@@ -572,4 +661,4 @@ GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observe
 
 	return go;
 }
-#pragma endregion ProductBasePlatform
+#pragma endregion ProductBaseTile

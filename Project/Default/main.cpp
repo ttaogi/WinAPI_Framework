@@ -187,7 +187,22 @@ void LoadResources()
 		->InitForAlphaBlend();
 	
 	// player.
-	IMG->AddImage(KEY_PLAYER_TEMP_SPRITE, DIR_PLAYER_TEMP_SPRITE, 80, 80, false, MAGENTA)
+	IMG->AddFrameImage(KEY_AL_IDLE_LEFT_BOTTOM, DIR_AL_IDLE_LEFT_BOTTOM, 168, 64, 3, 1, 3, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_AL_IDLE_LEFT_TOP, DIR_AL_IDLE_LEFT_TOP, 168, 64, 3, 1, 3, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_AL_IDLE_RIGHT_BOTTOM, DIR_AL_IDLE_RIGHT_BOTTOM, 168, 64, 3, 1, 3, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_AL_IDLE_RIGHT_TOP, DIR_AL_IDLE_RIGHT_TOP, 168, 64, 3, 1, 3, true, MAGENTA)
+		->InitForAlphaBlend();
+
+	IMG->AddFrameImage(KEY_KARIN_IDLE_LEFT_BOTTOM, DIR_KARIN_IDLE_LEFT_BOTTOM, 204, 64, 3, 1, 3, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_KARIN_IDLE_LEFT_TOP, DIR_KARIN_IDLE_LEFT_TOP, 204, 64, 3, 1, 3, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_KARIN_IDLE_RIGHT_BOTTOM, DIR_KARIN_IDLE_RIGHT_BOTTOM, 204, 64, 3, 1, 3, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_KARIN_IDLE_RIGHT_TOP, DIR_KARIN_IDLE_RIGHT_TOP, 204, 64, 3, 1, 3, true, MAGENTA)
 		->InitForAlphaBlend();
 	
 	////// sound.

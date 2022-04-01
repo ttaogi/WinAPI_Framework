@@ -11,6 +11,8 @@ public:
 	int x; // ¢Ù
 	int y; // ¢×
 	std::vector<std::vector<GameObject*>> tileVec;
+	std::vector<GameObject*> enemyVec;
+	std::vector<GameObject*> playerVec;
 public:
 	MapData();
 };

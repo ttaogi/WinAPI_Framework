@@ -20,6 +20,7 @@ public:
 	virtual void FixedUpdate() override;
 	virtual void Update() override;
 	virtual void LateUpdate() override;
+	virtual void OnCollision(Collision _col) override { }
 
 	virtual void Render(HDC _hdc) override;
 

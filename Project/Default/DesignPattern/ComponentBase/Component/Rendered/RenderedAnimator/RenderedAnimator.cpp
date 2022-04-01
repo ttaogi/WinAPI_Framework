@@ -35,10 +35,10 @@ void RenderedAnimator::Render(HDC _hdc)
 {
 	if (enabled && animator)
 	{
-		POINT revision = CAMERA->GetRevision();
 		POINT pos = gameObject->GetComponent<Transform>()->GetPosition().ToPoint();
 		if(byCamera)
 		{
+			POINT revision = CAMERA->GetRevision();
 			pos.x -= revision.x;
 			pos.y -= revision.y;
 		}

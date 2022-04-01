@@ -136,25 +136,28 @@ void Animation::SetPlayFrame(int _start, int _end, bool _reverse, bool _loop)
 		int srcX = (i % image->GetMaxFrameX()) * image->GetFrameWidth();
 		int srcY = (i / image->GetMaxFrameX()) * image->GetFrameHeight();
 
-		frameVec.push_back(POINT{ srcX, srcY });
+		//frameVec.push_back(POINT{ srcX, srcY });
+		playVec.push_back(i);
 	}
 
 	if (_reverse)
 	{
 		for (int i = _end - 2; i > _start; --i)
 		{
-			int srcX = (i % image->GetMaxFrameX()) * image->GetFrameWidth();
-			int srcY = (i / image->GetMaxFrameX()) * image->GetFrameHeight();
+			//int srcX = (i % image->GetMaxFrameX()) * image->GetFrameWidth();
+			//int srcY = (i / image->GetMaxFrameX()) * image->GetFrameHeight();
 
-			frameVec.push_back(POINT{ srcX, srcY });
+			//frameVec.push_back(POINT{ srcX, srcY });
+			playVec.push_back(i);
 		}
 
 		if (!_loop)
 		{
-			int srcX = (_start % image->GetMaxFrameX()) * image->GetFrameWidth();
-			int srcY = (_start / image->GetMaxFrameX()) * image->GetFrameHeight();
+			//int srcX = (_start % image->GetMaxFrameX()) * image->GetFrameWidth();
+			//int srcY = (_start / image->GetMaxFrameX()) * image->GetFrameHeight();
 
-			frameVec.push_back(POINT{ srcX, srcY });
+			//frameVec.push_back(POINT{ srcX, srcY });
+			playVec.push_back(_start);
 		}
 	}
 }

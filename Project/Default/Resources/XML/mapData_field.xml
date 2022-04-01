@@ -37,4 +37,13 @@
             <y_4 type="0" />
         </x_4>
     </tile>
+    <player size="2">
+        <p_0 id="0" x="3" y="1" />
+        <p_1 id="1" x="4" y="0" />
+    </player>
+    <enemy size="3">
+        <e_0 type="0" x="0" y="4" />
+        <e_1 type="0" x="1" y="3" />
+        <e_2 type="0" x="2" y="2" />
+    </enemy>
 </ROOT>

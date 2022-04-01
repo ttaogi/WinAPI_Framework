@@ -72,22 +72,27 @@ GameObject* FactoryMethodBar::CreateObject(
 #pragma region FactoryMethodPlayer
 FactoryMethodPlayer::FactoryMethodPlayer()
 {
-	defaultPlayer = new FactoryDefaultPlayer();
+	al = new FactoryPlayerAl();
+	karin = new FactoryPlayerKarin();
 }
 
 FactoryMethodPlayer::~FactoryMethodPlayer()
 {
-	SAFE_DELETE(defaultPlayer);
+	SAFE_DELETE(al);
+	SAFE_DELETE(karin);
 }
 
-GameObject* FactoryMethodPlayer::CreateObject(PLAYER_FACTORY_TYPE _type, D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite)
+GameObject* FactoryMethodPlayer::CreateObject(CHARACTER_ID _id, Observer* _observer, D_POINT _pos, POINT _gridPos)
 {
 	GameObject* go = NULL;
 
-	switch (_type)
+	switch (_id)
 	{
-	case PLAYER_FACTORY_TYPE::DEFAULT:
-		go = defaultPlayer->CreateObject(_pos, _rectWidth, _rectHeight, _sprite);
+	case CHARACTER_ID::AL:
+		go = al->CreateObject(_observer, _pos, _gridPos);
+		break;
+	case CHARACTER_ID::KARIN:
+		go = karin->CreateObject(_observer, _pos, _gridPos);
 		break;
 	}
 

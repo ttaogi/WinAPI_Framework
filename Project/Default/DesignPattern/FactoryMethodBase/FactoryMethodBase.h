@@ -35,8 +35,8 @@ public:
 class FactoryMethodBasePlayer
 {
 public:
-	virtual GameObject* CreateObject(PLAYER_FACTORY_TYPE _type,
-		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) = 0;
+	virtual GameObject* CreateObject(CHARACTER_ID _id,
+		Observer* _observer, D_POINT _pos, POINT _gridPos) = 0;
 };
 #pragma endregion FactoryMethodBasePlayer
 
