@@ -9,6 +9,7 @@ HWND			HANDLE_WINDOW;
 POINT			POINT_MOUSE;
 MainGame*		MAIN_GAME;
 bool			MOUSE_CLICKED;
+bool			MOUSE_CLICKED_RIGHT;
 
 void SetWindowSize(int _x, int _y, int _width, int _height);
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -196,6 +197,15 @@ void LoadResources()
 	IMG->AddFrameImage(KEY_AL_IDLE_RIGHT_TOP, DIR_AL_IDLE_RIGHT_TOP, 168, 64, 3, 1, 3, true, MAGENTA)
 		->InitForAlphaBlend();
 
+	IMG->AddFrameImage(KEY_AL_MOVE_LEFT_BOTTOM, DIR_AL_MOVE_LEFT_BOTTOM, 176, 72, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_AL_MOVE_LEFT_TOP, DIR_AL_MOVE_LEFT_TOP, 176, 72, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_AL_MOVE_RIGHT_BOTTOM, DIR_AL_MOVE_RIGHT_BOTTOM, 176, 72, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_AL_MOVE_RIGHT_TOP, DIR_AL_MOVE_RIGHT_TOP, 176, 72, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
+
 	IMG->AddFrameImage(KEY_KARIN_IDLE_LEFT_BOTTOM, DIR_KARIN_IDLE_LEFT_BOTTOM, 204, 64, 3, 1, 3, true, MAGENTA)
 		->InitForAlphaBlend();
 	IMG->AddFrameImage(KEY_KARIN_IDLE_LEFT_TOP, DIR_KARIN_IDLE_LEFT_TOP, 204, 64, 3, 1, 3, true, MAGENTA)
@@ -203,6 +213,21 @@ void LoadResources()
 	IMG->AddFrameImage(KEY_KARIN_IDLE_RIGHT_BOTTOM, DIR_KARIN_IDLE_RIGHT_BOTTOM, 204, 64, 3, 1, 3, true, MAGENTA)
 		->InitForAlphaBlend();
 	IMG->AddFrameImage(KEY_KARIN_IDLE_RIGHT_TOP, DIR_KARIN_IDLE_RIGHT_TOP, 204, 64, 3, 1, 3, true, MAGENTA)
+		->InitForAlphaBlend();
+
+	IMG->AddFrameImage(KEY_KARIN_MOVE_LEFT_BOTTOM, DIR_KARIN_MOVE_LEFT_BOTTOM, 288, 64, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_KARIN_MOVE_LEFT_TOP, DIR_KARIN_MOVE_LEFT_TOP, 288, 64, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_KARIN_MOVE_RIGHT_BOTTOM, DIR_KARIN_MOVE_RIGHT_BOTTOM, 288, 64, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_KARIN_MOVE_RIGHT_TOP, DIR_KARIN_MOVE_RIGHT_TOP, 288, 64, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
+
+	// enemy.
+	IMG->AddFrameImage(KEY_SLIME_IDLE, DIR_SLIME_IDLE, 126, 36, 3, 1, 3, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_SLIME_MOVE, DIR_SLIME_MOVE, 168, 40, 4, 1, 4, true, MAGENTA)
 		->InitForAlphaBlend();
 	
 	////// sound.

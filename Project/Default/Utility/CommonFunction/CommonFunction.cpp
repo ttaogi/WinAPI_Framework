@@ -13,6 +13,11 @@ bool PointEqual(POINT pos1, POINT pos2)
 	return (pos1.x == pos2.x && pos1.y == pos2.y);
 }
 
+int PointDist(POINT _pos1, POINT _pos2)
+{
+	return GridPosDist(_pos1, _pos2);
+}
+
 MonoBehaviour* IsDerivedFromMonoBehaviour(Component* _c)
 {
 	return dynamic_cast<MonoBehaviour*>(_c);
@@ -94,4 +99,9 @@ POINT GridPosToPos(POINT _gridPos)
 	int posX = (_gridPos.x - _gridPos.y) * TILE_WIDTH / 2;
 	int posY = (_gridPos.x + _gridPos.y) * TILE_HEIGHT_Z0 / 2;
 	return POINT{ posX, posY };
+}
+
+int GridPosDist(POINT _gridPos1, POINT _gridPos2)
+{
+	return abs(_gridPos1.x - _gridPos2.x) + abs(_gridPos1.y - _gridPos2.y);
 }

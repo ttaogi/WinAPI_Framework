@@ -56,3 +56,8 @@ void RenderedAnimator::AniStart()	{ animator->AniStart();	}
 void RenderedAnimator::AniStop()	{ animator->AniStop();	}
 void RenderedAnimator::AniPause()	{ animator->AniPause();	}
 void RenderedAnimator::AniResume()	{ animator->AniResume();}
+
+CHARACTER_STATE RenderedAnimator::GetAnimationState() const
+{
+	return animator->GetAnimationState();
+}

@@ -34,4 +34,6 @@ public:
 	void AniStop();
 	void AniPause();
 	void AniResume();
+
+	CHARACTER_STATE GetAnimationState() const;
 };

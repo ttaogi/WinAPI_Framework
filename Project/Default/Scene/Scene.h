@@ -19,8 +19,9 @@ class Scene : public Observer
 {
 protected:
 	Image* backgroundImage;
-	std::vector<GameObject*> gameObjects;
+	MapData mapData;
 	GameObject* root;
+	GameObject* selectedObj;
 public:
 	Scene() { }
 	virtual ~Scene() { }

@@ -51,9 +51,11 @@ void MainGame::Update()
 	TIME->Update(60.0f);
 
 	MOUSE_CLICKED = false;
+	MOUSE_CLICKED_RIGHT = false;
 	GetCursorPos(&POINT_MOUSE);
 	ScreenToClient(HANDLE_WINDOW, &POINT_MOUSE);
 	if (KEY->IsOnceKeyDown(VK_LBUTTON)) MOUSE_CLICKED = true;
+	if (KEY->IsOnceKeyDown(VK_RBUTTON)) MOUSE_CLICKED_RIGHT = true;
 
 	SCENE->Update();
 }

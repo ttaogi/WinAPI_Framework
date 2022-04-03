@@ -41,6 +41,16 @@ public:
 #pragma endregion FactoryMethodBasePlayer
 
 
+#pragma region FactoryMethodBaseEnemy
+class FactoryMethodBaseEnemy
+{
+public:
+	virtual GameObject* CreateObject(ENEMY_TYPE _type,
+		Observer* _observer, D_POINT _pos, POINT _gridPos) = 0;
+};
+#pragma endregion FactoryMethodBaseEnemy
+
+
 #pragma region FactoryMethodBasePlatform
 class FactoryMethodBasePlatform
 {

@@ -15,6 +15,7 @@ inline void PaintRect(HDC _hdc, RECT _rc)
 }
 
 bool PointEqual(POINT pos1, POINT pos2);
+int PointDist(POINT _pos1, POINT _pos2);
 
 MonoBehaviour* IsDerivedFromMonoBehaviour(Component* _c);
 Rendered* IsDerivedFromRendered(Component* _c);
@@ -24,3 +25,4 @@ std::string WcsToMbsUtf8(std::wstring const& _wstr);
 std::wstring MbsUtf8ToWcs(std::string const& _str);
 
 POINT GridPosToPos(POINT _gridPos);
+int GridPosDist(POINT _gridPos1, POINT _gridPos2);

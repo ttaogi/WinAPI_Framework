@@ -53,6 +53,21 @@ public:
 #pragma endregion FactoryMethodPlayer
 
 
+#pragma region FactoryMethodEnemy
+class FactoryMethodEnemy : public FactoryMethodBaseEnemy, public SingletonBase<FactoryMethodEnemy>
+{
+private:
+	FactoryEnemySlime* slime;
+public:
+	FactoryMethodEnemy();
+	virtual ~FactoryMethodEnemy();
+
+	virtual GameObject* CreateObject(ENEMY_TYPE _type,
+		Observer* _observer, D_POINT _pos, POINT _gridPos) override;
+};
+#pragma endregion FactoryMethodEnemy
+
+
 #pragma region FactoryMethodPlatform
 class FactoryMethodPlatform : public FactoryMethodBasePlatform, public SingletonBase<FactoryMethodPlatform>
 {

@@ -50,6 +50,15 @@ public:
 #pragma endregion ProductBasePlayer
 
 
+#pragma region ProductBaseEnemy
+class FactoryEnemySlime : public ProductBaseEnemy
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos) override;
+};
+#pragma endregion ProductBaseEnemy
+
+
 #pragma region ProductBasePlatform
 class FactoryDefaultPlatform : public ProductBasePlatform
 {

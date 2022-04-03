@@ -74,6 +74,8 @@ bool MapDataManager::GetMapData(std::wstring _xmlFileName, Observer* _observer, 
 		int playerSize = 0;
 		XmlManager::GetAttributeValueInt(elePlayerContainer, L"size", &playerSize);
 
+		_data.playerVec.clear();
+
 		for (int i = 0; i < playerSize; ++i)
 		{
 			wstring key = L"p_" + to_wstring(i);
@@ -97,7 +99,33 @@ bool MapDataManager::GetMapData(std::wstring _xmlFileName, Observer* _observer, 
 		}
 
 		// enemy.
+		TiXmlElement* eleEnemyContainer = XmlManager::FirstChildElement(eleRoot, L"enemy");
+		int enemySize = 0;
+		XmlManager::GetAttributeValueInt(eleEnemyContainer, L"size", &enemySize);
 
+		_data.enemyVec.clear();
+		
+		for (int i = 0; i < enemySize; ++i)
+		{
+			wstring key = L"e_" + to_wstring(i);
+			TiXmlElement* eleEnemy = XmlManager::FirstChildElement(eleEnemyContainer, key);
+			if (!eleEnemy) return false;
+
+			int typeRaw = 0;
+			ENEMY_TYPE type = ENEMY_TYPE::ENEMY_TYPE_NUM;
+			int x = 0;
+			int y = 0;
+
+			XmlManager::GetAttributeValueInt(eleEnemy, L"type", &typeRaw);
+			XmlManager::GetAttributeValueInt(eleEnemy, L"x", &x);
+			XmlManager::GetAttributeValueInt(eleEnemy, L"y", &y);
+			type = (ENEMY_TYPE)typeRaw;
+
+			GameObject* enemy = FACTORY_METHOD_ENEMY->CreateObject(type, _observer,
+				_data.tileVec[x][y]->GetComponent<Transform>()->GetPosition(), POINT{ x, y });
+
+			if (enemy) _data.enemyVec.push_back(enemy);
+		}
 	}
 	else
 		return false;

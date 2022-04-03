@@ -71,6 +71,7 @@ using namespace std;
 
 #define FACTORY_METHOD_BUTTON	FactoryMethodButton::GetSingleton()
 #define FACTORY_METHOD_BAR		FactoryMethodBar::GetSingleton()
+#define FACTORY_METHOD_ENEMY	FactoryMethodEnemy::GetSingleton()
 #define FACTORY_METHOD_PLAYER	FactoryMethodPlayer::GetSingleton()
 #define FACTORY_METHOD_PLATFORM	FactoryMethodPlatform::GetSingleton()
 #define FACTORY_METHOD_DIALOGVIEWER	FactoryMethodDialogViewer::GetSingleton()
@@ -86,3 +87,4 @@ extern HWND						HANDLE_WINDOW;
 extern POINT					POINT_MOUSE;
 extern MainGame*				MAIN_GAME;
 extern bool						MOUSE_CLICKED;
+extern bool						MOUSE_CLICKED_RIGHT;

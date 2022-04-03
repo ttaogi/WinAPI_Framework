@@ -188,6 +188,23 @@ const std::wstring KEY_AL_IDLE_RIGHT_TOP =
 const wchar_t* DIR_AL_IDLE_RIGHT_TOP =
 	L"Resources/Images/Player/Al/Idle/Idle_RightTop.bmp";
 
+const std::wstring KEY_AL_MOVE_LEFT_BOTTOM =
+	L"AL_MOVE_LEFT_BOTTOM";
+const wchar_t* DIR_AL_MOVE_LEFT_BOTTOM =
+	L"Resources/Images/Player/Al/Move/Move_LeftBottom.bmp";
+const std::wstring KEY_AL_MOVE_LEFT_TOP =
+	L"AL_MOVE_LEFT_TOP";
+const wchar_t* DIR_AL_MOVE_LEFT_TOP =
+	L"Resources/Images/Player/Al/Move/Move_LeftTop.bmp";
+const std::wstring KEY_AL_MOVE_RIGHT_BOTTOM =
+	L"AL_MOVE_RIGHT_BOTTOM";
+const wchar_t* DIR_AL_MOVE_RIGHT_BOTTOM =
+	L"Resources/Images/Player/Al/Move/Move_RightBottom.bmp";
+const std::wstring KEY_AL_MOVE_RIGHT_TOP =
+	L"AL_MOVE_RIGHT_TOP";
+const wchar_t* DIR_AL_MOVE_RIGHT_TOP =
+	L"Resources/Images/Player/Al/Move/Move_RightTop.bmp";
+
 const std::wstring KEY_KARIN_IDLE_LEFT_BOTTOM =
 	L"KARIN_IDLE_LEFT_BOTTOM";
 const wchar_t* DIR_KARIN_IDLE_LEFT_BOTTOM =
@@ -204,7 +221,38 @@ const std::wstring KEY_KARIN_IDLE_RIGHT_TOP =
 	L"KARIN_IDLE_RIGHT_TOP";
 const wchar_t* DIR_KARIN_IDLE_RIGHT_TOP =
 	L"Resources/Images/Player/Karin/Idle/Idle_RightTop.bmp";
+
+const std::wstring KEY_KARIN_MOVE_LEFT_BOTTOM =
+	L"KARIN_MOVE_LEFT_BOTTOM";
+const wchar_t* DIR_KARIN_MOVE_LEFT_BOTTOM =
+	L"Resources/Images/Player/Karin/Move/Move_LeftBottom.bmp";
+const std::wstring KEY_KARIN_MOVE_LEFT_TOP =
+	L"KARIN_MOVE_LEFT_TOP";
+const wchar_t* DIR_KARIN_MOVE_LEFT_TOP =
+	L"Resources/Images/Player/Karin/Move/Move_LeftTop.bmp";
+const std::wstring KEY_KARIN_MOVE_RIGHT_BOTTOM =
+	L"KARIN_MOVE_RIGHT_BOTTOM";
+const wchar_t* DIR_KARIN_MOVE_RIGHT_BOTTOM =
+	L"Resources/Images/Player/Karin/Move/Move_RightBottom.bmp";
+const std::wstring KEY_KARIN_MOVE_RIGHT_TOP =
+	L"KARIN_MOVE_RIGHT_TOP";
+const wchar_t* DIR_KARIN_MOVE_RIGHT_TOP =
+	L"Resources/Images/Player/Karin/Move/Move_RightTop.bmp";
 #pragma endregion Player
+
+
+#pragma region Enemy
+#pragma region Slime
+const std::wstring KEY_SLIME_IDLE =
+	L"SLIME_IDLE";
+const wchar_t* DIR_SLIME_IDLE =
+	L"Resources/Images/Enemy/Slime/Idle/Idle.bmp";
+const std::wstring KEY_SLIME_MOVE =
+	L"SLIME_MOVE";
+const wchar_t* DIR_SLIME_MOVE =
+	L"Resources/Images/Enemy/Slime/Move/Move.bmp";
+#pragma endregion Slime
+#pragma endregion Enemy
 #pragma endregion Sprite
 
 ///////////////////////
@@ -303,6 +351,8 @@ const std::wstring DIALOG_SPOT_SHOP =
 	L"DIALOG_SPOT_SHOP";
 const std::wstring DIALOG_SPOT_GUILD =
 	L"DIALOG_SPOT_GUILD";
+const std::wstring DIALOG_SPOT_FIELD =
+	L"DIALOG_SPOT_FIELD";
 #pragma endregion Dialog_Spot
 
 ///////////////////////
@@ -314,6 +364,7 @@ const int BUTTON_HEIGHT = 150;
 const int TILE_WIDTH = 64;
 const int TILE_HEIGHT_Z0 = 32;
 const int TILE_HEIGHT_Z1 = 48;
+const int MOVE_RANGE = 5;
 #pragma endregion Size
 
 ///////////////////////

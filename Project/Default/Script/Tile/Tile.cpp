@@ -7,6 +7,7 @@
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
 
+#pragma region Tile
 Tile::Tile()
 	: Component((const Component_ID)typeid(Tile).name()) { }
 
@@ -25,9 +26,14 @@ void Tile::Update()
 
 		if (MOUSE_CLICKED && PtInRect(&area, POINT_MOUSE))
 			Notify(EVENT::TILE_CLICK);
+		else if (MOUSE_CLICKED_RIGHT && PtInRect(&area, POINT_MOUSE))
+			Notify(EVENT::TILE_CLICK_RIGHT);
 	}
 }
+#pragma endregion Tile
 
+
+#pragma region TileFocus
 TileFocus::TileFocus()
 	: Component((const Component_ID)typeid(TileFocus).name()) { }
 
@@ -50,3 +56,4 @@ void TileFocus::Update()
 		else								rImg->SetEnabled(false);
 	}
 }
+#pragma endregion TileFocus

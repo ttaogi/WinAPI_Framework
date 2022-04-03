@@ -82,6 +82,7 @@ HRESULT DialogManager::Init()
 		TiXmlElement* eleRoot = XmlManager::FirstChildElement(doc, L"ROOT");
 		TiXmlElement* eleGuild = XmlManager::FirstChildElement(eleRoot, DIALOG_SPOT_GUILD);
 		TiXmlElement* eleShop = XmlManager::FirstChildElement(eleRoot, DIALOG_SPOT_SHOP);
+		TiXmlElement* eleField = XmlManager::FirstChildElement(eleRoot, DIALOG_SPOT_FIELD);
 
 		// guild.
 		DialogProcessivityMap guildDPMap;
@@ -226,9 +227,41 @@ HRESULT DialogManager::Init()
 		}
 
 		dialogDB[DIALOG_SPOT_SHOP] = shopDPMap;
+
+		// field.
+		DialogProcessivityMap fieldDPMap;
+
+		TiXmlElement* fieldDefaultDialog = XmlManager::FirstChildElement(eleField, L"default");
+		DialogCycle fieldDefaultCycle;
+		int fieldDefaultCycleSize = 0;
+
+		XmlManager::GetAttributeValueInt(fieldDefaultDialog, L"cycleSize", &fieldDefaultCycleSize);
+		XmlManager::GetAttributeValue(fieldDefaultDialog, L"cycleName", fieldDefaultCycle.cycleName);
+
+		for (int i = 0; i < fieldDefaultCycleSize; ++i)
+		{
+			wstring key = L"dialog_" + to_wstring(i);
+			TiXmlElement* dialog = XmlManager::FirstChildElement(fieldDefaultDialog, key);
+
+			bool upper;
+			wstring spriteKey;
+			wstring name;
+			wstring text;
+
+			XmlManager::GetAttributeValueBool(dialog, L"upper", &upper);
+			XmlManager::GetAttributeValue(dialog, L"spriteKey", spriteKey);
+			XmlManager::GetAttributeValue(dialog, L"name", name);
+			XmlManager::GetAttributeValue(dialog, L"text", text);
+
+			fieldDefaultCycle.cycle.push_back(DialogInfo(upper, spriteKey, name, text));
+		}
+
+		fieldDPMap.defaultDialog = fieldDefaultCycle;
+
+		dialogDB[DIALOG_SPOT_FIELD] = fieldDPMap;
 	}
 
-	//Print();
+	Print();
 
 	wcout << L"##### DIALOG MANAGER #####" << endl;
 

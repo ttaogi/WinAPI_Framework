@@ -16,6 +16,7 @@
 #include "Image/Image.h"
 #include "Script/DialogViewer/DialogViewer.h"
 #include "Script/Character/Player/Player.h"
+#include "Script/Character/Enemy/Enemy.h"
 #include "Script/ShopList/ShopList.h"
 #include "Script/Tile/Tile.h"
 
@@ -138,7 +139,9 @@ AL
 GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos)
 {
 	GameObject* go = new GameObject();
-	go->GetComponent<Transform>()->SetPosition(_pos);
+	D_POINT pos{ GridPosToPos(_gridPos).x, GridPosToPos(_gridPos).y };
+	go->GetComponent<Transform>()->SetPosition(pos);
+	//go->GetComponent<Transform>()->SetPosition(_pos);
 
 	RenderedAnimator* rAnim = new RenderedAnimator();
 	rAnim->SetSortingLayer(SORTING_LAYER::PLAYER);
@@ -149,32 +152,62 @@ GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POI
 	Animation* idleLeftBottom = new Animation();
 	idleLeftBottom->Init(
 		KEY_AL_IDLE_LEFT_BOTTOM,
-		POINT{ -28, -56 }, CHARACTER_STATE::IDLE_LEFT_BOTTOM,
+		POINT{ -28, -60 }, CHARACTER_STATE::IDLE_LEFT_BOTTOM,
 		true, false, 6
 	);
 	Animation* idleLeftTop = new Animation();
 	idleLeftTop->Init(
 		KEY_AL_IDLE_LEFT_TOP,
-		POINT{ -28, -56 }, CHARACTER_STATE::IDLE_LEFT_TOP,
+		POINT{ -28, -60 }, CHARACTER_STATE::IDLE_LEFT_TOP,
 		true, false, 6
 	);
 	Animation* idleRightBottom = new Animation();
 	idleRightBottom->Init(
 		KEY_AL_IDLE_RIGHT_BOTTOM,
-		POINT{ -28, -56 }, CHARACTER_STATE::IDLE_RIGHT_BOTTOM,
+		POINT{ -28, -60 }, CHARACTER_STATE::IDLE_RIGHT_BOTTOM,
 		true, false, 6
 	);
 	Animation* idleRightTop = new Animation();
 	idleRightTop->Init(
 		KEY_AL_IDLE_RIGHT_TOP,
-		POINT{ -28, -56 }, CHARACTER_STATE::IDLE_RIGHT_TOP,
+		POINT{ -28, -60 }, CHARACTER_STATE::IDLE_RIGHT_TOP,
 		true, false, 6
+	);
+
+	Animation* moveLeftBottom = new Animation();
+	moveLeftBottom->Init(
+		KEY_AL_MOVE_LEFT_BOTTOM,
+		POINT{ -22, -64 }, CHARACTER_STATE::MOVE_LEFT_BOTTOM,
+		true, false, 2
+	);
+	Animation* moveLeftTop = new Animation();
+	moveLeftTop->Init(
+		KEY_AL_MOVE_LEFT_TOP,
+		POINT{ -22, -64 }, CHARACTER_STATE::MOVE_LEFT_TOP,
+		true, false, 2
+	);
+	Animation* moveRightBottom = new Animation();
+	moveRightBottom->Init(
+		KEY_AL_MOVE_RIGHT_BOTTOM,
+		POINT{ -22, -64 }, CHARACTER_STATE::MOVE_RIGHT_BOTTOM,
+		true, false, 2
+	);
+	Animation* moveRightTop = new Animation();
+	moveRightTop->Init(
+		KEY_AL_MOVE_RIGHT_TOP,
+		POINT{ -22, -64 }, CHARACTER_STATE::MOVE_RIGHT_TOP,
+		true, false, 2
 	);
 
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, idleLeftBottom);
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_TOP, idleLeftTop);
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM, idleRightBottom);
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_TOP, idleRightTop);
+
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM, moveLeftBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_LEFT_TOP, moveLeftTop);
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM, moveRightBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP, moveRightTop);
 
 	rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
 
@@ -193,7 +226,9 @@ GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POI
 GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos)
 {
 	GameObject* go = new GameObject();
-	go->GetComponent<Transform>()->SetPosition(_pos);
+	D_POINT pos{ GridPosToPos(_gridPos).x, GridPosToPos(_gridPos).y };
+	go->GetComponent<Transform>()->SetPosition(pos);
+	//go->GetComponent<Transform>()->SetPosition(_pos);
 
 	RenderedAnimator* rAnim = new RenderedAnimator();
 	rAnim->SetSortingLayer(SORTING_LAYER::PLAYER);
@@ -204,32 +239,62 @@ GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, 
 	Animation* idleLeftBottom = new Animation();
 	idleLeftBottom->Init(
 		KEY_KARIN_IDLE_LEFT_BOTTOM,
-		POINT{ -36, -60 }, CHARACTER_STATE::IDLE_LEFT_BOTTOM,
+		POINT{ -36, -64 }, CHARACTER_STATE::IDLE_LEFT_BOTTOM,
 		true, false, 6
 	);
 	Animation* idleLeftTop = new Animation();
 	idleLeftTop->Init(
 		KEY_KARIN_IDLE_LEFT_TOP,
-		POINT{ -36, -60 }, CHARACTER_STATE::IDLE_LEFT_TOP,
+		POINT{ -36, -64 }, CHARACTER_STATE::IDLE_LEFT_TOP,
 		true, false, 6
 	);
 	Animation* idleRightBottom = new Animation();
 	idleRightBottom->Init(
 		KEY_KARIN_IDLE_RIGHT_BOTTOM,
-		POINT{ -36, -60 }, CHARACTER_STATE::IDLE_RIGHT_BOTTOM,
+		POINT{ -36, -64 }, CHARACTER_STATE::IDLE_RIGHT_BOTTOM,
 		true, false, 6
 	);
 	Animation* idleRightTop = new Animation();
 	idleRightTop->Init(
 		KEY_KARIN_IDLE_RIGHT_TOP,
-		POINT{ -36, -60 }, CHARACTER_STATE::IDLE_RIGHT_TOP,
+		POINT{ -36, -64 }, CHARACTER_STATE::IDLE_RIGHT_TOP,
 		true, false, 6
+	);
+
+	Animation* moveLeftBottom = new Animation();
+	moveLeftBottom->Init(
+		KEY_KARIN_MOVE_LEFT_BOTTOM,
+		POINT{ -36, -64 }, CHARACTER_STATE::MOVE_LEFT_BOTTOM,
+		true, false, 2
+	);
+	Animation* moveLeftTop = new Animation();
+	moveLeftTop->Init(
+		KEY_KARIN_MOVE_LEFT_TOP,
+		POINT{ -36, -64 }, CHARACTER_STATE::MOVE_LEFT_TOP,
+		true, false, 2
+	);
+	Animation* moveRightBottom = new Animation();
+	moveRightBottom->Init(
+		KEY_KARIN_MOVE_RIGHT_BOTTOM,
+		POINT{ -36, -64 }, CHARACTER_STATE::MOVE_RIGHT_BOTTOM,
+		true, false, 2
+	);
+	Animation* moveRightTop = new Animation();
+	moveRightTop->Init(
+		KEY_KARIN_MOVE_RIGHT_TOP,
+		POINT{ -36, -64 }, CHARACTER_STATE::MOVE_RIGHT_TOP,
+		true, false, 2
 	);
 
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, idleLeftBottom);
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_TOP, idleLeftTop);
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM, idleRightBottom);
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_TOP, idleRightTop);
+
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM, moveLeftBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_LEFT_TOP, moveLeftTop);
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM, moveRightBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP, moveRightTop);
 
 	rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
 
@@ -245,6 +310,56 @@ GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, 
 	return go;
 }
 #pragma endregion ProductBasePlayer
+
+
+#pragma region ProductBaseEnemy
+/*
+Slime
+-RenderedAnimator
+-Enemy
+*/
+GameObject* FactoryEnemySlime::CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos)
+{
+	GameObject* go = new GameObject();
+	D_POINT pos{ GridPosToPos(_gridPos).x, GridPosToPos(_gridPos).y };
+	go->GetComponent<Transform>()->SetPosition(pos);
+
+	RenderedAnimator* rAnim = new RenderedAnimator();
+	rAnim->SetSortingLayer(SORTING_LAYER::ENEMY);
+	rAnim->SetOrderInLayer(characterCount++);
+	rAnim->SetByCamera(true);
+	rAnim->Init();
+
+	Animation* idle = new Animation();
+	idle->Init(
+		KEY_SLIME_IDLE,
+		POINT{ -21, -38 }, CHARACTER_STATE::IDLE_LEFT_BOTTOM,
+		true, false, 6
+	);
+	Animation* move = new Animation();
+	move->Init(
+		KEY_SLIME_MOVE,
+		POINT{ -21, -38 }, CHARACTER_STATE::MOVE_LEFT_BOTTOM,
+		true, false, 6
+	);
+
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, idle);
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM, move);
+
+	rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
+
+	Enemy* enemy = new Enemy();
+	enemy->AddObserver(_observer);
+	enemy->SetGridPos(_gridPos);
+	enemy->Init();
+
+	go->AddComponent(rAnim);
+	go->AddComponent(enemy);
+	go->SetTag(TAG::ENEMY);
+
+	return go;
+}
+#pragma endregion ProductBaseEnemy
 
 
 #pragma region ProductBasePlatform
@@ -585,6 +700,7 @@ GameObject
 	TilePanel(Subject)
 	-RectTransform
 	-RenderedImage
+	-Tile
 	FocusPanel
 	-RectTransform
 	-RenderedImage
@@ -628,6 +744,7 @@ GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observe
 	tilePanelRImg->SetSortingLayer(SORTING_LAYER::TILE_PANEL);
 	tilePanelRImg->SetOrderInLayer(uiCount++);
 	tilePanelRImg->SetByCamera(true);
+	tilePanelRImg->SetEnabled(false);
 	Tile* tile = new Tile();
 	tile->SetGridPos(_gridPos);
 	tile->AddObserver(_observer);
@@ -636,7 +753,7 @@ GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observe
 	tilePanelGo->AddComponent(tilePanelRImg);
 	tilePanelGo->AddComponent(tile);
 	tilePanelGo->SetName(SKIG_TILE_TILE);
-	tilePanelGo->SetActive(false);
+	//tilePanelGo->SetActive(false);
 
 	GameObject* tileFocusGo = new GameObject();
 	tileFocusGo->GetComponent<Transform>()->SetPosition(dPos);
@@ -662,3 +779,4 @@ GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observe
 	return go;
 }
 #pragma endregion ProductBaseTile
+

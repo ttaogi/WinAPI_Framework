@@ -38,6 +38,15 @@ public:
 #pragma endregion ProductBasePlayer
 
 
+#pragma region ProductBaseEnemy
+class ProductBaseEnemy
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos) = 0;
+};
+#pragma endregion ProductBaseEnemy
+
+
 #pragma region ProductBasePlatform
 class ProductBasePlatform
 {

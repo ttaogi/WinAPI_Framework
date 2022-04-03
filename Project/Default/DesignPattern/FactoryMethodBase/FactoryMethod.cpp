@@ -101,6 +101,33 @@ GameObject* FactoryMethodPlayer::CreateObject(CHARACTER_ID _id, Observer* _obser
 #pragma endregion FactoryMethodPlayer
 
 
+#pragma region FactoryMethodEnemy
+FactoryMethodEnemy::FactoryMethodEnemy()
+{
+	slime = new FactoryEnemySlime();
+}
+
+FactoryMethodEnemy::~FactoryMethodEnemy()
+{
+	SAFE_DELETE(slime);
+}
+
+GameObject* FactoryMethodEnemy::CreateObject(ENEMY_TYPE _type, Observer* _observer, D_POINT _pos, POINT _gridPos)
+{
+	GameObject* go = NULL;
+
+	switch(_type)
+	{
+	case ENEMY_TYPE::SLIME:
+		go = slime->CreateObject(_observer, _pos, _gridPos);
+		break;
+	}
+
+	return go;
+}
+#pragma endregion FactoryMethodEnemy
+
+
 #pragma region FactoryMethodPlatform
 FactoryMethodPlatform::FactoryMethodPlatform()
 {

@@ -114,6 +114,15 @@ extern const wchar_t* DIR_AL_IDLE_RIGHT_BOTTOM;
 extern const std::wstring KEY_AL_IDLE_RIGHT_TOP;
 extern const wchar_t* DIR_AL_IDLE_RIGHT_TOP;
 
+extern const std::wstring KEY_AL_MOVE_LEFT_BOTTOM;
+extern const wchar_t* DIR_AL_MOVE_LEFT_BOTTOM;
+extern const std::wstring KEY_AL_MOVE_LEFT_TOP;
+extern const wchar_t* DIR_AL_MOVE_LEFT_TOP;
+extern const std::wstring KEY_AL_MOVE_RIGHT_BOTTOM;
+extern const wchar_t* DIR_AL_MOVE_RIGHT_BOTTOM;
+extern const std::wstring KEY_AL_MOVE_RIGHT_TOP;
+extern const wchar_t* DIR_AL_MOVE_RIGHT_TOP;
+
 extern const std::wstring KEY_KARIN_IDLE_LEFT_BOTTOM;
 extern const wchar_t* DIR_KARIN_IDLE_LEFT_BOTTOM;
 extern const std::wstring KEY_KARIN_IDLE_LEFT_TOP;
@@ -122,7 +131,26 @@ extern const std::wstring KEY_KARIN_IDLE_RIGHT_BOTTOM;
 extern const wchar_t* DIR_KARIN_IDLE_RIGHT_BOTTOM;
 extern const std::wstring KEY_KARIN_IDLE_RIGHT_TOP;
 extern const wchar_t* DIR_KARIN_IDLE_RIGHT_TOP;
+
+extern const std::wstring KEY_KARIN_MOVE_LEFT_BOTTOM;
+extern const wchar_t* DIR_KARIN_MOVE_LEFT_BOTTOM;
+extern const std::wstring KEY_KARIN_MOVE_LEFT_TOP;
+extern const wchar_t* DIR_KARIN_MOVE_LEFT_TOP;
+extern const std::wstring KEY_KARIN_MOVE_RIGHT_BOTTOM;
+extern const wchar_t* DIR_KARIN_MOVE_RIGHT_BOTTOM;
+extern const std::wstring KEY_KARIN_MOVE_RIGHT_TOP;
+extern const wchar_t* DIR_KARIN_MOVE_RIGHT_TOP;
 #pragma endregion Player
+
+
+#pragma region Enemy
+#pragma region Slime
+extern const std::wstring KEY_SLIME_IDLE;
+extern const wchar_t* DIR_SLIME_IDLE;
+extern const std::wstring KEY_SLIME_MOVE;
+extern const wchar_t* DIR_SLIME_MOVE;
+#pragma endregion Slime
+#pragma endregion Enemy
 #pragma endregion Sprite
 
 ///////////////////////
@@ -191,6 +219,7 @@ extern const std::wstring XML_DOC_FIELD_MAP_DATA;
 #pragma region Dialog_Spot
 extern const std::wstring DIALOG_SPOT_SHOP;
 extern const std::wstring DIALOG_SPOT_GUILD;
+extern const std::wstring DIALOG_SPOT_FIELD;
 #pragma endregion Dialog_Spot
 
 ///////////////////////
@@ -202,6 +231,7 @@ extern const int BUTTON_HEIGHT;
 extern const int TILE_WIDTH;
 extern const int TILE_HEIGHT_Z0;
 extern const int TILE_HEIGHT_Z1;
+extern const int MOVE_RANGE;
 #pragma endregion Size
 
 ///////////////////////

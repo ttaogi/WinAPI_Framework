@@ -10,4 +10,8 @@ public:
 	virtual ~Player() { }
 
 	virtual void Update() override;
+
+	void StartMove(POINT _moveGridPos);
+	void StartAttack(DIRECTION _dir);
+	void Stay();
 };

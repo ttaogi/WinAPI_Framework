@@ -5,8 +5,11 @@
 
 class Character : public MonoBehaviour, public Subject
 {
-private:
+protected:
 	POINT gridPos;
+	POINT moveGridPos;
+	POINT nextGridPos;
+	PHASE_DETAIL state;
 public:
 	Character();
 	virtual ~Character() { }
@@ -21,4 +24,6 @@ public:
 
 	POINT	GetGridPos() const			{ return gridPos; }
 	void	SetGridPos(POINT _gridPos)	{ gridPos = _gridPos; }
+	POINT	GetMoveGridPos() const				{ return moveGridPos; }
+	void	SetMoveGridPos(POINT _moveGridPos)	{ moveGridPos = _moveGridPos; }
 };
