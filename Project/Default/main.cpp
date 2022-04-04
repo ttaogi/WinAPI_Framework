@@ -206,6 +206,15 @@ void LoadResources()
 	IMG->AddFrameImage(KEY_AL_MOVE_RIGHT_TOP, DIR_AL_MOVE_RIGHT_TOP, 176, 72, 4, 1, 4, true, MAGENTA)
 		->InitForAlphaBlend();
 
+	IMG->AddFrameImage(KEY_AL_ATTACK_LEFT_BOTTOM, DIR_AL_ATTACK_LEFT_BOTTOM, 640, 80, 8, 1, 8, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_AL_ATTACK_LEFT_TOP, DIR_AL_ATTACK_LEFT_TOP, 640, 80, 8, 1, 8, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_AL_ATTACK_RIGHT_BOTTOM, DIR_AL_ATTACK_RIGHT_BOTTOM, 640, 80, 8, 1, 8, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_AL_ATTACK_RIGHT_TOP, DIR_AL_ATTACK_RIGHT_TOP, 640, 80, 8, 1, 8, true, MAGENTA)
+		->InitForAlphaBlend();
+
 	IMG->AddFrameImage(KEY_KARIN_IDLE_LEFT_BOTTOM, DIR_KARIN_IDLE_LEFT_BOTTOM, 204, 64, 3, 1, 3, true, MAGENTA)
 		->InitForAlphaBlend();
 	IMG->AddFrameImage(KEY_KARIN_IDLE_LEFT_TOP, DIR_KARIN_IDLE_LEFT_TOP, 204, 64, 3, 1, 3, true, MAGENTA)
@@ -222,6 +231,15 @@ void LoadResources()
 	IMG->AddFrameImage(KEY_KARIN_MOVE_RIGHT_BOTTOM, DIR_KARIN_MOVE_RIGHT_BOTTOM, 288, 64, 4, 1, 4, true, MAGENTA)
 		->InitForAlphaBlend();
 	IMG->AddFrameImage(KEY_KARIN_MOVE_RIGHT_TOP, DIR_KARIN_MOVE_RIGHT_TOP, 288, 64, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
+
+	IMG->AddFrameImage(KEY_KARIN_ATTACK_LEFT_BOTTOM, DIR_KARIN_ATTACK_LEFT_BOTTOM, 272, 264, 4, 3, 11, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_KARIN_ATTACK_LEFT_TOP, DIR_KARIN_ATTACK_LEFT_TOP, 272, 264, 4, 3, 11, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_KARIN_ATTACK_RIGHT_BOTTOM, DIR_KARIN_ATTACK_RIGHT_BOTTOM, 272, 264, 4, 3, 11, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_KARIN_ATTACK_RIGHT_TOP, DIR_KARIN_ATTACK_RIGHT_TOP, 272, 264, 4, 3, 11, true, MAGENTA)
 		->InitForAlphaBlend();
 
 	// enemy.

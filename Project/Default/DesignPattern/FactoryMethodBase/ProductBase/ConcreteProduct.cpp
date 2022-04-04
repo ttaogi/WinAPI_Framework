@@ -178,25 +178,50 @@ GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POI
 	moveLeftBottom->Init(
 		KEY_AL_MOVE_LEFT_BOTTOM,
 		POINT{ -22, -64 }, CHARACTER_STATE::MOVE_LEFT_BOTTOM,
-		true, false, 2
+		true, false, 6
 	);
 	Animation* moveLeftTop = new Animation();
 	moveLeftTop->Init(
 		KEY_AL_MOVE_LEFT_TOP,
 		POINT{ -22, -64 }, CHARACTER_STATE::MOVE_LEFT_TOP,
-		true, false, 2
+		true, false, 6
 	);
 	Animation* moveRightBottom = new Animation();
 	moveRightBottom->Init(
 		KEY_AL_MOVE_RIGHT_BOTTOM,
 		POINT{ -22, -64 }, CHARACTER_STATE::MOVE_RIGHT_BOTTOM,
-		true, false, 2
+		true, false, 6
 	);
 	Animation* moveRightTop = new Animation();
 	moveRightTop->Init(
 		KEY_AL_MOVE_RIGHT_TOP,
 		POINT{ -22, -64 }, CHARACTER_STATE::MOVE_RIGHT_TOP,
-		true, false, 2
+		true, false, 6
+	);
+
+	Animation* attackLeftBottom = new Animation();
+	attackLeftBottom->Init(
+		KEY_AL_ATTACK_LEFT_BOTTOM,
+		POINT{ -40, -68 }, CHARACTER_STATE::ATTACK_LEFT_BOTTOM,
+		false, false, 6
+	);
+	Animation* attackLeftTop = new Animation();
+	attackLeftTop->Init(
+		KEY_AL_ATTACK_LEFT_TOP,
+		POINT{ -40, -68 }, CHARACTER_STATE::ATTACK_LEFT_TOP,
+		false, false, 6
+	);
+	Animation* attackRightBottom = new Animation();
+	attackRightBottom->Init(
+		KEY_AL_ATTACK_RIGHT_BOTTOM,
+		POINT{ -40, -68 }, CHARACTER_STATE::ATTACK_RIGHT_BOTTOM,
+		false, false, 6
+	);
+	Animation* attackRightTop = new Animation();
+	attackRightTop->Init(
+		KEY_AL_ATTACK_RIGHT_TOP,
+		POINT{ -40, -68 }, CHARACTER_STATE::ATTACK_RIGHT_TOP,
+		false, false, 6
 	);
 
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, idleLeftBottom);
@@ -209,9 +234,26 @@ GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POI
 	rAnim->AddAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM, moveRightBottom);
 	rAnim->AddAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP, moveRightTop);
 
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_LEFT_BOTTOM, attackLeftBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_LEFT_TOP, attackLeftTop);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_RIGHT_BOTTOM, attackRightBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_RIGHT_TOP, attackRightTop);
+
 	rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
 
 	Player* player = new Player();
+	CharacterInfo cInfo = GAMEDATA->GetCharacterInfo(CHARACTER_ID::AL);
+	EquipInfo weapon = GAMEDATA->GetEquipInfo(cInfo.weapon);
+	EquipInfo armor = GAMEDATA->GetEquipInfo(cInfo.armor);
+	player->SetAbility(
+		cInfo.hp,
+		cInfo.hpMax,
+		cInfo.str + weapon.str + armor.str,
+		cInfo.mgc + weapon.mgc + armor.mgc,
+		cInfo.def + weapon.def + armor.def,
+		cInfo.mDef + weapon.mDef + armor.mDef,
+		cInfo.dex
+	);
 	player->AddObserver(_observer);
 	player->SetGridPos(_gridPos);
 	player->Init();
@@ -265,25 +307,50 @@ GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, 
 	moveLeftBottom->Init(
 		KEY_KARIN_MOVE_LEFT_BOTTOM,
 		POINT{ -36, -64 }, CHARACTER_STATE::MOVE_LEFT_BOTTOM,
-		true, false, 2
+		true, false, 6
 	);
 	Animation* moveLeftTop = new Animation();
 	moveLeftTop->Init(
 		KEY_KARIN_MOVE_LEFT_TOP,
 		POINT{ -36, -64 }, CHARACTER_STATE::MOVE_LEFT_TOP,
-		true, false, 2
+		true, false, 6
 	);
 	Animation* moveRightBottom = new Animation();
 	moveRightBottom->Init(
 		KEY_KARIN_MOVE_RIGHT_BOTTOM,
 		POINT{ -36, -64 }, CHARACTER_STATE::MOVE_RIGHT_BOTTOM,
-		true, false, 2
+		true, false, 6
 	);
 	Animation* moveRightTop = new Animation();
 	moveRightTop->Init(
 		KEY_KARIN_MOVE_RIGHT_TOP,
 		POINT{ -36, -64 }, CHARACTER_STATE::MOVE_RIGHT_TOP,
-		true, false, 2
+		true, false, 6
+	);
+
+	Animation* attackLeftBottom = new Animation();
+	attackLeftBottom->Init(
+		KEY_KARIN_ATTACK_LEFT_BOTTOM,
+		POINT{ -34, -72 }, CHARACTER_STATE::ATTACK_LEFT_BOTTOM,
+		false, false, 6
+	);
+	Animation* attackLeftTop = new Animation();
+	attackLeftTop->Init(
+		KEY_KARIN_ATTACK_LEFT_TOP,
+		POINT{ -34, -72 }, CHARACTER_STATE::ATTACK_LEFT_TOP,
+		false, false, 6
+	);
+	Animation* attackRightBottom = new Animation();
+	attackRightBottom->Init(
+		KEY_KARIN_ATTACK_RIGHT_BOTTOM,
+		POINT{ -34, -72 }, CHARACTER_STATE::ATTACK_RIGHT_BOTTOM,
+		false, false, 6
+	);
+	Animation* attackRightTop = new Animation();
+	attackRightTop->Init(
+		KEY_KARIN_ATTACK_RIGHT_TOP,
+		POINT{ -34, -72 }, CHARACTER_STATE::ATTACK_RIGHT_TOP,
+		false, false, 6
 	);
 
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, idleLeftBottom);
@@ -296,9 +363,26 @@ GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, 
 	rAnim->AddAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM, moveRightBottom);
 	rAnim->AddAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP, moveRightTop);
 
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_LEFT_BOTTOM, attackLeftBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_LEFT_TOP, attackLeftTop);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_RIGHT_BOTTOM, attackRightBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_RIGHT_TOP, attackRightTop);
+
 	rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
 
 	Player* player = new Player();
+	CharacterInfo cInfo = GAMEDATA->GetCharacterInfo(CHARACTER_ID::KARIN);
+	EquipInfo weapon = GAMEDATA->GetEquipInfo(cInfo.weapon);
+	EquipInfo armor = GAMEDATA->GetEquipInfo(cInfo.armor);
+	player->SetAbility(
+		cInfo.hp,
+		cInfo.hpMax,
+		cInfo.str + weapon.str + armor.str,
+		cInfo.mgc + weapon.mgc + armor.mgc,
+		cInfo.def + weapon.def + armor.def,
+		cInfo.mDef + weapon.mDef + armor.mDef,
+		cInfo.dex
+	);
 	player->AddObserver(_observer);
 	player->SetGridPos(_gridPos);
 	player->Init();

@@ -53,6 +53,12 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 			}
 			else if (GAMEMANAGER->GetPhaseDetail() == PHASE_DETAIL::BATTLE_PLAYER_DEFAULT)
 			{
+				for (auto iter = mapData.enemyVec.begin(); iter != mapData.enemyVec.end(); ++iter)
+				{
+					Enemy* e = (*iter)->GetComponent<Enemy>();
+					if (e->GetHp() > 0) enemyVec.push_back(e);
+				}
+
 				int mapSizeX = mapData.tileVec.size();
 				int mapSizeY = mapData.tileVec[0].size();
 				CAMERA->SetTarget(mapData.tileVec[mapSizeX/2][mapSizeY/2]);
@@ -102,6 +108,11 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 
 				if (PointEqual(gridPosClick, playerGridPos))
 				{
+					for (auto iterCol = mapData.tileVec.begin(); iterCol != mapData.tileVec.end(); ++iterCol)
+						for (auto iter = iterCol->begin(); iter != iterCol->end(); ++iter)
+							(*iter)->GetGameObjectByName(SKIG_TILE_TILE)->GetComponent<RenderedImage>()->SetEnabled(false);
+
+					selectedObj->GetComponent<Player>()->NoMove();
 					GAMEMANAGER->SetPhaseDetail(PHASE_DETAIL::BATTLE_PLAYER_SELECTING_DIRECTION);
 				}
 				else if (GridPosDist(gridPosClick, playerGridPos) <= MOVE_RANGE)

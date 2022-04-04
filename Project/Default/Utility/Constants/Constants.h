@@ -123,6 +123,15 @@ extern const wchar_t* DIR_AL_MOVE_RIGHT_BOTTOM;
 extern const std::wstring KEY_AL_MOVE_RIGHT_TOP;
 extern const wchar_t* DIR_AL_MOVE_RIGHT_TOP;
 
+extern const std::wstring KEY_AL_ATTACK_LEFT_BOTTOM;
+extern const wchar_t* DIR_AL_ATTACK_LEFT_BOTTOM;
+extern const std::wstring KEY_AL_ATTACK_LEFT_TOP;
+extern const wchar_t* DIR_AL_ATTACK_LEFT_TOP;
+extern const std::wstring KEY_AL_ATTACK_RIGHT_BOTTOM;
+extern const wchar_t* DIR_AL_ATTACK_RIGHT_BOTTOM;
+extern const std::wstring KEY_AL_ATTACK_RIGHT_TOP;
+extern const wchar_t* DIR_AL_ATTACK_RIGHT_TOP;
+
 extern const std::wstring KEY_KARIN_IDLE_LEFT_BOTTOM;
 extern const wchar_t* DIR_KARIN_IDLE_LEFT_BOTTOM;
 extern const std::wstring KEY_KARIN_IDLE_LEFT_TOP;
@@ -140,6 +149,15 @@ extern const std::wstring KEY_KARIN_MOVE_RIGHT_BOTTOM;
 extern const wchar_t* DIR_KARIN_MOVE_RIGHT_BOTTOM;
 extern const std::wstring KEY_KARIN_MOVE_RIGHT_TOP;
 extern const wchar_t* DIR_KARIN_MOVE_RIGHT_TOP;
+
+extern const std::wstring KEY_KARIN_ATTACK_LEFT_BOTTOM;
+extern const wchar_t* DIR_KARIN_ATTACK_LEFT_BOTTOM;
+extern const std::wstring KEY_KARIN_ATTACK_LEFT_TOP;
+extern const wchar_t* DIR_KARIN_ATTACK_LEFT_TOP;
+extern const std::wstring KEY_KARIN_ATTACK_RIGHT_BOTTOM;
+extern const wchar_t* DIR_KARIN_ATTACK_RIGHT_BOTTOM;
+extern const std::wstring KEY_KARIN_ATTACK_RIGHT_TOP;
+extern const wchar_t* DIR_KARIN_ATTACK_RIGHT_TOP;
 #pragma endregion Player
 
 

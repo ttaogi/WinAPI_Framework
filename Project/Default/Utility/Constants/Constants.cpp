@@ -205,6 +205,23 @@ const std::wstring KEY_AL_MOVE_RIGHT_TOP =
 const wchar_t* DIR_AL_MOVE_RIGHT_TOP =
 	L"Resources/Images/Player/Al/Move/Move_RightTop.bmp";
 
+const std::wstring KEY_AL_ATTACK_LEFT_BOTTOM =
+	L"AL_ATTACK_LEFT_BOTTOM";
+const wchar_t* DIR_AL_ATTACK_LEFT_BOTTOM =
+	L"Resources/Images/Player/Al/Attack/Attack_LeftBottom.bmp";
+const std::wstring KEY_AL_ATTACK_LEFT_TOP =
+	L"AL_ATTACK_LEFT_TOP";
+const wchar_t* DIR_AL_ATTACK_LEFT_TOP =
+	L"Resources/Images/Player/Al/Attack/Attack_LeftTop.bmp";
+const std::wstring KEY_AL_ATTACK_RIGHT_BOTTOM =
+	L"AL_ATTACK_RIGHT_BOTTOM";
+const wchar_t* DIR_AL_ATTACK_RIGHT_BOTTOM =
+	L"Resources/Images/Player/Al/Attack/Attack_RightBottom.bmp";
+const std::wstring KEY_AL_ATTACK_RIGHT_TOP =
+	L"AL_ATTACK_RIGHT_TOP";
+const wchar_t* DIR_AL_ATTACK_RIGHT_TOP =
+	L"Resources/Images/Player/Al/Attack/Attack_RightTop.bmp";
+
 const std::wstring KEY_KARIN_IDLE_LEFT_BOTTOM =
 	L"KARIN_IDLE_LEFT_BOTTOM";
 const wchar_t* DIR_KARIN_IDLE_LEFT_BOTTOM =
@@ -238,6 +255,23 @@ const std::wstring KEY_KARIN_MOVE_RIGHT_TOP =
 	L"KARIN_MOVE_RIGHT_TOP";
 const wchar_t* DIR_KARIN_MOVE_RIGHT_TOP =
 	L"Resources/Images/Player/Karin/Move/Move_RightTop.bmp";
+
+const std::wstring KEY_KARIN_ATTACK_LEFT_BOTTOM =
+	L"KARIN_ATTACK_LEFT_BOTTOM";
+const wchar_t* DIR_KARIN_ATTACK_LEFT_BOTTOM =
+	L"Resources/Images/Player/Karin/Attack/Attack_LeftBottom.bmp";
+const std::wstring KEY_KARIN_ATTACK_LEFT_TOP =
+	L"KARIN_ATTACK_LEFT_TOP";
+const wchar_t* DIR_KARIN_ATTACK_LEFT_TOP =
+	L"Resources/Images/Player/Karin/Attack/Attack_LeftTop.bmp";
+const std::wstring KEY_KARIN_ATTACK_RIGHT_BOTTOM =
+	L"KARIN_ATTACK_RIGHT_BOTTOM";
+const wchar_t* DIR_KARIN_ATTACK_RIGHT_BOTTOM =
+	L"Resources/Images/Player/Karin/Attack/Attack_RightBottom.bmp";
+const std::wstring KEY_KARIN_ATTACK_RIGHT_TOP =
+	L"KARIN_ATTACK_RIGHT_TOP";
+const wchar_t* DIR_KARIN_ATTACK_RIGHT_TOP =
+	L"Resources/Images/Player/Karin/Attack/Attack_RightTop.bmp";
 #pragma endregion Player
 
 

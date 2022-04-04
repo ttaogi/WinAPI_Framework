@@ -12,6 +12,7 @@ public:
 	virtual void Update() override;
 
 	void StartMove(POINT _moveGridPos);
+	void NoMove();
 	void StartAttack(DIRECTION _dir);
 	void Stay();
 };

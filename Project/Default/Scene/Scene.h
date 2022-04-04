@@ -14,6 +14,7 @@ class GameObject;
 class Image;
 class MainGame;
 class MapData;
+class Enemy;
 
 class Scene : public Observer
 {
@@ -22,6 +23,7 @@ protected:
 	MapData mapData;
 	GameObject* root;
 	GameObject* selectedObj;
+	std::vector<Enemy*> enemyVec;
 public:
 	Scene() { }
 	virtual ~Scene() { }
