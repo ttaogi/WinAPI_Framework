@@ -285,6 +285,23 @@ const std::wstring KEY_SLIME_MOVE =
 	L"SLIME_MOVE";
 const wchar_t* DIR_SLIME_MOVE =
 	L"Resources/Images/Enemy/Slime/Move/Move.bmp";
+
+const std::wstring KEY_SLIME_ATTACK_LEFT_BOTTOM =
+	L"SLIME_ATTACK_LEFT_BOTTOM";
+const wchar_t* DIR_SLIME_ATTACK_LEFT_BOTTOM =
+	L"Resources/Images/Enemy/Slime/Attack/Attack_LeftBottom.bmp";
+const std::wstring KEY_SLIME_ATTACK_LEFT_TOP =
+	L"SLIME_ATTACK_LEFT_TOP";
+const wchar_t* DIR_SLIME_ATTACK_LEFT_TOP =
+	L"Resources/Images/Enemy/Slime/Attack/Attack_LeftTop.bmp";
+const std::wstring KEY_SLIME_ATTACK_RIGHT_BOTTOM =
+	L"SLIME_ATTACK_RIGHT_BOTTOM";
+const wchar_t* DIR_SLIME_ATTACK_RIGHT_BOTTOM =
+	L"Resources/Images/Enemy/Slime/Attack/Attack_RightBottom.bmp";
+const std::wstring KEY_SLIME_ATTACK_RIGHT_TOP =
+	L"SLIME_ATTACK_RIGHT_TOP";
+const wchar_t* DIR_SLIME_ATTACK_RIGHT_TOP =
+	L"Resources/Images/Enemy/Slime/Attack/Attack_RightTop.bmp";
 #pragma endregion Slime
 #pragma endregion Enemy
 #pragma endregion Sprite
@@ -399,6 +416,7 @@ const int TILE_WIDTH = 64;
 const int TILE_HEIGHT_Z0 = 32;
 const int TILE_HEIGHT_Z1 = 48;
 const int MOVE_RANGE = 5;
+const int ENEMY_MOVE_RANGE = 2;
 #pragma endregion Size
 
 ///////////////////////

@@ -139,12 +139,12 @@ AL
 GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos)
 {
 	GameObject* go = new GameObject();
-	D_POINT pos{ GridPosToPos(_gridPos).x, GridPosToPos(_gridPos).y };
+	D_POINT pos{ (double)GridPosToPos(_gridPos).x, (double)GridPosToPos(_gridPos).y };
 	go->GetComponent<Transform>()->SetPosition(pos);
 	//go->GetComponent<Transform>()->SetPosition(_pos);
 
 	RenderedAnimator* rAnim = new RenderedAnimator();
-	rAnim->SetSortingLayer(SORTING_LAYER::PLAYER);
+	rAnim->SetSortingLayer(SORTING_LAYER::CHARACTER);
 	rAnim->SetOrderInLayer(characterCount++);
 	rAnim->SetByCamera(true);
 	rAnim->Init();
@@ -268,12 +268,12 @@ GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POI
 GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos)
 {
 	GameObject* go = new GameObject();
-	D_POINT pos{ GridPosToPos(_gridPos).x, GridPosToPos(_gridPos).y };
+	D_POINT pos{ (double)GridPosToPos(_gridPos).x, (double)GridPosToPos(_gridPos).y };
 	go->GetComponent<Transform>()->SetPosition(pos);
 	//go->GetComponent<Transform>()->SetPosition(_pos);
 
 	RenderedAnimator* rAnim = new RenderedAnimator();
-	rAnim->SetSortingLayer(SORTING_LAYER::PLAYER);
+	rAnim->SetSortingLayer(SORTING_LAYER::CHARACTER);
 	rAnim->SetOrderInLayer(characterCount++);
 	rAnim->SetByCamera(true);
 	rAnim->Init();
@@ -331,25 +331,25 @@ GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, 
 	Animation* attackLeftBottom = new Animation();
 	attackLeftBottom->Init(
 		KEY_KARIN_ATTACK_LEFT_BOTTOM,
-		POINT{ -34, -72 }, CHARACTER_STATE::ATTACK_LEFT_BOTTOM,
+		POINT{ -34, -90 }, CHARACTER_STATE::ATTACK_LEFT_BOTTOM,
 		false, false, 6
 	);
 	Animation* attackLeftTop = new Animation();
 	attackLeftTop->Init(
 		KEY_KARIN_ATTACK_LEFT_TOP,
-		POINT{ -34, -72 }, CHARACTER_STATE::ATTACK_LEFT_TOP,
+		POINT{ -34, -90 }, CHARACTER_STATE::ATTACK_LEFT_TOP,
 		false, false, 6
 	);
 	Animation* attackRightBottom = new Animation();
 	attackRightBottom->Init(
 		KEY_KARIN_ATTACK_RIGHT_BOTTOM,
-		POINT{ -34, -72 }, CHARACTER_STATE::ATTACK_RIGHT_BOTTOM,
+		POINT{ -34, -90 }, CHARACTER_STATE::ATTACK_RIGHT_BOTTOM,
 		false, false, 6
 	);
 	Animation* attackRightTop = new Animation();
 	attackRightTop->Init(
 		KEY_KARIN_ATTACK_RIGHT_TOP,
-		POINT{ -34, -72 }, CHARACTER_STATE::ATTACK_RIGHT_TOP,
+		POINT{ -34, -90 }, CHARACTER_STATE::ATTACK_RIGHT_TOP,
 		false, false, 6
 	);
 
@@ -405,40 +405,118 @@ Slime
 GameObject* FactoryEnemySlime::CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos)
 {
 	GameObject* go = new GameObject();
-	D_POINT pos{ GridPosToPos(_gridPos).x, GridPosToPos(_gridPos).y };
+	D_POINT pos{ (double)GridPosToPos(_gridPos).x, (double)GridPosToPos(_gridPos).y };
 	go->GetComponent<Transform>()->SetPosition(pos);
 
 	RenderedAnimator* rAnim = new RenderedAnimator();
-	rAnim->SetSortingLayer(SORTING_LAYER::ENEMY);
+	rAnim->SetSortingLayer(SORTING_LAYER::CHARACTER);
 	rAnim->SetOrderInLayer(characterCount++);
 	rAnim->SetByCamera(true);
 	rAnim->Init();
 
-	Animation* idle = new Animation();
-	idle->Init(
+	Animation* idleLeftBottom = new Animation();
+	idleLeftBottom->Init(
 		KEY_SLIME_IDLE,
 		POINT{ -21, -38 }, CHARACTER_STATE::IDLE_LEFT_BOTTOM,
 		true, false, 6
 	);
-	Animation* move = new Animation();
-	move->Init(
+	Animation* idleLeftTop = new Animation();
+	idleLeftTop->Init(
+		KEY_SLIME_IDLE,
+		POINT{ -21, -38 }, CHARACTER_STATE::IDLE_LEFT_TOP,
+		true, false, 6
+	);
+	Animation* idleRightBottom = new Animation();
+	idleRightBottom->Init(
+		KEY_SLIME_IDLE,
+		POINT{ -21, -38 }, CHARACTER_STATE::IDLE_RIGHT_BOTTOM,
+		true, false, 6
+	);
+	Animation* idleRightTop = new Animation();
+	idleRightTop->Init(
+		KEY_SLIME_IDLE,
+		POINT{ -21, -38 }, CHARACTER_STATE::IDLE_RIGHT_TOP,
+		true, false, 6
+	);
+
+	Animation* moveLeftBottom = new Animation();
+	moveLeftBottom->Init(
 		KEY_SLIME_MOVE,
 		POINT{ -21, -38 }, CHARACTER_STATE::MOVE_LEFT_BOTTOM,
 		true, false, 6
 	);
+	Animation* moveLeftTop = new Animation();
+	moveLeftTop->Init(
+		KEY_SLIME_MOVE,
+		POINT{ -21, -38 }, CHARACTER_STATE::MOVE_LEFT_TOP,
+		true, false, 6
+	);
+	Animation* moveRightBottom = new Animation();
+	moveRightBottom->Init(
+		KEY_SLIME_MOVE,
+		POINT{ -21, -38 }, CHARACTER_STATE::MOVE_RIGHT_BOTTOM,
+		true, false, 6
+	);
+	Animation* moveRightTop = new Animation();
+	moveRightTop->Init(
+		KEY_SLIME_MOVE,
+		POINT{ -21, -38 }, CHARACTER_STATE::MOVE_RIGHT_TOP,
+		true, false, 6
+	);
 
-	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, idle);
-	rAnim->AddAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM, move);
+	Animation* attackLeftBottom = new Animation();
+	attackLeftBottom->Init(
+		KEY_SLIME_ATTACK_LEFT_BOTTOM,
+		POINT{ -80, -56 }, CHARACTER_STATE::ATTACK_LEFT_BOTTOM,
+		false, false, 12
+	);
+	Animation* attackLeftTop = new Animation();
+	attackLeftTop->Init(
+		KEY_SLIME_ATTACK_LEFT_TOP,
+		POINT{ -94, -84 }, CHARACTER_STATE::ATTACK_LEFT_TOP,
+		false, false, 12
+	);
+	Animation* attackRightBottom = new Animation();
+	attackRightBottom->Init(
+		KEY_SLIME_ATTACK_RIGHT_BOTTOM,
+		POINT{ -24, -56 }, CHARACTER_STATE::ATTACK_RIGHT_BOTTOM,
+		false, false, 12
+	);
+	Animation* attackRightTop = new Animation();
+	attackRightTop->Init(
+		KEY_SLIME_ATTACK_RIGHT_TOP,
+		POINT{ -16, -84 }, CHARACTER_STATE::ATTACK_RIGHT_TOP,
+		false, false, 12
+	);
+
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, idleLeftBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_TOP, idleLeftTop);
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM, idleRightBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_TOP, idleRightTop);
+
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM, moveLeftBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_LEFT_TOP, moveLeftTop);
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM, moveRightBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP, moveRightTop);
+
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_LEFT_BOTTOM, attackLeftBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_LEFT_TOP, attackLeftTop);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_RIGHT_BOTTOM, attackRightBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_RIGHT_TOP, attackRightTop);
 
 	rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
 
 	Enemy* enemy = new Enemy();
+	enemy->SetAbility(
+		10, 10,
+		5, 0, 0, 0, 0
+	);
 	enemy->AddObserver(_observer);
 	enemy->SetGridPos(_gridPos);
 	enemy->Init();
 
-	go->AddComponent(rAnim);
 	go->AddComponent(enemy);
+	go->AddComponent(rAnim);
 	go->SetTag(TAG::ENEMY);
 
 	return go;

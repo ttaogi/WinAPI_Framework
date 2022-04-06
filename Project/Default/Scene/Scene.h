@@ -35,6 +35,9 @@ public:
 	virtual void Update() = 0;
 	virtual void Render() = 0;
 
+	MapData* GetMapData() { return &mapData; }
+	bool IsEmpty(POINT _gridPos);
+
 	void LoadMapData(MapData* _mapData);
 	static void ProcessCollision(std::vector<Collision>* _collisionVec);
 	static void ProcessRender(HDC _hdc, priority_queue<Rendered*, vector<Rendered*>, CmpRenderedPtr>* _queue);

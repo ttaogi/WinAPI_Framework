@@ -27,8 +27,7 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 				if (dv->IsEnd())
 				{
 					dialogViewer->SetActive(false);
-					GameObject* shopList = root->GetGameObjectByName(SKIG_SHOP_LIST);
-					if (shopList) shopList->SetActive(true);
+
 					CAMERA->SetTarget(mapData.playerVec[0]);
 					GAMEMANAGER->SetPhase(PHASE::PHASE_BATTLE);
 					GAMEMANAGER->SetPhaseDetail(PHASE_DETAIL::BATTLE_PLAYER_DEFAULT);
@@ -53,16 +52,29 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 			}
 			else if (GAMEMANAGER->GetPhaseDetail() == PHASE_DETAIL::BATTLE_PLAYER_DEFAULT)
 			{
+				enemyVec.clear();
+
 				for (auto iter = mapData.enemyVec.begin(); iter != mapData.enemyVec.end(); ++iter)
 				{
 					Enemy* e = (*iter)->GetComponent<Enemy>();
 					if (e->GetHp() > 0) enemyVec.push_back(e);
 				}
 
-				int mapSizeX = mapData.tileVec.size();
-				int mapSizeY = mapData.tileVec[0].size();
-				CAMERA->SetTarget(mapData.tileVec[mapSizeX/2][mapSizeY/2]);
-				GAMEMANAGER->SetPhaseDetail(PHASE_DETAIL::BATTLE_ENEMY_DEFAULT);
+				if (enemyVec.size() == 0)
+				{
+					CAMERA->SetTarget(NULL);
+					SCENE->SetNextSceneKeyTownScene();
+				}
+				else
+				{
+					Enemy* e = enemyVec[0];
+					enemyVec.erase(enemyVec.begin());
+
+					CAMERA->SetTarget(e->gameObject);
+
+					e->StartMove();
+					GAMEMANAGER->SetPhaseDetail(PHASE_DETAIL::BATTLE_ENEMY_DEFAULT);
+				}
 			}
 		}
 		break;
@@ -213,7 +225,24 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 			if (GAMEMANAGER->GetPhaseDetail() == PHASE_DETAIL::BATTLE_PLAYER_ACTION)
 			{
 				GAMEMANAGER->SetPhaseDetail(PHASE_DETAIL::BATTLE_PLAYER_DEFAULT);
-			}
+			} // PHASE_DETAIL::BATTLE_PLAYER_ACTION
+			else if (GAMEMANAGER->GetPhaseDetail() == PHASE_DETAIL::BATTLE_ENEMY_DEFAULT)
+			{
+				if (enemyVec.size() == 0)
+				{
+					CAMERA->SetTarget(mapData.playerVec[0]);
+					GAMEMANAGER->SetPhaseDetail(PHASE_DETAIL::BATTLE_PLAYER_DEFAULT);
+				}
+				else
+				{
+					Enemy* e = enemyVec[0];
+					enemyVec.erase(enemyVec.begin());
+
+					CAMERA->SetTarget(e->gameObject);
+
+					e->StartMove();
+				}
+			} // PHASE_DETAIL::BATTLE_ENEMY_DEFAULT
 		}
 		break;
 	}
@@ -226,6 +255,7 @@ HRESULT FieldScene::Init()
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_FIELD);
 	root = NULL;
 	selectedObj = NULL;
+	enemyVec.clear();
 
 	if (!MAPDATA->GetMapData(XML_DOC_FIELD_MAP_DATA, this, mapData)) return E_FAIL;
 
@@ -244,7 +274,9 @@ HRESULT FieldScene::Init()
 
 	SOUND->Play(KEY_SOUND_FIELD_THEME, GAMEDATA->GetVolume());
 
-	CAMERA->SetTarget(mapData.tileVec[2][2]);
+	int mapSizeX = (int)mapData.tileVec.size();
+	int mapSizeY = (int)mapData.tileVec[0].size();
+	CAMERA->SetTarget(mapData.tileVec[mapSizeX / 2][mapSizeY / 2]);
 	CAMERA->Update();
 
 	GAMEMANAGER->SetPhase(PHASE::PHASE_DIALOG);
@@ -255,6 +287,7 @@ HRESULT FieldScene::Init()
 
 void FieldScene::Release()
 {
+	enemyVec.clear();
 	CAMERA->SetTarget(NULL);
 	CAMERA->Update();
 	SAFE_DELETE(root);

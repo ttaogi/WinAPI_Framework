@@ -5,8 +5,8 @@
 class Subject
 {
 private:
-	std::vector<Observer*> observerVec;
 protected:
+	std::vector<Observer*> observerVec;
 	void Notify(EVENT _event);
 public:
 	Subject() { }

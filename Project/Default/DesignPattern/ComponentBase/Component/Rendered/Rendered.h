@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DesignPattern/ComponentBase/Component/Behaviour/Behaviour.h"
+#include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
 #include "Utility/Enums/Enums.h"
 
 class Rendered : virtual public Behaviour
@@ -31,7 +32,14 @@ struct CmpRenderedPtr
 	bool operator()(const Rendered* lhs, const Rendered* rhs) const
 	{
 		if (lhs->GetSortingLayer() == rhs->GetSortingLayer())
-			return lhs->GetOrderInLayer() > rhs->GetOrderInLayer();
+		{
+			POINT lPos = lhs->transform->GetPosition().ToPoint();
+			POINT rPos = rhs->transform->GetPosition().ToPoint();
+			if (lPos.y == rPos.y)
+				return lhs->GetOrderInLayer() < rhs->GetOrderInLayer();
+			else
+				return lPos.y > rPos.y;
+		}
 		else
 			return (int)(lhs->GetSortingLayer()) > (int)(rhs->GetSortingLayer());
 	}

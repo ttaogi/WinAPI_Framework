@@ -3,6 +3,8 @@
 #include "DesignPattern/ComponentBase/Component/Behaviour/MonoBehaviour/MonoBehaviour.h"
 #include "DesignPattern/ObserverBase/Subject.h"
 
+class RenderedAnimator;
+
 class Character : public MonoBehaviour, public Subject
 {
 protected:
@@ -56,4 +58,8 @@ public:
 	void	SetMDef(int _mDef)		{ mDef = _mDef; }
 	int		GetDex() const			{ return dex; }
 	void	SetDex(int _dex)		{ dex = _dex; }
+
+	void ChangeAnimMoveToIdle(CHARACTER_STATE _animState, RenderedAnimator* _rAnim);
+	void ChangeAnimAttackToIdle(CHARACTER_STATE _animState, RenderedAnimator* _rAnim);
+	void MovePos(CHARACTER_STATE _animState, Transform* _t);
 };

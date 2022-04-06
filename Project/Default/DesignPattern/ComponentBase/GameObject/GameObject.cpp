@@ -6,6 +6,7 @@
 #include "DesignPattern/ComponentBase/Component/Collider/Collider.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/RenderedAnimator/RenderedAnimator.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/RenderedImage/RenderedImage.h"
+#include "Script/Character/Enemy/Enemy.h"
 
 GameObject::GameObject()
 {
@@ -21,12 +22,14 @@ GameObject::~GameObject()
 {
 	for (auto iter = goList.begin(); iter != goList.end(); ++iter)
 		SAFE_DELETE(*iter);
+
 	goList.clear();
 
 	Component* transform = GetComponent<Transform>();
 
 	for (auto iter = cList.begin(); iter != cList.end(); ++iter)
 		if (transform != *iter) SAFE_DELETE(*iter);
+
 	cList.clear();
 }
 

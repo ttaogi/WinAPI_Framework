@@ -22,92 +22,78 @@ void Player::Update()
 		switch (state)
 		{
 		case PHASE_DETAIL::BATTLE_PLAYER_MOVING:
-			{
-				POINT pos = gameObject->GetComponent<Transform>()->GetPosition().ToPoint();
-				POINT pNextGridPos = GridPosToPos(nextGridPos);
+		{
+			POINT pos = gameObject->GetComponent<Transform>()->GetPosition().ToPoint();
+			POINT pNextGridPos = GridPosToPos(nextGridPos);
 
-				if (PointDist(pos, pNextGridPos) <= 6)
+			if (PointDist(pos, pNextGridPos) <= 6)
+			{
+				gameObject->GetComponent<Transform>()->SetPosition(D_POINT{ (double)pNextGridPos.x, (double)pNextGridPos.y });
+				gridPos = nextGridPos;
+				state = PHASE_DETAIL::BATTLE_PLAYER_SELECTING_DIRECTION;
+			}
+			else
+			{
+				MovePos(animState, gameObject->GetComponent<Transform>());
+			}
+		}
+			break;
+		case PHASE_DETAIL::BATTLE_PLAYER_SELECTING_DIRECTION:
+		{
+			if (gridPos.x < moveGridPos.x)
+			{
+				nextGridPos = POINT{ gridPos.x + 1, gridPos.y };
+				if(animState != CHARACTER_STATE::MOVE_RIGHT_BOTTOM)
+					rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM);
+				state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
+			}
+			else if (gridPos.x > moveGridPos.x)
+			{
+				nextGridPos = POINT{ gridPos.x - 1, gridPos.y };
+				if (animState != CHARACTER_STATE::MOVE_LEFT_TOP)
+					rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_TOP);
+				state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
+			}
+			else
+			{
+				if (gridPos.y < moveGridPos.y)
 				{
-					gameObject->GetComponent<Transform>()->SetPosition(D_POINT{ (double)pNextGridPos.x, (double)pNextGridPos.y });
-					gridPos = nextGridPos;
-					state = PHASE_DETAIL::BATTLE_PLAYER_SELECTING_DIRECTION;
+					nextGridPos = POINT{ gridPos.x, gridPos.y + 1 };
+					if (animState != CHARACTER_STATE::MOVE_LEFT_BOTTOM)
+						rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM);
+					state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
+				}
+				else if (gridPos.y > moveGridPos.y)
+				{
+					nextGridPos = POINT{ gridPos.x, gridPos.y - 1 };
+					if (animState != CHARACTER_STATE::MOVE_RIGHT_TOP)
+						rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP);
+					state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
 				}
 				else
 				{
 					switch (animState)
 					{
 					case CHARACTER_STATE::MOVE_LEFT_BOTTOM:
-						gameObject->GetComponent<Transform>()->SetPosition(D_POINT{ (double)pos.x - 2, (double)pos.y + 1 });
+						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
 						break;
 					case CHARACTER_STATE::MOVE_LEFT_TOP:
-						gameObject->GetComponent<Transform>()->SetPosition(D_POINT{ (double)pos.x - 2, (double)pos.y - 1 });
+						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_TOP);
 						break;
 					case CHARACTER_STATE::MOVE_RIGHT_BOTTOM:
-						gameObject->GetComponent<Transform>()->SetPosition(D_POINT{ (double)pos.x + 2, (double)pos.y + 1 });
+						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM);
 						break;
 					case CHARACTER_STATE::MOVE_RIGHT_TOP:
-						gameObject->GetComponent<Transform>()->SetPosition(D_POINT{ (double)pos.x + 2, (double)pos.y - 1 });
+						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_RIGHT_TOP);
+						break;
+					default:
+						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
 						break;
 					}
+					Notify(EVENT::MOVE_END);
 				}
 			}
-			break;
-		case PHASE_DETAIL::BATTLE_PLAYER_SELECTING_DIRECTION:
-			{
-				if (gridPos.x < moveGridPos.x)
-				{
-					nextGridPos = POINT{ gridPos.x + 1, gridPos.y };
-					if(animState != CHARACTER_STATE::MOVE_RIGHT_BOTTOM)
-						rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM);
-					state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
-				}
-				else if (gridPos.x > moveGridPos.x)
-				{
-					nextGridPos = POINT{ gridPos.x - 1, gridPos.y };
-					if (animState != CHARACTER_STATE::MOVE_LEFT_TOP)
-						rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_TOP);
-					state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
-				}
-				else
-				{
-					if (gridPos.y < moveGridPos.y)
-					{
-						nextGridPos = POINT{ gridPos.x, gridPos.y + 1 };
-						if (animState != CHARACTER_STATE::MOVE_LEFT_BOTTOM)
-							rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM);
-						state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
-					}
-					else if (gridPos.y > moveGridPos.y)
-					{
-						nextGridPos = POINT{ gridPos.x, gridPos.y - 1 };
-						if (animState != CHARACTER_STATE::MOVE_RIGHT_TOP)
-							rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP);
-						state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
-					}
-					else
-					{
-						switch (animState)
-						{
-						case CHARACTER_STATE::MOVE_LEFT_BOTTOM:
-							rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
-							break;
-						case CHARACTER_STATE::MOVE_LEFT_TOP:
-							rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_TOP);
-							break;
-						case CHARACTER_STATE::MOVE_RIGHT_BOTTOM:
-							rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM);
-							break;
-						case CHARACTER_STATE::MOVE_RIGHT_TOP:
-							rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_RIGHT_TOP);
-							break;
-						default:
-							rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
-							break;
-						}
-						Notify(EVENT::MOVE_END);
-					}
-				}
-			}
+		}
 			break;
 		}
 	}
@@ -153,23 +139,7 @@ void Player::Update()
 
 				if (rAnim->IsEnd())
 				{
-					CHARACTER_STATE anim = rAnim->GetAnimationState();
-
-					switch (anim)
-					{
-					case CHARACTER_STATE::ATTACK_LEFT_TOP:
-						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_TOP);
-						break;
-					case CHARACTER_STATE::ATTACK_LEFT_BOTTOM:
-						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
-						break;
-					case CHARACTER_STATE::ATTACK_RIGHT_TOP:
-						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_RIGHT_TOP);
-						break;
-					default:
-						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM);
-						break;
-					}
+					ChangeAnimAttackToIdle(rAnim->GetAnimationState(), rAnim);
 
 					state = PHASE_DETAIL::DEFAULT;
 

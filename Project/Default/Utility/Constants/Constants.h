@@ -167,6 +167,15 @@ extern const std::wstring KEY_SLIME_IDLE;
 extern const wchar_t* DIR_SLIME_IDLE;
 extern const std::wstring KEY_SLIME_MOVE;
 extern const wchar_t* DIR_SLIME_MOVE;
+
+extern const std::wstring KEY_SLIME_ATTACK_LEFT_BOTTOM;
+extern const wchar_t* DIR_SLIME_ATTACK_LEFT_BOTTOM;
+extern const std::wstring KEY_SLIME_ATTACK_LEFT_TOP;
+extern const wchar_t* DIR_SLIME_ATTACK_LEFT_TOP;
+extern const std::wstring KEY_SLIME_ATTACK_RIGHT_BOTTOM;
+extern const wchar_t* DIR_SLIME_ATTACK_RIGHT_BOTTOM;
+extern const std::wstring KEY_SLIME_ATTACK_RIGHT_TOP;
+extern const wchar_t* DIR_SLIME_ATTACK_RIGHT_TOP;
 #pragma endregion Slime
 #pragma endregion Enemy
 #pragma endregion Sprite
@@ -250,6 +259,7 @@ extern const int TILE_WIDTH;
 extern const int TILE_HEIGHT_Z0;
 extern const int TILE_HEIGHT_Z1;
 extern const int MOVE_RANGE;
+extern const int ENEMY_MOVE_RANGE;
 #pragma endregion Size
 
 ///////////////////////
