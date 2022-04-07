@@ -2,8 +2,16 @@
 
 #include "DesignPattern/ComponentBase/Component/Behaviour/MonoBehaviour/MonoBehaviour.h"
 #include "DesignPattern/ObserverBase/Subject.h"
+#include "Utility/Enums/Enums.h"
 
 class RenderedAnimator;
+
+class Damage
+{
+public:
+	int str;
+	int mgc;
+};
 
 class Character : public MonoBehaviour, public Subject
 {
@@ -62,4 +70,5 @@ public:
 	void ChangeAnimMoveToIdle(CHARACTER_STATE _animState, RenderedAnimator* _rAnim);
 	void ChangeAnimAttackToIdle(CHARACTER_STATE _animState, RenderedAnimator* _rAnim);
 	void MovePos(CHARACTER_STATE _animState, Transform* _t);
+	virtual void Attacked(Damage _dmg, DIRECTION _dir) = 0;
 };

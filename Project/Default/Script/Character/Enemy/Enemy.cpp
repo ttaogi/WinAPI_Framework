@@ -22,136 +22,51 @@ void Enemy::Update()
 	Scene* scene = (Scene*)observerVec[0];
 	MapData* mapData = scene->GetMapData();
 
-	if (phaseDetail == PHASE_DETAIL::BATTLE_ENEMY_DEFAULT)
+	switch (state)
 	{
-		switch (state)
+	case PHASE_DETAIL::DEFAULT:
+	{
+		if (animState == CHARACTER_STATE::ATTACKED_LEFT_BOTTOM ||
+			animState == CHARACTER_STATE::ATTACKED_LEFT_TOP ||
+			animState == CHARACTER_STATE::ATTACKED_RIGHT_BOTTOM ||
+			animState == CHARACTER_STATE::ATTACKED_RIGHT_TOP)
 		{
-		case PHASE_DETAIL::BATTLE_ENEMY_SELECTING_DIRECTION:
-		{
-			if (movingDistCount == 0)
+			if (rAnim->IsEnd())
 			{
-				ChangeAnimMoveToIdle(animState, rAnim);
-				state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
-			}
-			else
-			{
-				Player* nearestPlayer = NULL;
-				int dist = 0;
-
-				for (auto iter = mapData->playerVec.begin(); iter != mapData->playerVec.end(); ++iter)
+				if (hp <= 0)
 				{
-					if (!nearestPlayer)
-					{
-						nearestPlayer = (*iter)->GetComponent<Player>();
-						dist = GridPosDist(gridPos, nearestPlayer->GetGridPos());
-					}
-					else
-					{
-						if (dist > GridPosDist(gridPos, (*iter)->GetComponent<Player>()->GetGridPos()))
-						{
-							nearestPlayer = (*iter)->GetComponent<Player>();
-							dist = GridPosDist(gridPos, (*iter)->GetComponent<Player>()->GetGridPos());
-						}
-					}
-				}
-
-				if (dist == 1)
-				{
-					ChangeAnimMoveToIdle(animState, rAnim);
-					state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
+					Notify(EVENT::DIE);
 				}
 				else
 				{
-					moveGridPos = nearestPlayer->GetGridPos();
-
-					if (gridPos.x < moveGridPos.x)
+					switch (animState)
 					{
-						nextGridPos = POINT{ gridPos.x + 1, gridPos.y };
-
-						if (scene->IsEmpty(nextGridPos))
-						{
-							if (animState != CHARACTER_STATE::MOVE_RIGHT_BOTTOM)
-								rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM);
-							state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
-						}
-						else
-						{
-							ChangeAnimMoveToIdle(animState, rAnim);
-							state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
-						}
-					}
-					else if (gridPos.x > moveGridPos.x)
-					{
-						nextGridPos = POINT{ gridPos.x - 1, gridPos.y };
-
-						if (scene->IsEmpty(nextGridPos))
-						{
-							if (animState != CHARACTER_STATE::MOVE_LEFT_TOP)
-								rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_TOP);
-							state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
-						}
-						else
-						{
-							ChangeAnimMoveToIdle(animState, rAnim);
-							state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
-						}
-					}
-					else
-					{
-						if (gridPos.y < moveGridPos.y)
-						{
-							nextGridPos = POINT{ gridPos.x, gridPos.y + 1 };
-
-							if(scene->IsEmpty(nextGridPos))
-							{
-								if (animState != CHARACTER_STATE::MOVE_LEFT_BOTTOM)
-									rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM);
-								state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
-							}
-							else
-							{
-								ChangeAnimMoveToIdle(animState, rAnim);
-								state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
-							}
-						}
-						else // if (gridPos.y > moveGridPos.y)
-						{
-							nextGridPos = POINT{ gridPos.x, gridPos.y - 1 };
-
-							if(scene->IsEmpty(nextGridPos))
-							{
-								if (animState != CHARACTER_STATE::MOVE_RIGHT_TOP)
-									rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP);
-								state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
-							}
-							else
-							{
-								ChangeAnimMoveToIdle(animState, rAnim);
-								state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
-							}
-						}
+					case CHARACTER_STATE::ATTACKED_LEFT_BOTTOM:
+						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
+						break;
+					case CHARACTER_STATE::ATTACKED_LEFT_TOP:
+						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_TOP);
+						break;
+					case CHARACTER_STATE::ATTACKED_RIGHT_BOTTOM:
+						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM);
+						break;
+					default:
+						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_RIGHT_TOP);
+						break;
 					}
 				}
 			}
 		}
-			break;
-		case PHASE_DETAIL::BATTLE_ENEMY_MOVING:
+	}
+		break;
+	case PHASE_DETAIL::BATTLE_ENEMY_SELECTING_DIRECTION:
+	{
+		if (movingDistCount == 0)
 		{
-			POINT pos = gameObject->GetComponent<Transform>()->GetPosition().ToPoint();
-			POINT pNextGridPos = GridPosToPos(nextGridPos);
-
-			if (PointDist(pos, pNextGridPos) <= 6)
-			{
-				gameObject->GetComponent<Transform>()->SetPosition(D_POINT{ (double)pNextGridPos.x, (double)pNextGridPos.y });
-				gridPos = nextGridPos;
-				--movingDistCount;
-				state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_DIRECTION;
-			}
-			else
-				MovePos(animState, gameObject->GetComponent<Transform>());
+			ChangeAnimMoveToIdle(animState, rAnim);
+			state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
 		}
-			break;
-		case PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION:
+		else
 		{
 			Player* nearestPlayer = NULL;
 			int dist = 0;
@@ -175,52 +90,199 @@ void Enemy::Update()
 
 			if (dist == 1)
 			{
-				POINT playerPos = nearestPlayer->GetGridPos();
+				ChangeAnimMoveToIdle(animState, rAnim);
+				state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
+			}
+			else
+			{
+				moveGridPos = nearestPlayer->GetGridPos();
 
-				if (gridPos.x > playerPos.x)
+				if (gridPos.x < moveGridPos.x)
 				{
-					rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_LEFT_TOP);
-					state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
+					nextGridPos = POINT{ gridPos.x + 1, gridPos.y };
+
+					if (scene->IsEmpty(nextGridPos))
+					{
+						if (animState != CHARACTER_STATE::MOVE_RIGHT_BOTTOM)
+							rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM);
+						state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
+					}
+					else
+					{
+						ChangeAnimMoveToIdle(animState, rAnim);
+						state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
+					}
 				}
-				else if (gridPos.x < playerPos.x)
+				else if (gridPos.x > moveGridPos.x)
 				{
-					rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_RIGHT_BOTTOM);
+					nextGridPos = POINT{ gridPos.x - 1, gridPos.y };
+
+					if (scene->IsEmpty(nextGridPos))
+					{
+						if (animState != CHARACTER_STATE::MOVE_LEFT_TOP)
+							rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_TOP);
+						state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
+					}
+					else
+					{
+						ChangeAnimMoveToIdle(animState, rAnim);
+						state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
+					}
+				}
+				else
+				{
+					if (gridPos.y < moveGridPos.y)
+					{
+						nextGridPos = POINT{ gridPos.x, gridPos.y + 1 };
+
+						if(scene->IsEmpty(nextGridPos))
+						{
+							if (animState != CHARACTER_STATE::MOVE_LEFT_BOTTOM)
+								rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM);
+							state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
+						}
+						else
+						{
+							ChangeAnimMoveToIdle(animState, rAnim);
+							state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
+						}
+					}
+					else // if (gridPos.y > moveGridPos.y)
+					{
+						nextGridPos = POINT{ gridPos.x, gridPos.y - 1 };
+
+						if(scene->IsEmpty(nextGridPos))
+						{
+							if (animState != CHARACTER_STATE::MOVE_RIGHT_TOP)
+								rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP);
+							state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
+						}
+						else
+						{
+							ChangeAnimMoveToIdle(animState, rAnim);
+							state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
+						}
+					}
+				}
+			}
+		}
+	}
+		break;
+	case PHASE_DETAIL::BATTLE_ENEMY_MOVING:
+	{
+		POINT pos = gameObject->GetComponent<Transform>()->GetPosition().ToPoint();
+		POINT pNextGridPos = GridPosToPos(nextGridPos);
+
+		if (PointDist(pos, pNextGridPos) <= 6)
+		{
+			gameObject->GetComponent<Transform>()->SetPosition(D_POINT{ (double)pNextGridPos.x, (double)pNextGridPos.y });
+			gridPos = nextGridPos;
+			--movingDistCount;
+			state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_DIRECTION;
+		}
+		else
+			MovePos(animState, gameObject->GetComponent<Transform>());
+	}
+		break;
+	case PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION:
+	{
+		Player* nearestPlayer = NULL;
+		int dist = 0;
+
+		for (auto iter = mapData->playerVec.begin(); iter != mapData->playerVec.end(); ++iter)
+		{
+			if (!nearestPlayer)
+			{
+				nearestPlayer = (*iter)->GetComponent<Player>();
+				dist = GridPosDist(gridPos, nearestPlayer->GetGridPos());
+			}
+			else
+			{
+				if (dist > GridPosDist(gridPos, (*iter)->GetComponent<Player>()->GetGridPos()))
+				{
+					nearestPlayer = (*iter)->GetComponent<Player>();
+					dist = GridPosDist(gridPos, (*iter)->GetComponent<Player>()->GetGridPos());
+				}
+			}
+		}
+
+		if (dist == 1)
+		{
+			POINT playerPos = nearestPlayer->GetGridPos();
+			nearestPlayer->Attacked(Damage{str, 0}, DIRECTION::DIRECTION_NUM);
+
+			if (gridPos.x > playerPos.x)
+			{
+				rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_LEFT_TOP);
+				state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
+			}
+			else if (gridPos.x < playerPos.x)
+			{
+				rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_RIGHT_BOTTOM);
+				state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
+			}
+			else
+			{
+				if (gridPos.y > playerPos.y)
+				{
+					rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_RIGHT_TOP);
 					state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
 				}
 				else
 				{
-					if (gridPos.y > playerPos.y)
-					{
-						rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_RIGHT_TOP);
-						state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
-					}
-					else
-					{
-						rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_LEFT_BOTTOM);
-						state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
-					}
+					rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_LEFT_BOTTOM);
+					state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
 				}
 			}
-			else
-			{
-				state = PHASE_DETAIL::DEFAULT;
-				Notify(EVENT::ACTION_END);
-			}
 		}
-			break;
-		case PHASE_DETAIL::BATTLE_ENEMY_ACTION:
+		else
 		{
-			if (rAnim->IsEnd())
-			{
-				ChangeAnimAttackToIdle(rAnim->GetAnimationState(), rAnim);
-
-				state = PHASE_DETAIL::DEFAULT;
-
-				Notify(EVENT::ACTION_END);
-			}
+			state = PHASE_DETAIL::DEFAULT;
+			Notify(EVENT::ACTION_END);
 		}
-			break;
+	}
+		break;
+	case PHASE_DETAIL::BATTLE_ENEMY_ACTION:
+	{
+		if (rAnim->IsEnd())
+		{
+			ChangeAnimAttackToIdle(rAnim->GetAnimationState(), rAnim);
+
+			state = PHASE_DETAIL::DEFAULT;
+
+			Notify(EVENT::ACTION_END);
 		}
+	}
+		break;
+	}
+}
+
+void Enemy::Attacked(Damage _dmg, DIRECTION _dir)
+{
+	int pDmg = _dmg.str - def;
+	int mDmg = _dmg.mgc - mDef;
+	if (pDmg < 0) pDmg = 0;
+	if (mDmg < 0) mDmg = 0;
+	int tDmg = pDmg + mDmg;
+	if (tDmg <= 0) tDmg = 1;
+	hp -= tDmg;
+
+	RenderedAnimator* rAnim = gameObject->GetComponent<RenderedAnimator>();
+
+	switch (_dir)
+	{
+	case DIRECTION::LEFT_BOTTOM:
+		rAnim->ChangeAnimation(CHARACTER_STATE::ATTACKED_LEFT_BOTTOM);
+		break;
+	case DIRECTION::LEFT_TOP:
+		rAnim->ChangeAnimation(CHARACTER_STATE::ATTACKED_LEFT_TOP);
+		break;
+	case DIRECTION::RIGHT_BOTTOM:
+		rAnim->ChangeAnimation(CHARACTER_STATE::ATTACKED_RIGHT_BOTTOM);
+		break;
+	default:
+		rAnim->ChangeAnimation(CHARACTER_STATE::ATTACKED_RIGHT_TOP);
+		break;
 	}
 }
 

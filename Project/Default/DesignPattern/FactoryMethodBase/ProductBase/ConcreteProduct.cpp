@@ -489,6 +489,31 @@ GameObject* FactoryEnemySlime::CreateObject(Observer* _observer, D_POINT _pos, P
 		false, false, 12
 	);
 
+	Animation* attackedLeftBottom = new Animation();
+	attackedLeftBottom->Init(
+		KEY_SLIME_ATTACKED_LEFT,
+		POINT{ -20, -44 }, CHARACTER_STATE::ATTACKED_LEFT_BOTTOM,
+		false, false, 8
+	);
+	Animation* attackedLeftTop = new Animation();
+	attackedLeftTop->Init(
+		KEY_SLIME_ATTACKED_LEFT,
+		POINT{ -20, -44 }, CHARACTER_STATE::ATTACKED_LEFT_TOP,
+		false, false, 8
+	);
+	Animation* attackedRightBottom = new Animation();
+	attackedRightBottom->Init(
+		KEY_SLIME_ATTACKED_RIGHT,
+		POINT{-20, -44 }, CHARACTER_STATE::ATTACKED_RIGHT_BOTTOM,
+		false, false, 8
+	);
+	Animation* attackedRightTop = new Animation();
+	attackedRightTop->Init(
+		KEY_SLIME_ATTACKED_RIGHT,
+		POINT{ -20, -44 }, CHARACTER_STATE::ATTACKED_RIGHT_TOP,
+		false, false, 8
+	);
+
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, idleLeftBottom);
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_TOP, idleLeftTop);
 	rAnim->AddAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM, idleRightBottom);
@@ -504,12 +529,17 @@ GameObject* FactoryEnemySlime::CreateObject(Observer* _observer, D_POINT _pos, P
 	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_RIGHT_BOTTOM, attackRightBottom);
 	rAnim->AddAnimation(CHARACTER_STATE::ATTACK_RIGHT_TOP, attackRightTop);
 
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACKED_LEFT_BOTTOM, attackedLeftBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACKED_LEFT_TOP, attackedLeftTop);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACKED_RIGHT_BOTTOM, attackedRightBottom);
+	rAnim->AddAnimation(CHARACTER_STATE::ATTACKED_RIGHT_TOP, attackedRightTop);
+
 	rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
 
 	Enemy* enemy = new Enemy();
 	enemy->SetAbility(
 		10, 10,
-		5, 0, 0, 0, 0
+		7, 0, 0, 0, 0
 	);
 	enemy->AddObserver(_observer);
 	enemy->SetGridPos(_gridPos);

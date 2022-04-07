@@ -302,6 +302,15 @@ const std::wstring KEY_SLIME_ATTACK_RIGHT_TOP =
 	L"SLIME_ATTACK_RIGHT_TOP";
 const wchar_t* DIR_SLIME_ATTACK_RIGHT_TOP =
 	L"Resources/Images/Enemy/Slime/Attack/Attack_RightTop.bmp";
+
+const std::wstring KEY_SLIME_ATTACKED_LEFT =
+	L"SLIME_ATTACKED_LEFT";
+const wchar_t* DIR_SLIME_ATTACKED_LEFT =
+	L"Resources/Images/Enemy/Slime/Attacked/Attacked_LeftTop.bmp";
+const std::wstring KEY_SLIME_ATTACKED_RIGHT =
+	L"SLIME_ATTACKED_RIGHT";
+const wchar_t* DIR_SLIME_ATTACKED_RIGHT =
+	L"Resources/Images/Enemy/Slime/Attacked/Attacked_RightTop.bmp";
 #pragma endregion Slime
 #pragma endregion Enemy
 #pragma endregion Sprite

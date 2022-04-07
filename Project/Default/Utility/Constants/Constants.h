@@ -176,6 +176,11 @@ extern const std::wstring KEY_SLIME_ATTACK_RIGHT_BOTTOM;
 extern const wchar_t* DIR_SLIME_ATTACK_RIGHT_BOTTOM;
 extern const std::wstring KEY_SLIME_ATTACK_RIGHT_TOP;
 extern const wchar_t* DIR_SLIME_ATTACK_RIGHT_TOP;
+
+extern const std::wstring KEY_SLIME_ATTACKED_LEFT;
+extern const wchar_t* DIR_SLIME_ATTACKED_LEFT;
+extern const std::wstring KEY_SLIME_ATTACKED_RIGHT;
+extern const wchar_t* DIR_SLIME_ATTACKED_RIGHT;
 #pragma endregion Slime
 #pragma endregion Enemy
 #pragma endregion Sprite

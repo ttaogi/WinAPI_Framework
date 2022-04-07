@@ -188,3 +188,14 @@ void Player::Stay()
 {
 	state = PHASE_DETAIL::DEFAULT;
 }
+
+void Player::Attacked(Damage _dmg, DIRECTION _dir)
+{
+	int pDmg = _dmg.str - def;
+	int mDmg = _dmg.mgc - mDef;
+	if (pDmg < 0) pDmg = 0;
+	if (mDmg < 0) mDmg = 0;
+	int tDmg = pDmg + mDmg;
+	if (tDmg <= 0) tDmg = 1;
+	hp -= tDmg;
+}

@@ -12,5 +12,7 @@ public:
 
 	virtual void Update() override;
 
+	virtual void Attacked(Damage _dmg, DIRECTION _dir) override;
+
 	virtual void StartMove();
 };

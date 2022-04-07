@@ -256,6 +256,11 @@ void LoadResources()
 		->InitForAlphaBlend();
 	IMG->AddFrameImage(KEY_SLIME_ATTACK_RIGHT_TOP, DIR_SLIME_ATTACK_RIGHT_TOP, 424, 240, 4, 3, 11, true, MAGENTA)
 		->InitForAlphaBlend();
+
+	IMG->AddFrameImage(KEY_SLIME_ATTACKED_LEFT, DIR_SLIME_ATTACKED_LEFT, 160, 48, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddFrameImage(KEY_SLIME_ATTACKED_RIGHT, DIR_SLIME_ATTACKED_RIGHT, 160, 48, 4, 1, 4, true, MAGENTA)
+		->InitForAlphaBlend();
 	
 	////// sound.
 	SOUND->AddSound(KEY_SOUND_EXAMPLE, DIR_SOUND_EXAMPLE, true, true);

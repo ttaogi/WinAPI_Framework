@@ -11,6 +11,8 @@ public:
 
 	virtual void Update() override;
 
+	virtual void Attacked(Damage _dmg, DIRECTION _dir) override;
+
 	void StartMove(POINT _moveGridPos);
 	void NoMove();
 	void StartAttack(DIRECTION _dir);

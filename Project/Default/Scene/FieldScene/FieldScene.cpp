@@ -84,7 +84,6 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 			if(GAMEMANAGER->GetPhaseDetail() == PHASE_DETAIL::BATTLE_PLAYER_DEFAULT)
 			{
 				POINT gridPosClick = ((Tile*)_subject)->GetGridPos();
-				wcout << L"[Battle:Player default] Tile Click : " << gridPosClick.x << L"-" << gridPosClick.y << endl;
 
 				for (auto iter = mapData.playerVec.begin(); iter != mapData.playerVec.end(); ++iter)
 				{
@@ -114,7 +113,6 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 			else if (GAMEMANAGER->GetPhaseDetail() == PHASE_DETAIL::BATTLE_PLAYER_CHARACTER_SELECTED)
 			{
 				POINT gridPosClick = ((Tile*)_subject)->GetGridPos();
-				wcout << L"[Battle:Player character selected] Tile Click : " << gridPosClick.x << L"-" << gridPosClick.y << endl;
 
 				POINT playerGridPos = selectedObj->GetComponent<Player>()->GetGridPos();
 
@@ -138,7 +136,7 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 					for (auto iter = mapData.enemyVec.begin(); iter != mapData.enemyVec.end(); ++iter)
 					{
 						POINT p = (*iter)->GetComponent<Enemy>()->GetGridPos();
-						if (PointEqual(p, gridPosClick)) return;
+						if (PointEqual(p, gridPosClick) && (*iter)->GetComponent<Enemy>()->GetHp() > 0) return;
 					}
 
 					for (auto iterCol = mapData.tileVec.begin(); iterCol != mapData.tileVec.end(); ++iterCol)
@@ -157,7 +155,8 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 			} // PHASE_DETAIL::BATTLE_PLAYER_SELECTING_DIRECTION
 			else if (GAMEMANAGER->GetPhaseDetail() == PHASE_DETAIL::BATTLE_PLAYER_SELECTING_ACTION)
 			{
-				POINT playerGridPos = selectedObj->GetComponent<Player>()->GetGridPos();
+				Player* player = selectedObj->GetComponent<Player>();
+				POINT playerGridPos = player->GetGridPos();
 				POINT tileGridPos = ((Tile*)_subject)->GetGridPos();
 
 				if (GridPosDist(playerGridPos, tileGridPos) == 1)
@@ -168,14 +167,32 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 
 						if (PointEqual(tileGridPos, enemyGridPos))
 						{
-							if (playerGridPos.x - 1 == tileGridPos.x)
-								selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::LEFT_TOP);
-							else if (playerGridPos.x + 1 == tileGridPos.x)
-								selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::RIGHT_BOTTOM);
-							else if (playerGridPos.y - 1 == tileGridPos.y)
-								selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::RIGHT_TOP);
+							Damage dmg;
+							if (player->GetStr() > player->GetMgc())
+								dmg = Damage{ player->GetStr(), 0 };
 							else
+								dmg = Damage{ 0, player->GetMgc() };
+
+							if (playerGridPos.x - 1 == tileGridPos.x)
+							{
+								selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::LEFT_TOP);
+								(*iter)->GetComponent<Enemy>()->Attacked(dmg, DIRECTION::RIGHT_BOTTOM);
+							}
+							else if (playerGridPos.x + 1 == tileGridPos.x)
+							{
+								selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::RIGHT_BOTTOM);
+								(*iter)->GetComponent<Enemy>()->Attacked(dmg, DIRECTION::LEFT_TOP);
+							}
+							else if (playerGridPos.y - 1 == tileGridPos.y)
+							{
+								selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::RIGHT_TOP);
+								(*iter)->GetComponent<Enemy>()->Attacked(dmg, DIRECTION::LEFT_BOTTOM);
+							}
+							else
+							{
 								selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::LEFT_BOTTOM);
+								(*iter)->GetComponent<Enemy>()->Attacked(dmg, DIRECTION::RIGHT_TOP);
+							}
 
 							for(auto iterCol = mapData.tileVec.begin(); iterCol != mapData.tileVec.end(); ++iterCol)
 								for (auto iter = iterCol->begin(); iter != iterCol->end(); ++iter)
@@ -244,6 +261,12 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 				}
 			} // PHASE_DETAIL::BATTLE_ENEMY_DEFAULT
 		}
+		break;
+	case EVENT::DIE:
+	{
+		Enemy* e = (Enemy*)_subject;
+		e->gameObject->SetActive(false);
+	}
 		break;
 	}
 }

@@ -36,6 +36,7 @@ public:
 	virtual void Render() = 0;
 
 	MapData* GetMapData() { return &mapData; }
+
 	bool IsEmpty(POINT _gridPos);
 
 	void LoadMapData(MapData* _mapData);
