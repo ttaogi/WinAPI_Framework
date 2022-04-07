@@ -205,6 +205,9 @@
     <Filter Include="API_Framework\Script\Character\Enemy">
       <UniqueIdentifier>{940e106a-9d4f-4645-9051-dcdfd9707847}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\Script\Effect">
+      <UniqueIdentifier>{6cb14681-677d-402c-bd1e-648fe8816ab3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -390,6 +393,9 @@
     </ClCompile>
     <ClCompile Include="Script\Character\Enemy\Enemy.cpp">
       <Filter>API_Framework\Script\Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Effect\Explosion.cpp">
+      <Filter>API_Framework\Script\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -584,6 +590,9 @@
     </ClInclude>
     <ClInclude Include="Script\Character\Enemy\Enemy.h">
       <Filter>API_Framework\Script\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Effect\Explosion.h">
+      <Filter>API_Framework\Script\Effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
