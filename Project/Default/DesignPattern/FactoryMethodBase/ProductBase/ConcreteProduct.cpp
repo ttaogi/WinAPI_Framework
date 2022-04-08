@@ -204,25 +204,25 @@ GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POI
 	Animation* attackLeftBottom = new Animation();
 	attackLeftBottom->Init(
 		KEY_AL_ATTACK_LEFT_BOTTOM,
-		POINT{ -40, -68 }, CHARACTER_STATE::ATTACK_LEFT_BOTTOM,
+		POINT{ -48, -70 }, CHARACTER_STATE::ATTACK_LEFT_BOTTOM,
 		false, false, 6
 	);
 	Animation* attackLeftTop = new Animation();
 	attackLeftTop->Init(
 		KEY_AL_ATTACK_LEFT_TOP,
-		POINT{ -40, -68 }, CHARACTER_STATE::ATTACK_LEFT_TOP,
+		POINT{ -40, -66 }, CHARACTER_STATE::ATTACK_LEFT_TOP,
 		false, false, 6
 	);
 	Animation* attackRightBottom = new Animation();
 	attackRightBottom->Init(
 		KEY_AL_ATTACK_RIGHT_BOTTOM,
-		POINT{ -40, -68 }, CHARACTER_STATE::ATTACK_RIGHT_BOTTOM,
+		POINT{ -32, -70 }, CHARACTER_STATE::ATTACK_RIGHT_BOTTOM,
 		false, false, 6
 	);
 	Animation* attackRightTop = new Animation();
 	attackRightTop->Init(
 		KEY_AL_ATTACK_RIGHT_TOP,
-		POINT{ -40, -68 }, CHARACTER_STATE::ATTACK_RIGHT_TOP,
+		POINT{ -40, -66 }, CHARACTER_STATE::ATTACK_RIGHT_TOP,
 		false, false, 6
 	);
 

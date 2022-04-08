@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ROOT>
     <DIALOG_SPOT_GUILD mapSize="1">
-        <default cycleName="길드 기본 다이얼로그" cycleSize="5">
-            <dialog_0 upper="1" spriteKey="UI_PORTRAIT_GUILD_DEFAULT_SPRITE" name="길드 아저씨" text="일없어요." />
-            <dialog_1 upper="0" spriteKey="UI_PORTRAIT_KARIN_DEFAULT_SPRITE" name="카린" text="그렇게 된 건가." />
-            <dialog_2 upper="1" spriteKey="UI_PORTRAIT_GUILD_DEFAULT_SPRITE" name="길드 아저씨" text="ㅇㅇ" />
-            <dialog_3 upper="0" spriteKey="UI_PORTRAIT_KARIN_DEFAULT_SPRITE" name="카린" text="ㅇㅇ" />
-            <dialog_4 upper="1" spriteKey="UI_PORTRAIT_GUILD_DEFAULT_SPRITE" name="길드 아저씨" text="ㅅㄱ" />
+        <default cycleName="길드 기본 다이얼로그" cycleSize="3">
+            <dialog_0 upper="1" spriteKey="UI_PORTRAIT_GUILD_SAD_SPRITE" name="길드 아저씨" text="일없어요." />
+            <dialog_1 upper="0" spriteKey="UI_PORTRAIT_KARIN_DEFAULT_SPRITE" name="카린" text="안녕히 계세요." />
+            <dialog_2 upper="1" spriteKey="UI_PORTRAIT_GUILD_SAD_SPRITE" name="길드 아저씨" text="잘가" />
         </default>
-        <dialogCycle_0 cycleName="테스트" cycleSize="2" processivity="0">
+        <dialogCycle_0 cycleName="테스트" cycleSize="4" processivity="0">
             <dialog_0 upper="1" spriteKey="UI_PORTRAIT_GUILD_DEFAULT_SPRITE" name="길드 아저씨" text="테스트다" />
-            <dialog_1 upper="0" spriteKey="UI_PORTRAIT_KARIN_DEFAULT_SPRITE" name="카린" text="ㅇㅋ" />
+            <dialog_1 upper="0" spriteKey="UI_PORTRAIT_KARIN_DEFAULT_SPRITE" name="카린" text="뭔데요?" />
+            <dialog_2 upper="1" spriteKey="UI_PORTRAIT_GUILD_DEFAULT_SPRITE" name="길드 아저씨" text="마을 밖에 있는 슬라임을 잡아오면 된다." />
+            <dialog_3 upper="0" spriteKey="UI_PORTRAIT_KARIN_DEFAULT_SPRITE" name="카린" text="너무 간단한 것 같은 기분이 들지만, 좋아!" />
         </dialogCycle_0>
     </DIALOG_SPOT_GUILD>
     <DIALOG_SPOT_SHOP mapSize="0">

@@ -95,10 +95,15 @@ extern const wchar_t* DIR_TILE_GRASS_Z1_SPRITE;
 #pragma region Portrait
 extern const std::wstring KEY_UI_PORTRAIT_AL_DEFAULT_SPRITE;
 extern const wchar_t* DIR_UI_PORTRAIT_AL_DEFAULT_SPRITE;
+
 extern const std::wstring KEY_UI_PORTRAIT_GUILD_DEFAULT_SPRITE;
 extern const wchar_t* DIR_UI_PORTRAIT_GUILD_DEFAULT_SPRITE;
+extern const std::wstring KEY_UI_PORTRAIT_GUILD_SAD_SPRITE;
+extern const wchar_t* DIR_UI_PORTRAIT_GUILD_SAD_SPRITE;
+
 extern const std::wstring KEY_UI_PORTRAIT_KARIN_DEFAULT_SPRITE;
 extern const wchar_t* DIR_UI_PORTRAIT_KARIN_DEFAULT_SPRITE;
+
 extern const std::wstring KEY_UI_PORTRAIT_SHOP_DEFAULT_SPRITE;
 extern const wchar_t* DIR_UI_PORTRAIT_SHOP_DEFAULT_SPRITE;
 #pragma endregion Portrait

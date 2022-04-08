@@ -155,14 +155,21 @@ const std::wstring KEY_UI_PORTRAIT_AL_DEFAULT_SPRITE =
 	L"UI_PORTRAIT_AL_DEFAULT_SPRITE";
 const wchar_t* DIR_UI_PORTRAIT_AL_DEFAULT_SPRITE =
 	L"Resources/Images/UI/Portrait/Al/Default.bmp";
+
 const std::wstring KEY_UI_PORTRAIT_GUILD_DEFAULT_SPRITE =
 	L"UI_PORTRAIT_GUILD_DEFAULT_SPRITE";
 const wchar_t* DIR_UI_PORTRAIT_GUILD_DEFAULT_SPRITE =
 	L"Resources/Images/UI/Portrait/Guild/Default.bmp";
+const std::wstring KEY_UI_PORTRAIT_GUILD_SAD_SPRITE =
+	L"UI_PORTRAIT_GUILD_SAD_SPRITE";
+const wchar_t* DIR_UI_PORTRAIT_GUILD_SAD_SPRITE =
+	L"Resources/Images/UI/Portrait/Guild/Sad.bmp";
+
 const std::wstring KEY_UI_PORTRAIT_KARIN_DEFAULT_SPRITE =
 	L"UI_PORTRAIT_KARIN_DEFAULT_SPRITE";
 const wchar_t* DIR_UI_PORTRAIT_KARIN_DEFAULT_SPRITE =
 	L"Resources/Images/UI/Portrait/Karin/Default.bmp";
+
 const std::wstring KEY_UI_PORTRAIT_SHOP_DEFAULT_SPRITE =
 	L"UI_PORTRAIT_SHOP_DEFAULT_SPRITE";
 const wchar_t* DIR_UI_PORTRAIT_SHOP_DEFAULT_SPRITE =
