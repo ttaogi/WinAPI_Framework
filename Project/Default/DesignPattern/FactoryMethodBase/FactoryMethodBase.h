@@ -86,3 +86,12 @@ public:
 	virtual GameObject* CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos) = 0;
 };
 #pragma endregion FactoryMethodBaseTile
+
+
+#pragma region FactoryMethodBaseEffect
+class FactoryMethodBaseEffect
+{
+public:
+	virtual GameObject* CreateObject(EFFECT_FACTORY_TYPE _type, POINT _gridPos) = 0;
+};
+#pragma endregion FactoryMethodBaseEffect

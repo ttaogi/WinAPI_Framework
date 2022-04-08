@@ -4,13 +4,13 @@
 
 class RenderedAnimator;
 
-class Explosion : public MonoBehaviour
+class FlameBurst : public MonoBehaviour
 {
 private:
 	RenderedAnimator* rAnim;
 public:
-	Explosion();
-	virtual ~Explosion() { }
+	FlameBurst();
+	virtual ~FlameBurst() { }
 
 	virtual void Operation() override { }
 

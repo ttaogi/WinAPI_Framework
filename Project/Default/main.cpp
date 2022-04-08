@@ -261,6 +261,10 @@ void LoadResources()
 		->InitForAlphaBlend();
 	IMG->AddFrameImage(KEY_SLIME_ATTACKED_RIGHT, DIR_SLIME_ATTACKED_RIGHT, 160, 48, 4, 1, 4, true, MAGENTA)
 		->InitForAlphaBlend();
+
+	// effect.
+	IMG->AddFrameImage(KEY_EFFECT_FLAME_BURST, DIR_EFFECT_FLAME_BURST, 560, 1000, 4, 5, 17, true, MAGENTA)
+		->InitForAlphaBlend();
 	
 	////// sound.
 	SOUND->AddSound(KEY_SOUND_EXAMPLE, DIR_SOUND_EXAMPLE, true, true);

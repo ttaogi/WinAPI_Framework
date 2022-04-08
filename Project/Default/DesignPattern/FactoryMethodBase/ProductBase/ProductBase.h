@@ -81,3 +81,12 @@ public:
 	virtual GameObject* CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos) = 0;
 };
 #pragma endregion ProductBaseTile
+
+
+#pragma region ProductBaseEffect
+class ProductBaseEffect
+{
+public:
+	virtual GameObject* CreateObject(POINT _gridPos) = 0;
+};
+#pragma endregion ProductBaseEffect

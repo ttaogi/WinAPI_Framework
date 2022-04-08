@@ -183,6 +183,12 @@ extern const std::wstring KEY_SLIME_ATTACKED_RIGHT;
 extern const wchar_t* DIR_SLIME_ATTACKED_RIGHT;
 #pragma endregion Slime
 #pragma endregion Enemy
+
+
+#pragma region Effect
+extern const std::wstring KEY_EFFECT_FLAME_BURST;
+extern const wchar_t* DIR_EFFECT_FLAME_BURST;
+#pragma endregion Effect
 #pragma endregion Sprite
 
 ///////////////////////

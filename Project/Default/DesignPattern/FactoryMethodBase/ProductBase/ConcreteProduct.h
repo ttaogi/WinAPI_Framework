@@ -93,3 +93,12 @@ public:
 	virtual GameObject* CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos);
 };
 #pragma endregion ProductBaseTile
+
+
+#pragma region ProductBaseEffect
+class FactoryEffectFlameBurst : public ProductBaseEffect
+{
+public:
+	virtual GameObject* CreateObject(POINT _gridPos);
+};
+#pragma endregion ProductBaseEffect

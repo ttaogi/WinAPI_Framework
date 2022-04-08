@@ -313,6 +313,14 @@ const wchar_t* DIR_SLIME_ATTACKED_RIGHT =
 	L"Resources/Images/Enemy/Slime/Attacked/Attacked_RightTop.bmp";
 #pragma endregion Slime
 #pragma endregion Enemy
+
+
+#pragma region Effect
+const std::wstring KEY_EFFECT_FLAME_BURST =
+	L"EFFECT_FLAME_BURST";
+const wchar_t* DIR_EFFECT_FLAME_BURST =
+	L"Resources/Images/Effect/FlameBurst/FlameBurst.bmp";
+#pragma endregion Effect
 #pragma endregion Sprite
 
 ///////////////////////

@@ -219,3 +219,30 @@ GameObject* FactoryMethodTile::CreateObject(TILE_TYPE _type, Observer* _observer
 	return go;
 }
 #pragma endregion FactoryMethodBaseTile
+
+
+#pragma region FactoryMethodBaseEffect
+FactoryMethodEffect::FactoryMethodEffect()
+{
+	flameBurst = new FactoryEffectFlameBurst();
+}
+
+FactoryMethodEffect::~FactoryMethodEffect()
+{
+	SAFE_DELETE(flameBurst);
+}
+
+GameObject* FactoryMethodEffect::CreateObject(EFFECT_FACTORY_TYPE _type, POINT _gridPos)
+{
+	GameObject* go = NULL;
+
+	switch (_type)
+	{
+	case EFFECT_FACTORY_TYPE::FLAME_BURST:
+		go = flameBurst->CreateObject(_gridPos);
+		break;
+	}
+
+	return go;
+}
+#pragma endregion FactoryMethodBaseEffect

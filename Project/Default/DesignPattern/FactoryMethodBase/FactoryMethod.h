@@ -123,3 +123,17 @@ public:
 	virtual GameObject* CreateObject(TILE_TYPE _type, Observer* _observer, POINT _gridPos) override;
 };
 #pragma endregion FactoryMethodBaseTile
+
+
+#pragma region FactoryMethodBaseEffect
+class FactoryMethodEffect : public FactoryMethodBaseEffect, public SingletonBase<FactoryMethodEffect>
+{
+private:
+	FactoryEffectFlameBurst* flameBurst;
+public:
+	FactoryMethodEffect();
+	virtual ~FactoryMethodEffect();
+
+	virtual GameObject* CreateObject(EFFECT_FACTORY_TYPE _type, POINT _gridPos);
+};
+#pragma endregion FactoryMethodBaseEffect

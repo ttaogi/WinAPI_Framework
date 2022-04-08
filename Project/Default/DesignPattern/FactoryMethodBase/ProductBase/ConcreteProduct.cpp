@@ -14,9 +14,10 @@
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
 #include "Image/Animation/Animation.h"
 #include "Image/Image.h"
-#include "Script/DialogViewer/DialogViewer.h"
 #include "Script/Character/Player/Player.h"
 #include "Script/Character/Enemy/Enemy.h"
+#include "Script/DialogViewer/DialogViewer.h"
+#include "Script/Effect/FlameBurst.h"
 #include "Script/ShopList/ShopList.h"
 #include "Script/Tile/Tile.h"
 
@@ -24,6 +25,7 @@ static int uiCount = 0;
 static int characterCount = 0;
 static int platformCount = 0;
 static int tileCount = 0;
+static int effectCount = 0;
 
 #pragma region ProductBaseButton
 GameObject* FactoryDefaultButton::CreateObject(
@@ -256,6 +258,7 @@ GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POI
 	);
 	player->AddObserver(_observer);
 	player->SetGridPos(_gridPos);
+	player->SetId(CHARACTER_ID::AL);
 	player->Init();
 
 	go->AddComponent(rAnim);
@@ -385,6 +388,7 @@ GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, 
 	);
 	player->AddObserver(_observer);
 	player->SetGridPos(_gridPos);
+	player->SetId(CHARACTER_ID::KARIN);
 	player->Init();
 
 	go->AddComponent(rAnim);
@@ -972,3 +976,40 @@ GameObject* FactoryDefaultTile::CreateObject(TILE_TYPE _type, Observer* _observe
 }
 #pragma endregion ProductBaseTile
 
+
+#pragma region ProductBaseEffect
+/*
+GameObject
+-RenderedAnimator
+*/
+GameObject* FactoryEffectFlameBurst::CreateObject(POINT _gridPos)
+{
+	D_POINT dPos;
+	dPos = GridPosToPos(_gridPos);
+
+	GameObject* go = new GameObject();
+	go->GetComponent<Transform>()->SetPosition(dPos);
+	RenderedAnimator* rAnim = new RenderedAnimator();
+	rAnim->SetSortingLayer(SORTING_LAYER::EFFECT);
+	rAnim->SetOrderInLayer(effectCount++);
+	rAnim->SetByCamera(true);
+	rAnim->Init();
+	FlameBurst* flameBurst = new FlameBurst();
+	flameBurst->SetRAnim(rAnim);
+
+	Animation* anim = new Animation();
+	anim->Init(
+		KEY_EFFECT_FLAME_BURST,
+		POINT{ -70, -200 }, CHARACTER_STATE::IDLE_LEFT_BOTTOM,
+		false, false, 15
+	);
+
+	rAnim->AddAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM, anim);
+
+	go->AddComponent(rAnim);
+	go->AddComponent(flameBurst);
+	go->SetTag(TAG::EFFECT);
+
+	return go;
+}
+#pragma endregion ProductBaseEffect

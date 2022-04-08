@@ -394,7 +394,7 @@
     <ClCompile Include="Script\Character\Enemy\Enemy.cpp">
       <Filter>API_Framework\Script\Character\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Script\Effect\Explosion.cpp">
+    <ClCompile Include="Script\Effect\FlameBurst.cpp">
       <Filter>API_Framework\Script\Effect</Filter>
     </ClCompile>
   </ItemGroup>
@@ -591,7 +591,7 @@
     <ClInclude Include="Script\Character\Enemy\Enemy.h">
       <Filter>API_Framework\Script\Character\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Script\Effect\Explosion.h">
+    <ClInclude Include="Script\Effect\FlameBurst.h">
       <Filter>API_Framework\Script\Effect</Filter>
     </ClInclude>
   </ItemGroup>
