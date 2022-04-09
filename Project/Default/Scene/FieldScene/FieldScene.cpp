@@ -324,17 +324,10 @@ HRESULT FieldScene::Init()
 
 	if (!MAPDATA->GetMapData(XML_DOC_FIELD_MAP_DATA, this, mapData)) return E_FAIL;
 
-	//GameObject* toTownButton = FACTORY_METHOD_BUTTON->CreateObject(
-	//	BUTTON_FACTORY_TYPE::MOUSE_ON,
-	//	std::bind(&SceneManager::SetNextSceneKeyTownScene, SCENE),
-	//	D_POINT{ 590, 455 }, 100, 50,
-	//	IMG->FindImage(KEY_UI_TOWN_TO_FIELD_BUTTON_SPRITE));
-
 	GameObject* dialogViewer = FACTORY_METHOD_DIALOGVIEWER->CreateObject(this, DIALOG_SPOT_FIELD, -1);
 
 	root = new GameObject();
 	LoadMapData(&mapData);
-	//root->AddGameObject(toTownButton);
 	root->AddGameObject(dialogViewer);
 
 	SOUND->Play(KEY_SOUND_FIELD_THEME, GAMEDATA->GetVolume());

@@ -12,7 +12,7 @@ bool Scene::IsEmpty(POINT _gridPos)
 	for (auto iter = mapData.playerVec.begin(); iter != mapData.playerVec.end(); ++iter)
 		if (PointEqual((*iter)->GetComponent<Player>()->GetGridPos(), _gridPos)) return false;
 	for (auto iter = mapData.enemyVec.begin(); iter != mapData.enemyVec.end(); ++iter)
-		if (PointEqual((*iter)->GetComponent<Enemy>()->GetGridPos(), _gridPos)) return false;
+		if (PointEqual((*iter)->GetComponent<Enemy>()->GetGridPos(), _gridPos) && (*iter)->GetComponent<Enemy>()->GetHp() > 0) return false;
 
 	return true;
 }
