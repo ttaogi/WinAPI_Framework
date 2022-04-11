@@ -3,10 +3,12 @@
 #include "Script/Character/Enemy/Enemy.h"
 
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
+#include "DesignPattern/ComponentBase/Component/RectTransform/RectTransform.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/RenderedAnimator/RenderedAnimator.h"
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
 #include "Scene/Scene.h"
 #include "Script/Character/Player/Player.h"
+#include "Script/HpBar/HpBar.h"
 
 Enemy::Enemy()
 	: Component((const Component_ID)typeid(Enemy).name())
@@ -21,6 +23,13 @@ void Enemy::Update()
 	PHASE_DETAIL phaseDetail = GAMEMANAGER->GetPhaseDetail();
 	Scene* scene = (Scene*)observerVec[0];
 	MapData* mapData = scene->GetMapData();
+	RECT enemyRc = gameObject->GetComponent<RectTransform>()->GetScreenRectByCamera();
+
+	if (PtInRect(&enemyRc, POINT_MOUSE) && !observerVec.empty())
+	{
+		if (scene->GetHpBar())
+			scene->GetHpBar()->PrepareRender(((float)hp / hpMax));
+	}
 
 	switch (state)
 	{

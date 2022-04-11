@@ -6,6 +6,7 @@
 #include "Script/Character/Player/Player.h"
 #include "Script/Character/Enemy/Enemy.h"
 #include "Script/DialogViewer/DialogViewer.h"
+#include "Script/HpBar/HpBar.h"
 #include "Script/Tile/Tile.h"
 
 FieldScene::FieldScene() { }
@@ -320,15 +321,20 @@ HRESULT FieldScene::Init()
 	backgroundImage = IMG->FindImage(KEY_BACKGROUND_FIELD);
 	root = NULL;
 	selectedObj = NULL;
+	hpBar = NULL;
 	enemyVec.clear();
 
 	if (!MAPDATA->GetMapData(XML_DOC_FIELD_MAP_DATA, this, mapData)) return E_FAIL;
 
 	GameObject* dialogViewer = FACTORY_METHOD_DIALOGVIEWER->CreateObject(this, DIALOG_SPOT_FIELD, -1);
+	GameObject* hpBarGo = FACTORY_HP_BAR->CreateObject();
+
+	hpBar = hpBarGo->GetComponent<HpBar>();
 
 	root = new GameObject();
 	LoadMapData(&mapData);
 	root->AddGameObject(dialogViewer);
+	root->AddGameObject(hpBarGo);
 
 	SOUND->Play(KEY_SOUND_FIELD_THEME, GAMEDATA->GetVolume());
 
@@ -356,6 +362,8 @@ void FieldScene::Update()
 	SOUND->Update();
 
 	root->Update();
+
+	root->LateUpdate();
 
 	CAMERA->Update();
 }

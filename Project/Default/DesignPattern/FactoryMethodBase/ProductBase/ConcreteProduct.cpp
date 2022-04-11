@@ -18,6 +18,7 @@
 #include "Script/Character/Enemy/Enemy.h"
 #include "Script/DialogViewer/DialogViewer.h"
 #include "Script/Effect/FlameBurst.h"
+#include "Script/HpBar/HpBar.h"
 #include "Script/ShopList/ShopList.h"
 #include "Script/Tile/Tile.h"
 
@@ -135,6 +136,7 @@ GameObject* FactoryDefaultBar::CreateObject(
 #pragma region ProductBasePlayer
 /*
 AL
+-RectTransform
 -RenderedAnimator
 -Player
 */
@@ -144,6 +146,9 @@ GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POI
 	D_POINT pos{ (double)GridPosToPos(_gridPos).x, (double)GridPosToPos(_gridPos).y };
 	go->GetComponent<Transform>()->SetPosition(pos);
 	//go->GetComponent<Transform>()->SetPosition(_pos);
+
+	RectTransform* rcT = new RectTransform();
+	rcT->SetRect(TILE_WIDTH / 2, TILE_HEIGHT_Z0 / 2);
 
 	RenderedAnimator* rAnim = new RenderedAnimator();
 	rAnim->SetSortingLayer(SORTING_LAYER::CHARACTER);
@@ -261,6 +266,7 @@ GameObject* FactoryPlayerAl::CreateObject(Observer* _observer, D_POINT _pos, POI
 	player->SetId(CHARACTER_ID::AL);
 	player->Init();
 
+	go->AddComponent(rcT);
 	go->AddComponent(rAnim);
 	go->AddComponent(player);
 	go->SetTag(TAG::PLAYER);
@@ -274,6 +280,9 @@ GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, 
 	D_POINT pos{ (double)GridPosToPos(_gridPos).x, (double)GridPosToPos(_gridPos).y };
 	go->GetComponent<Transform>()->SetPosition(pos);
 	//go->GetComponent<Transform>()->SetPosition(_pos);
+
+	RectTransform* rcT = new RectTransform();
+	rcT->SetRect(TILE_WIDTH / 2, TILE_HEIGHT_Z0 / 2);
 
 	RenderedAnimator* rAnim = new RenderedAnimator();
 	rAnim->SetSortingLayer(SORTING_LAYER::CHARACTER);
@@ -391,6 +400,7 @@ GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, 
 	player->SetId(CHARACTER_ID::KARIN);
 	player->Init();
 
+	go->AddComponent(rcT);
 	go->AddComponent(rAnim);
 	go->AddComponent(player);
 	go->SetTag(TAG::PLAYER);
@@ -403,6 +413,7 @@ GameObject* FactoryPlayerKarin::CreateObject(Observer* _observer, D_POINT _pos, 
 #pragma region ProductBaseEnemy
 /*
 Slime
+-RectTransform
 -RenderedAnimator
 -Enemy
 */
@@ -411,6 +422,9 @@ GameObject* FactoryEnemySlime::CreateObject(Observer* _observer, D_POINT _pos, P
 	GameObject* go = new GameObject();
 	D_POINT pos{ (double)GridPosToPos(_gridPos).x, (double)GridPosToPos(_gridPos).y };
 	go->GetComponent<Transform>()->SetPosition(pos);
+
+	RectTransform* rcT = new RectTransform();
+	rcT->SetRect(TILE_WIDTH / 2, TILE_HEIGHT_Z0 / 2);
 
 	RenderedAnimator* rAnim = new RenderedAnimator();
 	rAnim->SetSortingLayer(SORTING_LAYER::CHARACTER);
@@ -549,8 +563,9 @@ GameObject* FactoryEnemySlime::CreateObject(Observer* _observer, D_POINT _pos, P
 	enemy->SetGridPos(_gridPos);
 	enemy->Init();
 
-	go->AddComponent(enemy);
+	go->AddComponent(rcT);
 	go->AddComponent(rAnim);
+	go->AddComponent(enemy);
 	go->SetTag(TAG::ENEMY);
 
 	return go;
@@ -1013,3 +1028,60 @@ GameObject* FactoryEffectFlameBurst::CreateObject(POINT _gridPos)
 	return go;
 }
 #pragma endregion ProductBaseEffect
+
+
+#pragma region ProductBaseHpBar
+/*
+GameObject
+-HpBar
+
+	Background
+	-RectTransform
+	-RenderedImage
+
+	Hp
+	-RectTransform
+	-RenderedImage
+*/
+GameObject* FactoryHpBar::CreateObject()
+{
+	GameObject* go = new GameObject();
+	go->GetComponent<Transform>()->SetPosition(D_POINT{ 70, 450 });
+	HpBar* hpBar = new HpBar();
+	hpBar->Init();
+	go->AddComponent(hpBar);
+
+	GameObject* background = new GameObject();
+	background->GetComponent<Transform>()->SetPosition(D_POINT{ 70, 450 });
+	RectTransform* bgRcT = new RectTransform();
+	bgRcT->SetRect(HP_BAR_WIDTH, HP_BAR_HEIGHT);
+	RenderedImage* bgRImg = new RenderedImage();
+	bgRImg->SetImage(IMG->FindImage(KEY_UI_HP_BAR_BACKGROUND_SPRITE));
+	bgRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::LOOP);
+	bgRImg->SetByCamera(false);
+	bgRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
+	bgRImg->SetOrderInLayer(uiCount++);
+	background->AddComponent(bgRcT);
+	background->AddComponent(bgRImg);
+	background->SetName(SKIG_HP_BAR_BACKGROUND);
+
+	GameObject* hp = new GameObject();
+	hp->GetComponent<Transform>()->SetPosition(D_POINT{ 70, 450 });
+	RectTransform* hpRcT = new RectTransform();
+	hpRcT->SetRect(HP_BAR_WIDTH, HP_BAR_HEIGHT);
+	RenderedImage* hpRImg = new RenderedImage();
+	hpRImg->SetImage(IMG->FindImage(KEY_UI_HP_BAR_HP_SPRITE));
+	hpRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::LOOP);
+	hpRImg->SetByCamera(false);
+	hpRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
+	hpRImg->SetOrderInLayer(uiCount++);
+	hp->AddComponent(hpRcT);
+	hp->AddComponent(hpRImg);
+	hp->SetName(SKIG_HP_BAR_HP);
+	
+	go->AddGameObject(background);
+	go->AddGameObject(hp);
+
+	return go;
+}
+#pragma endregion ProductBaseHpBar

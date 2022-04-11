@@ -137,3 +137,17 @@ public:
 	virtual GameObject* CreateObject(EFFECT_FACTORY_TYPE _type, POINT _gridPos);
 };
 #pragma endregion FactoryMethodBaseEffect
+
+
+#pragma region FactoryMethodBaseHpBar
+class FactoryMethodHpBar : public FactoryMethodBaseHpBar, public SingletonBase<FactoryMethodHpBar>
+{
+private:
+	FactoryHpBar* hpBar;
+public:
+	FactoryMethodHpBar();
+	virtual ~FactoryMethodHpBar();
+
+	virtual GameObject* CreateObject();
+};
+#pragma endregion FactoryMethodBaseHpBar

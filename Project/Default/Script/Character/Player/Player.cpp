@@ -3,8 +3,11 @@
 #include "Script/Character/Player/Player.h"
 
 #include "DesignPattern/ComponentBase/Component/Transform/Transform.h"
+#include "DesignPattern/ComponentBase/Component/RectTransform/RectTransform.h"
 #include "DesignPattern/ComponentBase/Component/Rendered/RenderedAnimator/RenderedAnimator.h"
 #include "DesignPattern/ComponentBase/GameObject/GameObject.h"
+#include "Scene/Scene.h"
+#include "Script/HpBar/HpBar.h"
 
 Player::Player()
 	: Component((const Component_ID)typeid(Player).name())
@@ -16,6 +19,14 @@ void Player::Update()
 {
 	RenderedAnimator* rAnim = gameObject->GetComponent<RenderedAnimator>();
 	CHARACTER_STATE animState = rAnim->GetAnimationState();
+	Scene* scene = (Scene*)observerVec[0];
+	RECT playerRc = gameObject->GetComponent<RectTransform>()->GetScreenRectByCamera();
+
+	if (PtInRect(&playerRc, POINT_MOUSE) && !observerVec.empty())
+	{
+		if (scene->GetHpBar())
+			scene->GetHpBar()->PrepareRender(((float)hp / hpMax));
+	}
 
 	if(GAMEMANAGER->GetPhaseDetail() == PHASE_DETAIL::BATTLE_PLAYER_MOVING)
 	{
@@ -197,5 +208,8 @@ void Player::Attacked(Damage _dmg, DIRECTION _dir)
 	if (mDmg < 0) mDmg = 0;
 	int tDmg = pDmg + mDmg;
 	if (tDmg <= 0) tDmg = 1;
+	wcout << L"HP : " << hp << endl;
 	hp -= tDmg;
+	wcout << L"Total Dmg : " << tDmg << endl;
+	wcout << L"After HP : " << hp << endl;
 }

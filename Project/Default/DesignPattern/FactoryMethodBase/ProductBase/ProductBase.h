@@ -90,3 +90,12 @@ public:
 	virtual GameObject* CreateObject(POINT _gridPos) = 0;
 };
 #pragma endregion ProductBaseEffect
+
+
+#pragma region ProductBaseHpBar
+class ProductBaseHpBar
+{
+public:
+	virtual GameObject* CreateObject() = 0;
+};
+#pragma endregion ProductBaseHpBar

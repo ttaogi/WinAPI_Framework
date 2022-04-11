@@ -93,6 +93,18 @@ const wchar_t* DIR_UI_BAR_BORDER_SPRITE =
 #pragma endregion Ui_Bar
 
 
+#pragma region Ui_HpBar
+const std::wstring KEY_UI_HP_BAR_BACKGROUND_SPRITE =
+	L"UI_HP_BAR_BACKGROUND_SPRITE";
+const wchar_t* DIR_UI_HP_BAR_BACKGROUND_SPRITE =
+	L"Resources/Images/UI/HpBar/Background.bmp";
+const std::wstring KEY_UI_HP_BAR_HP_SPRITE =
+	L"UI_HP_BAR_HP_SPRITE";
+const wchar_t* DIR_UI_HP_BAR_HP_SPRITE =
+	L"Resources/Images/UI/HpBar/Hp.bmp";
+#pragma endregion Ui_HpBar
+
+
 #pragma region UI_Dialog
 const std::wstring KEY_UI_DIALOG_BACKGROUND_SPRITE =
 	L"UI_DIALOG_BACKGROUND_SPRITE";
@@ -360,6 +372,10 @@ const std::wstring SKIG_SHOP_LIST_DESCRIPTION =
 	L"SHOP_LIST_DESCRIPTION";
 const std::wstring SKIG_TILE_TILE =
 	L"TILE_TILE";
+const std::wstring SKIG_HP_BAR_BACKGROUND =
+	L"HP_BAR_BACKGROUND";
+const std::wstring SKIG_HP_BAR_HP =
+	L"HP_BAR_HP";
 #pragma endregion Search_Keyword_In_GameObject
 
 ///////////////////////
@@ -441,6 +457,8 @@ const int TILE_HEIGHT_Z0 = 32;
 const int TILE_HEIGHT_Z1 = 48;
 const int MOVE_RANGE = 5;
 const int ENEMY_MOVE_RANGE = 2;
+const int HP_BAR_WIDTH = 100;
+const int HP_BAR_HEIGHT = 20;
 #pragma endregion Size
 
 ///////////////////////
@@ -459,6 +477,4 @@ const double MIN_LIMIT_VELOCITY_Y = 1;
 const double MAX_LIMIT_VELOCITY_X = 600;
 const double MAX_LIMIT_VELOCITY_Y = 600;
 #pragma endregion ETC
-
-
 

@@ -36,7 +36,7 @@ struct CmpRenderedPtr
 			POINT lPos = lhs->transform->GetPosition().ToPoint();
 			POINT rPos = rhs->transform->GetPosition().ToPoint();
 			if (lPos.y == rPos.y)
-				return lhs->GetOrderInLayer() < rhs->GetOrderInLayer();
+				return lhs->GetOrderInLayer() > rhs->GetOrderInLayer();
 			else
 				return lPos.y > rPos.y;
 		}

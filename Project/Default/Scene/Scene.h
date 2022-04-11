@@ -10,11 +10,12 @@
 #include "Image/Image.h"
 #include "Utility/Enums/Enums.h"
 
+class Enemy;
 class GameObject;
+class HpBar;
 class Image;
 class MainGame;
 class MapData;
-class Enemy;
 
 class Scene : public Observer
 {
@@ -23,6 +24,7 @@ protected:
 	MapData mapData;
 	GameObject* root;
 	GameObject* selectedObj;
+	HpBar* hpBar;
 	std::vector<Enemy*> enemyVec;
 public:
 	Scene() { }
@@ -36,6 +38,7 @@ public:
 	virtual void Render() = 0;
 
 	MapData* GetMapData() { return &mapData; }
+	HpBar* GetHpBar() { return hpBar; }
 
 	bool IsEmpty(POINT _gridPos);
 

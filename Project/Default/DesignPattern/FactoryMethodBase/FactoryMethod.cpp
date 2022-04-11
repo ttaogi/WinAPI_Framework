@@ -246,3 +246,25 @@ GameObject* FactoryMethodEffect::CreateObject(EFFECT_FACTORY_TYPE _type, POINT _
 	return go;
 }
 #pragma endregion FactoryMethodBaseEffect
+
+
+#pragma region FactoryMethodBaseHpBar
+FactoryMethodHpBar::FactoryMethodHpBar()
+{
+	hpBar = new FactoryHpBar();
+}
+
+FactoryMethodHpBar::~FactoryMethodHpBar()
+{
+	SAFE_DELETE(hpBar);
+}
+
+GameObject* FactoryMethodHpBar::CreateObject()
+{
+	GameObject* go = NULL;
+
+	go = hpBar->CreateObject();
+
+	return go;
+}
+#pragma endregion FactoryMethodBaseHpBar

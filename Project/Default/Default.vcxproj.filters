@@ -208,6 +208,9 @@
     <Filter Include="API_Framework\Script\Effect">
       <UniqueIdentifier>{6cb14681-677d-402c-bd1e-648fe8816ab3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\Script\HpBar">
+      <UniqueIdentifier>{09ff7f30-73bf-4dec-873a-49d22d5d0f16}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -396,6 +399,9 @@
     </ClCompile>
     <ClCompile Include="Script\Effect\FlameBurst.cpp">
       <Filter>API_Framework\Script\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\HpBar\HpBar.cpp">
+      <Filter>API_Framework\Script\HpBar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -593,6 +599,9 @@
     </ClInclude>
     <ClInclude Include="Script\Effect\FlameBurst.h">
       <Filter>API_Framework\Script\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\HpBar\HpBar.h">
+      <Filter>API_Framework\Script\HpBar</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

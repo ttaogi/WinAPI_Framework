@@ -148,6 +148,12 @@ void LoadResources()
 	IMG->AddImage(KEY_UI_BAR_BORDER_SPRITE, DIR_UI_BAR_BORDER_SPRITE, 20, 20, false, MAGENTA)
 		->InitForAlphaBlend();
 
+	// ui hp bar.
+	IMG->AddImage(KEY_UI_HP_BAR_BACKGROUND_SPRITE, DIR_UI_HP_BAR_BACKGROUND_SPRITE, 20, 20, false, MAGENTA)
+		->InitForAlphaBlend();
+	IMG->AddImage(KEY_UI_HP_BAR_HP_SPRITE, DIR_UI_HP_BAR_HP_SPRITE, 20, 20, false, MAGENTA)
+		->InitForAlphaBlend();
+
 	// ui dialog.
 	IMG->AddImage(KEY_UI_DIALOG_BACKGROUND_SPRITE, DIR_UI_DIALOG_BACKGROUND_SPRITE, 640, 160, true, MAGENTA)
 		->InitForAlphaBlend();

@@ -57,6 +57,14 @@ extern const wchar_t* DIR_UI_BAR_BORDER_SPRITE;
 #pragma endregion Ui_Bar
 
 
+#pragma region Ui_HpBar
+extern const std::wstring KEY_UI_HP_BAR_BACKGROUND_SPRITE;
+extern const wchar_t* DIR_UI_HP_BAR_BACKGROUND_SPRITE;
+extern const std::wstring KEY_UI_HP_BAR_HP_SPRITE;
+extern const wchar_t* DIR_UI_HP_BAR_HP_SPRITE;
+#pragma endregion Ui_HpBar
+
+
 #pragma region UI_Dialog
 extern const std::wstring KEY_UI_DIALOG_BACKGROUND_SPRITE;
 extern const wchar_t* DIR_UI_DIALOG_BACKGROUND_SPRITE;
@@ -217,6 +225,8 @@ extern const std::wstring SKIG_SHOP_LIST;
 extern const std::wstring SKIG_SHOP_LIST_GOLD;
 extern const std::wstring SKIG_SHOP_LIST_DESCRIPTION;
 extern const std::wstring SKIG_TILE_TILE;
+extern const std::wstring SKIG_HP_BAR_BACKGROUND;
+extern const std::wstring SKIG_HP_BAR_HP;
 #pragma endregion Search_Keyword_In_GameObject
 
 ///////////////////////
@@ -276,6 +286,8 @@ extern const int TILE_HEIGHT_Z0;
 extern const int TILE_HEIGHT_Z1;
 extern const int MOVE_RANGE;
 extern const int ENEMY_MOVE_RANGE;
+extern const int HP_BAR_WIDTH;
+extern const int HP_BAR_HEIGHT;
 #pragma endregion Size
 
 ///////////////////////
