@@ -6,6 +6,18 @@
 
 class RenderedAnimator;
 
+class NODE
+{
+public:
+	POINT id;
+	int f;
+	int g;
+	int h;
+	POINT parent;
+public:
+	bool operator<(const NODE n) const { return this->f > n.f; }
+};
+
 class Damage
 {
 public:
@@ -71,4 +83,10 @@ public:
 	void ChangeAnimAttackToIdle(CHARACTER_STATE _animState, RenderedAnimator* _rAnim);
 	void MovePos(CHARACTER_STATE _animState, Transform* _t);
 	virtual void Attacked(Damage _dmg, DIRECTION _dir) = 0;
+
+	static void PushPriorityQueue(vector<NODE>& _que, NODE _node);
+	static bool HasNode(vector<NODE>& _que, POINT _pos);
+	static void SearchNearTile(vector<NODE>& _open, vector<NODE>& _close,
+		POINT _destGridPos, Scene* _scene, NODE _parent);
+	static DIRECTION SearchRoute(Scene* _scene, POINT _startGridPos, POINT _destGridPos);
 };

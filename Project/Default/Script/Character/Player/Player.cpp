@@ -208,8 +208,6 @@ void Player::Attacked(Damage _dmg, DIRECTION _dir)
 	if (mDmg < 0) mDmg = 0;
 	int tDmg = pDmg + mDmg;
 	if (tDmg <= 0) tDmg = 1;
-	wcout << L"HP : " << hp << endl;
+
 	hp -= tDmg;
-	wcout << L"Total Dmg : " << tDmg << endl;
-	wcout << L"After HP : " << hp << endl;
 }

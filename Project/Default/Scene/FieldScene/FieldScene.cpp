@@ -167,6 +167,8 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 				{
 					for (auto iter = mapData.enemyVec.begin(); iter != mapData.enemyVec.end(); ++iter)
 					{
+						if ((*iter)->GetComponent<Enemy>()->GetHp() <= 0) continue;
+
 						POINT enemyGridPos = (*iter)->GetComponent<Enemy>()->GetGridPos();
 
 						if (PointEqual(tileGridPos, enemyGridPos))
@@ -212,27 +214,6 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 									(*iter)->GetComponent<Enemy>()->Attacked(dmg, DIRECTION::RIGHT_TOP);
 								}
 							}
-
-							//if (playerGridPos.x - 1 == tileGridPos.x)
-							//{
-							//	selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::LEFT_TOP);
-							//	(*iter)->GetComponent<Enemy>()->Attacked(dmg, DIRECTION::RIGHT_BOTTOM);
-							//}
-							//else if (playerGridPos.x + 1 == tileGridPos.x)
-							//{
-							//	selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::RIGHT_BOTTOM);
-							//	(*iter)->GetComponent<Enemy>()->Attacked(dmg, DIRECTION::LEFT_TOP);
-							//}
-							//else if (playerGridPos.y - 1 == tileGridPos.y)
-							//{
-							//	selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::RIGHT_TOP);
-							//	(*iter)->GetComponent<Enemy>()->Attacked(dmg, DIRECTION::LEFT_BOTTOM);
-							//}
-							//else
-							//{
-							//	selectedObj->GetComponent<Player>()->StartAttack(DIRECTION::LEFT_BOTTOM);
-							//	(*iter)->GetComponent<Enemy>()->Attacked(dmg, DIRECTION::RIGHT_TOP);
-							//}
 
 							for(auto iterCol = mapData.tileVec.begin(); iterCol != mapData.tileVec.end(); ++iterCol)
 								for (auto iter = iterCol->begin(); iter != iterCol->end(); ++iter)
