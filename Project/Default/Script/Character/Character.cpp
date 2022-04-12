@@ -170,7 +170,7 @@ void Character::SearchNearTile(vector<NODE>& _open, vector<NODE>& _close,
 
 DIRECTION Character::SearchRoute(Scene* _scene, POINT _startGridPos, POINT _destGridPos)
 {
-	if (GridPosDist(_startGridPos, _destGridPos) <= 1) return DIRECTION::DIRECTION_NUM;
+	if (PointEqual(_startGridPos, _destGridPos)) return DIRECTION::DIRECTION_NUM;
 
 	vector<NODE> open;
 	vector<NODE> close;

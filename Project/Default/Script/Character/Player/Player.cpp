@@ -51,6 +51,41 @@ void Player::Update()
 			break;
 		case PHASE_DETAIL::BATTLE_PLAYER_SELECTING_DIRECTION:
 		{
+			DIRECTION moveDir = SearchRoute(scene, gridPos, moveGridPos);
+
+			switch (moveDir)
+			{
+			case DIRECTION::LEFT_BOTTOM:
+				nextGridPos = POINT{ gridPos.x, gridPos.y + 1 };
+				if (animState != CHARACTER_STATE::MOVE_LEFT_BOTTOM)
+					rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM);
+				state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
+				break;
+			case DIRECTION::LEFT_TOP:
+				nextGridPos = POINT{ gridPos.x - 1, gridPos.y };
+				if (animState != CHARACTER_STATE::MOVE_LEFT_TOP)
+					rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_TOP);
+				state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
+				break;
+			case DIRECTION::RIGHT_BOTTOM:
+				nextGridPos = POINT{ gridPos.x + 1, gridPos.y };
+				if (animState != CHARACTER_STATE::MOVE_RIGHT_BOTTOM)
+					rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM);
+				state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
+				break;
+			case DIRECTION::RIGHT_TOP:
+				nextGridPos = POINT{ gridPos.x, gridPos.y - 1 };
+				if (animState != CHARACTER_STATE::MOVE_RIGHT_TOP)
+					rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP);
+				state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
+				break;
+			default:
+				ChangeAnimMoveToIdle(animState, rAnim);
+				Notify(EVENT::MOVE_END);
+				break;
+			}
+
+			/*
 			if (gridPos.x < moveGridPos.x)
 			{
 				nextGridPos = POINT{ gridPos.x + 1, gridPos.y };
@@ -104,6 +139,7 @@ void Player::Update()
 					Notify(EVENT::MOVE_END);
 				}
 			}
+			//*/
 		}
 			break;
 		}
