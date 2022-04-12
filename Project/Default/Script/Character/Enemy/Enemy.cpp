@@ -10,6 +10,8 @@
 #include "Script/Character/Player/Player.h"
 #include "Script/HpBar/HpBar.h"
 
+DIRECTION SearchRoute(Scene* _scene, POINT _startGridPos, POINT _destGridPos);
+
 Enemy::Enemy()
 	: Component((const Component_ID)typeid(Enemy).name())
 {
@@ -82,6 +84,8 @@ void Enemy::Update()
 
 			for (auto iter = mapData->playerVec.begin(); iter != mapData->playerVec.end(); ++iter)
 			{
+				if ((*iter)->GetComponent<Player>()->GetHp() <= 0) continue;
+
 				if (!nearestPlayer)
 				{
 					nearestPlayer = (*iter)->GetComponent<Player>();
@@ -106,72 +110,38 @@ void Enemy::Update()
 			{
 				moveGridPos = nearestPlayer->GetGridPos();
 
-				if (gridPos.x < moveGridPos.x)
-				{
-					nextGridPos = POINT{ gridPos.x + 1, gridPos.y };
+				DIRECTION moveDir = SearchRoute(scene, gridPos, nearestPlayer->GetGridPos());
 
-					if (scene->IsEmpty(nextGridPos))
-					{
-						if (animState != CHARACTER_STATE::MOVE_RIGHT_BOTTOM)
-							rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM);
-						state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
-					}
-					else
-					{
-						ChangeAnimMoveToIdle(animState, rAnim);
-						state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
-					}
-				}
-				else if (gridPos.x > moveGridPos.x)
+				switch (moveDir)
 				{
+				case DIRECTION::LEFT_BOTTOM:
+					if (animState != CHARACTER_STATE::MOVE_LEFT_BOTTOM)
+						rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM);
+					nextGridPos = POINT{ gridPos.x, gridPos.y + 1 };
+					state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
+					break;
+				case DIRECTION::LEFT_TOP:
+					if (animState != CHARACTER_STATE::MOVE_LEFT_TOP)
+						rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_TOP);
 					nextGridPos = POINT{ gridPos.x - 1, gridPos.y };
-
-					if (scene->IsEmpty(nextGridPos))
-					{
-						if (animState != CHARACTER_STATE::MOVE_LEFT_TOP)
-							rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_TOP);
-						state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
-					}
-					else
-					{
-						ChangeAnimMoveToIdle(animState, rAnim);
-						state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
-					}
-				}
-				else
-				{
-					if (gridPos.y < moveGridPos.y)
-					{
-						nextGridPos = POINT{ gridPos.x, gridPos.y + 1 };
-
-						if(scene->IsEmpty(nextGridPos))
-						{
-							if (animState != CHARACTER_STATE::MOVE_LEFT_BOTTOM)
-								rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM);
-							state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
-						}
-						else
-						{
-							ChangeAnimMoveToIdle(animState, rAnim);
-							state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
-						}
-					}
-					else // if (gridPos.y > moveGridPos.y)
-					{
-						nextGridPos = POINT{ gridPos.x, gridPos.y - 1 };
-
-						if(scene->IsEmpty(nextGridPos))
-						{
-							if (animState != CHARACTER_STATE::MOVE_RIGHT_TOP)
-								rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP);
-							state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
-						}
-						else
-						{
-							ChangeAnimMoveToIdle(animState, rAnim);
-							state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
-						}
-					}
+					state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
+					break;
+				case DIRECTION::RIGHT_BOTTOM:
+					if (animState != CHARACTER_STATE::MOVE_RIGHT_BOTTOM)
+						rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM);
+					nextGridPos = POINT{ gridPos.x + 1, gridPos.y };
+					state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
+					break;
+				case DIRECTION::RIGHT_TOP:
+					if (animState != CHARACTER_STATE::MOVE_RIGHT_TOP)
+						rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP);
+					nextGridPos = POINT{ gridPos.x, gridPos.y - 1 };
+					state = PHASE_DETAIL::BATTLE_ENEMY_MOVING;
+					break;
+				default:
+					ChangeAnimMoveToIdle(animState, rAnim);
+					state = PHASE_DETAIL::BATTLE_ENEMY_SELECTING_ACTION;
+					break;
 				}
 			}
 		}
@@ -312,10 +282,7 @@ public:
 	int h;
 	POINT parent;
 public:
-	bool operator<(const NODE n) const
-	{
-		return this->f > n.f;
-	}
+	bool operator<(const NODE n) const { return this->f > n.f; }
 };
 
 void PushPriorityQueue(vector<NODE>& _que, NODE _node) {
@@ -329,7 +296,10 @@ void PushPriorityQueue(vector<NODE>& _que, NODE _node) {
 			break;
 		}
 
-	if (redundant == false) _que.push_back(_node);
+	if (redundant == false)
+	{
+		_que.push_back(_node);
+	}
 
 	for (int i = (int)_que.size() - 1; i > 0; --i) 
 		for (int j = 0; j < i; ++j)
@@ -355,7 +325,7 @@ void SearchNearTile(vector<NODE>& _open, vector<NODE>& _close,
 	{
 		POINT rightTop{ _parent.id.x, _parent.id.y - 1 };
 
-		if (_scene->IsEmpty(rightTop) && !HasNode(_close, rightTop))
+		if ((_scene->IsEmpty(rightTop) || PointEqual(_destGridPos, rightTop)) && !HasNode(_close, rightTop))
 		{
 			NODE n{ rightTop,
 				_parent.g + 1 + (abs(_destGridPos.x - rightTop.x) + abs(_destGridPos.y - rightTop.y)),
@@ -369,7 +339,7 @@ void SearchNearTile(vector<NODE>& _open, vector<NODE>& _close,
 	{
 		POINT leftTop{ _parent.id.x - 1, _parent.id.y };
 
-		if (_scene->IsEmpty(leftTop) && !HasNode(_close, leftTop))
+		if ((_scene->IsEmpty(leftTop) || PointEqual(_destGridPos, leftTop)) && !HasNode(_close, leftTop))
 		{
 			NODE n{ leftTop,
 				_parent.g + 1 + (abs(_destGridPos.x - leftTop.x) + abs(_destGridPos.y - leftTop.y)),
@@ -383,7 +353,7 @@ void SearchNearTile(vector<NODE>& _open, vector<NODE>& _close,
 	{
 		POINT leftBottom{ _parent.id.x, _parent.id.y + 1 };
 
-		if (_scene->IsEmpty(leftBottom) && !HasNode(_close, leftBottom))
+		if ((_scene->IsEmpty(leftBottom) || PointEqual(_destGridPos, leftBottom)) && !HasNode(_close, leftBottom))
 		{
 			NODE n{ leftBottom,
 				_parent.g + 1 + (abs(_destGridPos.x - leftBottom.x) + abs(_destGridPos.y - leftBottom.y)),
@@ -397,7 +367,7 @@ void SearchNearTile(vector<NODE>& _open, vector<NODE>& _close,
 	{
 		POINT rightBottom{ _parent.id.x + 1, _parent.id.y };
 
-		if (_scene->IsEmpty(rightBottom) && !HasNode(_close, rightBottom))
+		if ((_scene->IsEmpty(rightBottom) || PointEqual(_destGridPos, rightBottom)) && !HasNode(_close, rightBottom))
 		{
 			NODE n{ rightBottom,
 				_parent.g + 1 + (abs(_destGridPos.x - rightBottom.x) + abs(_destGridPos.y - rightBottom.y)),

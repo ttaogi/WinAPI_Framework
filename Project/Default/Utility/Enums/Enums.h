@@ -7,6 +7,8 @@ enum class DIRECTION
 	DIRECTION_NUM
 };
 
+std::wstring DirectionToWString(DIRECTION _dir);
+
 enum class IMAGE_LOAD_KIND
 {
 	LOAD_RESOURCE = 0,

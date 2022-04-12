@@ -2,6 +2,31 @@
 
 #include "Enums.h"
 
+wstring DirectionToWString(DIRECTION _dir)
+{
+	switch (_dir)
+	{
+	case DIRECTION::LEFT:
+		return L"LEFT";
+	case DIRECTION::TOP:
+		return L"TOP";
+	case DIRECTION::RIGHT:
+		return L"RIGHT";
+	case DIRECTION::BOTTOM:
+		return L"BOTTOM";
+	case DIRECTION::LEFT_BOTTOM:
+		return L"LEFT_BOTTOM";
+	case DIRECTION::LEFT_TOP:
+		return L"LEFT_TOP";
+	case DIRECTION::RIGHT_BOTTOM:
+		return L"RIGHT_BOTTOM";
+	case DIRECTION::RIGHT_TOP:
+		return L"RIGHT_TOP";
+	default:
+		return L"DIRECTION_NUM";
+	}
+}
+
 wstring CharacterStateToWString(CHARACTER_STATE _state)
 {
 	switch (_state)
