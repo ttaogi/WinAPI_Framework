@@ -211,6 +211,9 @@
     <Filter Include="API_Framework\Script\HpBar">
       <UniqueIdentifier>{09ff7f30-73bf-4dec-873a-49d22d5d0f16}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API_Framework\Script\EquipChange">
+      <UniqueIdentifier>{073e00ea-85ce-4b4c-9362-851c72c0f356}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -402,6 +405,9 @@
     </ClCompile>
     <ClCompile Include="Script\HpBar\HpBar.cpp">
       <Filter>API_Framework\Script\HpBar</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\EquipChange\EquipChange.cpp">
+      <Filter>API_Framework\Script\EquipChange</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -602,6 +608,9 @@
     </ClInclude>
     <ClInclude Include="Script\HpBar\HpBar.h">
       <Filter>API_Framework\Script\HpBar</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\EquipChange\EquipChange.h">
+      <Filter>API_Framework\Script\EquipChange</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

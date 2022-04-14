@@ -82,6 +82,7 @@
     <ClCompile Include="Script\Character\Enemy\Enemy.cpp" />
     <ClCompile Include="Script\Character\Player\Player.cpp" />
     <ClCompile Include="Script\Effect\FlameBurst.cpp" />
+    <ClCompile Include="Script\EquipChange\EquipChange.cpp" />
     <ClCompile Include="Script\HpBar\HpBar.cpp" />
     <ClCompile Include="Script\ShopList\ShopList.cpp" />
     <ClCompile Include="Script\Tile\Tile.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="Scene\TownScene\TownScene.h" />
     <ClInclude Include="Script\Character\Enemy\Enemy.h" />
     <ClInclude Include="Script\Effect\FlameBurst.h" />
+    <ClInclude Include="Script\EquipChange\EquipChange.h" />
     <ClInclude Include="Script\HpBar\HpBar.h" />
     <ClInclude Include="Script\ShopList\ShopList.h" />
     <ClInclude Include="Script\Tile\Tile.h" />
