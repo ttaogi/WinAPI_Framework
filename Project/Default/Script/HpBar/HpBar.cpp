@@ -32,7 +32,7 @@ void HpBar::LateUpdate()
 
 		hp->GetComponent<RectTransform>()->SetRect((long)(hpRateVec[0] * HP_BAR_WIDTH), HP_BAR_HEIGHT);
 		hp->GetComponent<Transform>()->SetPosition(D_POINT{
-			background->GetComponent<Transform>()->GetPosition().x - (long)(HP_BAR_WIDTH * (1 - hpRateVec[0]) / 2),
+			background->GetComponent<Transform>()->GetPosition().x - (long)(((int)(HP_BAR_WIDTH * (1 - hpRateVec[0])) + 1) / 2),
 			background->GetComponent<Transform>()->GetPosition().y
 			});
 	}

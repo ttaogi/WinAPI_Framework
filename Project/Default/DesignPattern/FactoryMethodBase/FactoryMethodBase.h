@@ -79,6 +79,15 @@ public:
 #pragma endregion FactoryMethodBaseShopList
 
 
+#pragma region FactoryMethodBaseEquipChange
+class FactoryMethodBaseEquipChange
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer) = 0;
+};
+#pragma endregion FactoryMethodBaseEquipChange
+
+
 #pragma region FactoryMethodBaseTile
 class FactoryMethodBaseTile
 {

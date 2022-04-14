@@ -84,62 +84,6 @@ void Player::Update()
 				Notify(EVENT::MOVE_END);
 				break;
 			}
-
-			/*
-			if (gridPos.x < moveGridPos.x)
-			{
-				nextGridPos = POINT{ gridPos.x + 1, gridPos.y };
-				if(animState != CHARACTER_STATE::MOVE_RIGHT_BOTTOM)
-					rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_BOTTOM);
-				state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
-			}
-			else if (gridPos.x > moveGridPos.x)
-			{
-				nextGridPos = POINT{ gridPos.x - 1, gridPos.y };
-				if (animState != CHARACTER_STATE::MOVE_LEFT_TOP)
-					rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_TOP);
-				state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
-			}
-			else
-			{
-				if (gridPos.y < moveGridPos.y)
-				{
-					nextGridPos = POINT{ gridPos.x, gridPos.y + 1 };
-					if (animState != CHARACTER_STATE::MOVE_LEFT_BOTTOM)
-						rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_LEFT_BOTTOM);
-					state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
-				}
-				else if (gridPos.y > moveGridPos.y)
-				{
-					nextGridPos = POINT{ gridPos.x, gridPos.y - 1 };
-					if (animState != CHARACTER_STATE::MOVE_RIGHT_TOP)
-						rAnim->ChangeAnimation(CHARACTER_STATE::MOVE_RIGHT_TOP);
-					state = PHASE_DETAIL::BATTLE_PLAYER_MOVING;
-				}
-				else
-				{
-					switch (animState)
-					{
-					case CHARACTER_STATE::MOVE_LEFT_BOTTOM:
-						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
-						break;
-					case CHARACTER_STATE::MOVE_LEFT_TOP:
-						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_TOP);
-						break;
-					case CHARACTER_STATE::MOVE_RIGHT_BOTTOM:
-						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_RIGHT_BOTTOM);
-						break;
-					case CHARACTER_STATE::MOVE_RIGHT_TOP:
-						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_RIGHT_TOP);
-						break;
-					default:
-						rAnim->ChangeAnimation(CHARACTER_STATE::IDLE_LEFT_BOTTOM);
-						break;
-					}
-					Notify(EVENT::MOVE_END);
-				}
-			}
-			//*/
 		}
 			break;
 		}
@@ -213,6 +157,16 @@ void Player::StartAttack(DIRECTION _dir)
 {
 	state = PHASE_DETAIL::BATTLE_PLAYER_ACTION;
 	RenderedAnimator* rAnim = gameObject->GetComponent<RenderedAnimator>();
+
+	switch (id)
+	{
+	case CHARACTER_ID::AL:
+		SOUND->Play(KEY_SOUND_SLASH);
+		break;
+	case CHARACTER_ID::KARIN:
+		SOUND->Play(KEY_SOUND_FLAME_BURST);
+		break;
+	}
 
 	switch (_dir)
 	{

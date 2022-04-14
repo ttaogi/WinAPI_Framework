@@ -83,6 +83,17 @@ extern const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_SPRITE;
 #pragma endregion UI_Shop
 
 
+#pragma region UI_Equip_Change
+extern const std::wstring KEY_UI_EQUIP_CHANGE_BACKGROUND_SPRITE;
+extern const wchar_t* DIR_UI_EQUIP_CHANGE_BACKGROUND_SPRITE;
+
+extern const std::wstring KEY_UI_EQUIP_CHANGE_PORTRAIT_AL_SPRITE;
+extern const wchar_t* DIR_UI_EQUIP_CHANGE_PORTRAIT_AL_SPRITE;
+extern const std::wstring KEY_UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE;
+extern const wchar_t* DIR_UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE;
+#pragma endregion UI_Equip_Change
+
+
 #pragma region Tile
 extern const std::wstring KEY_TILE_PANEL;
 extern const wchar_t* DIR_TILE_PANEL;
@@ -224,6 +235,7 @@ extern const std::wstring SKIG_DIALOG_VIEWER;
 extern const std::wstring SKIG_SHOP_LIST;
 extern const std::wstring SKIG_SHOP_LIST_GOLD;
 extern const std::wstring SKIG_SHOP_LIST_DESCRIPTION;
+extern const std::wstring SKIG_EQUIP_CHANGE;
 extern const std::wstring SKIG_TILE_TILE;
 extern const std::wstring SKIG_HP_BAR_BACKGROUND;
 extern const std::wstring SKIG_HP_BAR_HP;
@@ -241,6 +253,13 @@ extern const std::wstring KEY_SOUND_TOWN_THEME;
 extern const std::wstring DIR_SOUND_TOWN_THEME;
 extern const std::wstring KEY_SOUND_FIELD_THEME;
 extern const std::wstring DIR_SOUND_FIELD_THEME;
+
+extern const std::wstring KEY_SOUND_FLAME_BURST;
+extern const std::wstring DIR_SOUND_FLAME_BURST;
+extern const std::wstring KEY_SOUND_SLASH;
+extern const std::wstring DIR_SOUND_SLASH;
+extern const std::wstring KEY_SOUND_SLIME_ATTACK;
+extern const std::wstring DIR_SOUND_SLIME_ATTACK;
 #pragma endregion Sound
 
 ///////////////////////

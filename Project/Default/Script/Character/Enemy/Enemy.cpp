@@ -189,28 +189,17 @@ void Enemy::Update()
 			nearestPlayer->Attacked(Damage{str, 0}, DIRECTION::DIRECTION_NUM);
 
 			if (gridPos.x > playerPos.x)
-			{
 				rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_LEFT_TOP);
-				state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
-			}
 			else if (gridPos.x < playerPos.x)
-			{
 				rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_RIGHT_BOTTOM);
-				state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
-			}
 			else
-			{
 				if (gridPos.y > playerPos.y)
-				{
 					rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_RIGHT_TOP);
-					state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
-				}
 				else
-				{
 					rAnim->ChangeAnimation(CHARACTER_STATE::ATTACK_LEFT_BOTTOM);
-					state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
-				}
-			}
+
+			SOUND->Play(KEY_SOUND_SLIME_ATTACK);
+			state = PHASE_DETAIL::BATTLE_ENEMY_ACTION;
 		}
 		else
 		{

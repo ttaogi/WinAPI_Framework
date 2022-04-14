@@ -133,6 +133,23 @@ const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_SPRITE =
 #pragma endregion UI_Shop
 
 
+#pragma region UI_Equip_Change
+const std::wstring KEY_UI_EQUIP_CHANGE_BACKGROUND_SPRITE =
+	L"UI_EQUIP_CHANGE_BACKGROUND_SPRITE";
+const wchar_t* DIR_UI_EQUIP_CHANGE_BACKGROUND_SPRITE =
+	L"Resources/Images/UI/EquipChange/EquipChange_Background.bmp";
+
+const std::wstring KEY_UI_EQUIP_CHANGE_PORTRAIT_AL_SPRITE =
+	L"UI_EQUIP_CHANGE_PORTRAIT_AL_SPRITE";
+const wchar_t* DIR_UI_EQUIP_CHANGE_PORTRAIT_AL_SPRITE =
+	L"Resources/Images/UI/EquipChange/EquipChange_Portrait_Al.bmp";
+const std::wstring KEY_UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE =
+	L"UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE";
+const wchar_t* DIR_UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE =
+	L"Resources/Images/UI/EquipChange/EquipChange_Portrait_Karin.bmp";
+#pragma endregion UI_Equip_Change
+
+
 #pragma region Tile
 const std::wstring KEY_TILE_PANEL =
 	L"TILE_PANEL";
@@ -370,6 +387,8 @@ const std::wstring SKIG_SHOP_LIST_GOLD =
 	L"SHOP_LIST_GOLD";
 const std::wstring SKIG_SHOP_LIST_DESCRIPTION =
 	L"SHOP_LIST_DESCRIPTION";
+const std::wstring SKIG_EQUIP_CHANGE =
+	L"SKIG_EQUIP_CHANGE";
 const std::wstring SKIG_TILE_TILE =
 	L"TILE_TILE";
 const std::wstring SKIG_HP_BAR_BACKGROUND =
@@ -398,6 +417,19 @@ const std::wstring KEY_SOUND_FIELD_THEME =
 	L"SOUND_FIELD_THEME";
 const std::wstring DIR_SOUND_FIELD_THEME =
 	L"Resources/Sounds/BGM/bgm14.mp3";
+
+const std::wstring KEY_SOUND_FLAME_BURST =
+	L"SOUND_FLAME_BURST";
+const std::wstring DIR_SOUND_FLAME_BURST =
+	L"Resources/Sounds/Effect/FlameBurst.mp3";
+const std::wstring KEY_SOUND_SLASH =
+	L"SOUND_SLASH";
+const std::wstring DIR_SOUND_SLASH =
+	L"Resources/Sounds/Effect/Slash.mp3";
+const std::wstring KEY_SOUND_SLIME_ATTACK =
+	L"SOUND_SLIME_ATTACK";
+const std::wstring DIR_SOUND_SLIME_ATTACK =
+	L"Resources/Sounds/Effect/SlimeAttack.mp3";
 #pragma endregion Sound
 
 ///////////////////////

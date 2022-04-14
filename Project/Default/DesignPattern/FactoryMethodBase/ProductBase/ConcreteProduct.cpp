@@ -18,6 +18,7 @@
 #include "Script/Character/Enemy/Enemy.h"
 #include "Script/DialogViewer/DialogViewer.h"
 #include "Script/Effect/FlameBurst.h"
+#include "Script/EquipChange/EquipChange.h"
 #include "Script/HpBar/HpBar.h"
 #include "Script/ShopList/ShopList.h"
 #include "Script/Tile/Tile.h"
@@ -901,6 +902,272 @@ GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
 	return go;
 }
 #pragma endregion ProductBaseShopList
+
+#pragma region ProductBaseEquipChange
+/* 17, 21
+GO (605, 438)
+-RectTransform
+-RenderedImage(background)
+-EquipChange
+
+	CharacterPanel*n (120, 88)
+	-RectTransform
+	-RenderedImage
+	-ECCharacterPanel
+
+	AbilityTabPanel // 313, 32 - (60, 24)
+	-RectTransform
+	-ECAbilityTabPanel
+
+	EquipTabPanel (60, 24)
+	-RectTransform
+	-ECEquipTabPanel
+
+	AbilityPanel
+	-ECAbilityPanel
+		CharacterPortrait // 320, 58 - (240, 176)
+		-RectTransform
+		-RenderedImage
+		CharacterLevel // 319, 239 - (246, 23)
+		-RectTransform
+		-RenderedText
+		CharacterAbilityType // 319, 265 - (50, 130)
+		-RectTransform
+		-RenderedText
+		CharacterAbilityFigure // 369, 265 - (100, 130)
+		-RectTransform
+		-RenderedText
+
+	EquipPanel
+		WeaponText // 320, 58 - (240, 24)
+		-RectTransform
+		-RenderedText
+		-ECWeaponText
+		ArmorText
+		-RectTransform
+		-RenderedText
+		-ECArmorText
+		EquipInInvenPanel*n // 319, 265 - (174, 24)
+		-RectTransform
+		-RenderedText
+		-ECEquipInInvenPanel
+
+	ToShopListButton // 471, 405 - (99, 28)
+	-RectTransform
+	-ToShopListButton
+
+	EquipChangeButton // 345, 405 - (99, 28)
+	-RectTransform
+	-EquipChangeButton
+*/
+GameObject* FactoryDefaultEquipChange::CreateObject(Observer* _observer)
+{
+	GameObject* go = new GameObject();
+	go->GetComponent<Transform>()->SetPosition(D_POINT{ (double)(WINSIZE_X / 2), (double)(WINSIZE_Y / 2) });
+	RectTransform* goRcT = new RectTransform();
+	goRcT->SetRect(605, 438);
+	RenderedImage* goRImg = new RenderedImage();
+	goRImg->SetImage(IMG->FindImage(KEY_UI_EQUIP_CHANGE_BACKGROUND_SPRITE));
+	goRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	goRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
+	goRImg->SetOrderInLayer(uiCount++);
+	EquipChange* goEquipChange = new EquipChange();
+	goEquipChange->AddObserver(_observer);
+	//
+	goEquipChange->Init();
+	go->AddComponent(goRcT);
+	go->AddComponent(goRImg);
+	go->AddComponent(goEquipChange);
+	go->SetName(SKIG_EQUIP_CHANGE);
+
+
+	GameObject* cpAlGo = new GameObject(); // cp = character panel.
+	cpAlGo->GetComponent<Transform>()->SetPosition(D_POINT{ 90, 100 });
+	RectTransform* cpAlGoRcT = new RectTransform();
+	cpAlGoRcT->SetRect(120, 88);
+	RenderedImage* cpAlGoRImg = new RenderedImage();
+	cpAlGoRImg->SetImage(IMG->FindImage(KEY_UI_EQUIP_CHANGE_PORTRAIT_AL_SPRITE));
+	cpAlGoRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	cpAlGoRImg->SetSortingLayer(SORTING_LAYER::UI_IMAGE);
+	cpAlGoRImg->SetOrderInLayer(uiCount++);
+	ECCharacterPanel* cpAlGoECCP = new ECCharacterPanel();
+	cpAlGoECCP->AddObserver(goEquipChange);
+	//
+	cpAlGoECCP->Init();
+	cpAlGo->AddComponent(cpAlGoRcT);
+	cpAlGo->AddComponent(cpAlGoRImg);
+	cpAlGo->AddComponent(cpAlGoECCP);
+
+	GameObject* cpKarinGo = new GameObject();
+	cpKarinGo->GetComponent<Transform>()->SetPosition(D_POINT{ 90, 200 });
+	RectTransform* cpKarinGoRcT = new RectTransform();
+	cpKarinGoRcT->SetRect(120, 88);
+	RenderedImage* cpKarinGoRImg = new RenderedImage();
+	cpKarinGoRImg->SetImage(IMG->FindImage(KEY_UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE));
+	cpKarinGoRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	cpKarinGoRImg->SetSortingLayer(SORTING_LAYER::UI_IMAGE);
+	cpKarinGoRImg->SetOrderInLayer(uiCount++);
+	ECCharacterPanel* cpKarinGoECCP = new ECCharacterPanel();
+	cpKarinGoECCP->AddObserver(goEquipChange);
+	//
+	cpKarinGoECCP->Init();
+	cpKarinGo->AddComponent(cpKarinGoRcT);
+	cpKarinGo->AddComponent(cpKarinGoRImg);
+	cpKarinGo->AddComponent(cpKarinGoECCP);
+
+
+	GameObject* abilTabPanelGo = new GameObject();
+	abilTabPanelGo->GetComponent<Transform>()->SetPosition(D_POINT{ 360, 65 });
+	RectTransform* abilTabPanelGoRcT = new RectTransform();
+	abilTabPanelGoRcT->SetRect(60, 24);
+	ECAbilityTabPanel* abilTabPanelGoECATP = new ECAbilityTabPanel();
+	abilTabPanelGoECATP->AddObserver(goEquipChange);
+	//
+	abilTabPanelGoECATP->Init();
+	abilTabPanelGo->AddComponent(abilTabPanelGoRcT);
+	abilTabPanelGo->AddComponent(abilTabPanelGoECATP);
+
+	GameObject* equipTabPanelGo = new GameObject();
+	equipTabPanelGo->GetComponent<Transform>()->SetPosition(D_POINT{ 423, 65 });
+	RectTransform* equipTabPanelGoRcT = new RectTransform();
+	equipTabPanelGoRcT->SetRect(60, 24);
+	ECEquipTabPanel* equipTabPanelGoECETP = new ECEquipTabPanel();
+	equipTabPanelGoECETP->AddObserver(goEquipChange);
+	//
+	equipTabPanelGoECETP->Init();
+	equipTabPanelGo->AddComponent(equipTabPanelGoRcT);
+	equipTabPanelGo->AddComponent(equipTabPanelGoECETP);
+
+
+	GameObject* abilPanelGo = new GameObject();
+	//
+
+	GameObject* chPortraitGo = new GameObject();
+	chPortraitGo->GetComponent<Transform>()->SetPosition(D_POINT{ 457, 157 });
+	RectTransform* chPortraitGoRcT = new RectTransform();
+	chPortraitGoRcT->SetRect(240, 176);
+	RenderedImage* chPortraitGoRImg = new RenderedImage();
+	chPortraitGoRImg->SetImage(IMG->FindImage(KEY_UI_PORTRAIT_KARIN_DEFAULT_SPRITE));
+	chPortraitGoRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	chPortraitGoRImg->SetSortingLayer(SORTING_LAYER::UI_IMAGE);
+	chPortraitGoRImg->SetOrderInLayer(uiCount++);
+	chPortraitGo->AddComponent(chPortraitGoRcT);
+	chPortraitGo->AddComponent(chPortraitGoRImg);
+
+	GameObject* chLevelGo = new GameObject();
+	chLevelGo->GetComponent<Transform>()->SetPosition(D_POINT{ 459, 271 });
+	RectTransform* chLevelGoRcT = new RectTransform();
+	chLevelGoRcT->SetRect(246, 23);
+	RenderedText* chLevelGoRT = new RenderedText();
+	chLevelGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	chLevelGoRT->SetOrderInLayer(uiCount++);
+	chLevelGoRT->SetStr(L"");
+	chLevelGo->AddComponent(chLevelGoRcT);
+	chLevelGo->AddComponent(chLevelGoRT);
+
+	GameObject* chAbilTypeGo = new GameObject();
+	chAbilTypeGo->GetComponent<Transform>()->SetPosition(D_POINT{ 361, 351 });
+	RectTransform* chAbilTypeGoRcT = new RectTransform();
+	chAbilTypeGoRcT->SetRect(50, 130);
+	RenderedText* chAbilTypeGoRT = new RenderedText();
+	chAbilTypeGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	chAbilTypeGoRT->SetOrderInLayer(uiCount++);
+	chAbilTypeGoRT->SetStr(L"");
+	chAbilTypeGo->AddComponent(chAbilTypeGoRcT);
+	chAbilTypeGo->AddComponent(chAbilTypeGoRT);
+
+	GameObject* chAbilFigureGo = new GameObject();
+	chAbilFigureGo->GetComponent<Transform>()->SetPosition(D_POINT{ 436, 351 });
+	RectTransform* chAbilFigureGoRcT = new RectTransform();
+	chAbilFigureGoRcT->SetRect(100, 130);
+	RenderedText* chAbilFigureGoRT = new RenderedText();
+	chAbilFigureGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	chAbilFigureGoRT->SetOrderInLayer(uiCount++);
+	chAbilFigureGoRT->SetStr(L"");
+	chAbilTypeGo->AddComponent(chAbilFigureGoRcT);
+	chAbilTypeGo->AddComponent(chAbilFigureGoRT);
+
+	//abilPanelGo->AddGameObject
+
+
+	GameObject* equipPanelGo = new GameObject();
+	//
+
+	GameObject* weaponTextGo = new GameObject();
+	weaponTextGo->GetComponent<Transform>()->SetPosition(D_POINT{ 457, 91 });
+	RectTransform* weaponTextGoRcT = new RectTransform();
+	weaponTextGoRcT->SetRect(240, 24);
+	RenderedText* weaponTextGoRT = new RenderedText();
+	weaponTextGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	weaponTextGoRT->SetOrderInLayer(uiCount++);
+	weaponTextGoRT->SetStr(L"");
+	ECWeaponText* weaponTextGoECWT = new ECWeaponText();
+	//
+	weaponTextGoECWT->Init();
+	weaponTextGo->AddComponent(weaponTextGoRcT);
+	weaponTextGo->AddComponent(weaponTextGoRT);
+	weaponTextGo->AddComponent(weaponTextGoECWT);
+
+	GameObject* armorTextGo = new GameObject();
+	armorTextGo->GetComponent<Transform>()->SetPosition(D_POINT{ 457, 115 });
+	RectTransform* armorTextGoRcT = new RectTransform();
+	armorTextGoRcT->SetRect(240, 24);
+	RenderedText* armorTextGoRT = new RenderedText();
+	armorTextGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	armorTextGoRT->SetOrderInLayer(uiCount++);
+	armorTextGoRT->SetStr(L"");
+	ECArmorText* armorTextGoECAT = new ECArmorText();
+	//
+	armorTextGoECAT->Init();
+	armorTextGo->AddComponent(armorTextGoRcT);
+	armorTextGo->AddComponent(armorTextGoRT);
+	armorTextGo->AddComponent(armorTextGoECAT);
+
+	//for
+	{
+		int i = 0;
+		GameObject* equipInInvenPanelGo = new GameObject(); // 319, 265 - (174, 24) * n
+		equipInInvenPanelGo->GetComponent<Transform>()->SetPosition(D_POINT{ 423, 298 + 24 * i });
+		RectTransform* equipInInvenPanelGoRcT = new RectTransform();
+		equipInInvenPanelGoRcT->SetRect(174, 24);
+		RenderedText* equipInInvenPanelGoRT = new RenderedText();
+		equipInInvenPanelGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+		equipInInvenPanelGoRT->SetOrderInLayer(uiCount++);
+		equipInInvenPanelGoRT->SetStr(L"");
+		ECEquipInInvenPanel* equipInInvenPanelGoECEIIP = new ECEquipInInvenPanel();
+		equipInInvenPanelGoECEIIP->AddObserver(goEquipChange);
+		//
+		equipInInvenPanelGoECEIIP->Init();
+		equipInInvenPanelGo->AddComponent(equipInInvenPanelGoRcT);
+		equipInInvenPanelGo->AddComponent(equipInInvenPanelGoRT);
+		equipInInvenPanelGo->AddComponent(equipInInvenPanelGoECEIIP);
+	}
+
+	GameObject* toShopListButtonGo = new GameObject(); // 471, 405 - (99, 28)
+	toShopListButtonGo->GetComponent<Transform>()->SetPosition(D_POINT{ 537, 440 });
+	RectTransform* toShopListButtonGoRcT = new RectTransform();
+	toShopListButtonGoRcT->SetRect(99, 28);
+	ToShopListButton* toShopListButtonGoTSLB = new ToShopListButton();
+	toShopListButtonGoTSLB->AddObserver(goEquipChange);
+	//
+	toShopListButtonGoTSLB->Init();
+	toShopListButtonGo->AddComponent(toShopListButtonGoRcT);
+	toShopListButtonGo->AddComponent(toShopListButtonGoTSLB);
+
+	GameObject* equipChangeButtonGo = new GameObject(); // 345, 405 - (99, 28)
+	equipChangeButtonGo->GetComponent<Transform>()->SetPosition(D_POINT{ 411, 440 });
+	RectTransform* equipChangeButtonGoRcT = new RectTransform();
+	equipChangeButtonGoRcT->SetRect(99, 28);
+	EquipChangeButton* equipChangeButtonGoECB = new EquipChangeButton();
+	equipChangeButtonGoECB->AddObserver(goEquipChange);
+	//
+	equipChangeButtonGoECB->Init();
+	equipChangeButtonGo->AddComponent(equipChangeButtonGoRcT);
+	equipChangeButtonGo->AddComponent(equipChangeButtonGoECB);
+
+	return go;
+}
+#pragma endregion ProductBaseEquipChange
 
 
 #pragma region ProductBaseTile

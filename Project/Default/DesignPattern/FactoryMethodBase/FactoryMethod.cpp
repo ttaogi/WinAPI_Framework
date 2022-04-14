@@ -199,6 +199,28 @@ GameObject* FactoryMethodShopList::CreateObject(Observer* _observer)
 #pragma endregion FactoryMethodShopList
 
 
+#pragma region FactoryMethodEquipChange
+FactoryMethodEquipChange::FactoryMethodEquipChange()
+{
+	defaultEquipChange = new FactoryDefaultEquipChange();
+}
+
+FactoryMethodEquipChange::~FactoryMethodEquipChange()
+{
+	SAFE_DELETE(defaultEquipChange);
+}
+
+GameObject* FactoryMethodEquipChange::CreateObject(Observer* _observer)
+{
+	GameObject* go = NULL;
+
+	go = defaultEquipChange->CreateObject(_observer);
+
+	return go;
+}
+#pragma endregion FactoryMethodEquipChange
+
+
 #pragma region FactoryMethodBaseTile
 FactoryMethodTile::FactoryMethodTile()
 {
@@ -268,3 +290,4 @@ GameObject* FactoryMethodHpBar::CreateObject()
 	return go;
 }
 #pragma endregion FactoryMethodBaseHpBar
+

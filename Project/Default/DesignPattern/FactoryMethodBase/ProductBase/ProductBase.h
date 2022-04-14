@@ -74,6 +74,15 @@ public:
 #pragma endregion ProductBaseShopList
 
 
+#pragma region ProductBaseEquipChange
+class ProductBaseEquipChange
+{
+public:
+	virtual GameObject* CreateObject(Observer* _observer) = 0;
+};
+#pragma endregion ProductBaseEquipChange
+
+
 #pragma region ProductBaseTile
 class ProductBaseTile
 {

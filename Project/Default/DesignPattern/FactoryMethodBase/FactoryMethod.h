@@ -111,6 +111,20 @@ public:
 #pragma endregion FactoryMethodShopList
 
 
+#pragma region FactoryMethodEquipChange
+class FactoryMethodEquipChange : public FactoryMethodBaseEquipChange, public SingletonBase< FactoryMethodEquipChange>
+{
+private:
+	FactoryDefaultEquipChange* defaultEquipChange;
+public:
+	FactoryMethodEquipChange();
+	virtual ~FactoryMethodEquipChange();
+
+	virtual GameObject* CreateObject(Observer* _observer) override;
+};
+#pragma endregion FactoryMethodEquipChange
+
+
 #pragma region FactoryMethodBaseTile
 class FactoryMethodTile : public FactoryMethodBaseTile, public SingletonBase<FactoryMethodTile>
 {
