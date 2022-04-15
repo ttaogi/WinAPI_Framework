@@ -6,6 +6,7 @@ class CharacterInfo
 {
 public:
 	CHARACTER_ID id;
+	std::wstring name;
 	bool isMember;
 	int level;
 	int hp;
@@ -25,6 +26,7 @@ public:
 	{
 		std::wcout << "\t**********" << std::endl
 			<< L"\tid : " << (int)id << std::endl
+			<< L"\tname : " << name << std::endl
 			<< L"\tisMember : " << isMember << std::endl
 			<< L"\tlevel : " << level << std::endl
 			<< L"\thp : " << hp << L" / " << hpMax << std::endl
@@ -98,7 +100,7 @@ public:
 	void	SetGold(int _gold)			{ gold = _gold; }
 	CharacterInfo	GetCharacterInfo(CHARACTER_ID _id) const;
 	void			SetCharacterInfo(CHARACTER_ID _id, CharacterInfo _info);
-	EquipInfo	GetEquipInfo(EQUIP_ID _id) const;
+	EquipInfo		GetEquipInfo(EQUIP_ID _id) const;
 	std::vector<EquipInfo> GetInventory() const { return inventory; }
 	bool AddItem(EquipInfo _item);
 	bool RemoveItem(EquipInfo _item);

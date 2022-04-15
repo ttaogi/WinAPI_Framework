@@ -43,6 +43,8 @@ HRESULT GameDataManager::Init()
 
 		int equip = 0;
 		TiXmlElement* eleCharAl = XmlManager::FirstChildElement(eleCharacterInfo, L"al");
+		characterInfoVec[(int)CHARACTER_ID::AL].id = CHARACTER_ID::AL;
+		characterInfoVec[(int)CHARACTER_ID::AL].name = L"¾Ë";
 		XmlManager::GetAttributeValueBool(eleCharAl, L"isMember", &characterInfoVec[(int)CHARACTER_ID::AL].isMember);
 		XmlManager::GetAttributeValueInt(eleCharAl, L"level", &characterInfoVec[(int)CHARACTER_ID::AL].level);
 		XmlManager::GetAttributeValueInt(eleCharAl, L"hp", &characterInfoVec[(int)CHARACTER_ID::AL].hp);
@@ -60,6 +62,8 @@ HRESULT GameDataManager::Init()
 		characterInfoVec[(int)CHARACTER_ID::AL].armor = (EQUIP_ID)equip;
 
 		TiXmlElement* eleCharKarin = XmlManager::FirstChildElement(eleCharacterInfo, L"karin");
+		characterInfoVec[(int)CHARACTER_ID::KARIN].id = CHARACTER_ID::KARIN;
+		characterInfoVec[(int)CHARACTER_ID::KARIN].name = L"Ä«¸°";
 		XmlManager::GetAttributeValueBool(eleCharKarin, L"isMember", &characterInfoVec[(int)CHARACTER_ID::KARIN].isMember);
 		XmlManager::GetAttributeValueInt(eleCharKarin, L"level", &characterInfoVec[(int)CHARACTER_ID::KARIN].level);
 		XmlManager::GetAttributeValueInt(eleCharKarin, L"hp", &characterInfoVec[(int)CHARACTER_ID::KARIN].hp);
@@ -269,6 +273,7 @@ EquipInfo GameDataManager::GetEquipInfo(EQUIP_ID _id) const
 {
 	EquipInfo info;
 	info.id = EQUIP_ID::NONE;
+	info.name = L"";
 
 	for (auto iter = equipInfoVec.begin(); iter != equipInfoVec.end(); ++iter)
 		if (iter->id == _id)
