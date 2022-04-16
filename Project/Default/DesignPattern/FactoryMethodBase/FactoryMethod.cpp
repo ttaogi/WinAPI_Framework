@@ -39,36 +39,6 @@ GameObject* FactoryMethodButton::CreateObject(
 #pragma endregion FactoryMethodButton
 
 
-#pragma region FactoryMethodBar
-FactoryMethodBar::FactoryMethodBar()
-{
-	defaultBar = new FactoryDefaultBar();
-}
-
-FactoryMethodBar::~FactoryMethodBar()
-{
-	SAFE_DELETE(defaultBar);
-}
-
-GameObject* FactoryMethodBar::CreateObject(
-	BAR_FACTORY_TYPE _type,
-	std::function<void()> _callBack_v_CB_v, D_POINT _pos,
-	int _rectWidth, int _rectHeight, int _margin, double _rate)
-{
-	GameObject* go = NULL;
-
-	switch (_type)
-	{
-	case BAR_FACTORY_TYPE::DEFAULT:
-		go = defaultBar->CreateObject(_callBack_v_CB_v, _pos, _rectWidth, _rectHeight, _margin, _rate);
-		break;
-	}
-
-	return go;
-}
-#pragma endregion FactoryMethodBar
-
-
 #pragma region FactoryMethodPlayer
 FactoryMethodPlayer::FactoryMethodPlayer()
 {
@@ -126,33 +96,6 @@ GameObject* FactoryMethodEnemy::CreateObject(ENEMY_TYPE _type, Observer* _observ
 	return go;
 }
 #pragma endregion FactoryMethodEnemy
-
-
-#pragma region FactoryMethodPlatform
-FactoryMethodPlatform::FactoryMethodPlatform()
-{
-	defaultPlatform = new FactoryDefaultPlatform();
-}
-
-FactoryMethodPlatform::~FactoryMethodPlatform()
-{
-	SAFE_DELETE(defaultPlatform);
-}
-
-GameObject* FactoryMethodPlatform::CreateObject(PLATFORM_FACTORY_TYPE _type, D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite)
-{
-	GameObject* go = NULL;
-
-	switch(_type)
-	{
-	case PLATFORM_FACTORY_TYPE::DEFAULT:
-		go = defaultPlatform->CreateObject(_pos, _rectWidth, _rectHeight, _sprite);
-		break;
-	}
-
-	return go;
-}
-#pragma endregion FactoryMethodPlatform
 
 
 #pragma region FactoryMethodDialogViewer

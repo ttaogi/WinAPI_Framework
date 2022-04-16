@@ -23,18 +23,6 @@ public:
 #pragma endregion ProductBaseButton
 
 
-#pragma region ProductBaseBar
-class FactoryDefaultBar : public ProductBaseBar
-{
-private:
-protected:
-public:
-	virtual GameObject* CreateObject(std::function<void()> _callBack_v_CB_v, D_POINT _pos,
-		int _rectWidth, int _rectHeight, int _margin, double _rate) override;
-};
-#pragma endregion ProductBaseBar
-
-
 #pragma region ProductBasePlayer
 class FactoryPlayerAl : public ProductBasePlayer
 {
@@ -57,15 +45,6 @@ public:
 	virtual GameObject* CreateObject(Observer* _observer, D_POINT _pos, POINT _gridPos) override;
 };
 #pragma endregion ProductBaseEnemy
-
-
-#pragma region ProductBasePlatform
-class FactoryDefaultPlatform : public ProductBasePlatform
-{
-public:
-	virtual GameObject* CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) override;
-};
-#pragma endregion ProductBasePlatform
 
 
 #pragma region ProductBaseDialogViewer

@@ -64,6 +64,7 @@ void FieldScene::OnNotify(Subject* _subject, EVENT _event)
 				if (enemyVec.size() == 0)
 				{
 					CAMERA->SetTarget(NULL);
+					if (GAMEDATA->GetProcessivity() == 1) GAMEDATA->SetProcessivity(2);
 					SCENE->SetNextSceneKeyTownScene();
 				}
 				else
@@ -307,7 +308,7 @@ HRESULT FieldScene::Init()
 
 	if (!MAPDATA->GetMapData(XML_DOC_FIELD_MAP_DATA, this, mapData)) return E_FAIL;
 
-	GameObject* dialogViewer = FACTORY_METHOD_DIALOGVIEWER->CreateObject(this, DIALOG_SPOT_FIELD, -1);
+	GameObject* dialogViewer = FACTORY_METHOD_DIALOGVIEWER->CreateObject(this, DIALOG_SPOT_FIELD, GAMEDATA->GetProcessivity());
 	GameObject* hpBarGo = FACTORY_HP_BAR->CreateObject();
 
 	hpBar = hpBarGo->GetComponent<HpBar>();

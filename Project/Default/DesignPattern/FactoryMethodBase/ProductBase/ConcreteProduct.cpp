@@ -83,57 +83,6 @@ GameObject* FactoryButtonMouseOn::CreateObject(
 #pragma endregion ProductBaseButton
 
 
-#pragma region ProductBaseBar
-GameObject* FactoryDefaultBar::CreateObject(
-	std::function<void()> _callBack_v_CB_v, D_POINT _pos,
-	int _rectWidth, int _rectHeight, int _margin, double _rate)
-{
-	GameObject* go = new GameObject();
-	GameObject* background = new GameObject();
-	GameObject* guage = new GameObject();
-
-	RectTransform* backRcT = new RectTransform();
-	backRcT->SetRect(_rectWidth - 2 * _margin, _rectHeight - 2 * _margin);
-	RenderedImage* backRImg = new RenderedImage();
-	backRImg->SetImage(IMG->FindImage(KEY_UI_BAR_BACKGROUND_SPRITE));
-	backRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
-	backRImg->SetOrderInLayer(uiCount++);
-	background->AddComponent(backRcT);
-	background->AddComponent(backRImg);
-	background->GetComponent<Transform>()->SetPosition(_pos);
-	background->SetName(SKIG_BAR_BACKGROUND);
-
-	RectTransform* guageRcT = new RectTransform();
-	guageRcT->SetRect(_rectWidth - 2 * _margin, _rectHeight - 2 * _margin);
-	RenderedImage* guageRImg = new RenderedImage();
-	guageRImg->SetImage(IMG->FindImage(KEY_UI_BAR_GUAGE_SPRITE));
-	guageRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
-	guageRImg->SetOrderInLayer(uiCount++);
-	guage->AddComponent(guageRcT);
-	guage->AddComponent(guageRImg);
-	guage->GetComponent<Transform>()->SetPosition(_pos);
-	guage->SetName(SKIG_BAR_GUAGE);
-
-	RectTransform* goRcT = new RectTransform();
-	goRcT->SetRect(_rectWidth, _rectHeight);
-	Bar* goBar = new Bar();
-	goBar->SetCallBack_v_CB_v(_callBack_v_CB_v);
-	goBar->Init();
-
-	go->AddComponent(goRcT);
-	go->AddComponent(goBar);
-	go->GetComponent<Transform>()->SetPosition(_pos);
-
-	go->AddGameObject(background);
-	go->AddGameObject(guage);
-
-	goBar->SetRate(_rate);
-
-	return go;
-}
-#pragma endregion ProductBaseBar
-
-
 #pragma region ProductBasePlayer
 /*
 AL
@@ -572,33 +521,6 @@ GameObject* FactoryEnemySlime::CreateObject(Observer* _observer, D_POINT _pos, P
 	return go;
 }
 #pragma endregion ProductBaseEnemy
-
-
-#pragma region ProductBasePlatform
-GameObject* FactoryDefaultPlatform::CreateObject(D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite)
-{
-	GameObject* go = new GameObject();
-
-	RectTransform* rcT = new RectTransform();
-	rcT->SetRect(_rectWidth, _rectHeight);
-
-	RenderedImage* rImg = new RenderedImage();
-	rImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::LOOP);
-	rImg->SetImage(_sprite);
-	rImg->SetSortingLayer(SORTING_LAYER::PLATFORM);
-	rImg->SetOrderInLayer(platformCount++);
-
-	Collider* col = new Collider();
-
-	go->GetComponent<Transform>()->SetPosition(_pos);
-
-	go->AddComponent(rcT);
-	go->AddComponent(rImg);
-	go->AddComponent(col);
-
-	return go;
-}
-#pragma endregion ProductBasePlatform
 
 
 #pragma region ProductBaseDialogViewer

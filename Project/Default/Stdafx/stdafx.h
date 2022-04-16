@@ -70,10 +70,8 @@ using namespace std;
 #define GAMEMANAGER					GameManager::GetSingleton()
 
 #define FACTORY_METHOD_BUTTON		FactoryMethodButton::GetSingleton()
-#define FACTORY_METHOD_BAR			FactoryMethodBar::GetSingleton()
 #define FACTORY_METHOD_ENEMY		FactoryMethodEnemy::GetSingleton()
 #define FACTORY_METHOD_PLAYER		FactoryMethodPlayer::GetSingleton()
-#define FACTORY_METHOD_PLATFORM		FactoryMethodPlatform::GetSingleton()
 #define FACTORY_METHOD_DIALOGVIEWER	FactoryMethodDialogViewer::GetSingleton()
 #define FACTORY_METHOD_SHOPLIST		FactoryMethodShopList::GetSingleton()
 #define FACTORY_METHOD_EQUIPCHANGE	FactoryMethodEquipChange::GetSingleton()

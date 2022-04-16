@@ -20,7 +20,11 @@ void GuildScene::OnNotify(Subject* _subject, EVENT _event)
 			DialogViewer* dv = dialogViewer->GetComponent<DialogViewer>();
 
 			if (dv)
-				if (dv->IsEnd()) SCENE->SetNextSceneKeyTownScene();
+				if (dv->IsEnd())
+				{
+					if (GAMEDATA->GetProcessivity() == 0) GAMEDATA->SetProcessivity(1);
+					SCENE->SetNextSceneKeyTownScene();
+				}
 				else dv->Next();
 		}
 		break;

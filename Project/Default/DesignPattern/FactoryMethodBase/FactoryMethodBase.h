@@ -20,17 +20,6 @@ public:
 #pragma endregion FactoryMethodBaseButton
 
 
-#pragma region FactoryMethodBaseBar
-class FactoryMethodBaseBar
-{
-public:
-	virtual GameObject* CreateObject(BAR_FACTORY_TYPE _type,
-		std::function<void()> _callBack_v_CB_v, D_POINT _pos,
-		int _rectWidth, int _rectHeight, int _margin, double _rate) = 0;
-};
-#pragma endregion FactoryMethodBaseBar
-
-
 #pragma region FactoryMethodBasePlayer
 class FactoryMethodBasePlayer
 {
@@ -49,16 +38,6 @@ public:
 		Observer* _observer, D_POINT _pos, POINT _gridPos) = 0;
 };
 #pragma endregion FactoryMethodBaseEnemy
-
-
-#pragma region FactoryMethodBasePlatform
-class FactoryMethodBasePlatform
-{
-public:
-	virtual GameObject* CreateObject(PLATFORM_FACTORY_TYPE _type,
-		D_POINT _pos, int _rectWidth, int _rectHeight, Image* _sprite) = 0;
-};
-#pragma endregion FactoryMethodBasePlatform
 
 
 #pragma region FactoryMethodBaseDialogViewer
