@@ -6,6 +6,7 @@ class RenderedText : public Rendered
 {
 private:
 	std::wstring str;
+	int fontSize;
 public:
 	RenderedText();
 	virtual ~RenderedText();
@@ -14,6 +15,7 @@ public:
 
 	virtual void Render(HDC _hdc);
 
-	std::wstring GetStr() const { return str; }
-	void SetStr(std::wstring _str) { str = _str; }
+	std::wstring	GetStr() const				{ return str; }
+	void			SetStr(std::wstring _str);
+	void			SetFontSize(int _fontSize)	{ fontSize = _fontSize; }
 };

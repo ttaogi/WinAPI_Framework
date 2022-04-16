@@ -71,7 +71,7 @@ extern const wchar_t* DIR_UI_DIALOG_BACKGROUND_SPRITE;
 #pragma endregion UI_Dialog
 
 
-#pragma region UI_Shop
+#pragma region UI_ShopList
 extern const std::wstring KEY_UI_SHOPLIST_BACKGROUND_SPRITE;
 extern const wchar_t* DIR_UI_SHOPLIST_BACKGROUND_SPRITE;
 extern const std::wstring KEY_UI_SHOPLIST_PANEL_BACKGROUND_SPRITE;
@@ -80,10 +80,12 @@ extern const std::wstring KEY_UI_SHOPLIST_BUY_BUTTON_SPRITE;
 extern const wchar_t* DIR_UI_SHOPLIST_BUY_BUTTON_SPRITE;
 extern const std::wstring KEY_UI_SHOPLIST_EXIT_BUTTON_SPRITE;
 extern const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_SPRITE;
-#pragma endregion UI_Shop
+extern const std::wstring KEY_UI_TO_EQUIP_CHANGE_BUTTON_SPRITE;
+extern const wchar_t* DIR_UI_TO_EQUIP_CHANGE_BUTTON_SPRITE;
+#pragma endregion UI_ShopList
 
 
-#pragma region UI_Equip_Change
+#pragma region UI_EquipChange
 extern const std::wstring KEY_UI_EQUIP_CHANGE_BACKGROUND_SPRITE;
 extern const wchar_t* DIR_UI_EQUIP_CHANGE_BACKGROUND_SPRITE;
 
@@ -91,7 +93,7 @@ extern const std::wstring KEY_UI_EQUIP_CHANGE_PORTRAIT_AL_SPRITE;
 extern const wchar_t* DIR_UI_EQUIP_CHANGE_PORTRAIT_AL_SPRITE;
 extern const std::wstring KEY_UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE;
 extern const wchar_t* DIR_UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE;
-#pragma endregion UI_Equip_Change
+#pragma endregion UI_EquipChange
 
 
 #pragma region Tile

@@ -46,47 +46,48 @@
 
 using namespace std;
 
-#define WINNAME				    L"WindowsAPI"
+#define WINNAME						L"WindowsAPI"
 
-#define WINSTART_X			    960
-#define WINSTART_Y			    540
-#define WINSIZE_X				640
-#define WINSIZE_Y				480
-#define WINSTYLE				WS_CAPTION | WS_SYSMENU
+#define WINSTART_X					960
+#define WINSTART_Y					540
+#define WINSIZE_X					640
+#define WINSIZE_Y					480
+#define WINSTYLE					WS_CAPTION | WS_SYSMENU
 
-#define RND						RandomFunction::GetSingleton()
-#define KEY						KeyManager::GetSingleton()
-#define IMG						ImageManager::GetSingleton()
-#define FONT					FontManager::GetSingleton()
-#define TIME					TimeManager::GetSingleton()
-#define SCENE					SceneManager::GetSingleton()
-#define SOUND					SoundManager::GetSingleton()
-#define XML						XmlManager::GetSingleton()
-#define JSON					JsonManager::GetSingleton()
-#define GAMEDATA				GameDataManager::GetSingleton()
-#define MAPDATA					MapDataManager::GetSingleton()
-#define CAMERA					CameraManager::GetSingleton()
-#define DIALOG					DialogManager::GetSingleton()
-#define GAMEMANAGER				GameManager::GetSingleton()
+#define RND							RandomFunction::GetSingleton()
+#define KEY							KeyManager::GetSingleton()
+#define IMG							ImageManager::GetSingleton()
+#define FONT						FontManager::GetSingleton()
+#define TIME						TimeManager::GetSingleton()
+#define SCENE						SceneManager::GetSingleton()
+#define SOUND						SoundManager::GetSingleton()
+#define XML							XmlManager::GetSingleton()
+#define JSON						JsonManager::GetSingleton()
+#define GAMEDATA					GameDataManager::GetSingleton()
+#define MAPDATA						MapDataManager::GetSingleton()
+#define CAMERA						CameraManager::GetSingleton()
+#define DIALOG						DialogManager::GetSingleton()
+#define GAMEMANAGER					GameManager::GetSingleton()
 
-#define FACTORY_METHOD_BUTTON	FactoryMethodButton::GetSingleton()
-#define FACTORY_METHOD_BAR		FactoryMethodBar::GetSingleton()
-#define FACTORY_METHOD_ENEMY	FactoryMethodEnemy::GetSingleton()
-#define FACTORY_METHOD_PLAYER	FactoryMethodPlayer::GetSingleton()
-#define FACTORY_METHOD_PLATFORM	FactoryMethodPlatform::GetSingleton()
+#define FACTORY_METHOD_BUTTON		FactoryMethodButton::GetSingleton()
+#define FACTORY_METHOD_BAR			FactoryMethodBar::GetSingleton()
+#define FACTORY_METHOD_ENEMY		FactoryMethodEnemy::GetSingleton()
+#define FACTORY_METHOD_PLAYER		FactoryMethodPlayer::GetSingleton()
+#define FACTORY_METHOD_PLATFORM		FactoryMethodPlatform::GetSingleton()
 #define FACTORY_METHOD_DIALOGVIEWER	FactoryMethodDialogViewer::GetSingleton()
-#define FACTORY_METHOD_SHOPLIST	FactoryMethodShopList::GetSingleton()
-#define FACTORY_METHOD_TILE		FactoryMethodTile::GetSingleton()
-#define FACTORY_METHOD_EFFECT	FactoryMethodEffect::GetSingleton()
-#define FACTORY_HP_BAR			FactoryMethodHpBar::GetSingleton()
+#define FACTORY_METHOD_SHOPLIST		FactoryMethodShopList::GetSingleton()
+#define FACTORY_METHOD_EQUIPCHANGE	FactoryMethodEquipChange::GetSingleton()
+#define FACTORY_METHOD_TILE			FactoryMethodTile::GetSingleton()
+#define FACTORY_METHOD_EFFECT		FactoryMethodEffect::GetSingleton()
+#define FACTORY_HP_BAR				FactoryMethodHpBar::GetSingleton()
 
-#define SAFE_RELEASE(p)			{if((p) != NULL) { (p)->Release();}}
-#define SAFE_DELETE(p)			{if((p) != NULL) { delete (p); (p) = NULL;}}
-#define SAFE_DELETE_ARRAY(p)	{if((p) != NULL) { delete[] (p); (p) = NULL;}}
+#define SAFE_RELEASE(p)				{if((p) != NULL) { (p)->Release();}}
+#define SAFE_DELETE(p)				{if((p) != NULL) { delete (p); (p) = NULL;}}
+#define SAFE_DELETE_ARRAY(p)		{if((p) != NULL) { delete[] (p); (p) = NULL;}}
 
-extern HINSTANCE				HANDLE_INSTANCE;
-extern HWND						HANDLE_WINDOW;
-extern POINT					POINT_MOUSE;
-extern MainGame*				MAIN_GAME;
-extern bool						MOUSE_CLICKED;
-extern bool						MOUSE_CLICKED_RIGHT;
+extern HINSTANCE					HANDLE_INSTANCE;
+extern HWND							HANDLE_WINDOW;
+extern POINT						POINT_MOUSE;
+extern MainGame*					MAIN_GAME;
+extern bool							MOUSE_CLICKED;
+extern bool							MOUSE_CLICKED_RIGHT;

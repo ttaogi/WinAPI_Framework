@@ -37,7 +37,28 @@ void ShopScene::OnNotify(Subject* _subject, EVENT _event)
 	case EVENT::EXIT_BUTTON_CLICK:
 		if (GAMEMANAGER->GetPhase() == PHASE::PHASE_SHOPPING)
 			SCENE->SetNextSceneKeyTownScene();
-
+		break;
+	case EVENT::SHOP_LIST_TO_EQUIP_CHANGE_BUTTON_CLICK:
+	{
+		GameObject* shopList = root->GetGameObjectByName(SKIG_SHOP_LIST);
+		GameObject* equipChange = root->GetGameObjectByName(SKIG_EQUIP_CHANGE);
+		if (shopList && equipChange)
+		{
+			shopList->SetActive(false);
+			equipChange->SetActive(true);
+		}
+	}
+		break;
+	case EVENT::EQUIP_CHANGE_TO_SHOP_LIST_BUTTON_CLICK:
+	{
+		GameObject* shopList = root->GetGameObjectByName(SKIG_SHOP_LIST);
+		GameObject* equipChange = root->GetGameObjectByName(SKIG_EQUIP_CHANGE);
+		if (shopList && equipChange)
+		{
+			shopList->SetActive(true);
+			equipChange->SetActive(false);
+		}
+	}
 		break;
 	}
 }
@@ -52,10 +73,13 @@ HRESULT ShopScene::Init()
 	GameObject* dialogViewer = FACTORY_METHOD_DIALOGVIEWER->CreateObject(this, DIALOG_SPOT_SHOP, -1);
 	GameObject* shopList = FACTORY_METHOD_SHOPLIST->CreateObject(this);
 	shopList->SetActive(false);
+	GameObject* equipChange = FACTORY_METHOD_EQUIPCHANGE->CreateObject(this);
+	equipChange->SetActive(false);
 
 	root = new GameObject();
 	root->AddGameObject(dialogViewer);
 	root->AddGameObject(shopList);
+	root->AddGameObject(equipChange);
 
 	SOUND->Play(KEY_SOUND_TOWN_THEME, GAMEDATA->GetVolume());
 

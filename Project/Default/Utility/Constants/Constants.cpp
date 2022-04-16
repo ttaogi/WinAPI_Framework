@@ -113,7 +113,7 @@ const wchar_t* DIR_UI_DIALOG_BACKGROUND_SPRITE =
 #pragma endregion UI_Dialog
 
 
-#pragma region UI_Shop
+#pragma region UI_ShopList
 const std::wstring KEY_UI_SHOPLIST_BACKGROUND_SPRITE =
 	L"UI_SHOPLIST_BACKGROUND_SPRITE";
 const wchar_t* DIR_UI_SHOPLIST_BACKGROUND_SPRITE =
@@ -130,10 +130,14 @@ const std::wstring KEY_UI_SHOPLIST_EXIT_BUTTON_SPRITE =
 	L"UI_SHOPLIST_EXIT_BUTTON_SPRITE";
 const wchar_t* DIR_UI_SHOPLIST_EXIT_BUTTON_SPRITE =
 	L"Resources/Images/UI/ShopList/ShopList_ExitButton.bmp";
-#pragma endregion UI_Shop
+const std::wstring KEY_UI_TO_EQUIP_CHANGE_BUTTON_SPRITE =
+	L"UI_TO_EQUIP_CHANGE_BUTTON_SPRITE";
+const wchar_t* DIR_UI_TO_EQUIP_CHANGE_BUTTON_SPRITE =
+	L"Resources/Images/UI/ShopList/ShopList_ToEquipChangeButton.bmp";
+#pragma endregion UI_ShopList
 
 
-#pragma region UI_Equip_Change
+#pragma region UI_EquipChange
 const std::wstring KEY_UI_EQUIP_CHANGE_BACKGROUND_SPRITE =
 	L"UI_EQUIP_CHANGE_BACKGROUND_SPRITE";
 const wchar_t* DIR_UI_EQUIP_CHANGE_BACKGROUND_SPRITE =
@@ -147,7 +151,7 @@ const std::wstring KEY_UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE =
 	L"UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE";
 const wchar_t* DIR_UI_EQUIP_CHANGE_PORTRAIT_KARIN_SPRITE =
 	L"Resources/Images/UI/EquipChange/EquipChange_Portrait_Karin.bmp";
-#pragma endregion UI_Equip_Change
+#pragma endregion UI_EquipChange
 
 
 #pragma region Tile

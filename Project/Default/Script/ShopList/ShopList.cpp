@@ -73,6 +73,9 @@ void ShopList::OnNotify(Subject* _subject, EVENT _event)
 	case EVENT::EXIT_BUTTON_CLICK:
 		Notify(EVENT::EXIT_BUTTON_CLICK);
 		break;
+	case EVENT::SHOP_LIST_TO_EQUIP_CHANGE_BUTTON_CLICK:
+		Notify(EVENT::SHOP_LIST_TO_EQUIP_CHANGE_BUTTON_CLICK);
+		break;
 	}
 }
 #pragma endregion ShopList
@@ -122,3 +125,26 @@ void ExitButton::Update()
 	}
 }
 #pragma endregion ExitButton
+
+
+#pragma region ToEquipChangeButton
+ToEquipChangeButton::ToEquipChangeButton()
+	: Component((const Component_ID)typeid(ToEquipChangeButton).name()) { }
+
+void ToEquipChangeButton::Update()
+{
+	if (!enabled) return;
+
+	if (GAMEMANAGER->GetPhase() == PHASE::PHASE_SHOPPING && MOUSE_CLICKED)
+	{
+		RectTransform* rcT = gameObject->GetComponent<RectTransform>();
+		if (rcT == NULL) return;
+		RECT rc = rcT->GetScreenRect();
+		if (PtInRect(&rc, POINT_MOUSE))
+		{
+			Notify(EVENT::SHOP_LIST_TO_EQUIP_CHANGE_BUTTON_CLICK);
+			MOUSE_CLICKED = false;
+		}
+	}
+}
+#pragma endregion ToEquipChangeButton

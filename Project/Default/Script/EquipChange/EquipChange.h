@@ -24,7 +24,13 @@ private:
 	GameObject* equipPanel;
 	RenderedImage* chPortrait;
 	RenderedText* chLevel;
-	RenderedText* chAbilFigure;
+	RenderedText* chAbilHpFigure;
+	RenderedText* chAbilMpFigure;
+	RenderedText* chAbilStrFigure;
+	RenderedText* chAbilDefFigure;
+	RenderedText* chAbilMgcFigure;
+	RenderedText* chAbilMDefFigure;
+	RenderedText* chAbilDexFigure;
 	RenderedText* weaponText;
 	RenderedText* armorText;
 	std::vector<ECEquipInInvenPanel*> equipInInvenPanelVec;
@@ -34,27 +40,33 @@ public:
 
 	virtual void Operation() override { }
 
-	virtual void Init() override { }
+	virtual void Init() override;
 	virtual void FixedUpdate() override { }
-	virtual void Update() override;
+	virtual void Update() override { }
 	virtual void LateUpdate() override { }
 	virtual void OnCollision(Collision _col) override { }
 
 	virtual void OnNotify(Subject* _subject, EVENT _event) override;
 
-	void SetCurCharacter(CHARACTER_ID _curCharacter)	{ curCharacter = _curCharacter; }
-	void SetCurTab(TAB _curTab)							{ curTab = _curTab; }
+	void SetCurCharacter(CHARACTER_ID _curCharacter)			{ curCharacter = _curCharacter; }
+	void SetCurTab(TAB _curTab)									{ curTab = _curTab; }
 	void SetSelectedEquipType(EQUIP_TYPE _selectedEquipType)	{ selectedEquipType = _selectedEquipType; }
-	void SetSelectedEquip(EQUIP_ID _selectedEquip)		{ selectedEquip = _selectedEquip; }
+	void SetSelectedEquip(EQUIP_ID _selectedEquip)				{ selectedEquip = _selectedEquip; }
 
-	void SetAbilPanel(GameObject* _abilPanel)			{ abilPanel = _abilPanel; }
-	void SetEquipPanel(GameObject* _equipPanel)			{ equipPanel = _equipPanel; }
-	void SetChPortrait(RenderedImage* _chPortrait)		{ chPortrait = _chPortrait; }
-	void SetChLevel(RenderedText* _chLevel)				{ chLevel = _chLevel; }
-	void SetChAbilFigure(RenderedText* _chAbilFigure)	{ chAbilFigure = _chAbilFigure; }
-	void SetWeaponText(RenderedText* _weaponText)		{ weaponText = _weaponText; }
-	void SetArmorText(RenderedText* _armorText)			{ armorText = _armorText; }
-	void AddEuipInInvenPanel(ECEquipInInvenPanel* _e)	{ equipInInvenPanelVec.push_back(_e); }
+	void SetAbilPanel(GameObject* _abilPanel)					{ abilPanel = _abilPanel; }
+	void SetEquipPanel(GameObject* _equipPanel)					{ equipPanel = _equipPanel; }
+	void SetChPortrait(RenderedImage* _chPortrait)				{ chPortrait = _chPortrait; }
+	void SetChLevel(RenderedText* _chLevel)						{ chLevel = _chLevel; }
+	void SetChAbilHpFigure(RenderedText* _chAbilHpFigure)		{ chAbilHpFigure = _chAbilHpFigure; }
+	void SetChAbilMpFigure(RenderedText* _chAbilMpFigure)		{ chAbilMpFigure = _chAbilMpFigure; }
+	void SetChAbilStrFigure(RenderedText* _chAbilStrFigure)		{ chAbilStrFigure = _chAbilStrFigure; }
+	void SetChAbilDefFigure(RenderedText* _chAbilDefFigure)		{ chAbilDefFigure = _chAbilDefFigure; }
+	void SetChAbilMgcFigure(RenderedText* _chAbilMgcFigure)		{ chAbilMgcFigure = _chAbilMgcFigure; }
+	void SetChAbilMDefFigure(RenderedText* _chAbilMDefFigure)	{ chAbilMDefFigure = _chAbilMDefFigure; }
+	void SetChAbilDexFigure(RenderedText* _chAbilDexFigure)		{ chAbilDexFigure = _chAbilDexFigure; }
+	void SetWeaponText(RenderedText* _weaponText)				{ weaponText = _weaponText; }
+	void SetArmorText(RenderedText* _armorText)					{ armorText = _armorText; }
+	void AddEuipInInvenPanel(ECEquipInInvenPanel* _e)			{ equipInInvenPanelVec.push_back(_e); }
 
 	void Renew();
 };

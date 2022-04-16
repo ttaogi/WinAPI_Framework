@@ -557,7 +557,7 @@ GameObject* FactoryEnemySlime::CreateObject(Observer* _observer, D_POINT _pos, P
 
 	Enemy* enemy = new Enemy();
 	enemy->SetAbility(
-		10, 10,
+		20, 20,
 		7, 0, 0, 0, 0
 	);
 	enemy->AddObserver(_observer);
@@ -729,14 +729,19 @@ GO(420, 378)
 	-RenderedText
 
 	BuyButton
-	-Button
+	-*Button
 	-RectTransform(112, 21)
 	-RenderedImage
 
 	ExitButton
-	-Button
+	-*Button
 	-RectTransform(112, 21)
 	-RenderedImage
+
+	ToEquipChangeButton
+	-*Button
+	-RectTransform(112, 21)
+	-ReneredImage
 */
 GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
 {
@@ -894,10 +899,33 @@ GameObject* FactoryDefaultShopList::CreateObject(Observer* _observer)
 	exitButtonGo->AddComponent(exitButtonRImg);
 	exitButtonGo->AddComponent(exitButton);
 
+	/*
+	ToEquipChangeButton
+	-*Button
+	-RectTransform(112, 21)
+	-ReneredImage
+	*/
+	GameObject* toEquipChangeButtonGo = new GameObject();
+	toEquipChangeButtonGo->GetComponent<Transform>()->SetPosition(D_POINT{ 110 + 355, 51 + 340 - 2 });
+	RectTransform* toEquipChangeButtonRcT = new RectTransform();
+	toEquipChangeButtonRcT->SetRect(112, 21);
+	RenderedImage* toEquipChangeButtonRImg = new RenderedImage();
+	toEquipChangeButtonRImg->SetImage(IMG->FindImage(KEY_UI_TO_EQUIP_CHANGE_BUTTON_SPRITE));
+	toEquipChangeButtonRImg->SetRenderingType(RENDERED_IMAGE_RENDERING_TYPE::DEFAULT);
+	toEquipChangeButtonRImg->SetSortingLayer(SORTING_LAYER::UI_BACKGROUND);
+	toEquipChangeButtonRImg->SetOrderInLayer(uiCount++);
+	ToEquipChangeButton* toEquipChangeButton = new ToEquipChangeButton();
+	toEquipChangeButton->AddObserver(shop);
+	toEquipChangeButton->Init();
+	toEquipChangeButtonGo->AddComponent(toEquipChangeButtonRcT);
+	toEquipChangeButtonGo->AddComponent(toEquipChangeButtonRImg);
+	toEquipChangeButtonGo->AddComponent(toEquipChangeButton);
+
 	go->AddGameObject(descriptionGo);
 	go->AddGameObject(goldGo);
 	go->AddGameObject(buyButtonGo);
 	go->AddGameObject(exitButtonGo);
+	go->AddGameObject(toEquipChangeButtonGo);
 
 	return go;
 }
@@ -926,7 +954,7 @@ GO (605, 438)
 
 	AbilityPanel
 	-ECAbilityPanel
-		CharacterPortrait // 320, 58 - (240, 176)
+		CharacterPortrait // 330, 59 - (240, 176)
 		-RectTransform
 		-RenderedImage
 		CharacterLevel // 319, 239 - (246, 23)
@@ -935,7 +963,7 @@ GO (605, 438)
 		CharacterAbilityType // 319, 265 - (50, 130)
 		-RectTransform
 		-RenderedText
-		CharacterAbilityFigure // 369, 265 - (100, 130)
+		CharacterAbility*Figure // 369, * - (60, 18) * n
 		-RectTransform
 		-RenderedText
 
@@ -1037,7 +1065,7 @@ GameObject* FactoryDefaultEquipChange::CreateObject(Observer* _observer)
 	GameObject* abilPanelGo = new GameObject();
 
 	GameObject* chPortraitGo = new GameObject();
-	chPortraitGo->GetComponent<Transform>()->SetPosition(D_POINT{ 457, 157 });
+	chPortraitGo->GetComponent<Transform>()->SetPosition(D_POINT{ 458, 167 });
 	RectTransform* chPortraitGoRcT = new RectTransform();
 	chPortraitGoRcT->SetRect(240, 176);
 	RenderedImage* chPortraitGoRImg = new RenderedImage();
@@ -1055,7 +1083,6 @@ GameObject* FactoryDefaultEquipChange::CreateObject(Observer* _observer)
 	RenderedText* chLevelGoRT = new RenderedText();
 	chLevelGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
 	chLevelGoRT->SetOrderInLayer(uiCount++);
-	chLevelGoRT->SetStr(L"");
 	chLevelGo->AddComponent(chLevelGoRcT);
 	chLevelGo->AddComponent(chLevelGoRT);
 
@@ -1066,25 +1093,99 @@ GameObject* FactoryDefaultEquipChange::CreateObject(Observer* _observer)
 	RenderedText* chAbilTypeGoRT = new RenderedText();
 	chAbilTypeGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
 	chAbilTypeGoRT->SetOrderInLayer(uiCount++);
+	chAbilTypeGoRT->SetFontSize(18);
 	chAbilTypeGoRT->SetStr(L"체력(MP)\n마력(MP)\n공격력\n방어력\n지력\n마항력\n민첩성");
 	chAbilTypeGo->AddComponent(chAbilTypeGoRcT);
 	chAbilTypeGo->AddComponent(chAbilTypeGoRT);
 
-	GameObject* chAbilFigureGo = new GameObject();
-	chAbilFigureGo->GetComponent<Transform>()->SetPosition(D_POINT{ 436, 351 });
-	RectTransform* chAbilFigureGoRcT = new RectTransform();
-	chAbilFigureGoRcT->SetRect(100, 130);
-	RenderedText* chAbilFigureGoRT = new RenderedText();
-	chAbilFigureGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
-	chAbilFigureGoRT->SetOrderInLayer(uiCount++);
-	chAbilFigureGoRT->SetStr(L"");
-	chAbilTypeGo->AddComponent(chAbilFigureGoRcT);
-	chAbilTypeGo->AddComponent(chAbilFigureGoRT);
+	GameObject* chAbilHpFigureGo = new GameObject();
+	chAbilHpFigureGo->GetComponent<Transform>()->SetPosition(D_POINT{ 436, 295 });
+	RectTransform* chAbilHpFigureGoRcT = new RectTransform();
+	chAbilHpFigureGoRcT->SetRect(60, 18);
+	RenderedText* chAbilHpFigureGoRT = new RenderedText();
+	chAbilHpFigureGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	chAbilHpFigureGoRT->SetOrderInLayer(uiCount++);
+	chAbilHpFigureGoRT->SetFontSize(18);
+	chAbilHpFigureGo->AddComponent(chAbilHpFigureGoRcT);
+	chAbilHpFigureGo->AddComponent(chAbilHpFigureGoRT);
+
+	GameObject* chAbilMpFigureGo = new GameObject();
+	chAbilMpFigureGo->GetComponent<Transform>()->SetPosition(D_POINT{ 436, 313 });
+	RectTransform* chAbilMpFigureGoRcT = new RectTransform();
+	chAbilMpFigureGoRcT->SetRect(60, 18);
+	RenderedText* chAbilMpFigureGoRT = new RenderedText();
+	chAbilMpFigureGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	chAbilMpFigureGoRT->SetOrderInLayer(uiCount++);
+	chAbilMpFigureGoRT->SetFontSize(18);
+	chAbilMpFigureGo->AddComponent(chAbilMpFigureGoRcT);
+	chAbilMpFigureGo->AddComponent(chAbilMpFigureGoRT);
+
+	GameObject* chAbilStrFigureGo = new GameObject();
+	chAbilStrFigureGo->GetComponent<Transform>()->SetPosition(D_POINT{ 436, 331 });
+	RectTransform* chAbilStrFigureGoRcT = new RectTransform();
+	chAbilStrFigureGoRcT->SetRect(60, 18);
+	RenderedText* chAbilStrFigureGoRT = new RenderedText();
+	chAbilStrFigureGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	chAbilStrFigureGoRT->SetOrderInLayer(uiCount++);
+	chAbilStrFigureGoRT->SetFontSize(18);
+	chAbilStrFigureGo->AddComponent(chAbilStrFigureGoRcT);
+	chAbilStrFigureGo->AddComponent(chAbilStrFigureGoRT);
+
+	GameObject* chAbilDefFigureGo = new GameObject();
+	chAbilDefFigureGo->GetComponent<Transform>()->SetPosition(D_POINT{ 436, 349 });
+	RectTransform* chAbilDefFigureGoRcT = new RectTransform();
+	chAbilDefFigureGoRcT->SetRect(60, 18);
+	RenderedText* chAbilDefFigureGoRT = new RenderedText();
+	chAbilDefFigureGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	chAbilDefFigureGoRT->SetOrderInLayer(uiCount++);
+	chAbilDefFigureGoRT->SetFontSize(18);
+	chAbilDefFigureGo->AddComponent(chAbilDefFigureGoRcT);
+	chAbilDefFigureGo->AddComponent(chAbilDefFigureGoRT);
+
+	GameObject* chAbilMgcFigureGo = new GameObject();
+	chAbilMgcFigureGo->GetComponent<Transform>()->SetPosition(D_POINT{ 436, 367 });
+	RectTransform* chAbilMgcFigureGoRcT = new RectTransform();
+	chAbilMgcFigureGoRcT->SetRect(60, 18);
+	RenderedText* chAbilMgcFigureGoRT = new RenderedText();
+	chAbilMgcFigureGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	chAbilMgcFigureGoRT->SetOrderInLayer(uiCount++);
+	chAbilMgcFigureGoRT->SetFontSize(18);
+	chAbilMgcFigureGo->AddComponent(chAbilMgcFigureGoRcT);
+	chAbilMgcFigureGo->AddComponent(chAbilMgcFigureGoRT);
+
+	GameObject* chAbilMDefFigureGo = new GameObject();
+	chAbilMDefFigureGo->GetComponent<Transform>()->SetPosition(D_POINT{ 436, 385 });
+	RectTransform* chAbilMDefFigureGoRcT = new RectTransform();
+	chAbilMDefFigureGoRcT->SetRect(60, 18);
+	RenderedText* chAbilMDefFigureGoRT = new RenderedText();
+	chAbilMDefFigureGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	chAbilMDefFigureGoRT->SetOrderInLayer(uiCount++);
+	chAbilMDefFigureGoRT->SetFontSize(18);
+	chAbilMDefFigureGo->AddComponent(chAbilMDefFigureGoRcT);
+	chAbilMDefFigureGo->AddComponent(chAbilMDefFigureGoRT);
+
+	GameObject* chAbilDexFigureGo = new GameObject();
+	chAbilDexFigureGo->GetComponent<Transform>()->SetPosition(D_POINT{ 436, 403 });
+	RectTransform* chAbilDexFigureGoRcT = new RectTransform();
+	chAbilDexFigureGoRcT->SetRect(60, 18);
+	RenderedText* chAbilDexFigureGoRT = new RenderedText();
+	chAbilDexFigureGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
+	chAbilDexFigureGoRT->SetOrderInLayer(uiCount++);
+	chAbilDexFigureGoRT->SetFontSize(18);
+	chAbilDexFigureGo->AddComponent(chAbilDexFigureGoRcT);
+	chAbilDexFigureGo->AddComponent(chAbilDexFigureGoRT);
 
 	abilPanelGo->AddGameObject(chPortraitGo);
 	abilPanelGo->AddGameObject(chLevelGo);
 	abilPanelGo->AddGameObject(chAbilTypeGo);
-	abilPanelGo->AddGameObject(chAbilFigureGo);
+
+	abilPanelGo->AddGameObject(chAbilHpFigureGo);
+	abilPanelGo->AddGameObject(chAbilMpFigureGo);
+	abilPanelGo->AddGameObject(chAbilStrFigureGo);
+	abilPanelGo->AddGameObject(chAbilDefFigureGo);
+	abilPanelGo->AddGameObject(chAbilMgcFigureGo);
+	abilPanelGo->AddGameObject(chAbilMDefFigureGo);
+	abilPanelGo->AddGameObject(chAbilDexFigureGo);
 
 
 	GameObject* equipPanelGo = new GameObject();
@@ -1096,8 +1197,8 @@ GameObject* FactoryDefaultEquipChange::CreateObject(Observer* _observer)
 	RenderedText* weaponTextGoRT = new RenderedText();
 	weaponTextGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
 	weaponTextGoRT->SetOrderInLayer(uiCount++);
-	weaponTextGoRT->SetStr(L"");
 	ECWeaponText* weaponTextGoECWT = new ECWeaponText();
+	weaponTextGoECWT->AddObserver(goEquipChange);
 	weaponTextGoECWT->Init();
 	weaponTextGo->AddComponent(weaponTextGoRcT);
 	weaponTextGo->AddComponent(weaponTextGoRT);
@@ -1110,8 +1211,8 @@ GameObject* FactoryDefaultEquipChange::CreateObject(Observer* _observer)
 	RenderedText* armorTextGoRT = new RenderedText();
 	armorTextGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
 	armorTextGoRT->SetOrderInLayer(uiCount++);
-	armorTextGoRT->SetStr(L"");
 	ECArmorText* armorTextGoECAT = new ECArmorText();
+	armorTextGoECAT->AddObserver(goEquipChange);
 	armorTextGoECAT->Init();
 	armorTextGo->AddComponent(armorTextGoRcT);
 	armorTextGo->AddComponent(armorTextGoRT);
@@ -1127,7 +1228,6 @@ GameObject* FactoryDefaultEquipChange::CreateObject(Observer* _observer)
 		RenderedText* equipInInvenPanelGoRT = new RenderedText();
 		equipInInvenPanelGoRT->SetSortingLayer(SORTING_LAYER::UI_TEXT);
 		equipInInvenPanelGoRT->SetOrderInLayer(uiCount++);
-		equipInInvenPanelGoRT->SetStr(L"");
 		ECEquipInInvenPanel* equipInInvenPanelGoECEIIP = new ECEquipInInvenPanel();
 		equipInInvenPanelGoECEIIP->AddObserver(goEquipChange);
 		equipInInvenPanelGoECEIIP->Init();
@@ -1181,7 +1281,13 @@ GameObject* FactoryDefaultEquipChange::CreateObject(Observer* _observer)
 	goEquipChange->SetAbilPanel(abilPanelGo);
 	goEquipChange->SetChPortrait(chPortraitGoRImg);
 	goEquipChange->SetChLevel(chLevelGoRT);
-	goEquipChange->SetChAbilFigure(chAbilFigureGoRT);
+	goEquipChange->SetChAbilHpFigure(chAbilHpFigureGoRT);
+	goEquipChange->SetChAbilMpFigure(chAbilMpFigureGoRT);
+	goEquipChange->SetChAbilStrFigure(chAbilStrFigureGoRT);
+	goEquipChange->SetChAbilDefFigure(chAbilDefFigureGoRT);
+	goEquipChange->SetChAbilMgcFigure(chAbilMgcFigureGoRT);
+	goEquipChange->SetChAbilMDefFigure(chAbilMDefFigureGoRT);
+	goEquipChange->SetChAbilDexFigure(chAbilDexFigureGoRT);
 	goEquipChange->SetEquipPanel(equipPanelGo);
 	goEquipChange->SetWeaponText(weaponTextGoRT);
 	goEquipChange->SetArmorText(armorTextGoRT);

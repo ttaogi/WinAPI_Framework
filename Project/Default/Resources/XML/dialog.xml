@@ -12,6 +12,10 @@
             <dialog_2 upper="1" spriteKey="UI_PORTRAIT_GUILD_DEFAULT_SPRITE" name="길드 아저씨" text="마을 밖에 있는 슬라임을 잡아오면 된다." />
             <dialog_3 upper="0" spriteKey="UI_PORTRAIT_KARIN_DEFAULT_SPRITE" name="카린" text="너무 간단한 것 같은 기분이 들지만, 좋아!" />
         </dialogCycle_0>
+        <dialogCycle_0 cycleName="테스트" cycleSize="2" processivity="0">
+            <dialog_0 upper="1" spriteKey="UI_PORTRAIT_GUILD_DEFAULT_SPRITE" name="길드 아저씨" text="너희들의 모험은 이제부터 시작이야." />
+            <dialog_1 upper="0" spriteKey="UI_PORTRAIT_KARIN_DEFAULT_SPRITE" name="카린" text="파랜드 택틱스2 완" />
+        </dialogCycle_0>
     </DIALOG_SPOT_GUILD>
     <DIALOG_SPOT_SHOP mapSize="0">
         <default cycleName="상점 기본 다이얼로그" cycleSize="5">
@@ -23,9 +27,10 @@
         </default>
     </DIALOG_SPOT_SHOP>
     <DIALOG_SPOT_FIELD mapSize="0">
-        <default cycleName="필드 기본 다이얼로그" cycleSize="2">
+        <default cycleName="필드 기본 다이얼로그" cycleSize="3">
             <dialog_0 upper="1" spriteKey="UI_PORTRAIT_AL_DEFAULT_SPRITE" name="알" text="좀 많은데요?" />
-            <dialog_1 upper="0" spriteKey="UI_PORTRAIT_KARIN_DEFAULT_SPRITE" name="카린" text="..." />
+            <dialog_1 upper="0" spriteKey="UI_PORTRAIT_KARIN_DEFAULT_SPRITE" name="카린" text="막아야겠지?" />
+            <dialog_2 upper="1" spriteKey="UI_PORTRAIT_AL_DEFAULT_SPRITE" name="알" text="..." />
         </default>
     </DIALOG_SPOT_FIELD>
 </ROOT>
