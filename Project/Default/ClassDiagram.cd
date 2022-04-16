@@ -1,2 +1,422 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SingletonBase&lt;T&gt;" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAABAAAAAAAAAAAABAAIAAAAAAAAABAAA=</HashCode>
+      <FileName>DesignPattern\SingletonBase\SingletonBase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAIAAAAAAAAAAAAEAAAAAgFAAAAAAgA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Transform" Collapsed="true">
+    <Position X="19" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAIAQAAAAAAgAAAAEAAAAAAIA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Transform\Transform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Behaviour" Collapsed="true">
+    <Position X="25.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAiAAAAAAAAAAAAAAAEAAAAAIIA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Behaviour\Behaviour.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonoBehaviour" Collapsed="true">
+    <Position X="27.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABgAAAIAAAAAAIAAAAAAAAAAAIAECAAAAAAA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Behaviour\MonoBehaviour\MonoBehaviour.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RectTransform" Collapsed="true">
+    <Position X="23.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEIAACBAAAAAQAQAAAAABBAAQAAAAAAAEAAEAAAAQ=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\RectTransform\RectTransform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rendered" Collapsed="true">
+    <Position X="38.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwEAABAAAAAAEAABAABGBAAAAAAAAAABEAEAAAAAA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Rendered\Rendered.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RenderedImage" Collapsed="true">
+    <Position X="42.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAgAEAAAAAAAAAIAAAQAMQEAAAAAAAABEQAAAAIAA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Rendered\RenderedImage\RenderedImage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RenderedAnimator" Collapsed="true">
+    <Position X="36.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAQEwAAAAgBAAAAAAECIMCAAAAAAAAAAIBECAAAAIAA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Rendered\RenderedAnimator\RenderedAnimator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RenderedText" Collapsed="true">
+    <Position X="40.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAQAAAAACAAAAAAAIAABAACAAABEAAAAAAAg=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Rendered\RenderedText\RenderedText.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button" Collapsed="true">
+    <Position X="29" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAAAAgAAAAAAAEAAJAAAQAAAACAAIAECQAEAAAA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Button\Button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonMouseOn" Collapsed="true">
+    <Position X="29" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAQAgAAAAAAAAAAIAAAAAAAAAAAIAECAAAAAAA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Button\Button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bar" Collapsed="true">
+    <Position X="32.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAggAAAAAQAAAJAAAUAAAAAAAIAECQAAAAAA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Bar\Bar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rigidbody" Collapsed="true">
+    <Position X="16.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAgEAIAAAAgCAAAAAAAAAAAAAEAQAAUAAAAASAE=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Rigidbody\Rigidbody.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collider" Collapsed="true">
+    <Position X="24.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAACAAAAAAAAAAAAAAAAAAACQAAEACAQAAAA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\Component\Collider\Collider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBRAACAAAgAIAAIAAICAJAwAAAIEQAAEIBEIcYKABgA=</HashCode>
+      <FileName>DesignPattern\ComponentBase\GameObject\GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Observer" Collapsed="true">
+    <Position X="22.25" Y="36.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAgAAACAA=</HashCode>
+      <FileName>DesignPattern\ObserverBase\Observer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Subject" Collapsed="true">
+    <Position X="13.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAhAAAAAAIAAAAAAAAAAAABAAAAAIAAAAAA=</HashCode>
+      <FileName>DesignPattern\ObserverBase\Subject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraManager" Collapsed="true">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAQAgAIAAAAAAAAAAAAAAAAAACABCgAAI=</HashCode>
+      <FileName>Manager\CameraManager\CameraManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogManager" Collapsed="true">
+    <Position X="6.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAEAAAAEAAAAAACAAACABAEAAA=</HashCode>
+      <FileName>Manager\DialogManager\DialogManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FontManager" Collapsed="true">
+    <Position X="6.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAgAAAAIA=</HashCode>
+      <FileName>Manager\FontManager\FontManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameDataManager" Collapsed="true">
+    <Position X="6.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAEAQAAgAAAAAAEAhAAAgEQgCAACACmAAACABACIAA=</HashCode>
+      <FileName>Manager\GameDataManager\GameDataManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="6.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAAAAOABBQQEA=</HashCode>
+      <FileName>Manager\GameManager\GameManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImageManager" Collapsed="true">
+    <Position X="0.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAFCAAAQAAAAAIgABAAAAAAAABAAAAAABACABACAQA=</HashCode>
+      <FileName>Manager\ImageManager\ImageManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JsonManager" Collapsed="true">
+    <Position X="0.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABBAAABABAAAAAACABAAAAA=</HashCode>
+      <FileName>Manager\JsonManager\JsonManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyManager" Collapsed="true">
+    <Position X="0.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAACAAgAigACAIAAAABAIAAABAAAAAACACQAAAA=</HashCode>
+      <FileName>Manager\KeyManager\KeyManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapDataManager" Collapsed="true">
+    <Position X="0.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAACCABAACAA=</HashCode>
+      <FileName>Manager\MapDataManager\MapDataManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneManager" Collapsed="true">
+    <Position X="0.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAQACAAAEgAAwAAMAACAAAQAAABABADABACCgQ=</HashCode>
+      <FileName>Manager\SceneManager\SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAAAABYAAUAAAAQCQCAAAAQAAoAECARgAJAQ=</HashCode>
+      <FileName>Manager\SoundManager\SoundManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeManager" Collapsed="true">
+    <Position X="6.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgAAAAAAAEQAgAgAQAAAAAAAAABACABBQAAA=</HashCode>
+      <FileName>Manager\TimeManager\TimeManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XmlManager" Collapsed="true">
+    <Position X="6.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIBCAgACAAAAAAAASgIAAAAIAkBAMiABAABAE=</HashCode>
+      <FileName>Manager\XmlManager\XmlManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene" Collapsed="true">
+    <Position X="22.25" Y="38" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QARAAAAEAkAAICgAgAAgAAAAQAEACAAACBACgBAAAAA=</HashCode>
+      <FileName>Scene\Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TitleScene" Collapsed="true">
+    <Position X="18.25" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAIAAAAAAAIAAABACgBAAAAA=</HashCode>
+      <FileName>Scene\TitleScene\TitleScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TownScene" Collapsed="true">
+    <Position X="22.25" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAIAAAAAAAAAAAAAAAAAAAABACgBAAAAA=</HashCode>
+      <FileName>Scene\TownScene\TownScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GuildScene" Collapsed="true">
+    <Position X="24.25" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAgAAAAAAAAgAAAAAAAABACgBAAAAA=</HashCode>
+      <FileName>Scene\GuildScene\GuildScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShopScene" Collapsed="true">
+    <Position X="26.25" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAIAAAAAAAgAABACgBAAAAA=</HashCode>
+      <FileName>Scene\ShopScene\ShopScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FieldScene" Collapsed="true">
+    <Position X="20.25" Y="39.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAQAAAAAAABACgBAEAAA=</HashCode>
+      <FileName>Scene\FieldScene\FieldScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogViewer" Collapsed="true">
+    <Position X="26" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAEAAAAwAAAAEAgAAAMAABAAAAAAAAIAECCAAAgAQ=</HashCode>
+      <FileName>Script\DialogViewer\DialogViewer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShopListPanel" Collapsed="true">
+    <Position X="22.75" Y="23.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAAgADIAAAAAAAIAAAAAAAAAAAIAECIAAAAAA=</HashCode>
+      <FileName>Script\ShopList\ShopList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShopList" Collapsed="true">
+    <Position X="22.25" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAQAAgAAAAAAQAAAIAAAAAAAAAAAIBECgQAQAAA=</HashCode>
+      <FileName>Script\ShopList\ShopList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuyButton" Collapsed="true">
+    <Position X="26" Y="30.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAAgAAAAAAAAAAIAAAAAAAAAAAICECAAAAAAA=</HashCode>
+      <FileName>Script\ShopList\ShopList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitButton" Collapsed="true">
+    <Position X="23" Y="29" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAgAAAAAAAAIAAAAAAAAAAAIAEGAAAAAAA=</HashCode>
+      <FileName>Script\ShopList\ShopList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToEquipChangeButton" Collapsed="true">
+    <Position X="26" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAAAAgAAAAAAAAAAIAAAAAAAAAAAIAECAAAAAEA=</HashCode>
+      <FileName>Script\ShopList\ShopList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tile" Collapsed="true">
+    <Position X="23" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAAAgAAAAAAAAAAIQAAAAAAAAEAIAECACAAAQA=</HashCode>
+      <FileName>Script\Tile\Tile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character" Collapsed="true">
+    <Position X="26" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAyAAJEIgiIAIAcAACAEoyCoAAAAgCEEICFKRAAAKAA=</HashCode>
+      <FileName>Script\Character\Character.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="23.5" Y="26" Width="1.5" />
+    <InheritanceLine Type="Character">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="0.11" Y="0.24" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAIAAAAAAEAAAAIAAAAAAQAAAAAQIEAhA=</HashCode>
+      <FileName>Script\Character\Player\Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy" Collapsed="true">
+    <Position X="23.5" Y="25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAgAAAAAAAAAAAAAEAAAAAAAAAAAQAAAAAAAEAAA=</HashCode>
+      <FileName>Script\Character\Enemy\Enemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlameBurst" Collapsed="true">
+    <Position X="34.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAgAAAAAAgAIAACIAAAAAAAIAECAAAEAAA=</HashCode>
+      <FileName>Script\Effect\FlameBurst.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HpBar" Collapsed="true">
+    <Position X="30.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAAAgAAAAIAAAAAIAAAIAAAQAAAIAECAAAAAAA=</HashCode>
+      <FileName>Script\HpBar\HpBar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EquipChange" Collapsed="true">
+    <Position X="25" Y="34.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IUQACASURihgiAAAAABAIEEQIKCCAAAAIwGKgABQAhE=</HashCode>
+      <FileName>Script\EquipChange\EquipChange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCharacterPanel" Collapsed="true">
+    <Position X="19.75" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAAAEAAAAAAIAAAAAAAAEEAoAECAAAAAAA=</HashCode>
+      <FileName>Script\EquipChange\EquipChange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECAbilityTabPanel" Collapsed="true">
+    <Position X="19.75" Y="27.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAACAAAAAAAIAAAAAAAAAAAIAECIAAAAAA=</HashCode>
+      <FileName>Script\EquipChange\EquipChange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECEquipTabPanel" Collapsed="true">
+    <Position X="23" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAAAAAAAAAAIAAAAAAAAAAAIAECEgAAAAA=</HashCode>
+      <FileName>Script\EquipChange\EquipChange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECWeaponText" Collapsed="true">
+    <Position X="19.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAAAgAAAAAAAAAAIIAAAAAAAAAAIAECAAAAAAA=</HashCode>
+      <FileName>Script\EquipChange\EquipChange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECArmorText" Collapsed="true">
+    <Position X="23" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAAAAAAAAAAIAAAAAAAAAABIIECAAAAAAA=</HashCode>
+      <FileName>Script\EquipChange\EquipChange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECEquipInInvenPanel" Collapsed="true">
+    <Position X="19.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAAhAAAAAEAAAAIAAAAAAIAAAAIAECAAIAAAA=</HashCode>
+      <FileName>Script\EquipChange\EquipChange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToShopListButton" Collapsed="true">
+    <Position X="19.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAAAAAAAAAAIAAAAAAAAAAAIAECIAAAAAA=</HashCode>
+      <FileName>Script\EquipChange\EquipChange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EquipChangeButton" Collapsed="true">
+    <Position X="26" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAEAAAAAAAAIAAAAAAAAAAAIAECgAAAAAA=</HashCode>
+      <FileName>Script\EquipChange\EquipChange.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomFunction" Collapsed="true">
+    <Position X="0.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAgAAAAAAAAAAAAQAAAIAAAAAQCAAAA=</HashCode>
+      <FileName>Utility\RandomFunction\RandomFunction.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

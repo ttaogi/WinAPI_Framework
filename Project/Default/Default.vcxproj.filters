@@ -70,9 +70,6 @@
     <Filter Include="API_Framework\DesignPattern\ObserverBase">
       <UniqueIdentifier>{5b248128-7acb-4ce2-895a-13ebfd03cf9e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="API_Framework\DesignPattern\CommandBase">
-      <UniqueIdentifier>{ebe88487-a6f2-470b-abec-cebc46bab00e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API_Framework\Image">
       <UniqueIdentifier>{b08b2f36-a0d2-4190-a1e4-42d82be7e2ee}</UniqueIdentifier>
     </Filter>
@@ -367,9 +364,6 @@
     <ClCompile Include="DesignPattern\ObserverBase\Subject.cpp">
       <Filter>API_Framework\DesignPattern\ObserverBase</Filter>
     </ClCompile>
-    <ClCompile Include="DesignPattern\CommandBase\Command.cpp">
-      <Filter>API_Framework\DesignPattern\CommandBase</Filter>
-    </ClCompile>
     <ClCompile Include="Manager\DialogManager\DialogManager.cpp">
       <Filter>API_Framework\Manager\DialogManager</Filter>
     </ClCompile>
@@ -569,9 +563,6 @@
     </ClInclude>
     <ClInclude Include="DesignPattern\ObserverBase\Subject.h">
       <Filter>API_Framework\DesignPattern\ObserverBase</Filter>
-    </ClInclude>
-    <ClInclude Include="DesignPattern\CommandBase\Command.h">
-      <Filter>API_Framework\DesignPattern\CommandBase</Filter>
     </ClInclude>
     <ClInclude Include="Manager\DialogManager\DialogManager.h">
       <Filter>API_Framework\Manager\DialogManager</Filter>

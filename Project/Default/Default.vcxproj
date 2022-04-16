@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DesignPattern\CommandBase\Command.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Rendered\RenderedText\RenderedText.cpp" />
     <ClCompile Include="DesignPattern\FactoryMethodBase\FactoryMethod.cpp" />
     <ClCompile Include="DesignPattern\ComponentBase\Component\Bar\Bar.cpp" />
@@ -97,7 +96,6 @@
     <ClCompile Include="Utility\Enums\Enums.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DesignPattern\CommandBase\Command.h" />
     <ClInclude Include="DesignPattern\ComponentBase\Component\Rendered\RenderedText\RenderedText.h" />
     <ClInclude Include="DesignPattern\FactoryMethodBase\ProductBase\ProductBase.h" />
     <ClInclude Include="DesignPattern\FactoryMethodBase\FactoryMethod.h" />
