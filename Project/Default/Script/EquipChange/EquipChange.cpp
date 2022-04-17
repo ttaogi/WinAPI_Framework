@@ -67,12 +67,12 @@ void EquipChange::OnNotify(Subject* _subject, EVENT _event)
 
 			if (selectedEquipType == EQUIP_TYPE::WEAPON)
 			{
-				chEquip = GAMEDATA->GetEquipInfo(chInfo.armor);
+				chEquip = GAMEDATA->GetEquipInfo(chInfo.weapon);
 				chInfo.weapon = selectedEquip;
 			}
 			else
 			{
-				chEquip = GAMEDATA->GetEquipInfo(chInfo.weapon);
+				chEquip = GAMEDATA->GetEquipInfo(chInfo.armor);
 				chInfo.armor = selectedEquip;
 			}
 
